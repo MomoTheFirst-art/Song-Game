@@ -24,7 +24,7 @@ export function ClipPlayer({ stage, status, mode, onPlay }: Props) {
 
       {status === 'missing' && (
         <p className="notice notice-warn">
-          ملف الصوت غير موجود. ضع الملف في <code>public/clips/</code> ثم أعد المحاولة.
+          رابط المقطع لم يعد صالحاً. أعد تشغيل <code>npm run previews</code> لتحديثه.
         </p>
       )}
       {status === 'error' && (

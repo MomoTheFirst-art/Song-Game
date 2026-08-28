@@ -8,7 +8,7 @@ const song = {
   id: 'tamally-maak',
   title: 'تملي معاك', titleLatin: 'Tamally Maak',
   artist: 'عمرو دياب', artistLatin: 'Amr Diab',
-  difficulty: 'easy', clip: '/clips/tamally-maak.mp3', startAt: 45,
+  difficulty: 'easy', startAt: 0,
 }
 
 const hit = {
@@ -114,7 +114,7 @@ test('run writes previewUrl and resets startAt to the top of the preview', async
   assert.equal(written[0].previewUrl, hit.previewUrl)
   assert.equal(written[0].startAt, 0, 'preview clips start at the top')
   assert.equal(written[0].artwork, hit.artworkUrl100)
-  assert.equal(written[0].clip, '/clips/tamally-maak.mp3', 'local clip path is preserved')
+  assert.equal(written[0].id, 'tamally-maak', 'existing fields are preserved')
 })
 
 test('a same-artist, wrong-title result is refused, not attached', async () => {

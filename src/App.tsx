@@ -14,13 +14,15 @@ import { DIFFICULTY_LABEL } from './game/types'
 import type { Mode, RoundState, Song } from './game/types'
 import { useAudioClip } from './hooks/useAudioClip'
 
-const catalogue = catalogueData as Song[]
+const allSongs = catalogueData as Song[]
+/** A song is playable only once it has a preview URL. */
+const catalogue = allSongs.filter((s) => Boolean(s.previewUrl))
 
 function newRound(song: Song): RoundState {
   return { song, stage: 0, attempts: [], status: 'playing' }
 }
 
-export default function App() {
+function Game() {
   const dateKey = useMemo(() => todayKey(), [])
   const [mode, setMode] = useState<Mode>('daily')
   const [lineup, setLineup] = useState<Song[]>(() => dailySongs(catalogue, dateKey))
@@ -29,7 +31,7 @@ export default function App() {
   const [finished, setFinished] = useState<RoundState[]>([])
   const [phase, setPhase] = useState<'playing' | 'roundOver' | 'done'>('playing')
 
-  const clipUrl = round.song.previewUrl || round.song.clip
+  const clipUrl = round.song.previewUrl as string
   const { status, mode: clipMode, play, stop } = useAudioClip(clipUrl)
 
   // A daily run is one per UTC day — returning players see their result, not a replay.
@@ -176,4 +178,31 @@ export default function App() {
       )}
     </main>
   )
+}
+
+
+/**
+ * The catalogue ships without previews — they are fetched, not committed — so
+ * say what to run rather than starting a game with nothing to play.
+ */
+function NoPreviews() {
+  return (
+    <main className="app">
+      <section className="complete">
+        <h2>لا توجد مقاطع بعد</h2>
+        <p className="complete-note">
+          الكتالوج يحتوي على {allSongs.length} أغنية بدون روابط تشغيل. شغّل هذا الأمر
+          لجلبها من آبل:
+        </p>
+        <pre className="cmd">npm run previews</pre>
+        <p className="complete-note">
+          ثم أعد تشغيل الخادم. راجع README للخيارات.
+        </p>
+      </section>
+    </main>
+  )
+}
+
+export default function App() {
+  return catalogue.length > 0 ? <Game /> : <NoPreviews />
 }

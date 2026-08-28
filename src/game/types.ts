@@ -16,16 +16,14 @@ export interface Song {
   artistLatin: string
   year: number
   difficulty: Difficulty
-  /** Path under /public, e.g. "/clips/song.mp3" */
-  clip: string
   /**
-   * Remote 30-second preview, filled in by scripts/fetch-previews.mjs.
-   * Takes precedence over `clip` when present.
+   * 30-second preview, filled in by scripts/fetch-previews.mjs. This is the
+   * only audio source: a song without one cannot be played and is skipped.
    */
   previewUrl?: string
   /** Cover art URL, recorded alongside a preview. */
   artwork?: string
-  /** Seconds into the file where the clip window starts. */
+  /** Seconds into the preview where the clip window starts. */
   startAt: number
 }
 

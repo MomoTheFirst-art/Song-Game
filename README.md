@@ -32,17 +32,16 @@ npm install
 npm run dev
 ```
 
-Then add audio. Two ways:
+Then fetch the audio. Previews are the only source — nothing is uploaded and
+nothing is stored locally:
 
-**Apple previews (no files to manage).** `scripts/fetch-previews.mjs` fills in a
-`previewUrl` for each song from the iTunes Search API — free, no API key. See
-[Fetching previews](#fetching-previews) below.
+```bash
+npm run previews
+```
 
-**Your own clips.** Drop files in `public/clips/`; see
-[`public/clips/README.md`](public/clips/README.md) for naming rules and a note
-on sourcing audio you have the right to use.
-
-A song's `previewUrl` wins over its local `clip` when both are set.
+That fills in a `previewUrl` for every song from the iTunes Search API (free, no
+API key). Until it runs, the app says so instead of starting an unplayable game.
+See [Fetching previews](#fetching-previews) below.
 
 ```bash
 npm run build      # production build to dist/
@@ -89,9 +88,13 @@ storing or re-serving the audio yourself is what turns this into redistribution.
 Web Audio needs a CORS header to decode a cross-origin file. If Apple's CDN
 doesn't send one, the player falls back automatically to an `<audio>` element,
 which any origin allows, and says so on screen. The cost is precision: the
-fallback lands within a few tens of milliseconds, which is invisible at the 8s
-stage and quite visible at 0.1s. Local files in `public/clips/` are same-origin
-and always take the exact path.
+fallback lands within a few tens of milliseconds — invisible at the 8s stage,
+quite visible at 0.1s. Measured against a no-CORS origin, a 100ms window came
+out around 34ms.
+
+`startAt` stays at 0 for previews, since Apple already excerpts each one at a
+representative moment. Raise it per song if a particular preview opens on
+something too quiet or too obvious.
 
 ## Adding songs
 
@@ -106,14 +109,12 @@ and always take the exact path.
   "artistLatin": "Amr Diab",
   "year": 2000,
   "difficulty": "easy",
-  "clip": "/clips/tamally-maak.mp3",
-  "startAt": 45
+  "startAt": 0
 }
 ```
 
-`previewUrl` and `artwork` are added by the preview script; `previewUrl` takes
-precedence over `clip`, and preview-backed songs use `startAt: 0` because Apple
-already excerpts them at a representative moment.
+Add songs as metadata only. `previewUrl` and `artwork` are filled in by the
+fetch script; a song without a `previewUrl` is skipped rather than played.
 
 `difficulty` is one of `easy`, `medium`, `hard`, `expert`, `impossible`. The
 daily draw takes one song from each tier, so every tier needs at least one entry

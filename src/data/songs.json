@@ -1,31 +1,252 @@
 [
-  { "id": "tamally-maak",     "title": "تملي معاك",        "titleLatin": "Tamally Maak",      "artist": "عمرو دياب",        "artistLatin": "Amr Diab",          "year": 2000, "difficulty": "easy",       "clip": "/clips/tamally-maak.mp3",     "startAt": 45 },
-  { "id": "ah-w-noss",        "title": "آه ونص",           "titleLatin": "Ah W Noss",         "artist": "نانسي عجرم",       "artistLatin": "Nancy Ajram",       "year": 2004, "difficulty": "easy",       "clip": "/clips/ah-w-noss.mp3",        "startAt": 30 },
-  { "id": "nour-el-ein",      "title": "نور العين",         "titleLatin": "Nour El Ein",       "artist": "عمرو دياب",        "artistLatin": "Amr Diab",          "year": 1996, "difficulty": "easy",       "clip": "/clips/nour-el-ein.mp3",      "startAt": 40 },
-  { "id": "zay-el-hawa",      "title": "زي الهوى",          "titleLatin": "Zay El Hawa",       "artist": "عبد الحليم حافظ",  "artistLatin": "Abdel Halim Hafez", "year": 1970, "difficulty": "easy",       "clip": "/clips/zay-el-hawa.mp3",      "startAt": 60 },
-  { "id": "li-beirut",        "title": "لبيروت",            "titleLatin": "Li Beirut",         "artist": "فيروز",            "artistLatin": "Fairuz",            "year": 1984, "difficulty": "easy",       "clip": "/clips/li-beirut.mp3",        "startAt": 20 },
-
-  { "id": "alf-leila",        "title": "ألف ليلة وليلة",    "titleLatin": "Alf Leila W Leila", "artist": "أم كلثوم",         "artistLatin": "Umm Kulthum",       "year": 1969, "difficulty": "medium",     "clip": "/clips/alf-leila.mp3",        "startAt": 90 },
-  { "id": "kifak-inta",       "title": "كيفك إنت",          "titleLatin": "Kifak Inta",        "artist": "فيروز",            "artistLatin": "Fairuz",            "year": 1991, "difficulty": "medium",     "clip": "/clips/kifak-inta.mp3",       "startAt": 25 },
-  { "id": "bahebbak-wahashtini","title": "بحبك وحشتيني",   "titleLatin": "Bahebbak Wahashtini","artist": "محمد منير",       "artistLatin": "Mohamed Mounir",    "year": 1995, "difficulty": "medium",     "clip": "/clips/bahebbak-wahashtini.mp3","startAt": 35 },
-  { "id": "aaeesh",           "title": "عايش",              "titleLatin": "Aaeesh",            "artist": "عمرو دياب",        "artistLatin": "Amr Diab",          "year": 2004, "difficulty": "medium",     "clip": "/clips/aaeesh.mp3",           "startAt": 30 },
-  { "id": "law-taerafou",     "title": "لو تعرفوا",         "titleLatin": "Law Taerafou",      "artist": "إليسا",            "artistLatin": "Elissa",            "year": 2006, "difficulty": "medium",     "clip": "/clips/law-taerafou.mp3",     "startAt": 40 },
-
-  { "id": "enta-omri",        "title": "أنت عمري",          "titleLatin": "Enta Omri",         "artist": "أم كلثوم",         "artistLatin": "Umm Kulthum",       "year": 1964, "difficulty": "hard",       "clip": "/clips/enta-omri.mp3",        "startAt": 120 },
-  { "id": "sawah",            "title": "سواح",              "titleLatin": "Sawah",             "artist": "عبد الحليم حافظ",  "artistLatin": "Abdel Halim Hafez", "year": 1968, "difficulty": "hard",       "clip": "/clips/sawah.mp3",            "startAt": 75 },
-  { "id": "habbaytak",        "title": "حبيتك بالصيف",      "titleLatin": "Habbaytak Bissayf", "artist": "فيروز",            "artistLatin": "Fairuz",            "year": 1970, "difficulty": "hard",       "clip": "/clips/habbaytak.mp3",        "startAt": 30 },
-  { "id": "el-leila",         "title": "الليلة",            "titleLatin": "El Leila",          "artist": "عمرو دياب",        "artistLatin": "Amr Diab",          "year": 2013, "difficulty": "hard",       "clip": "/clips/el-leila.mp3",         "startAt": 35 },
-  { "id": "batwannes-beek",   "title": "بتونس بيك",         "titleLatin": "Batwannes Beek",    "artist": "وردة الجزائرية",   "artistLatin": "Warda Al-Jazairia", "year": 1985, "difficulty": "hard",       "clip": "/clips/batwannes-beek.mp3",   "startAt": 55 },
-
-  { "id": "el-atlal",         "title": "الأطلال",           "titleLatin": "El Atlal",          "artist": "أم كلثوم",         "artistLatin": "Umm Kulthum",       "year": 1966, "difficulty": "expert",     "clip": "/clips/el-atlal.mp3",         "startAt": 150 },
-  { "id": "ya-tayr",          "title": "يا طير",            "titleLatin": "Ya Tayr",           "artist": "فيروز",            "artistLatin": "Fairuz",            "year": 1972, "difficulty": "expert",     "clip": "/clips/ya-tayr.mp3",          "startAt": 25 },
-  { "id": "el-hob-kollo",     "title": "الحب كله",          "titleLatin": "El Hob Kollo",      "artist": "أم كلثوم",         "artistLatin": "Umm Kulthum",       "year": 1971, "difficulty": "expert",     "clip": "/clips/el-hob-kollo.mp3",     "startAt": 110 },
-  { "id": "shik-shak-shok",   "title": "شيك شاك شوك",       "titleLatin": "Shik Shak Shok",    "artist": "حسن أبو السعود",   "artistLatin": "Hassan Abou Seoud", "year": 1978, "difficulty": "expert",     "clip": "/clips/shik-shak-shok.mp3",   "startAt": 15 },
-  { "id": "tab-w-ana-maly",   "title": "طب وأنا مالي",      "titleLatin": "Tab W Ana Maly",    "artist": "محمد منير",        "artistLatin": "Mohamed Mounir",    "year": 1988, "difficulty": "expert",     "clip": "/clips/tab-w-ana-maly.mp3",   "startAt": 40 },
-
-  { "id": "raq-el-habib",     "title": "رق الحبيب",         "titleLatin": "Raq El Habib",      "artist": "أم كلثوم",         "artistLatin": "Umm Kulthum",       "year": 1944, "difficulty": "impossible", "clip": "/clips/raq-el-habib.mp3",     "startAt": 200 },
-  { "id": "ana-fi-intizarak", "title": "أنا في انتظارك",    "titleLatin": "Ana Fi Intizarak",  "artist": "أم كلثوم",         "artistLatin": "Umm Kulthum",       "year": 1943, "difficulty": "impossible", "clip": "/clips/ana-fi-intizarak.mp3", "startAt": 180 },
-  { "id": "bint-el-shalabiya","title": "بنت الشلبية",       "titleLatin": "Bint El Shalabiya", "artist": "فيروز",            "artistLatin": "Fairuz",            "year": 1966, "difficulty": "impossible", "clip": "/clips/bint-el-shalabiya.mp3","startAt": 20 },
-  { "id": "el-mahaba",        "title": "المحبة",            "titleLatin": "El Mahaba",         "artist": "فيروز",            "artistLatin": "Fairuz",            "year": 1975, "difficulty": "impossible", "clip": "/clips/el-mahaba.mp3",        "startAt": 30 },
-  { "id": "ahwak",            "title": "أهواك",             "titleLatin": "Ahwak",             "artist": "عبد الحليم حافظ",  "artistLatin": "Abdel Halim Hafez", "year": 1957, "difficulty": "impossible", "clip": "/clips/ahwak.mp3",            "startAt": 65 }
+  {
+    "id": "tamally-maak",
+    "title": "تملي معاك",
+    "titleLatin": "Tamally Maak",
+    "artist": "عمرو دياب",
+    "artistLatin": "Amr Diab",
+    "year": 2000,
+    "difficulty": "easy",
+    "startAt": 0
+  },
+  {
+    "id": "ah-w-noss",
+    "title": "آه ونص",
+    "titleLatin": "Ah W Noss",
+    "artist": "نانسي عجرم",
+    "artistLatin": "Nancy Ajram",
+    "year": 2004,
+    "difficulty": "easy",
+    "startAt": 0
+  },
+  {
+    "id": "nour-el-ein",
+    "title": "نور العين",
+    "titleLatin": "Nour El Ein",
+    "artist": "عمرو دياب",
+    "artistLatin": "Amr Diab",
+    "year": 1996,
+    "difficulty": "easy",
+    "startAt": 0
+  },
+  {
+    "id": "zay-el-hawa",
+    "title": "زي الهوى",
+    "titleLatin": "Zay El Hawa",
+    "artist": "عبد الحليم حافظ",
+    "artistLatin": "Abdel Halim Hafez",
+    "year": 1970,
+    "difficulty": "easy",
+    "startAt": 0
+  },
+  {
+    "id": "li-beirut",
+    "title": "لبيروت",
+    "titleLatin": "Li Beirut",
+    "artist": "فيروز",
+    "artistLatin": "Fairuz",
+    "year": 1984,
+    "difficulty": "easy",
+    "startAt": 0
+  },
+  {
+    "id": "alf-leila",
+    "title": "ألف ليلة وليلة",
+    "titleLatin": "Alf Leila W Leila",
+    "artist": "أم كلثوم",
+    "artistLatin": "Umm Kulthum",
+    "year": 1969,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "kifak-inta",
+    "title": "كيفك إنت",
+    "titleLatin": "Kifak Inta",
+    "artist": "فيروز",
+    "artistLatin": "Fairuz",
+    "year": 1991,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "bahebbak-wahashtini",
+    "title": "بحبك وحشتيني",
+    "titleLatin": "Bahebbak Wahashtini",
+    "artist": "محمد منير",
+    "artistLatin": "Mohamed Mounir",
+    "year": 1995,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "aaeesh",
+    "title": "عايش",
+    "titleLatin": "Aaeesh",
+    "artist": "عمرو دياب",
+    "artistLatin": "Amr Diab",
+    "year": 2004,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "law-taerafou",
+    "title": "لو تعرفوا",
+    "titleLatin": "Law Taerafou",
+    "artist": "إليسا",
+    "artistLatin": "Elissa",
+    "year": 2006,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "enta-omri",
+    "title": "أنت عمري",
+    "titleLatin": "Enta Omri",
+    "artist": "أم كلثوم",
+    "artistLatin": "Umm Kulthum",
+    "year": 1964,
+    "difficulty": "hard",
+    "startAt": 0
+  },
+  {
+    "id": "sawah",
+    "title": "سواح",
+    "titleLatin": "Sawah",
+    "artist": "عبد الحليم حافظ",
+    "artistLatin": "Abdel Halim Hafez",
+    "year": 1968,
+    "difficulty": "hard",
+    "startAt": 0
+  },
+  {
+    "id": "habbaytak",
+    "title": "حبيتك بالصيف",
+    "titleLatin": "Habbaytak Bissayf",
+    "artist": "فيروز",
+    "artistLatin": "Fairuz",
+    "year": 1970,
+    "difficulty": "hard",
+    "startAt": 0
+  },
+  {
+    "id": "el-leila",
+    "title": "الليلة",
+    "titleLatin": "El Leila",
+    "artist": "عمرو دياب",
+    "artistLatin": "Amr Diab",
+    "year": 2013,
+    "difficulty": "hard",
+    "startAt": 0
+  },
+  {
+    "id": "batwannes-beek",
+    "title": "بتونس بيك",
+    "titleLatin": "Batwannes Beek",
+    "artist": "وردة الجزائرية",
+    "artistLatin": "Warda Al-Jazairia",
+    "year": 1985,
+    "difficulty": "hard",
+    "startAt": 0
+  },
+  {
+    "id": "el-atlal",
+    "title": "الأطلال",
+    "titleLatin": "El Atlal",
+    "artist": "أم كلثوم",
+    "artistLatin": "Umm Kulthum",
+    "year": 1966,
+    "difficulty": "expert",
+    "startAt": 0
+  },
+  {
+    "id": "ya-tayr",
+    "title": "يا طير",
+    "titleLatin": "Ya Tayr",
+    "artist": "فيروز",
+    "artistLatin": "Fairuz",
+    "year": 1972,
+    "difficulty": "expert",
+    "startAt": 0
+  },
+  {
+    "id": "el-hob-kollo",
+    "title": "الحب كله",
+    "titleLatin": "El Hob Kollo",
+    "artist": "أم كلثوم",
+    "artistLatin": "Umm Kulthum",
+    "year": 1971,
+    "difficulty": "expert",
+    "startAt": 0
+  },
+  {
+    "id": "shik-shak-shok",
+    "title": "شيك شاك شوك",
+    "titleLatin": "Shik Shak Shok",
+    "artist": "حسن أبو السعود",
+    "artistLatin": "Hassan Abou Seoud",
+    "year": 1978,
+    "difficulty": "expert",
+    "startAt": 0
+  },
+  {
+    "id": "tab-w-ana-maly",
+    "title": "طب وأنا مالي",
+    "titleLatin": "Tab W Ana Maly",
+    "artist": "محمد منير",
+    "artistLatin": "Mohamed Mounir",
+    "year": 1988,
+    "difficulty": "expert",
+    "startAt": 0
+  },
+  {
+    "id": "raq-el-habib",
+    "title": "رق الحبيب",
+    "titleLatin": "Raq El Habib",
+    "artist": "أم كلثوم",
+    "artistLatin": "Umm Kulthum",
+    "year": 1944,
+    "difficulty": "impossible",
+    "startAt": 0
+  },
+  {
+    "id": "ana-fi-intizarak",
+    "title": "أنا في انتظارك",
+    "titleLatin": "Ana Fi Intizarak",
+    "artist": "أم كلثوم",
+    "artistLatin": "Umm Kulthum",
+    "year": 1943,
+    "difficulty": "impossible",
+    "startAt": 0
+  },
+  {
+    "id": "bint-el-shalabiya",
+    "title": "بنت الشلبية",
+    "titleLatin": "Bint El Shalabiya",
+    "artist": "فيروز",
+    "artistLatin": "Fairuz",
+    "year": 1966,
+    "difficulty": "impossible",
+    "startAt": 0
+  },
+  {
+    "id": "el-mahaba",
+    "title": "المحبة",
+    "titleLatin": "El Mahaba",
+    "artist": "فيروز",
+    "artistLatin": "Fairuz",
+    "year": 1975,
+    "difficulty": "impossible",
+    "startAt": 0
+  },
+  {
+    "id": "ahwak",
+    "title": "أهواك",
+    "titleLatin": "Ahwak",
+    "artist": "عبد الحليم حافظ",
+    "artistLatin": "Abdel Halim Hafez",
+    "year": 1957,
+    "difficulty": "impossible",
+    "startAt": 0
+  }
 ]
