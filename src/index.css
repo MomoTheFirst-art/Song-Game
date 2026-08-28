@@ -115,6 +115,7 @@ body {
 
 .notice { margin: 0; font-size: 0.85rem; text-align: center; }
 .notice-warn { color: var(--warn); }
+.notice-soft { color: var(--muted); }
 .notice code { background: var(--panel-2); padding: 2px 6px; border-radius: 4px; }
 
 /* ---------- guess ---------- */

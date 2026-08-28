@@ -18,6 +18,13 @@ export interface Song {
   difficulty: Difficulty
   /** Path under /public, e.g. "/clips/song.mp3" */
   clip: string
+  /**
+   * Remote 30-second preview, filled in by scripts/fetch-previews.mjs.
+   * Takes precedence over `clip` when present.
+   */
+  previewUrl?: string
+  /** Cover art URL, recorded alongside a preview. */
+  artwork?: string
   /** Seconds into the file where the clip window starts. */
   startAt: number
 }

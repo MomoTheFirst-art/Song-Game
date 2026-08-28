@@ -29,7 +29,8 @@ export default function App() {
   const [finished, setFinished] = useState<RoundState[]>([])
   const [phase, setPhase] = useState<'playing' | 'roundOver' | 'done'>('playing')
 
-  const { status, play, stop } = useAudioClip(round.song.clip)
+  const clipUrl = round.song.previewUrl || round.song.clip
+  const { status, mode: clipMode, play, stop } = useAudioClip(clipUrl)
 
   // A daily run is one per UTC day — returning players see their result, not a replay.
   useEffect(() => {
@@ -158,6 +159,7 @@ export default function App() {
       <ClipPlayer
         stage={round.stage}
         status={status}
+        mode={clipMode}
         onPlay={() => play(round.song.startAt, STAGES[round.stage])}
       />
 

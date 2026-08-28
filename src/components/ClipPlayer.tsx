@@ -1,13 +1,14 @@
 import { STAGES } from '../game/stages'
-import type { ClipStatus } from '../hooks/useAudioClip'
+import type { ClipMode, ClipStatus } from '../hooks/useAudioClip'
 
 interface Props {
   stage: number
   status: ClipStatus
+  mode: ClipMode
   onPlay: () => void
 }
 
-export function ClipPlayer({ stage, status, onPlay }: Props) {
+export function ClipPlayer({ stage, status, mode, onPlay }: Props) {
   const seconds = STAGES[stage]
   const busy = status === 'loading'
   const broken = status === 'missing' || status === 'error'
@@ -28,6 +29,11 @@ export function ClipPlayer({ stage, status, onPlay }: Props) {
       )}
       {status === 'error' && (
         <p className="notice notice-warn">تعذّر تشغيل الملف الصوتي.</p>
+      )}
+      {mode === 'element' && !broken && (
+        <p className="notice notice-soft">
+          يُشغَّل المقطع مباشرة من المصدر — التوقيت تقريبي في المراحل القصيرة.
+        </p>
       )}
     </div>
   )
