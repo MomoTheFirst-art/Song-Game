@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { STAGES } from '../game/stages'
 import { maxScore } from '../game/scoring'
 import { shareText } from '../game/share'
+import { artworkAt } from '../game/types'
 import type { Mode, RoundState } from '../game/types'
 
 interface Props {
@@ -45,6 +46,15 @@ export function DayComplete({ rounds, score, dateKey, mode, onPractice }: Props)
         {rounds.map((r) => (
           <li key={r.song.id} className={r.status === 'won' ? 'recap-won' : 'recap-lost'}>
             <span className="recap-mark">{r.status === 'won' ? '✓' : '✗'}</span>
+            {artworkAt(r.song.artwork, 100) && (
+              <img
+                className="recap-cover"
+                src={artworkAt(r.song.artwork, 100) as string}
+                alt=""
+                loading="lazy"
+                onError={(e) => { e.currentTarget.style.visibility = 'hidden' }}
+              />
+            )}
             <span className="recap-title">{r.song.title}</span>
             <span className="recap-artist">{r.song.artist}</span>
             <span className="recap-stage">

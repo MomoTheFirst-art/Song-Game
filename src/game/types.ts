@@ -42,3 +42,13 @@ export interface RoundState {
 }
 
 export type Mode = 'daily' | 'practice'
+
+
+/**
+ * Apple's artwork URLs embed their own dimensions ("100x100bb.jpg"), so a
+ * larger version is a string swap rather than a second request.
+ */
+export function artworkAt(url: string | undefined, size: number): string | null {
+  if (!url) return null
+  return url.replace(/\/\d+x\d+bb\./, `/${size}x${size}bb.`)
+}
