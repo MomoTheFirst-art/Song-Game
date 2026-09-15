@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Admin } from './components/Admin'
+import { AudioCheck } from './components/AudioCheck'
 import { Home } from './components/Home'
 import { PartyGame } from './PartyGame'
 import { maxPlayersFor } from './game/party'
@@ -239,6 +240,9 @@ export default function App() {
   }, [])
 
   if (hash === '#admin' || hash === '#review') return <Admin songs={allSongs} />
+  // #audio reports what the audio stack does on the device in hand — the only
+  // way to diagnose an iOS failure from a machine that has no iOS.
+  if (hash === '#audio') return <AudioCheck songs={catalogue} />
   if (catalogue.length === 0) return <NoPreviews />
 
   if (screen === 'solo') return <Game onHome={() => setScreen('home')} />

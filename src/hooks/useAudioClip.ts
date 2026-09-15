@@ -170,28 +170,9 @@ export function useAudioClip(url: string) {
     [url],
   )
 
-  /** Play `duration` seconds starting `startAt` seconds into the file. */
-  const play = useCallback(
-    async (startAt: number, duration: number) => {
-      stop()
-
-      // Before any await: the gesture is still live here and nowhere later.
-      const context = unlockAudio()
-
-      if (mode === 'element' || elementOnly.has(url)) {
-        playViaElement(startAt, duration)
-        return
-      }
-
-      const buffer = await loadBuffer()
-      if (!buffer) {
-        // loadBuffer may have just switched us to the element path.
-        if (elementOnly.has(url)) playViaElement(startAt, duration)
-        return
-      }
-
-      if (context.state === 'suspended') await context.resume()
-
+  /** Slice an already-decoded buffer. Synchronous, so it keeps the gesture. */
+  const startFromBuffer = useCallback(
+    (context: AudioContext, buffer: AudioBuffer, startAt: number, duration: number) => {
       // Never run past the end of the file, however the clip window was set.
       const offset = Math.min(startAt, Math.max(0, buffer.duration - 0.05))
       const length = Math.min(duration, buffer.duration - offset)
@@ -214,7 +195,37 @@ export function useAudioClip(url: string) {
         length * 1000 + 120,
       )
     },
-    [loadBuffer, mode, playViaElement, stop, url],
+    [],
+  )
+
+  /**
+   * Play `duration` seconds starting `startAt` seconds into the file.
+   *
+   * Every branch that actually starts audio runs synchronously. iOS only
+   * honours playback started within the gesture itself, and the previous
+   * version awaited the clip fetch before deciding how to play — so on the
+   * first tap, when nothing is decoded yet, the fallback fired after the
+   * gesture had expired and iOS stayed silent. Chrome allowed it, which hid
+   * the fault on Android.
+   */
+  const play = useCallback(
+    async (startAt: number, duration: number) => {
+      stop()
+      const context = unlockAudio()
+      const decoded = cache.get(url)
+
+      if (decoded && !elementOnly.has(url)) {
+        startFromBuffer(context, decoded, startAt, duration)
+        return
+      }
+
+      // Nothing decoded yet: play through the element now, while the gesture
+      // still counts, and decode in the background so later stages get exact
+      // slicing.
+      playViaElement(startAt, duration)
+      if (!elementOnly.has(url)) void loadBuffer()
+    },
+    [loadBuffer, playViaElement, startFromBuffer, stop, url],
   )
 
   return { status, mode, play, stop, preload: loadBuffer }
