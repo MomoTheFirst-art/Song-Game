@@ -305,7 +305,9 @@
     "artistLatin": "Nancy Ajram",
     "year": 2003,
     "difficulty": "easy",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/a4/11/92/a41192c7-ea9e-e009-494d-ed1fa3426cec/mzaf_14930472989770218761.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music/v4/0f/83/68/0f83680e-7ffd-4f9b-ca3c-b29a4d9d9795/05099926400051.jpg/100x100bb.jpg"
   },
   {
     "id": "ya-tabtab",
@@ -315,7 +317,9 @@
     "artistLatin": "Nancy Ajram",
     "year": 2006,
     "difficulty": "easy",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/a4/44/c0/a444c09f-7a71-1712-29ca-029eceba47c4/mzaf_3607238438218530259.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/3f/4d/10/3f4d10a2-f82c-437e-9341-c0c31058e535/cover.jpg/100x100bb.jpg"
   },
   {
     "id": "boushret-kheir",
@@ -323,9 +327,11 @@
     "titleLatin": "Boushret Kheir",
     "artist": "حسين الجسمي",
     "artistLatin": "Hussain Al Jassmi",
-    "year": 2014,
+    "year": 2000,
     "difficulty": "easy",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/f7/23/20/f723202c-f08f-c30f-5459-5a827fe7ac36/mzaf_15630127366416260628.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/09/18/f7/0918f7b3-7ece-5b84-5fd8-3c3a82512fd7/dj.cnkdpviu.jpg/100x100bb.jpg"
   },
   {
     "id": "ya-bent-el-eh",
@@ -333,9 +339,11 @@
     "titleLatin": "Ya Bent El Eh",
     "artist": "تامر حسني",
     "artistLatin": "Tamer Hosny",
-    "year": 2010,
+    "year": 2007,
     "difficulty": "easy",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/bb/a9/4b/bba94bd9-020a-8eb9-c67e-1930dce68986/mzaf_11579290530808350749.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music/v4/9c/55/2a/9c552aeb-ecb1-3899-2555-8897b3c11f18/2007_Tamer_Hosny_-_Ya_Bent_El_Eih.jpg/100x100bb.jpg"
   },
   {
     "id": "ahla-haga-feeki",
@@ -343,9 +351,11 @@
     "titleLatin": "Ahla Haga Feeki",
     "artist": "محمد حماقي",
     "artistLatin": "Mohamed Hamaki",
-    "year": 2012,
+    "year": 2006,
     "difficulty": "easy",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/bc/91/b9/bc91b9a2-eae6-2e60-a45b-2f5826852ea1/mzaf_17739985651106038651.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/8a/60/d9/8a60d981-e43c-4909-9d4e-3d3979cbb5d1/cover.jpg/100x100bb.jpg"
   },
   {
     "id": "sabry-aalil",
@@ -353,9 +363,11 @@
     "titleLatin": "Sabry Aalil",
     "artist": "شيرين",
     "artistLatin": "Sherine",
-    "year": 2012,
+    "year": 2003,
     "difficulty": "easy",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/cd/1a/e9/cd1ae9ec-f7cb-9f4e-95fe-2ed86dd60d96/mzaf_5355291922452830237.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/83/ab/07/83ab076c-a8b3-0bc8-96d9-8e9e4b855ef4/dj.siwvayyg.jpg/100x100bb.jpg"
   },
   {
     "id": "amarain",
@@ -363,9 +375,11 @@
     "titleLatin": "Amarain",
     "artist": "عمرو دياب",
     "artistLatin": "Amr Diab",
-    "year": 2016,
+    "year": 1999,
     "difficulty": "easy",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/5c/69/c0/5c69c0f2-bf8b-8db9-8cb6-87974d2d4d32/mzaf_8918927071584428418.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music6/v4/b9/56/14/b956146c-ca00-7619-d521-d002b61ad1a6/dj.vlndmiyw.jpg/100x100bb.jpg"
   },
   {
     "id": "omri-kello",
@@ -373,9 +387,11 @@
     "titleLatin": "Omri Kello",
     "artist": "وائل كفوري",
     "artistLatin": "Wael Kfoury",
-    "year": 2000,
+    "year": 2003,
     "difficulty": "easy",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/72/ad/52/72ad5214-79d6-33c9-ef58-92cdbb6de2d1/mzaf_2307072817582404022.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/14/52/e0/1452e081-e534-2709-9a18-fb1acdc56b46/6281130200490.png/100x100bb.jpg"
   },
   {
     "id": "saalouni-el-nas",
@@ -383,9 +399,11 @@
     "titleLatin": "Saalouni El Nas",
     "artist": "فيروز",
     "artistLatin": "Fairuz",
-    "year": 1973,
+    "year": 2025,
     "difficulty": "medium",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/c4/fc/20/c4fc2084-9f51-99ec-d7da-79a07fcef361/mzaf_3508690226844083225.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/f1/10/27/f1102718-0e91-6ddf-c851-f7fc3b79a530/artwork.jpg/100x100bb.jpg"
   },
   {
     "id": "kalimat",
@@ -395,7 +413,9 @@
     "artistLatin": "Majida El Roumi",
     "year": 1991,
     "difficulty": "medium",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/b7/ed/57/b7ed57f2-ee32-3f84-8bef-a5ffaf7ce9bd/mzaf_7734530180454047440.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/4f/91/38/4f913866-0c1d-99eb-7cf0-4a6691c8558f/634654651501_cover.jpg/100x100bb.jpg"
   },
   {
     "id": "zidini-ishqan",
@@ -403,9 +423,11 @@
     "titleLatin": "Zidini Ishqan",
     "artist": "كاظم الساهر",
     "artistLatin": "Kazem Al Saher",
-    "year": 1997,
+    "year": 2024,
     "difficulty": "medium",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/e5/ed/01/e5ed01d0-5a2c-c7e9-2d3e-5f00a5c2313e/mzaf_4087937843657065288.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/b8/37/9c/b8379c00-1c9d-5671-2116-c0c584e85e55/artwork.jpg/100x100bb.jpg"
   },
   {
     "id": "qouli-ohebbok",
@@ -413,9 +435,11 @@
     "titleLatin": "Qouli Ohebbok",
     "artist": "كاظم الساهر",
     "artistLatin": "Kazem Al Saher",
-    "year": 2002,
+    "year": 2024,
     "difficulty": "medium",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/62/8a/be/628abef1-eef2-80a7-8efc-da6bc0b575d3/mzaf_13017924883822553905.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/b8/37/9c/b8379c00-1c9d-5671-2116-c0c584e85e55/artwork.jpg/100x100bb.jpg"
   },
   {
     "id": "sidi-wesalak",
@@ -423,9 +447,11 @@
     "titleLatin": "Sidi Wesalak",
     "artist": "أنغام",
     "artistLatin": "Angham",
-    "year": 2000,
+    "year": 2001,
     "difficulty": "medium",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/35/3b/79/353b79cd-ec72-5d36-944f-65b9bdb91a15/mzaf_9618429099776502251.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/16/09/07/160907df-898c-e4cc-b11b-530df02c581c/dj.jvrnjpfe.jpg/100x100bb.jpg"
   },
   {
     "id": "al-amakin",
@@ -433,9 +459,11 @@
     "titleLatin": "Al Amakin",
     "artist": "محمد عبده",
     "artistLatin": "Mohammed Abdu",
-    "year": 1995,
+    "year": 2026,
     "difficulty": "medium",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/7b/c5/5c/7bc55cf6-9e4f-d9bd-4376-9b717125b47a/mzaf_8494489425040669069.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/76/15/69/7615691f-68e9-6b6b-b868-b78a4a414bcb/artwork.jpg/100x100bb.jpg"
   },
   {
     "id": "harramt-ahebak",
@@ -443,9 +471,11 @@
     "titleLatin": "Harramt Ahebak",
     "artist": "وردة الجزائرية",
     "artistLatin": "Warda Al-Jazairia",
-    "year": 1980,
+    "year": 1995,
     "difficulty": "medium",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/ad/be/53/adbe537a-b14c-74a6-685a-b6438b145c1f/mzaf_2560158836329193710.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/3e/ce/da/3ecedafe-5796-d594-89dc-3189d1fbff39/3663729205575_cover.jpg/100x100bb.jpg"
   },
   {
     "id": "nassam-alayna",
@@ -453,9 +483,11 @@
     "titleLatin": "Nassam Alayna El Hawa",
     "artist": "فيروز",
     "artistLatin": "Fairuz",
-    "year": 1975,
+    "year": 1995,
     "difficulty": "medium",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/3f/2e/f8/3f2ef802-d10a-7d2a-15a6-bd91c6fb3649/mzaf_16513161257104839560.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/6c/b0/5b/6cb05b57-0b74-ffca-fee2-2c5696d323ad/cover.jpg/100x100bb.jpg"
   },
   {
     "id": "sidi-mansour",
@@ -465,7 +497,9 @@
     "artistLatin": "Saber Rebai",
     "year": 2000,
     "difficulty": "medium",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/3f/4c/51/3f4c516b-4829-7a87-28ef-20197c0eaf4b/mzaf_6479734472059627045.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/69/ba/b6/69bab6c1-c691-c1a2-5047-06c180d42f4e/198846991283_cover.jpg/100x100bb.jpg"
   },
   {
     "id": "qariat-el-fingan",
@@ -473,9 +507,11 @@
     "titleLatin": "Qariat El Fingan",
     "artist": "عبد الحليم حافظ",
     "artistLatin": "Abdel Halim Hafez",
-    "year": 1976,
+    "year": 2026,
     "difficulty": "hard",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/b5/34/3c/b5343c28-01be-935c-efc0-bb328beb2636/mzaf_13226840017024104581.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/0c/1b/31/0c1b31a1-a744-0fc5-4ed1-bf9c5099caf4/artwork.jpg/100x100bb.jpg"
   },
   {
     "id": "mawood",
@@ -485,7 +521,9 @@
     "artistLatin": "Abdel Halim Hafez",
     "year": 1971,
     "difficulty": "hard",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/89/0c/6e/890c6eed-72cc-07f4-7fe0-8c1485dff6c7/mzaf_7957480171291766880.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music19/v4/0c/88/20/0c88207d-899e-121a-7f0b-cb0836a5c45c/mzm.dzzfaixf.jpg/100x100bb.jpg"
   },
   {
     "id": "amal-hayati",
@@ -493,9 +531,11 @@
     "titleLatin": "Amal Hayati",
     "artist": "أم كلثوم",
     "artistLatin": "Umm Kulthum",
-    "year": 1965,
+    "year": 2013,
     "difficulty": "hard",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/92/b3/87/92b38741-c2c5-b1b2-d4b7-ca1134bd65f5/mzaf_14132157239160582898.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/91/e7/ac/91e7ac6e-a141-e584-0fe9-278f6f0d8d22/564664.jpg/100x100bb.jpg"
   },
   {
     "id": "fakkarouni",
@@ -503,9 +543,11 @@
     "titleLatin": "Fakkarouni",
     "artist": "أم كلثوم",
     "artistLatin": "Umm Kulthum",
-    "year": 1966,
+    "year": 2025,
     "difficulty": "hard",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/e7/a9/57/e7a95749-c83b-5396-38ae-c16e0bdd0b5c/mzaf_17878700961362650104.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/00/20/1f/00201fbf-60ba-9997-f2aa-19bd18f05bb9/artwork.jpg/100x100bb.jpg"
   },
   {
     "id": "zahrat-al-madaen",
@@ -513,9 +555,11 @@
     "titleLatin": "Zahrat Al Madaen",
     "artist": "فيروز",
     "artistLatin": "Fairuz",
-    "year": 1967,
+    "year": 2014,
     "difficulty": "hard",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/f4/35/39/f4353951-76cb-df57-828b-ffd2bd19a149/mzaf_4766660947916322226.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music5/v4/31/d2/52/31d25280-52dd-1f35-23d0-ca2a46ab85dd/cover.jpg/100x100bb.jpg"
   },
   {
     "id": "aatini-al-nay",
@@ -523,9 +567,11 @@
     "titleLatin": "Aatini Al Nay",
     "artist": "فيروز",
     "artistLatin": "Fairuz",
-    "year": 1970,
+    "year": 2011,
     "difficulty": "hard",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/4b/cb/a5/4bcba550-b01a-a83b-e1a8-8f71c774f160/mzaf_7648064427016843520.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/81/24/0d/81240d4b-a8d3-7718-51ea-549d654dd0fb/198009187546.png/100x100bb.jpg"
   },
   {
     "id": "ya-mal-el-sham",
@@ -533,9 +579,11 @@
     "titleLatin": "Ya Mal El Sham",
     "artist": "صباح فخري",
     "artistLatin": "Sabah Fakhri",
-    "year": 1975,
+    "year": 2026,
     "difficulty": "hard",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/85/db/81/85db81ef-7fdf-8b45-8387-ce4a232ba6af/mzaf_4951040483083837324.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/b2/c9/54/b2c9546c-1ddb-44da-e7bd-3c1240ce1b0c/cover.jpg/100x100bb.jpg"
   },
   {
     "id": "al-gondol",
@@ -553,9 +601,11 @@
     "titleLatin": "Aghadan Alqak",
     "artist": "أم كلثوم",
     "artistLatin": "Umm Kulthum",
-    "year": 1971,
+    "year": 2026,
     "difficulty": "expert",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/f9/0d/8b/f90d8b4e-7783-35a0-0430-2e1370d5080d/mzaf_1899445347872234170.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/0b/a7/2e/0ba72e97-c2f9-8347-db41-323a6072c841/6221117211651.jpg/100x100bb.jpg"
   },
   {
     "id": "hazihi-laylati",
@@ -563,9 +613,11 @@
     "titleLatin": "Hazihi Laylati",
     "artist": "أم كلثوم",
     "artistLatin": "Umm Kulthum",
-    "year": 1968,
+    "year": 2023,
     "difficulty": "expert",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/f1/7a/b3/f17ab3f7-7e8c-5fcb-6fb2-2f3fa457dfad/mzaf_17433008370647978722.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/c2/c1/29/c2c1297f-a2aa-01bc-08b7-bc71851b128c/5050580801752.png/100x100bb.jpg"
   },
   {
     "id": "baeed-anak",
@@ -573,9 +625,11 @@
     "titleLatin": "Baeed Anak",
     "artist": "أم كلثوم",
     "artistLatin": "Umm Kulthum",
-    "year": 1965,
+    "year": 2025,
     "difficulty": "expert",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/26/be/76/26be76cc-5160-566d-721e-ceb920d9f30d/mzaf_14946403442684223666.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/ab/14/8f/ab148fb1-3f98-ad86-516b-dad933dc07a2/artwork.jpg/100x100bb.jpg"
   },
   {
     "id": "fog-el-nakhal",
@@ -583,9 +637,11 @@
     "titleLatin": "Fog El Nakhal",
     "artist": "ناظم الغزالي",
     "artistLatin": "Nazem Al Ghazali",
-    "year": 1960,
+    "year": 2014,
     "difficulty": "expert",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/a0/f4/8d/a0f48daf-9c97-08ae-3886-489337a88eda/mzaf_16641719864007312869.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music1/v4/02/65/96/02659638-3e78-b102-98b4-bec1ddf13498/889176379017.jpg/100x100bb.jpg"
   },
   {
     "id": "ya-dara-douri-fina",
@@ -593,9 +649,11 @@
     "titleLatin": "Ya Dara Douri Fina",
     "artist": "وديع الصافي",
     "artistLatin": "Wadih El Safi",
-    "year": 1970,
+    "year": 1993,
     "difficulty": "expert",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/05/db/e2/05dbe2f1-9860-68c0-8da2-a8cd872f0681/mzaf_1973081944238505897.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/7a/3f/32/7a3f3232-e04a-bec4-2f46-4d0e9b4b71ad/cover.jpg/100x100bb.jpg"
   },
   {
     "id": "ounadikom",
@@ -605,7 +663,9 @@
     "artistLatin": "Marcel Khalife",
     "year": 1976,
     "difficulty": "expert",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/ad/16/8e/ad168e64-56b2-8c0b-ebd5-6369cb9ab493/mzaf_7032405543877581071.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/5d/b7/ad/5db7ad4d-d6a2-60ad-135b-8c3469797897/5283023914706_Cover.jpg/100x100bb.jpg"
   },
   {
     "id": "ala-hasab-wedad",
@@ -613,9 +673,11 @@
     "titleLatin": "Ala Hasab Wedad",
     "artist": "عبد الحليم حافظ",
     "artistLatin": "Abdel Halim Hafez",
-    "year": 1960,
+    "year": 1990,
     "difficulty": "expert",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/e7/05/61/e7056190-f185-1ae5-7bed-48460572aa65/mzaf_621728957853063121.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/4f/71/9f/4f719fe3-8589-d5d6-b8b9-cd310b8e92db/6221117007377.jpg/100x100bb.jpg"
   },
   {
     "id": "awel-hamsa",
@@ -623,9 +685,11 @@
     "titleLatin": "Awel Hamsa",
     "artist": "فريد الأطرش",
     "artistLatin": "Farid al-Atrash",
-    "year": 1965,
+    "year": 2014,
     "difficulty": "expert",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/84/e3/29/84e3290f-2c3e-0ffa-0422-f8e0f1efd8c7/mzaf_7447593148574347271.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music62/v4/f1/93/e4/f193e4a0-ba2d-0f5a-71c1-9e033feec636/mzm.ajdazflh.jpg/100x100bb.jpg"
   },
   {
     "id": "ya-habibi-taala",
@@ -635,7 +699,9 @@
     "artistLatin": "Asmahan",
     "year": 1944,
     "difficulty": "expert",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/0c/f4/52/0cf452f1-007f-5409-879f-6f49c10e71ae/mzaf_8201996305816862021.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music69/v4/95/4e/fb/954efbce-b2d0-4397-be1b-777809c49915/190374332477.jpg/100x100bb.jpg"
   },
   {
     "id": "zourouni",
@@ -643,9 +709,11 @@
     "titleLatin": "Zourouni Kol Sana Marra",
     "artist": "سيد درويش",
     "artistLatin": "Sayed Darwish",
-    "year": 1920,
+    "year": 2019,
     "difficulty": "impossible",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview112/v4/c2/f9/94/c2f9941f-b8f1-7a4e-d1fd-7842181388c9/mzaf_10394241944356664681.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/f8/6e/5c/f86e5c27-49fd-53e2-f49c-92dd23a60084/artwork.jpg/100x100bb.jpg"
   },
   {
     "id": "aho-da-elli-sar",
@@ -653,9 +721,11 @@
     "titleLatin": "Aho Da Elli Sar",
     "artist": "سيد درويش",
     "artistLatin": "Sayed Darwish",
-    "year": 1919,
+    "year": 2023,
     "difficulty": "impossible",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/a3/94/d7/a394d76e-0b1c-612f-0011-3cd28f96f08c/mzaf_10669677702185889536.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/6d/16/b8/6d16b81b-f1e8-5913-f226-ffb41633c024/640615145422.jpg/100x100bb.jpg"
   },
   {
     "id": "talaa-min-beit-abouha",
@@ -663,9 +733,11 @@
     "titleLatin": "Talaa Min Beit Abouha",
     "artist": "ناظم الغزالي",
     "artistLatin": "Nazem Al Ghazali",
-    "year": 1960,
+    "year": 1959,
     "difficulty": "impossible",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/b5/1e/3a/b51e3a7e-45c4-042f-6736-d98046dc028d/mzaf_8632947689873143265.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music1/v4/02/65/96/02659638-3e78-b102-98b4-bec1ddf13498/889176379017.jpg/100x100bb.jpg"
   },
   {
     "id": "ghabet-shams-el-haq",
@@ -673,9 +745,11 @@
     "titleLatin": "Ghabet Shams El Haq",
     "artist": "جوليا بطرس",
     "artistLatin": "Julia Boutros",
-    "year": 1985,
+    "year": 2000,
     "difficulty": "impossible",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/1f/b6/cb/1fb6cba2-d51b-e2a3-f67e-66819a907236/mzaf_13926780945596890672.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music4/v4/0b/51/0e/0b510e80-265b-aa61-65e9-205f77b4d631/00724352559152.jpg/100x100bb.jpg"
   },
   {
     "id": "ana-albi-dalili",
@@ -683,9 +757,11 @@
     "titleLatin": "Ana Albi Dalili",
     "artist": "ليلى مراد",
     "artistLatin": "Laila Mourad",
-    "year": 1947,
+    "year": 2010,
     "difficulty": "impossible",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/2f/bd/41/2fbd4104-2cf3-0f22-13e5-a5f2bbbc0aa3/mzaf_10188170366045721921.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music4/v4/cd/3b/11/cd3b1187-51be-844f-8152-473fd8d44f24/888831034100.jpg/100x100bb.jpg"
   },
   {
     "id": "layali-el-ons",
@@ -693,9 +769,11 @@
     "titleLatin": "Layali El Ons Fi Vienna",
     "artist": "أسمهان",
     "artistLatin": "Asmahan",
-    "year": 1944,
+    "year": 2000,
     "difficulty": "impossible",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/f0/ca/03/f0ca03db-83fb-ce53-8028-124f79fc9072/mzaf_8733918342120035643.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/ae/89/e8/ae89e86b-75bb-2125-00c4-0ffa8879b1b9/3700551751419_cover.jpg/100x100bb.jpg"
   },
   {
     "id": "salou-qalbi",
@@ -703,9 +781,11 @@
     "titleLatin": "Salou Qalbi",
     "artist": "أم كلثوم",
     "artistLatin": "Umm Kulthum",
-    "year": 1946,
+    "year": 1983,
     "difficulty": "impossible",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/eb/c6/a4/ebc6a4f8-aa1f-ffdf-a4c5-31e487c1b232/mzaf_11665609284187236357.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/9d/a7/62/9da762c6-8c32-6f56-5ba6-d55df83b1a65/artwork.jpg/100x100bb.jpg"
   },
   {
     "id": "maqadeer",
@@ -713,8 +793,10 @@
     "titleLatin": "Maqadeer",
     "artist": "طلال مداح",
     "artistLatin": "Talal Maddah",
-    "year": 1985,
+    "year": 2021,
     "difficulty": "impossible",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/ac/dd/d1/acddd1ed-4adc-12e7-5dd8-8f96a57f0973/mzaf_7821703054229805275.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/0b/74/95/0b74950d-cbbe-f0f6-424d-e05c11c726bb/5056407960282.jpg/100x100bb.jpg"
   }
 ]
