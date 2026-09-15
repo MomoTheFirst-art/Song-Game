@@ -269,3 +269,44 @@ test('the chosen Apple track is recorded on the song', async () => {
   assert.equal(m.album, 'Greatest Hits')
   assert.ok(typeof m.score === 'number' && m.score > 0.9)
 })
+
+test('a forced re-fetch that fails clears the stale preview', async () => {
+  // Otherwise a match rejected by the new rules stays live, and later store
+  // fronts skip the song because it still looks populated.
+  let written = null
+  const stale = {
+    ...song,
+    previewUrl: 'https://old/wrong.m4a',
+    artwork: 'https://old/art.jpg',
+    matchedAs: { track: 'Wrong Song', artist: 'Wrong Artist', score: 0.6 },
+  }
+  await run(
+    { ...DEFAULTS, delay: 0, force: true },
+    {
+      fetch: async () => ok([wrong]),           // nothing acceptable
+      log: () => {},
+      readCatalogue: async () => [{ ...stale }],
+      writeCatalogue: async (s) => { written = s },
+    },
+  )
+  assert.ok(written, 'the cleared catalogue must be written')
+  assert.equal(written[0].previewUrl, undefined, 'stale url removed')
+  assert.equal(written[0].artwork, undefined)
+  assert.equal(written[0].matchedAs, undefined)
+})
+
+test('an unforced miss leaves an existing preview untouched', async () => {
+  let written = null
+  const kept = { ...song, previewUrl: 'https://keep/this.m4a' }
+  const res = await run(
+    { ...DEFAULTS, delay: 0, force: false },
+    {
+      fetch: async () => ok([wrong]),
+      log: () => {},
+      readCatalogue: async () => [{ ...kept }],
+      writeCatalogue: async (s) => { written = s },
+    },
+  )
+  assert.equal(res.matched, 0)
+  assert.equal(written, null, 'nothing to write: the song was skipped, not cleared')
+})

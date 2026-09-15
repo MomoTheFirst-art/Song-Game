@@ -225,6 +225,14 @@ export async function run(opts, deps = {}) {
     } else if (!match) {
       log(`  ✗ ${song.titleLatin || song.title} — no match above ${opts.minScore} (best ${score.toFixed(2)})`)
       missed.push({ song, reason: `best score ${score.toFixed(2)}` })
+      // A forced re-fetch exists because the stored value is suspect. Leaving
+      // it in place would keep a rejected match live AND make later store-front
+      // passes skip the song, since it still looks populated.
+      if (opts.force) {
+        delete song.previewUrl
+        delete song.artwork
+        delete song.matchedAs
+      }
     } else {
       matched++
       song.previewUrl = match.previewUrl
@@ -259,9 +267,11 @@ export async function run(opts, deps = {}) {
     for (const m of missed) log(`  · ${m.song.id} (${m.song.artistLatin} — ${m.song.titleLatin}) — ${m.reason}`)
   }
 
+  const cleared = opts.force && missed.length > 0
+
   if (opts.dryRun) {
     log('\n--dry-run: nothing written.')
-  } else if (matched > 0) {
+  } else if (matched > 0 || cleared) {
     await writeCatalogue(songs)
     log(`\nWrote ${opts.out}`)
   }
