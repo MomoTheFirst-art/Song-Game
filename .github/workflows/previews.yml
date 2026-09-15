@@ -1,0 +1,102 @@
+name: Fetch song previews
+
+# The catalogue ships as metadata only; this fills in preview URLs from the
+# iTunes Search API and commits the result. Runs on a GitHub runner because
+# the lookup needs open outbound network.
+on:
+  # workflow_dispatch only registers once this file reaches the default branch,
+  # so a push trigger is what actually runs it on a feature branch. A push made
+  # by GITHUB_TOKEN does not start another run, so committing the catalogue back
+  # cannot loop; the path filter keeps it off unrelated commits regardless.
+  push:
+    branches:
+      - 'claude/**'
+    paths:
+      - '.github/workflows/previews.yml'
+      - 'scripts/fetch-previews.mjs'
+  workflow_dispatch:
+    inputs:
+      country:
+        description: 'iTunes store front (SA, EG, AE, LB, US…)'
+        required: false
+        default: 'SA'
+      force:
+        description: 'Re-fetch songs that already have a preview'
+        type: boolean
+        required: false
+        default: false
+  # Preview URLs expire; refresh weekly. Scheduled runs only fire on the
+  # default branch, so this takes effect once the work is merged.
+  schedule:
+    - cron: '0 4 * * 1'
+
+permissions:
+  contents: write
+
+jobs:
+  previews:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'   # type stripping, so the script can import search.ts
+          cache: npm
+
+      - run: npm ci
+
+      - name: Look up previews
+        run: |
+          # Without --force a pass only fills gaps, so walking several store
+          # fronts widens coverage: a song missing from one country's catalogue
+          # is often present in another. --force applies to the first pass only,
+          # otherwise each later pass would overwrite the one before it.
+          FORCE="${{ inputs.force && '--force' || '' }}"
+          for front in ${{ inputs.country || 'SA EG AE LB US' }}; do
+            echo "── store front: $front"
+            node scripts/fetch-previews.mjs --country "$front" $FORCE
+            FORCE=""
+          done
+
+      - name: Check every preview URL actually resolves
+        run: |
+          # A matched URL is not a working one — previews expire, and a dead
+          # link is indistinguishable from a broken game.
+          node -e "
+            const songs = require('./src/data/songs.json').filter(s => s.previewUrl);
+            let bad = 0;
+            (async () => {
+              for (const s of songs) {
+                const res = await fetch(s.previewUrl, { method: 'HEAD' }).catch(e => ({ ok: false, status: e.message }));
+                if (!res.ok) { bad++; console.log('DEAD  ' + s.id + '  ' + res.status); }
+              }
+              console.log(\`\${songs.length - bad}/\${songs.length} preview URLs reachable\`);
+              if (bad) process.exit(1);
+            })();
+          "
+
+      - name: Verify the catalogue still builds
+        run: npm test && npm run build
+
+      - name: Report coverage
+        run: |
+          node -e "
+            const s = require('./src/data/songs.json');
+            const withUrl = s.filter(x => x.previewUrl).length;
+            console.log(\`previews: \${withUrl}/\${s.length}\`);
+            const missing = s.filter(x => !x.previewUrl).map(x => x.id);
+            if (missing.length) console.log('missing:', missing.join(', '));
+          "
+
+      - name: Commit the catalogue
+        run: |
+          if git diff --quiet src/data/songs.json; then
+            echo "No change to the catalogue."
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/songs.json
+          git commit -m "Update song previews from iTunes"
+          git push
