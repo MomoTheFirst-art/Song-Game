@@ -36,14 +36,18 @@ export function AudioCheck({ songs }: { songs: Song[] }) {
       add('AudioContext created', ctx.state, true)
       if (ctx.state === 'suspended') {
         await ctx.resume()
-        add('After resume()', ctx.state, ctx.state === 'running')
+        // Read through a fresh binding: TypeScript still has the state narrowed
+        // to 'suspended' from the guard and cannot see that resume() changed it.
+        const resumed: string = ctx.state
+        add('After resume()', resumed, resumed === 'running')
       }
       const primer = ctx.createBufferSource()
       primer.buffer = ctx.createBuffer(1, 1, ctx.sampleRate)
       primer.connect(ctx.destination)
       primer.start(0)
       add('Silent primer started', 'ok', true)
-      add('Context state now', ctx.state, ctx.state === 'running')
+      const state: string = ctx.state
+      add('Context state now', state, state === 'running')
     } catch (e) {
       add('AudioContext', String(e), false)
     }
