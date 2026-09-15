@@ -4,6 +4,16 @@ name: Fetch song previews
 # iTunes Search API and commits the result. Runs on a GitHub runner because
 # the lookup needs open outbound network.
 on:
+  # workflow_dispatch only registers once this file reaches the default branch,
+  # so a push trigger is what actually runs it on a feature branch. A push made
+  # by GITHUB_TOKEN does not start another run, so committing the catalogue back
+  # cannot loop; the path filter keeps it off unrelated commits regardless.
+  push:
+    branches:
+      - 'claude/**'
+    paths:
+      - '.github/workflows/previews.yml'
+      - 'scripts/fetch-previews.mjs'
   workflow_dispatch:
     inputs:
       country:
