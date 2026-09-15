@@ -1,5 +1,8 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Admin } from './components/Admin'
+import { Home } from './components/Home'
+import { PartyGame } from './PartyGame'
+import { maxPlayersFor } from './game/party'
 import catalogueData from './data/songs.json'
 import { ClipPlayer } from './components/ClipPlayer'
 import { DayComplete } from './components/DayComplete'
@@ -22,12 +25,18 @@ const allSongs = catalogueData as Song[]
  * tier has an approved song, approvals alone decide.
  */
 const catalogue = playableSongs(allSongs, loadDecisions())
+/**
+ * A party deals only approved clips — a wrong one costs a player their turn,
+ * not just a round. Guessing still searches the whole playable catalogue so
+ * the answer does not stand out among the suggestions.
+ */
+const partyPool = catalogue.filter((s) => s.approved === true)
 
 function newRound(song: Song): RoundState {
   return { song, stage: 0, attempts: [], status: 'playing' }
 }
 
-function Game() {
+function Game({ onHome }: { onHome: () => void }) {
   const dateKey = useMemo(() => todayKey(), [])
   const [mode, setMode] = useState<Mode>('daily')
   const [lineup, setLineup] = useState<Song[]>(() => dailySongs(catalogue, dateKey))
@@ -163,7 +172,10 @@ function Game() {
         onMode={startRun}
       />
 
-      <p className="difficulty">المستوى: {DIFFICULTY_LABEL[round.song.difficulty]}</p>
+      <p className="difficulty">
+        المستوى: {DIFFICULTY_LABEL[round.song.difficulty]}
+        <button className="linkish" onClick={onHome}>القائمة</button>
+      </p>
 
       <StageBar stage={round.stage} attempts={round.attempts} />
 
@@ -212,10 +224,14 @@ function NoPreviews() {
   )
 }
 
+type Screen = 'home' | 'solo' | 'party'
+
 export default function App() {
-  // #review opens the verification list: every clip, what it matched, and a
-  // way to flag the wrong ones. Kept off the main UI, reachable by link.
+  // #admin opens the clip review console: every clip, what it matched, and a
+  // verdict. Kept off the player-facing UI, reachable by link.
   const [hash, setHash] = useState(() => window.location.hash)
+  const [screen, setScreen] = useState<Screen>('home')
+
   useEffect(() => {
     const onHash = () => setHash(window.location.hash)
     window.addEventListener('hashchange', onHash)
@@ -223,5 +239,25 @@ export default function App() {
   }, [])
 
   if (hash === '#admin' || hash === '#review') return <Admin songs={allSongs} />
-  return catalogue.length > 0 ? <Game /> : <NoPreviews />
+  if (catalogue.length === 0) return <NoPreviews />
+
+  if (screen === 'solo') return <Game onHome={() => setScreen('home')} />
+  if (screen === 'party') {
+    return (
+      <PartyGame
+        pool={partyPool}
+        catalogue={catalogue}
+        onHome={() => setScreen('home')}
+      />
+    )
+  }
+
+  return (
+    <Home
+      playableCount={catalogue.length}
+      partyCapacity={maxPlayersFor(partyPool)}
+      onSolo={() => setScreen('solo')}
+      onParty={() => setScreen('party')}
+    />
+  )
 }
