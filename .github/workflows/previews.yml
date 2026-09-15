@@ -48,9 +48,33 @@ jobs:
 
       - name: Look up previews
         run: |
-          node scripts/fetch-previews.mjs \
-            --country "${{ inputs.country || 'SA' }}" \
-            ${{ inputs.force && '--force' || '' }}
+          # Without --force a pass only fills gaps, so walking several store
+          # fronts widens coverage: a song missing from one country's catalogue
+          # is often present in another. --force applies to the first pass only,
+          # otherwise each later pass would overwrite the one before it.
+          FORCE="${{ inputs.force && '--force' || '' }}"
+          for front in ${{ inputs.country || 'SA EG AE LB US' }}; do
+            echo "── store front: $front"
+            node scripts/fetch-previews.mjs --country "$front" $FORCE
+            FORCE=""
+          done
+
+      - name: Check every preview URL actually resolves
+        run: |
+          # A matched URL is not a working one — previews expire, and a dead
+          # link is indistinguishable from a broken game.
+          node -e "
+            const songs = require('./src/data/songs.json').filter(s => s.previewUrl);
+            let bad = 0;
+            (async () => {
+              for (const s of songs) {
+                const res = await fetch(s.previewUrl, { method: 'HEAD' }).catch(e => ({ ok: false, status: e.message }));
+                if (!res.ok) { bad++; console.log('DEAD  ' + s.id + '  ' + res.status); }
+              }
+              console.log(\`\${songs.length - bad}/\${songs.length} preview URLs reachable\`);
+              if (bad) process.exit(1);
+            })();
+          "
 
       - name: Verify the catalogue still builds
         run: npm test && npm run build
