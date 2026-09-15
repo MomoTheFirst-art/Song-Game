@@ -69,7 +69,27 @@ function ClipRow({
   )
 }
 
-type Filter = 'all' | 'new' | 'approved' | 'rejected' | 'weak'
+/** A song with no clip yet: visible, but there is nothing to hear or judge. */
+function PendingRow({ song }: { song: Song }) {
+  return (
+    <li className="adm-row adm-pending">
+      <span className="adm-play adm-waiting" aria-hidden="true">⋯</span>
+      <div className="adm-meta">
+        <div className="adm-expected">
+          <strong>{song.title}</strong>
+          <span className="adm-dim">{song.artist}</span>
+          <span className="adm-tier">{DIFFICULTY_LABEL[song.difficulty]}</span>
+        </div>
+        <div className="adm-matched">
+          <span className="adm-dim">بانتظار جلب المقطع</span>
+        </div>
+      </div>
+      <span className="adm-dim adm-judge">—</span>
+    </li>
+  )
+}
+
+type Filter = 'all' | 'new' | 'approved' | 'rejected' | 'weak' | 'awaiting'
 
 export function Admin({ songs }: { songs: Song[] }) {
   const [decisions, setDecisions] = useState<Decisions>(loadDecisions)
@@ -79,6 +99,9 @@ export function Admin({ songs }: { songs: Song[] }) {
   useEffect(() => saveDecisions(decisions), [decisions])
 
   const withClips = useMemo(() => songs.filter((s) => s.previewUrl), [songs])
+  // Songs still waiting on a lookup have nothing to play, but hiding them made
+  // the page look like they had never been added at all.
+  const awaiting = useMemo(() => songs.filter((s) => !s.previewUrl), [songs])
   const counts = useMemo(() => {
     let approved = 0, rejected = 0, fresh = 0
     for (const s of withClips) {
@@ -87,10 +110,11 @@ export function Admin({ songs }: { songs: Song[] }) {
       else if (v === 'rejected') rejected++
       else fresh++
     }
-    return { approved, rejected, fresh }
-  }, [withClips, decisions])
+    return { approved, rejected, fresh, awaiting: awaiting.length }
+  }, [withClips, decisions, awaiting])
 
   const shown = useMemo(() => {
+    if (filter === 'awaiting') return awaiting
     return withClips.filter((s) => {
       const v = verdictFor(s, decisions)
       if (filter === 'all') return true
@@ -98,7 +122,7 @@ export function Admin({ songs }: { songs: Song[] }) {
       if (filter === 'weak') return !s.matchedAs || s.matchedAs.score < 0.8
       return v === filter
     })
-  }, [withClips, decisions, filter])
+  }, [withClips, awaiting, decisions, filter])
 
   const governing = approvalsGovern(songs, decisions)
 
@@ -164,6 +188,7 @@ export function Admin({ songs }: { songs: Song[] }) {
           ['weak', 'مشكوك فيه'],
           ['approved', `معتمد (${counts.approved})`],
           ['rejected', `مرفوض (${counts.rejected})`],
+          ['awaiting', `بانتظار الجلب (${counts.awaiting})`],
           ['all', `الكل (${withClips.length})`],
         ] as [Filter, string][]).map(([key, label]) => (
           <button
@@ -177,14 +202,18 @@ export function Admin({ songs }: { songs: Song[] }) {
       </div>
 
       <ul className="adm-list">
-        {shown.map((s) => (
-          <ClipRow
-            key={s.id}
-            song={s}
-            verdict={verdictFor(s, decisions)}
-            onVerdict={(v) => setVerdict(s.id, v)}
-          />
-        ))}
+        {shown.map((s) =>
+          s.previewUrl ? (
+            <ClipRow
+              key={s.id}
+              song={s}
+              verdict={verdictFor(s, decisions)}
+              onVerdict={(v) => setVerdict(s.id, v)}
+            />
+          ) : (
+            <PendingRow key={s.id} song={s} />
+          ),
+        )}
         {shown.length === 0 && <li className="adm-empty">لا شيء هنا.</li>}
       </ul>
 

@@ -282,3 +282,6 @@ body {
   .adm-row { grid-template-columns: 38px 1fr auto; }
   .adm-play, .adm-yes, .adm-no { width: 36px; }
 }
+
+.adm-pending { opacity: .62; border-style: dashed; }
+.adm-waiting { display: grid; place-items: center; color: var(--muted); font-size: 1.1rem; }
