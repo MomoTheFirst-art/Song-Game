@@ -233,7 +233,9 @@
     "artistLatin": "Mohamed Mounir",
     "year": 1988,
     "difficulty": "expert",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview124/v4/6a/5f/8a/6a5f8a62-c188-bf77-2963-68e63e22c6d9/mzaf_15030969632338665140.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/ee/86/7f/ee867fb4-62de-94bf-703b-7d891006fd43/6221216219237.png/100x100bb.jpg"
   },
   {
     "id": "raq-el-habib",
