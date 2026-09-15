@@ -46,7 +46,15 @@
     "year": 1996,
     "difficulty": "easy",
     "startAt": 0,
-    "searchAs": "عمرو دياب نور العين"
+    "searchAs": "عمرو دياب نور العين",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/ef/f8/1e/eff81e97-c9b4-524d-122f-177060409e6f/mzaf_5567377134743177061.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/ee/b0/df/eeb0df18-b02d-b836-e153-7f4aa9811f62/dj.oftobggl.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Leila Men Omry",
+      "artist": "Amr Diab",
+      "album": "Noor Al Ain",
+      "score": 0.56
+    }
   },
   {
     "id": "zay-el-hawa",
@@ -57,7 +65,15 @@
     "year": 1970,
     "difficulty": "easy",
     "startAt": 0,
-    "searchAs": "عبد الحليم حافظ زي الهوى"
+    "searchAs": "عبد الحليم حافظ زي الهوى",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/bf/1b/89/bf1b898a-15b4-1154-cf07-fc22f53f2d19/mzaf_4152731954714281776.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/8b/04/60/8b04606f-2993-6202-9df4-dc3ee305a065/dj.ojgvcnul.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "El Hawa Hawaya",
+      "artist": "Abdel Halim Hafez",
+      "album": "Aghany Felm Aby Fawk El Shagra",
+      "score": 0.84
+    }
   },
   {
     "id": "li-beirut",
@@ -68,7 +84,15 @@
     "year": 1984,
     "difficulty": "easy",
     "startAt": 0,
-    "searchAs": "فيروز لبيروت"
+    "searchAs": "فيروز لبيروت",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/54/af/00/54af00c0-875f-a501-6780-1508a1874680/mzaf_14620649442740001080.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/20/1b/a7/201ba7cf-7c88-bdbf-a4bf-421910e8bb3f/13UAAIM00493.rgb.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Le Beirut",
+      "artist": "Fairouz",
+      "album": "Legend - The Best of Fairuz",
+      "score": 0.72
+    }
   },
   {
     "id": "alf-leila",
@@ -79,7 +103,15 @@
     "year": 1969,
     "difficulty": "medium",
     "startAt": 0,
-    "searchAs": "أم كلثوم ألف ليلة وليلة"
+    "searchAs": "أم كلثوم ألف ليلة وليلة",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/85/96/34/85963418-073a-8b32-5a60-e1912073efab/mzaf_13919190778959841202.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/9f/4a/3f/9f4a3f02-eeaf-0135-3e38-864a18107091/859715828009.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "الف ليله وليله",
+      "artist": "Om Kolthoum",
+      "album": "الف ليلة وليلة",
+      "score": 0.81
+    }
   },
   {
     "id": "kifak-inta",
@@ -188,7 +220,15 @@
     "year": 2013,
     "difficulty": "hard",
     "startAt": 0,
-    "searchAs": "عمرو دياب الليلة"
+    "searchAs": "عمرو دياب الليلة",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/41/db/f4/41dbf417-085d-2f92-2ce2-519a725981af/mzaf_3344482243598082520.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music69/v4/31/4d/d4/314dd42d-3246-e7a3-107a-3d521fa9a7e2/dj.iiicnpub.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "El Alem Allah",
+      "artist": "Amr Diab",
+      "album": "Tamally Maak",
+      "score": 0.72
+    }
   },
   {
     "id": "batwannes-beek",
@@ -231,7 +271,15 @@
     "year": 1972,
     "difficulty": "expert",
     "startAt": 0,
-    "searchAs": "فيروز يا طير"
+    "searchAs": "فيروز يا طير",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/f6/68/50/f668504e-3ba9-3852-f4d4-6d2488846e92/mzaf_1868040411376994947.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/6c/b0/5b/6cb05b57-0b74-ffca-fee2-2c5696d323ad/cover.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Ya Tair",
+      "artist": "Fairouz",
+      "album": "Fairouz World, Pt. 2",
+      "score": 0.64
+    }
   },
   {
     "id": "el-hob-kollo",
@@ -320,7 +368,15 @@
     "year": 1975,
     "difficulty": "impossible",
     "startAt": 0,
-    "searchAs": "فيروز المحبة"
+    "searchAs": "فيروز المحبة",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/38/93/21/38932126-f289-593e-e0a8-14c0fc2adb35/mzaf_17105435631936078840.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/2c/fe/ee/2cfeeeb1-a525-879a-961d-e4c6a6f711c2/cover.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Ghaly El Dahab",
+      "artist": "Fairouz",
+      "album": "Shayef El Bahr (El Oudal Menssiye)",
+      "score": 0.56
+    }
   },
   {
     "id": "ahwak",
@@ -502,7 +558,15 @@
     "year": 1973,
     "difficulty": "medium",
     "startAt": 0,
-    "searchAs": "فيروز سألوني الناس"
+    "searchAs": "فيروز سألوني الناس",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/3d/ad/4d/3dad4d8c-d0ff-74d7-8c20-2b8b982e1679/mzaf_2427215002338418878.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/90/3d/f3/903df3b0-94cd-dc40-35f3-afa567f8cb74/cover.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Saalouny El Nas",
+      "artist": "Fairouz",
+      "album": "Habbaitak Be El Saif",
+      "score": 0.8
+    }
   },
   {
     "id": "kalimat",
@@ -513,7 +577,15 @@
     "year": 1991,
     "difficulty": "medium",
     "startAt": 0,
-    "searchAs": "ماجدة الرومي كلمات"
+    "searchAs": "ماجدة الرومي كلمات",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/b7/ed/57/b7ed57f2-ee32-3f84-8bef-a5ffaf7ce9bd/mzaf_7734530180454047440.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/4f/91/38/4f913866-0c1d-99eb-7cf0-4a6691c8558f/634654651501_cover.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Kalimat",
+      "artist": "Magida El Roumi",
+      "album": "Kalimat",
+      "score": 0.94
+    }
   },
   {
     "id": "zidini-ishqan",
@@ -524,7 +596,15 @@
     "year": 1997,
     "difficulty": "medium",
     "startAt": 0,
-    "searchAs": "كاظم الساهر زيديني عشقا"
+    "searchAs": "كاظم الساهر زيديني عشقا",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/62/16/f8/6216f8e6-3235-5dad-b107-74037e19c88b/mzaf_3227545266977937114.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music6/v4/82/03/fd/8203fd9e-9477-abdd-b2c6-984a3e6e9b74/kadim_-_fe_madraset_al_hob.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Zeidini Ishqan",
+      "artist": "Kadim Al Sahir",
+      "album": "Fi Madrasat Al Hob",
+      "score": 0.76
+    }
   },
   {
     "id": "qouli-ohebbok",
@@ -580,7 +660,15 @@
     "year": 1980,
     "difficulty": "medium",
     "startAt": 0,
-    "searchAs": "وردة الجزائرية حرمت أحبك"
+    "searchAs": "وردة الجزائرية حرمت أحبك",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/81/88/49/818849eb-a509-ac7c-fe13-760ef82aebad/mzaf_7794942597640839519.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/0c/5a/22/0c5a22a3-4fd5-daa7-d265-e3ede235011a/dj.jkrsulzo.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Haramt Ahebak",
+      "artist": "Warda",
+      "album": "Haramt Ahebak",
+      "score": 0.92
+    }
   },
   {
     "id": "nassam-alayna",
@@ -636,7 +724,15 @@
     "year": 1971,
     "difficulty": "hard",
     "startAt": 0,
-    "searchAs": "عبد الحليم حافظ موعود"
+    "searchAs": "عبد الحليم حافظ موعود",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/89/0c/6e/890c6eed-72cc-07f4-7fe0-8c1485dff6c7/mzaf_7957480171291766880.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music19/v4/0c/88/20/0c88207d-899e-121a-7f0b-cb0836a5c45c/mzm.dzzfaixf.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Mawood 1 Live",
+      "artist": "Abdel Halim Hafez",
+      "album": "Mawood",
+      "score": 0.9
+    }
   },
   {
     "id": "amal-hayati",
@@ -669,7 +765,15 @@
     "year": 1967,
     "difficulty": "hard",
     "startAt": 0,
-    "searchAs": "فيروز زهرة المدائن"
+    "searchAs": "فيروز زهرة المدائن",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/ca/c3/14/cac3148b-4230-b5b9-11dd-aaef4138f274/mzaf_6348971931793145126.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/6d/57/f3/6d57f375-3ab4-5875-0531-d9507513c6d9/cover.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Zahret El Madaen",
+      "artist": "Fairouz",
+      "album": "Habbaitak Be El Saif",
+      "score": 0.7
+    }
   },
   {
     "id": "aatini-al-nay",
@@ -680,7 +784,15 @@
     "year": 1970,
     "difficulty": "hard",
     "startAt": 0,
-    "searchAs": "فيروز أعطني الناي وغن"
+    "searchAs": "فيروز أعطني الناي وغن",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/0d/81/aa/0d81aa70-9ae3-1fc8-7414-ae71085c1bd1/mzaf_8478027096692822755.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/a8/63/0d/a8630dbf-f93b-2802-331e-cfc02384feae/cover.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Aateny El Nay",
+      "artist": "Fairouz",
+      "album": "Fairouz World, Pt. 1",
+      "score": 0.58
+    }
   },
   {
     "id": "ya-mal-el-sham",
@@ -709,7 +821,15 @@
     "artistLatin": "Mohamed Abdel Wahab",
     "year": 1941,
     "difficulty": "hard",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/31/7b/2a/317b2aa1-cd2a-c0c0-6129-aa9996f8e74a/mzaf_3590704374567936930.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/0c/55/1c/0c551c45-3e03-f658-bc84-2a28740863ac/191773560218.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Al Jandool",
+      "artist": "Mohammed Abdul Wahab",
+      "album": "Wahabyat, Vol. 1",
+      "score": 0.64
+    }
   },
   {
     "id": "aghadan-alqak",
@@ -720,7 +840,15 @@
     "year": 1971,
     "difficulty": "expert",
     "startAt": 0,
-    "searchAs": "أم كلثوم أغدا ألقاك"
+    "searchAs": "أم كلثوم أغدا ألقاك",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/b2/3b/32/b23b32e4-1d3c-8993-e09e-756d8e1999a1/mzaf_4410738142233362543.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music/v4/51/fe/5d/51fe5d57-334a-c154-7473-f1e1330ebe88/887396075726.tif/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Fi Nour Mouhayyak Al Hana",
+      "artist": "Umm Kulthum",
+      "album": "Classics from Egypt",
+      "score": 0.57
+    }
   },
   {
     "id": "hazihi-laylati",
@@ -813,7 +941,15 @@
     "year": 1965,
     "difficulty": "expert",
     "startAt": 0,
-    "searchAs": "فريد الأطرش أول همسة"
+    "searchAs": "فريد الأطرش أول همسة",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/84/e3/29/84e3290f-2c3e-0ffa-0422-f8e0f1efd8c7/mzaf_7447593148574347271.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music62/v4/f1/93/e4/f193e4a0-ba2d-0f5a-71c1-9e033feec636/mzm.ajdazflh.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Awel Hamsa (Live)",
+      "artist": "Farid El Atrache",
+      "album": "Awel Hamsa (Live)",
+      "score": 0.78
+    }
   },
   {
     "id": "ya-habibi-taala",
@@ -843,7 +979,15 @@
     "year": 1920,
     "difficulty": "impossible",
     "startAt": 0,
-    "searchAs": "سيد درويش زوروني كل سنة مرة"
+    "searchAs": "سيد درويش زوروني كل سنة مرة",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/e3/ba/9c/e3ba9c71-db3c-485c-66e2-baae71c68a7e/mzaf_3958887532492085312.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/de/4d/12/de4d120d-e9f7-8ab7-f21f-423a1485faf4/mzi.nrpdbmmo.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "زوروني كل سنه مره",
+      "artist": "سيد درويش",
+      "album": "موشحات عربيه",
+      "score": 1
+    }
   },
   {
     "id": "aho-da-elli-sar",
@@ -873,7 +1017,15 @@
     "year": 1960,
     "difficulty": "impossible",
     "startAt": 0,
-    "searchAs": "ناظم الغزالي طالعة من بيت أبوها"
+    "searchAs": "ناظم الغزالي طالعة من بيت أبوها",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/7a/88/0c/7a880c4b-a556-1add-0300-7843f8d8a960/mzaf_17609170984120810852.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music71/v4/5e/07/dd/5e07dd95-0c47-a5ef-a51a-e6bd2b7f9eff/641870.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Taalea Mn Bait Abooha",
+      "artist": "Nazem Al Ghazali",
+      "album": "Haflet Al Kuwait",
+      "score": 0.72
+    }
   },
   {
     "id": "ghabet-shams-el-haq",
@@ -884,7 +1036,15 @@
     "year": 1985,
     "difficulty": "impossible",
     "startAt": 0,
-    "searchAs": "جوليا بطرس غابت شمس الحق"
+    "searchAs": "جوليا بطرس غابت شمس الحق",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/1f/b6/cb/1fb6cba2-d51b-e2a3-f67e-66819a907236/mzaf_13926780945596890672.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music4/v4/0b/51/0e/0b510e80-265b-aa61-65e9-205f77b4d631/00724352559152.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Ghabet Shams El Haq",
+      "artist": "Julia Botros",
+      "album": "Ghabet Shams El Hak",
+      "score": 0.95
+    }
   },
   {
     "id": "ana-albi-dalili",
@@ -895,7 +1055,15 @@
     "year": 1947,
     "difficulty": "impossible",
     "startAt": 0,
-    "searchAs": "ليلى مراد أنا قلبي دليلي"
+    "searchAs": "ليلى مراد أنا قلبي دليلي",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/9d/a5/00/9da50029-1c89-0f15-0f62-509aee5f8784/mzaf_5037782277892735576.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music30/v4/fa/00/1d/fa001d14-b17b-0b26-3f5e-2a48ba2ae44f/9681001012042_resize.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Ana Alby Dalely",
+      "artist": "Laila Mourad",
+      "album": "Agmal Aghany Layla Mourad",
+      "score": 0.72
+    }
   },
   {
     "id": "layali-el-ons",
@@ -906,7 +1074,15 @@
     "year": 1944,
     "difficulty": "impossible",
     "startAt": 0,
-    "searchAs": "أسمهان ليالي الأنس في فيينا"
+    "searchAs": "أسمهان ليالي الأنس في فيينا",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/f0/ca/03/f0ca03db-83fb-ce53-8028-124f79fc9072/mzaf_8733918342120035643.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/ae/89/e8/ae89e86b-75bb-2125-00c4-0ffa8879b1b9/3700551751419_cover.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Layali el unse fi vienna",
+      "artist": "Asmahan",
+      "album": "Double Best: Asmahan",
+      "score": 0.87
+    }
   },
   {
     "id": "salou-qalbi",
@@ -946,7 +1122,15 @@
     "artistLatin": "Amr Diab",
     "year": 2009,
     "difficulty": "easy",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/39/1e/25/391e2524-43ef-e8ed-45a3-ebc54497e2c5/mzaf_1722702796965412232.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music49/v4/cc/05/b5/cc05b59e-9ad9-d031-3892-759b3c4ba85d/190374633796.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "We Maloh",
+      "artist": "Amr Diab",
+      "album": "Ahla Ma Ghanna Amr Diab",
+      "score": 0.7
+    }
   },
   {
     "id": "youm-talat",
@@ -956,7 +1140,15 @@
     "artistLatin": "Amr Diab",
     "year": 2017,
     "difficulty": "easy",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/b6/82/d9/b682d9ae-f060-9f0f-ac73-c213c1b2a27c/mzaf_12621850654070234217.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/69/2f/b0/692fb07e-6ab9-467a-01f4-f12ec0a39a41/194660835758.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Youm Talat",
+      "artist": "Amr Diab",
+      "album": "Sahran",
+      "score": 1
+    }
   },
   {
     "id": "lamset-eid",
@@ -966,7 +1158,15 @@
     "artistLatin": "Nancy Ajram",
     "year": 2018,
     "difficulty": "easy",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/9f/2a/ce/9f2ace3b-d939-f2a8-fb3f-5daa0c6625dc/mzaf_137025407488005031.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/ea/cc/33/eacc3382-cadc-5415-9920-8d972f256cf6/cover.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Lamset Eid",
+      "artist": "Nancy Ajram",
+      "album": "Betfakar Fi Eih",
+      "score": 1
+    }
   },
   {
     "id": "enta-eh",
@@ -976,7 +1176,15 @@
     "artistLatin": "Nancy Ajram",
     "year": 2004,
     "difficulty": "easy",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/51/7b/5a/517b5a4e-74d4-9d0e-666b-86377c14f984/mzaf_1600088455891426148.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/3e/b3/18/3eb318aa-42d3-ecb1-93e2-8353d9c80747/00724357665056.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Inta Eyh",
+      "artist": "Nancy Ajram",
+      "album": "Ah W Noss",
+      "score": 0.7
+    }
   },
   {
     "id": "aa-bali-habibi",
@@ -986,7 +1194,15 @@
     "artistLatin": "Elissa",
     "year": 2005,
     "difficulty": "easy",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/c8/08/c2/c808c2a0-e752-2e83-ff41-4793046e7558/mzaf_6497562102083937562.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/44/83/90/44839081-b6e6-e3e6-5ba7-26f4bc047969/6281130208397.png/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Aa Bali Habibi",
+      "artist": "Elissa",
+      "album": "Best of Elissa",
+      "score": 1
+    }
   },
   {
     "id": "bastanak",
@@ -996,7 +1212,15 @@
     "artistLatin": "Elissa",
     "year": 2006,
     "difficulty": "easy",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/ac/de/d4/acded44a-5cf6-12f9-56c4-c295d2cbe7a2/mzaf_6621308592626815576.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music/v4/fe/d8/db/fed8db98-dfb4-88da-238d-adda685e9dd1/elisa_bastnak.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Bastanak",
+      "artist": "Elissa",
+      "album": "Bastanak",
+      "score": 1
+    }
   },
   {
     "id": "eish-beshoak",
@@ -1006,7 +1230,15 @@
     "artistLatin": "Tamer Hosny",
     "year": 2013,
     "difficulty": "easy",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/e2/0c/68/e20c6800-79fe-8696-3a1d-87f918ed8a3e/mzaf_11252004127852067757.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/91/ba/6d/91ba6de9-d79a-daca-e5e3-d5d13e1bb000/3615933755032.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Eish Besho'ak",
+      "artist": "Tamer Hosny",
+      "album": "Eish Besho'ak",
+      "score": 1
+    }
   },
   {
     "id": "kan-andak-ha",
@@ -1026,7 +1258,15 @@
     "artistLatin": "Sherine",
     "year": 2014,
     "difficulty": "easy",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/08/13/32/08133239-98a1-7578-e365-8b489219c0db/mzaf_13654587899466436776.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/a2/11/43/a211436e-93f9-357a-925f-9a7db832f6d2/Hekaayat_Hayaat_Series.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Mashaier",
+      "artist": "Sherine",
+      "album": "Mashaier",
+      "score": 0.85
+    }
   },
   {
     "id": "nassini-el-donia",
@@ -1036,7 +1276,15 @@
     "artistLatin": "Ragheb Alama",
     "year": 2004,
     "difficulty": "easy",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/80/19/59/801959be-3165-a84e-b370-ddc828103c61/mzaf_6883360696259654270.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music6/v4/d5/4a/af/d54aaf29-bc63-1e00-8390-30b49383f713/dj.zqrtpykp.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Nasini El Donya",
+      "artist": "Ragheb Alama",
+      "album": "El Hob El Kebir",
+      "score": 0.89
+    }
   },
   {
     "id": "lm3allem",
@@ -1046,7 +1294,15 @@
     "artistLatin": "Saad Lamjarred",
     "year": 2015,
     "difficulty": "easy",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/10/8b/58/108b58ff-13d3-9c63-f656-a4edf255631d/mzaf_8631182694702136423.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music1/v4/f2/60/8c/f2608cc5-2a01-3dd7-a3e5-58364d6971c9/444676.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Lamaallem",
+      "artist": "Saad Lamjarred",
+      "album": "Lamaallem - Single",
+      "score": 0.7
+    }
   },
   {
     "id": "bahwak",
@@ -1056,7 +1312,15 @@
     "artistLatin": "Hussain Al Jassmi",
     "year": 2016,
     "difficulty": "easy",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/38/47/9f/38479fd6-768e-ea62-910f-5ce607d36608/mzaf_10814301093549494294.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/7f/30/cc/7f30cc56-23a8-470e-2ee0-9612bafdb7af/773902.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Ahebak",
+      "artist": "Hussain Al Jassmi",
+      "album": "Ahebak - Single",
+      "score": 0.74
+    }
   },
   {
     "id": "bahebbo",
@@ -1076,7 +1340,15 @@
     "artistLatin": "Kazem Al Saher",
     "year": 1999,
     "difficulty": "medium",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/1e/81/c8/1e81c8f4-b79e-1516-28a0-0cd21e2c4511/mzaf_4140213411685013881.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/ae/cb/70/aecb70c9-2768-bdf5-9037-a9914f8ab2eb/6281130201190.png/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Ana Wa Laila",
+      "artist": "Kazem Al Saher",
+      "album": "Ana Wa Laila",
+      "score": 1
+    }
   },
   {
     "id": "al-hob-al-mustaheel",
@@ -1086,7 +1358,15 @@
     "artistLatin": "Kazem Al Saher",
     "year": 1999,
     "difficulty": "medium",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/f5/4b/ee/f54bee17-2cff-3afe-8ebe-161f4e0f8fa6/mzaf_8386988653464381791.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/b0/b9/0a/b0b90acf-61d2-4b82-cfad-12eae78bd07f/6281130201138.png/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Al Hob Al Mustaheel",
+      "artist": "Kazem Al Saher",
+      "album": "Al Hob Al Mustaheel",
+      "score": 1
+    }
   },
   {
     "id": "ya-ghayeb",
@@ -1096,7 +1376,15 @@
     "artistLatin": "Fadel Shaker",
     "year": 2005,
     "difficulty": "medium",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/2d/f7/17/2df71793-3f64-0bdc-20a2-fde2263e1cde/mzaf_13979352447924661830.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/ca/11/7f/ca117f86-1913-da72-f41e-1f6a704153a3/1092275.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Ya Ghayeb",
+      "artist": "Fadel Chaker",
+      "album": "Ya Ghayeb - Single",
+      "score": 0.93
+    }
   },
   {
     "id": "shou-hal-hala",
@@ -1106,7 +1394,15 @@
     "artistLatin": "Najwa Karam",
     "year": 2000,
     "difficulty": "medium",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/a0/23/6f/a0236f89-ebb0-5661-b945-fed87205a40a/mzaf_11347852102065889190.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/d7/2b/41/d72b4166-a06a-ec6f-6c97-364242607d57/6281130200285.png/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Chou Hal Hala",
+      "artist": "Najwa Karam",
+      "album": "Kibirel Hob",
+      "score": 0.92
+    }
   },
   {
     "id": "fi-hagat",
@@ -1116,7 +1412,15 @@
     "artistLatin": "Nancy Ajram",
     "year": 2014,
     "difficulty": "medium",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/c3/35/30/c3353016-0fbb-add4-5446-a64190d75676/mzaf_10387346202012822166.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/dd/7a/7b/dd7a7bc6-5cf3-a524-b894-feee4b40a04b/cover.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Fi Hagat",
+      "artist": "Nancy Ajram",
+      "album": "Nancy 7",
+      "score": 1
+    }
   },
   {
     "id": "taa-la-andi",
@@ -1146,7 +1450,15 @@
     "artistLatin": "Mohamed Mounir",
     "year": 1990,
     "difficulty": "hard",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/b4/c3/79/b4c37909-c608-c60a-7399-0e5d0b25746b/mzaf_12567491646523303317.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/14/a9/f2/14a9f256-55a3-d093-3792-3a4731a3c14b/1103037.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Bab Elgamal",
+      "artist": "Mohamed Mounir",
+      "album": "Bab Elgamal - EP",
+      "score": 0.69
+    }
   },
   {
     "id": "shababeek",
@@ -1156,7 +1468,15 @@
     "artistLatin": "Mohamed Mounir",
     "year": 1981,
     "difficulty": "hard",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/cc/72/4e/cc724ea1-ed06-3d78-11a8-8db6a231a68d/mzaf_1404150752263796824.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/61/a7/50/61a7500b-3372-9fe8-4f55-2584e4a31602/cover.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Shababeek",
+      "artist": "Mohamed Mounir",
+      "album": "Shababeek",
+      "score": 1
+    }
   },
   {
     "id": "ya-msafer-wahdak",
@@ -1166,7 +1486,15 @@
     "artistLatin": "Mohamed Abdel Wahab",
     "year": 1940,
     "difficulty": "hard",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/28/c1/39/28c13956-64d2-7f1f-a983-f5c0874b5f77/mzaf_8657064119896089800.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music6/v4/78/5a/5f/785a5f41-73f1-4eb6-0a71-5bf78fda6847/dj.yewafjdi.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Ya Mesafer Wahdak",
+      "artist": "Mohamed Abdel Wahab",
+      "album": "Aghany Film Mamnoaa El Hob, Pt. 1",
+      "score": 0.93
+    }
   },
   {
     "id": "gana-el-hawa",
@@ -1176,7 +1504,15 @@
     "artistLatin": "Abdel Halim Hafez",
     "year": 1970,
     "difficulty": "hard",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/9c/f3/44/9cf34430-67af-4007-24f9-896a7edb5c1f/mzaf_17900004000771361608.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/8b/04/60/8b04606f-2993-6202-9df4-dc3ee305a065/dj.ojgvcnul.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Gana El Hawa",
+      "artist": "Abdel Halim Hafez",
+      "album": "Aghany Felm Aby Fawk El Shagra",
+      "score": 1
+    }
   },
   {
     "id": "ahdan-el-habayeb",
