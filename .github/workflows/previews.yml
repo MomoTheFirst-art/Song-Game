@@ -30,6 +30,12 @@ on:
   schedule:
     - cron: '0 4 * * 1'
 
+# Two runs both committing the catalogue would race and the loser's push would
+# be rejected, so they queue rather than overlap.
+concurrency:
+  group: previews
+  cancel-in-progress: false
+
 permissions:
   contents: write
 

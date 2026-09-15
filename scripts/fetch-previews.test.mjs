@@ -2,6 +2,7 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import {
   similarity, scoreCandidate, pickBest, buildQueries, searchUrl, lookup, parseArgs, run, DEFAULTS,
+  MIN_ARTIST_SIMILARITY,
 } from './fetch-previews.mjs'
 
 const song = {
@@ -36,8 +37,29 @@ test('similarity handles containment and partial overlap', () => {
 })
 
 test('a candidate without a previewUrl scores zero', () => {
-  assert.equal(scoreCandidate(song, noPreview), 0)
-  assert.ok(scoreCandidate(song, hit) > 0.9)
+  assert.equal(scoreCandidate(song, noPreview).score, 0)
+  assert.ok(scoreCandidate(song, hit).score > 0.9)
+})
+
+test('the right title by the wrong artist is refused', () => {
+  // The real failure seen in production: "ألف ليلة وليلة" names recordings by
+  // several artists, and a perfect title alone carries 0.65 — over the bar.
+  const impostor = {
+    trackName: 'Tamally Maak',          // exactly right
+    artistName: 'Some Other Performer', // completely wrong
+    previewUrl: 'https://x/y.m4a',
+  }
+  const parts = scoreCandidate(song, impostor)
+  assert.ok(parts.title > 0.9, 'title matches perfectly')
+  assert.ok(parts.artist < MIN_ARTIST_SIMILARITY, 'artist does not')
+  assert.ok(parts.score > 0.55, 'and the combined score would have passed the old bar')
+  assert.equal(pickBest(song, [impostor], 0.55).match, null, 'but the artist floor rejects it')
+})
+
+test('a weaker match by the real artist beats a perfect title by the wrong one', () => {
+  const impostor = { trackName: 'Tamally Maak', artistName: 'Nobody At All', previewUrl: 'https://x/1.m4a' }
+  const genuine = { trackName: 'Tamally Maak (Remastered)', artistName: 'Amr Diab', previewUrl: 'https://x/2.m4a' }
+  assert.equal(pickBest(song, [impostor, genuine], 0.55).match, genuine)
 })
 
 test('pickBest honours the threshold', () => {
@@ -226,4 +248,24 @@ test('a release date never touches the year at all', async () => {
     },
   )
   assert.equal(written[0].year, 2000)
+})
+
+
+test('the chosen Apple track is recorded on the song', async () => {
+  let written = null
+  await run(
+    { ...DEFAULTS, delay: 0 },
+    {
+      fetch: async () => ok([{ ...hit, collectionName: 'Greatest Hits' }]),
+      log: () => {},
+      readCatalogue: async () => [{ ...song }],
+      writeCatalogue: async (s) => { written = s },
+    },
+  )
+  const m = written[0].matchedAs
+  assert.ok(m, 'matchedAs must be written so a bad match is visible without listening')
+  assert.equal(m.track, 'Tamally Maak')
+  assert.equal(m.artist, 'Amr Diab')
+  assert.equal(m.album, 'Greatest Hits')
+  assert.ok(typeof m.score === 'number' && m.score > 0.9)
 })

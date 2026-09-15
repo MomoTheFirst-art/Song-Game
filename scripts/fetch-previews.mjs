@@ -57,11 +57,20 @@ export function similarity(a, b) {
 }
 
 /**
+ * Minimum artist resemblance for any match. Famous titles are re-recorded and
+ * re-used constantly — "ألف ليلة وليلة" alone names songs by several artists —
+ * and a perfect title carries 0.65 on its own, which clears the combined bar
+ * with a completely wrong performer. The artist has to be plausible too.
+ */
+export const MIN_ARTIST_SIMILARITY = 0.4
+
+/**
  * Title carries more weight than artist: compilations and features mangle the
- * artist field far more often than they mangle the track name.
+ * artist field far more often than they mangle the track name. Returns the
+ * parts as well as the total so the artist floor can be applied separately.
  */
 export function scoreCandidate(song, candidate) {
-  if (!candidate || !candidate.previewUrl) return 0
+  if (!candidate || !candidate.previewUrl) return { score: 0, title: 0, artist: 0 }
   const title = Math.max(
     similarity(song.title, candidate.trackName),
     similarity(song.titleLatin, candidate.trackName),
@@ -70,16 +79,21 @@ export function scoreCandidate(song, candidate) {
     similarity(song.artist, candidate.artistName),
     similarity(song.artistLatin, candidate.artistName),
   )
-  return 0.65 * title + 0.35 * artist
+  return { score: 0.65 * title + 0.35 * artist, title, artist }
 }
 
 export function pickBest(song, results, minScore = DEFAULTS.minScore) {
   const ranked = (results || [])
-    .map((c) => ({ candidate: c, score: scoreCandidate(song, c) }))
+    .map((c) => ({ candidate: c, ...scoreCandidate(song, c) }))
     .sort((a, b) => b.score - a.score)
-  const top = ranked[0]
-  if (!top || top.score < minScore) return { match: null, score: top ? top.score : 0, ranked }
-  return { match: top.candidate, score: top.score, ranked }
+
+  // A right title by the wrong artist is the failure this guards against, so
+  // the artist floor is checked per candidate rather than on the top one only:
+  // a weaker-scoring result by the actual performer beats a perfect title.
+  const eligible = ranked.filter((r) => r.score >= minScore && r.artist >= MIN_ARTIST_SIMILARITY)
+  const top = eligible[0]
+  if (!top) return { match: null, score: ranked[0] ? ranked[0].score : 0, ranked }
+  return { match: top.candidate, score: top.score, artistScore: top.artist, ranked }
 }
 
 /** Latin transliterations match Apple's catalogue more often; Arabic is the retry. */
@@ -218,6 +232,14 @@ export async function run(opts, deps = {}) {
       // track, so the clip window starts at the top of the preview.
       song.startAt = 0
       if (match.artworkUrl100) song.artwork = match.artworkUrl100
+      // Record what Apple actually returned. Without this a wrong match is
+      // invisible in the catalogue and can only be found by listening.
+      song.matchedAs = {
+        track: match.trackName,
+        artist: match.artistName,
+        ...(match.collectionName ? { album: match.collectionName } : {}),
+        score: Number(score.toFixed(2)),
+      }
       // Deliberately NOT taking match.releaseDate as the year. Apple reports
       // the date of the release the track sits on, which for this repertoire is
       // almost always a modern remaster or compilation — it returned 2019 for a
