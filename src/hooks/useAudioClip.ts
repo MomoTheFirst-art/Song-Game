@@ -18,8 +18,37 @@ const elementOnly = new Set<string>()
 
 /** Created lazily: browsers refuse an AudioContext before a user gesture. */
 function audioContext(): AudioContext {
-  if (!ctx) ctx = new AudioContext()
+  if (!ctx) ctx = new (window.AudioContext || (window as unknown as {
+    webkitAudioContext: typeof AudioContext
+  }).webkitAudioContext)()
   return ctx
+}
+
+/**
+ * Wake the audio hardware inside the user gesture that asked for it.
+ *
+ * iOS only lets an AudioContext leave the suspended state when it is created
+ * and resumed synchronously within a gesture handler. Awaiting the clip fetch
+ * first — as this hook used to — spends the gesture, and every later resume()
+ * is ignored, so nothing ever plays. Desktop and Android are far laxer, which
+ * is why this only showed up on iPhones.
+ *
+ * Must be called before the first await in any play path.
+ */
+function unlockAudio(): AudioContext {
+  const context = audioContext()
+  if (context.state === 'suspended') void context.resume()
+  try {
+    // Starting a silent one-sample buffer is what actually marks the context
+    // as running on iOS; resume() on its own is not always enough.
+    const primer = context.createBufferSource()
+    primer.buffer = context.createBuffer(1, 1, context.sampleRate)
+    primer.connect(context.destination)
+    primer.start(0)
+  } catch {
+    // Already running, or the context refused a second primer — harmless.
+  }
+  return context
 }
 
 /**
@@ -109,25 +138,34 @@ export function useAudioClip(url: string) {
         el.preload = 'auto'
         elRef.current = el
       }
-      const begin = () => {
-        el!.currentTime = startAt
-        el!.play().then(
-          () => {
-            setStatus('playing')
-            stopTimer.current = window.setTimeout(() => {
-              el!.pause()
-              setStatus('ready')
-            }, duration * 1000)
-          },
-          () => setStatus('error'),
-        )
+      const armStop = () => {
+        stopTimer.current = window.setTimeout(() => {
+          el!.pause()
+          setStatus('ready')
+        }, duration * 1000)
       }
-      if (el.readyState >= 1) begin()
-      else {
-        el.addEventListener('loadedmetadata', begin, { once: true })
-        el.addEventListener('error', () => setStatus('missing'), { once: true })
-        setStatus('loading')
+
+      // Seeking needs metadata, but iOS needs play() called in the gesture, so
+      // start playback now and seek as soon as the duration is known rather
+      // than waiting for metadata before playing at all.
+      const seekAndArm = () => {
+        try {
+          el!.currentTime = startAt
+        } catch {
+          // Not seekable yet; the clip simply starts from the top.
+        }
+        setStatus('playing')
+        armStop()
       }
+
+      el.play().then(
+        () => {
+          if (el!.readyState >= 1) seekAndArm()
+          else el!.addEventListener('loadedmetadata', seekAndArm, { once: true })
+        },
+        () => setStatus('error'),
+      )
+      el.addEventListener('error', () => setStatus('missing'), { once: true })
     },
     [url],
   )
@@ -136,6 +174,9 @@ export function useAudioClip(url: string) {
   const play = useCallback(
     async (startAt: number, duration: number) => {
       stop()
+
+      // Before any await: the gesture is still live here and nowhere later.
+      const context = unlockAudio()
 
       if (mode === 'element' || elementOnly.has(url)) {
         playViaElement(startAt, duration)
@@ -149,7 +190,6 @@ export function useAudioClip(url: string) {
         return
       }
 
-      const context = audioContext()
       if (context.state === 'suspended') await context.resume()
 
       // Never run past the end of the file, however the clip window was set.
