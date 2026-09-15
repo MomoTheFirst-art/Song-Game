@@ -200,7 +200,7 @@ test('--only narrows to one song', async () => {
   assert.ok(calls >= 1)
 })
 
-test('the year is taken from Apple, overriding seed metadata', async () => {
+test('the curated year survives: Apple reports reissue dates, not recording dates', async () => {
   let written = null
   await run(
     { ...DEFAULTS, delay: 0 },
@@ -211,10 +211,10 @@ test('the year is taken from Apple, overriding seed metadata', async () => {
       writeCatalogue: async (s) => { written = s },
     },
   )
-  assert.equal(written[0].year, 1999, 'a guessed year is replaced by the real one')
+  assert.equal(written[0].year, 1234, 'a reissue date must not overwrite the curated year')
 })
 
-test('a missing or malformed release date leaves the year alone', async () => {
+test('a release date never touches the year at all', async () => {
   let written = null
   await run(
     { ...DEFAULTS, delay: 0 },

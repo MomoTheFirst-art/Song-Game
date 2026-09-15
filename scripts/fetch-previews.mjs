@@ -218,10 +218,12 @@ export async function run(opts, deps = {}) {
       // track, so the clip window starts at the top of the preview.
       song.startAt = 0
       if (match.artworkUrl100) song.artwork = match.artworkUrl100
-      // Take the year from Apple rather than trusting the seed metadata: the
-      // release date on the matched track is authoritative, ours was a guess.
-      const year = Number(String(match.releaseDate || '').slice(0, 4))
-      if (Number.isFinite(year) && year > 1900) song.year = year
+      // Deliberately NOT taking match.releaseDate as the year. Apple reports
+      // the date of the release the track sits on, which for this repertoire is
+      // almost always a modern remaster or compilation — it returned 2019 for a
+      // Sayed Darwish recording and 2010 for a 1947 Laila Mourad film song. The
+      // curated year is an approximation, but it is an approximation of the
+      // right thing.
       const flag = score < 0.8 ? '  ← check this one' : ''
       log(`  ✓ ${song.titleLatin || song.title} → “${match.trackName}” / ${match.artistName} (${score.toFixed(2)})${flag}`)
     }
