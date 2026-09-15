@@ -105,4 +105,19 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add src/data/songs.json
           git commit -m "Update song previews from iTunes"
-          git push
+
+          # Any push to this branch while the lookup ran leaves the runner
+          # behind, and a plain push is then rejected — throwing away ten
+          # minutes of rate-limited API work. Rebase onto whatever landed and
+          # retry; only the catalogue file is touched, so there is nothing to
+          # conflict with.
+          for attempt in 1 2 3; do
+            if git pull --rebase origin "${{ github.ref_name }}" && git push; then
+              echo "Catalogue pushed on attempt $attempt."
+              exit 0
+            fi
+            echo "Push attempt $attempt failed; retrying."
+            sleep 5
+          done
+          echo "::error::Could not push the catalogue after 3 attempts."
+          exit 1
