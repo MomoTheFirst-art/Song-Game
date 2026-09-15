@@ -7,7 +7,9 @@
     "artistLatin": "Amr Diab",
     "year": 2000,
     "difficulty": "easy",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/5e/df/09/5edf0981-ce52-4740-f0b2-f6ad0760afcb/mzaf_17144740537777531434.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music69/v4/31/4d/d4/314dd42d-3246-e7a3-107a-3d521fa9a7e2/dj.iiicnpub.jpg/100x100bb.jpg"
   },
   {
     "id": "ah-w-noss",
@@ -17,7 +19,9 @@
     "artistLatin": "Nancy Ajram",
     "year": 2004,
     "difficulty": "easy",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/3a/81/1e/3a811ea5-5fd4-f215-073f-a32d08a6d3bb/mzaf_6839834683079102557.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/3e/b3/18/3eb318aa-42d3-ecb1-93e2-8353d9c80747/00724357665056.jpg/100x100bb.jpg"
   },
   {
     "id": "nour-el-ein",
@@ -27,7 +31,9 @@
     "artistLatin": "Amr Diab",
     "year": 1996,
     "difficulty": "easy",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/81/4e/91/814e91d9-3ec6-f3bb-924b-eda9491f2079/mzaf_5393892330414708258.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/8b/b6/2f/8bb62ff8-8c9e-badd-3b4a-f8035dec1076/198002029850.jpg/100x100bb.jpg"
   },
   {
     "id": "zay-el-hawa",
@@ -37,7 +43,9 @@
     "artistLatin": "Abdel Halim Hafez",
     "year": 1970,
     "difficulty": "easy",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/bf/1b/89/bf1b898a-15b4-1154-cf07-fc22f53f2d19/mzaf_4152731954714281776.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/8b/04/60/8b04606f-2993-6202-9df4-dc3ee305a065/dj.ojgvcnul.jpg/100x100bb.jpg"
   },
   {
     "id": "li-beirut",
@@ -47,7 +55,9 @@
     "artistLatin": "Fairuz",
     "year": 1984,
     "difficulty": "easy",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/d3/83/f5/d383f53e-85ad-bb22-a818-340dfdcde8f7/mzaf_8369845937474873771.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/b6/33/63/b633638d-56ab-8532-eac5-12cb134b79c3/1573.jpg/100x100bb.jpg"
   },
   {
     "id": "alf-leila",
@@ -57,7 +67,9 @@
     "artistLatin": "Umm Kulthum",
     "year": 1969,
     "difficulty": "medium",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/14/bc/28/14bc28dd-7700-a82e-ffe6-566c210a821e/mzaf_10443610609391577249.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/f1/7e/31/f17e31b4-fd6e-92ee-977f-b3a3f7ea56b1/artwork.jpg/100x100bb.jpg"
   },
   {
     "id": "kifak-inta",
@@ -67,7 +79,9 @@
     "artistLatin": "Fairuz",
     "year": 1991,
     "difficulty": "medium",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/b8/ec/e9/b8ece9bb-dc62-1871-9606-9b839877b76d/mzaf_5997331269114990642.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/c5/72/f1/c572f1f4-f901-c94a-6aed-b416aedc8ce0/19UMGIM99965.rgb.jpg/100x100bb.jpg"
   },
   {
     "id": "bahebbak-wahashtini",
@@ -87,7 +101,9 @@
     "artistLatin": "Amr Diab",
     "year": 2004,
     "difficulty": "medium",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/03/7c/99/037c99a7-99ba-bea0-165f-c47c5864fd41/mzaf_6542202716287086824.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/c4/dd/f1/c4ddf147-fb0b-c066-2cca-2f89962eefee/3616401100200_cover.jpg/100x100bb.jpg"
   },
   {
     "id": "law-taerafou",
@@ -97,7 +113,9 @@
     "artistLatin": "Elissa",
     "year": 2006,
     "difficulty": "medium",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/1d/5a/1a/1d5a1aa9-39fd-2eee-c696-5e44cd258e6e/mzaf_7066000697344701217.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music/v4/fe/d8/db/fed8db98-dfb4-88da-238d-adda685e9dd1/elisa_bastnak.jpg/100x100bb.jpg"
   },
   {
     "id": "enta-omri",
@@ -107,7 +125,9 @@
     "artistLatin": "Umm Kulthum",
     "year": 1964,
     "difficulty": "hard",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/14/53/88/145388f6-6e83-d68f-61ab-ae7367750ce2/mzaf_6263788433042127493.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/7a/13/60/7a1360e6-a160-f7c4-9202-5cfd13f30396/artwork.jpg/100x100bb.jpg"
   },
   {
     "id": "sawah",
@@ -117,7 +137,9 @@
     "artistLatin": "Abdel Halim Hafez",
     "year": 1968,
     "difficulty": "hard",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/07/56/6d/07566d22-0cc9-67ce-70c4-4f20f66591c9/mzaf_12909046429845697687.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/86/a6/ae/86a6ae57-e523-c174-27e0-f215d2b0edc6/dj.xdcymrmq.jpg/100x100bb.jpg"
   },
   {
     "id": "habbaytak",
@@ -127,7 +149,9 @@
     "artistLatin": "Fairuz",
     "year": 1970,
     "difficulty": "hard",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/4e/12/ef/4e12efc6-b104-8288-8cab-32565873f669/mzaf_1054041341258470132.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/c8/f9/0d/c8f90d69-1ab3-47c0-fe43-be2ef913903f/5204833037119.jpg/100x100bb.jpg"
   },
   {
     "id": "el-leila",
@@ -137,7 +161,9 @@
     "artistLatin": "Amr Diab",
     "year": 2013,
     "difficulty": "hard",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/65/79/bf/6579bf3c-6e2c-1f72-e6e5-d4d647283e18/mzaf_7939220463949934952.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/8a/8a/83/8a8a83c9-30ef-b78e-1dc1-954b16d3cbff/196872488937.jpg/100x100bb.jpg"
   },
   {
     "id": "batwannes-beek",
@@ -147,7 +173,9 @@
     "artistLatin": "Warda Al-Jazairia",
     "year": 1985,
     "difficulty": "hard",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/87/13/72/8713728c-a7b2-1b05-4a41-67e1bf20b913/mzaf_8790930086812476513.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/60/76/89/60768913-f252-3b37-a470-f836c36819c4/5063112597504_cover.jpg/100x100bb.jpg"
   },
   {
     "id": "el-atlal",
@@ -157,7 +185,9 @@
     "artistLatin": "Umm Kulthum",
     "year": 1966,
     "difficulty": "expert",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/83/39/e7/8339e7b2-21f3-ebd5-0a35-bbe0c2cf8ed7/mzaf_7126888320617932301.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/68/44/16/68441684-f09e-f620-04b7-e3130b4f98ee/artwork.jpg/100x100bb.jpg"
   },
   {
     "id": "ya-tayr",
@@ -167,7 +197,9 @@
     "artistLatin": "Fairuz",
     "year": 1972,
     "difficulty": "expert",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/ec/29/d6/ec29d6c0-7904-fd44-ac69-fa5470088200/mzaf_7590706438872273454.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/b2/88/25/b2882564-074e-d67a-6ec4-f2761c271564/3664216061056.png/100x100bb.jpg"
   },
   {
     "id": "el-hob-kollo",
@@ -177,7 +209,9 @@
     "artistLatin": "Umm Kulthum",
     "year": 1971,
     "difficulty": "expert",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/ee/27/83/ee2783cd-cccb-f624-30d7-780fe3275480/mzaf_3074703386914961290.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music111/v4/c2/f1/17/c2f11726-69bf-781e-d58b-a22bf175a6f2/649444.jpg/100x100bb.jpg"
   },
   {
     "id": "shik-shak-shok",
@@ -187,7 +221,9 @@
     "artistLatin": "Hassan Abou Seoud",
     "year": 1978,
     "difficulty": "expert",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/59/6f/d4/596fd448-3ba3-e8e0-4ef4-5699018b31a3/mzaf_4452212396063918992.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/e2/23/25/e223252c-eb1c-52b1-3db2-29e5a7ec3017/artwork.jpg/100x100bb.jpg"
   },
   {
     "id": "tab-w-ana-maly",
@@ -207,7 +243,9 @@
     "artistLatin": "Umm Kulthum",
     "year": 1944,
     "difficulty": "impossible",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/21/53/22/215322be-5328-3ffa-f99b-25308bad9a21/mzaf_18372954553359793662.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/cd/9d/39/cd9d39aa-8d6e-7787-a463-594c23a9cbc3/cover.jpg/100x100bb.jpg"
   },
   {
     "id": "ana-fi-intizarak",
@@ -217,7 +255,9 @@
     "artistLatin": "Umm Kulthum",
     "year": 1943,
     "difficulty": "impossible",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/ea/c7/a1/eac7a1c5-b7a8-8635-b003-549d1ac83f93/mzaf_17446872083258648064.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/fc/f7/21/fcf721ac-a3a4-bec7-107e-02319ced78ae/613072923018_cover.jpg/100x100bb.jpg"
   },
   {
     "id": "bint-el-shalabiya",
@@ -227,7 +267,9 @@
     "artistLatin": "Fairuz",
     "year": 1966,
     "difficulty": "impossible",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/09/f3/05/09f30506-fca4-e2d9-d86b-e660e65a488a/mzaf_7320916293121369474.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/9c/cd/3f/9ccd3f52-1575-7ad3-a367-45b628891335/cover.jpg/100x100bb.jpg"
   },
   {
     "id": "el-mahaba",
@@ -237,7 +279,9 @@
     "artistLatin": "Fairuz",
     "year": 1975,
     "difficulty": "impossible",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/3c/b0/c5/3cb0c5cd-d3e5-6c87-83f2-7ff49e119502/mzaf_3113764405402384968.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/78/6c/ff/786cff57-ede2-4c56-fe88-ab44a5c27999/832339.jpg/100x100bb.jpg"
   },
   {
     "id": "ahwak",
@@ -247,6 +291,8 @@
     "artistLatin": "Abdel Halim Hafez",
     "year": 1957,
     "difficulty": "impossible",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/42/aa/a3/42aaa313-cb49-60f5-f1a9-a1607e042e22/mzaf_12620295300384930030.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/8e/44/22/8e44226d-010f-c74b-f80a-92aafe750b25/dj.slvwajdo.jpg/100x100bb.jpg"
   }
 ]
