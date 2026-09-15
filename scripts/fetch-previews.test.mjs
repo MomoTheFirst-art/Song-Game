@@ -199,3 +199,31 @@ test('--only narrows to one song', async () => {
   assert.equal(res.matched, 1)
   assert.ok(calls >= 1)
 })
+
+test('the year is taken from Apple, overriding seed metadata', async () => {
+  let written = null
+  await run(
+    { ...DEFAULTS, delay: 0 },
+    {
+      fetch: async () => ok([{ ...hit, releaseDate: '1999-06-04T07:00:00Z' }]),
+      log: () => {},
+      readCatalogue: async () => [{ ...song, year: 1234 }],
+      writeCatalogue: async (s) => { written = s },
+    },
+  )
+  assert.equal(written[0].year, 1999, 'a guessed year is replaced by the real one')
+})
+
+test('a missing or malformed release date leaves the year alone', async () => {
+  let written = null
+  await run(
+    { ...DEFAULTS, delay: 0 },
+    {
+      fetch: async () => ok([{ ...hit, releaseDate: undefined }]),
+      log: () => {},
+      readCatalogue: async () => [{ ...song, year: 2000 }],
+      writeCatalogue: async (s) => { written = s },
+    },
+  )
+  assert.equal(written[0].year, 2000)
+})

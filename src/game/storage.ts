@@ -12,6 +12,8 @@ export interface DayRecord {
 interface Store {
   lastDaily?: DayRecord
   history: DayRecord[]
+  /** Song ids seen recently, newest last — keeps practice runs from repeating. */
+  recent?: string[]
 }
 
 function read(): Store {
@@ -57,4 +59,18 @@ export function stats(): { played: number; best: number; average: number } {
     best: Math.max(...scores),
     average: Math.round(total / history.length),
   }
+}
+
+
+/** How many past songs the randomiser avoids before allowing a repeat. */
+const RECENT_LIMIT = 40
+
+export function recentlyPlayed(): Set<string> {
+  return new Set(read().recent ?? [])
+}
+
+export function rememberPlayed(ids: string[]): void {
+  const store = read()
+  const recent = [...(store.recent ?? []).filter((id) => !ids.includes(id)), ...ids]
+  write({ ...store, recent: recent.slice(-RECENT_LIMIT) })
 }

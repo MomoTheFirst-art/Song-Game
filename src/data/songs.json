@@ -296,5 +296,425 @@
     "startAt": 0,
     "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/42/aa/a3/42aaa313-cb49-60f5-f1a9-a1607e042e22/mzaf_12620295300384930030.plus.aac.p.m4a",
     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/8e/44/22/8e44226d-010f-c74b-f80a-92aafe750b25/dj.slvwajdo.jpg/100x100bb.jpg"
+  },
+  {
+    "id": "akhasmak-ah",
+    "title": "أخصمك آه",
+    "titleLatin": "Akhasmak Ah",
+    "artist": "نانسي عجرم",
+    "artistLatin": "Nancy Ajram",
+    "year": 2003,
+    "difficulty": "easy",
+    "startAt": 0
+  },
+  {
+    "id": "ya-tabtab",
+    "title": "يا طبطب",
+    "titleLatin": "Ya Tabtab",
+    "artist": "نانسي عجرم",
+    "artistLatin": "Nancy Ajram",
+    "year": 2006,
+    "difficulty": "easy",
+    "startAt": 0
+  },
+  {
+    "id": "boushret-kheir",
+    "title": "بشرة خير",
+    "titleLatin": "Boushret Kheir",
+    "artist": "حسين الجسمي",
+    "artistLatin": "Hussain Al Jassmi",
+    "year": 2014,
+    "difficulty": "easy",
+    "startAt": 0
+  },
+  {
+    "id": "ya-bent-el-eh",
+    "title": "يا بنت الإيه",
+    "titleLatin": "Ya Bent El Eh",
+    "artist": "تامر حسني",
+    "artistLatin": "Tamer Hosny",
+    "year": 2010,
+    "difficulty": "easy",
+    "startAt": 0
+  },
+  {
+    "id": "ahla-haga-feeki",
+    "title": "أحلى حاجة فيكي",
+    "titleLatin": "Ahla Haga Feeki",
+    "artist": "محمد حماقي",
+    "artistLatin": "Mohamed Hamaki",
+    "year": 2012,
+    "difficulty": "easy",
+    "startAt": 0
+  },
+  {
+    "id": "sabry-aalil",
+    "title": "صبري قليل",
+    "titleLatin": "Sabry Aalil",
+    "artist": "شيرين",
+    "artistLatin": "Sherine",
+    "year": 2012,
+    "difficulty": "easy",
+    "startAt": 0
+  },
+  {
+    "id": "amarain",
+    "title": "قمرين",
+    "titleLatin": "Amarain",
+    "artist": "عمرو دياب",
+    "artistLatin": "Amr Diab",
+    "year": 2016,
+    "difficulty": "easy",
+    "startAt": 0
+  },
+  {
+    "id": "omri-kello",
+    "title": "عمري كلو",
+    "titleLatin": "Omri Kello",
+    "artist": "وائل كفوري",
+    "artistLatin": "Wael Kfoury",
+    "year": 2000,
+    "difficulty": "easy",
+    "startAt": 0
+  },
+  {
+    "id": "saalouni-el-nas",
+    "title": "سألوني الناس",
+    "titleLatin": "Saalouni El Nas",
+    "artist": "فيروز",
+    "artistLatin": "Fairuz",
+    "year": 1973,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "kalimat",
+    "title": "كلمات",
+    "titleLatin": "Kalimat",
+    "artist": "ماجدة الرومي",
+    "artistLatin": "Majida El Roumi",
+    "year": 1991,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "zidini-ishqan",
+    "title": "زيديني عشقا",
+    "titleLatin": "Zidini Ishqan",
+    "artist": "كاظم الساهر",
+    "artistLatin": "Kazem Al Saher",
+    "year": 1997,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "qouli-ohebbok",
+    "title": "قولي أحبك",
+    "titleLatin": "Qouli Ohebbok",
+    "artist": "كاظم الساهر",
+    "artistLatin": "Kazem Al Saher",
+    "year": 2002,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "sidi-wesalak",
+    "title": "سيدي وصالك",
+    "titleLatin": "Sidi Wesalak",
+    "artist": "أنغام",
+    "artistLatin": "Angham",
+    "year": 2000,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "al-amakin",
+    "title": "الأماكن",
+    "titleLatin": "Al Amakin",
+    "artist": "محمد عبده",
+    "artistLatin": "Mohammed Abdu",
+    "year": 1995,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "harramt-ahebak",
+    "title": "حرمت أحبك",
+    "titleLatin": "Harramt Ahebak",
+    "artist": "وردة الجزائرية",
+    "artistLatin": "Warda Al-Jazairia",
+    "year": 1980,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "nassam-alayna",
+    "title": "نسم علينا الهوى",
+    "titleLatin": "Nassam Alayna El Hawa",
+    "artist": "فيروز",
+    "artistLatin": "Fairuz",
+    "year": 1975,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "sidi-mansour",
+    "title": "سيدي منصور",
+    "titleLatin": "Sidi Mansour",
+    "artist": "صابر الرباعي",
+    "artistLatin": "Saber Rebai",
+    "year": 2000,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "qariat-el-fingan",
+    "title": "قارئة الفنجان",
+    "titleLatin": "Qariat El Fingan",
+    "artist": "عبد الحليم حافظ",
+    "artistLatin": "Abdel Halim Hafez",
+    "year": 1976,
+    "difficulty": "hard",
+    "startAt": 0
+  },
+  {
+    "id": "mawood",
+    "title": "موعود",
+    "titleLatin": "Mawood",
+    "artist": "عبد الحليم حافظ",
+    "artistLatin": "Abdel Halim Hafez",
+    "year": 1971,
+    "difficulty": "hard",
+    "startAt": 0
+  },
+  {
+    "id": "amal-hayati",
+    "title": "أمل حياتي",
+    "titleLatin": "Amal Hayati",
+    "artist": "أم كلثوم",
+    "artistLatin": "Umm Kulthum",
+    "year": 1965,
+    "difficulty": "hard",
+    "startAt": 0
+  },
+  {
+    "id": "fakkarouni",
+    "title": "فكروني",
+    "titleLatin": "Fakkarouni",
+    "artist": "أم كلثوم",
+    "artistLatin": "Umm Kulthum",
+    "year": 1966,
+    "difficulty": "hard",
+    "startAt": 0
+  },
+  {
+    "id": "zahrat-al-madaen",
+    "title": "زهرة المدائن",
+    "titleLatin": "Zahrat Al Madaen",
+    "artist": "فيروز",
+    "artistLatin": "Fairuz",
+    "year": 1967,
+    "difficulty": "hard",
+    "startAt": 0
+  },
+  {
+    "id": "aatini-al-nay",
+    "title": "أعطني الناي وغن",
+    "titleLatin": "Aatini Al Nay",
+    "artist": "فيروز",
+    "artistLatin": "Fairuz",
+    "year": 1970,
+    "difficulty": "hard",
+    "startAt": 0
+  },
+  {
+    "id": "ya-mal-el-sham",
+    "title": "يا مال الشام",
+    "titleLatin": "Ya Mal El Sham",
+    "artist": "صباح فخري",
+    "artistLatin": "Sabah Fakhri",
+    "year": 1975,
+    "difficulty": "hard",
+    "startAt": 0
+  },
+  {
+    "id": "al-gondol",
+    "title": "الجندول",
+    "titleLatin": "Al Gondol",
+    "artist": "محمد عبد الوهاب",
+    "artistLatin": "Mohamed Abdel Wahab",
+    "year": 1941,
+    "difficulty": "hard",
+    "startAt": 0
+  },
+  {
+    "id": "aghadan-alqak",
+    "title": "أغدا ألقاك",
+    "titleLatin": "Aghadan Alqak",
+    "artist": "أم كلثوم",
+    "artistLatin": "Umm Kulthum",
+    "year": 1971,
+    "difficulty": "expert",
+    "startAt": 0
+  },
+  {
+    "id": "hazihi-laylati",
+    "title": "هذه ليلتي",
+    "titleLatin": "Hazihi Laylati",
+    "artist": "أم كلثوم",
+    "artistLatin": "Umm Kulthum",
+    "year": 1968,
+    "difficulty": "expert",
+    "startAt": 0
+  },
+  {
+    "id": "baeed-anak",
+    "title": "بعيد عنك",
+    "titleLatin": "Baeed Anak",
+    "artist": "أم كلثوم",
+    "artistLatin": "Umm Kulthum",
+    "year": 1965,
+    "difficulty": "expert",
+    "startAt": 0
+  },
+  {
+    "id": "fog-el-nakhal",
+    "title": "فوق النخل",
+    "titleLatin": "Fog El Nakhal",
+    "artist": "ناظم الغزالي",
+    "artistLatin": "Nazem Al Ghazali",
+    "year": 1960,
+    "difficulty": "expert",
+    "startAt": 0
+  },
+  {
+    "id": "ya-dara-douri-fina",
+    "title": "يا دارة دوري فينا",
+    "titleLatin": "Ya Dara Douri Fina",
+    "artist": "وديع الصافي",
+    "artistLatin": "Wadih El Safi",
+    "year": 1970,
+    "difficulty": "expert",
+    "startAt": 0
+  },
+  {
+    "id": "ounadikom",
+    "title": "أناديكم",
+    "titleLatin": "Ounadikom",
+    "artist": "مارسيل خليفة",
+    "artistLatin": "Marcel Khalife",
+    "year": 1976,
+    "difficulty": "expert",
+    "startAt": 0
+  },
+  {
+    "id": "ala-hasab-wedad",
+    "title": "على حسب وداد قلبي",
+    "titleLatin": "Ala Hasab Wedad",
+    "artist": "عبد الحليم حافظ",
+    "artistLatin": "Abdel Halim Hafez",
+    "year": 1960,
+    "difficulty": "expert",
+    "startAt": 0
+  },
+  {
+    "id": "awel-hamsa",
+    "title": "أول همسة",
+    "titleLatin": "Awel Hamsa",
+    "artist": "فريد الأطرش",
+    "artistLatin": "Farid al-Atrash",
+    "year": 1965,
+    "difficulty": "expert",
+    "startAt": 0
+  },
+  {
+    "id": "ya-habibi-taala",
+    "title": "يا حبيبي تعالى",
+    "titleLatin": "Ya Habibi Taala",
+    "artist": "أسمهان",
+    "artistLatin": "Asmahan",
+    "year": 1944,
+    "difficulty": "expert",
+    "startAt": 0
+  },
+  {
+    "id": "zourouni",
+    "title": "زوروني كل سنة مرة",
+    "titleLatin": "Zourouni Kol Sana Marra",
+    "artist": "سيد درويش",
+    "artistLatin": "Sayed Darwish",
+    "year": 1920,
+    "difficulty": "impossible",
+    "startAt": 0
+  },
+  {
+    "id": "aho-da-elli-sar",
+    "title": "أهو ده اللي صار",
+    "titleLatin": "Aho Da Elli Sar",
+    "artist": "سيد درويش",
+    "artistLatin": "Sayed Darwish",
+    "year": 1919,
+    "difficulty": "impossible",
+    "startAt": 0
+  },
+  {
+    "id": "talaa-min-beit-abouha",
+    "title": "طالعة من بيت أبوها",
+    "titleLatin": "Talaa Min Beit Abouha",
+    "artist": "ناظم الغزالي",
+    "artistLatin": "Nazem Al Ghazali",
+    "year": 1960,
+    "difficulty": "impossible",
+    "startAt": 0
+  },
+  {
+    "id": "ghabet-shams-el-haq",
+    "title": "غابت شمس الحق",
+    "titleLatin": "Ghabet Shams El Haq",
+    "artist": "جوليا بطرس",
+    "artistLatin": "Julia Boutros",
+    "year": 1985,
+    "difficulty": "impossible",
+    "startAt": 0
+  },
+  {
+    "id": "ana-albi-dalili",
+    "title": "أنا قلبي دليلي",
+    "titleLatin": "Ana Albi Dalili",
+    "artist": "ليلى مراد",
+    "artistLatin": "Laila Mourad",
+    "year": 1947,
+    "difficulty": "impossible",
+    "startAt": 0
+  },
+  {
+    "id": "layali-el-ons",
+    "title": "ليالي الأنس في فيينا",
+    "titleLatin": "Layali El Ons Fi Vienna",
+    "artist": "أسمهان",
+    "artistLatin": "Asmahan",
+    "year": 1944,
+    "difficulty": "impossible",
+    "startAt": 0
+  },
+  {
+    "id": "salou-qalbi",
+    "title": "سلوا قلبي",
+    "titleLatin": "Salou Qalbi",
+    "artist": "أم كلثوم",
+    "artistLatin": "Umm Kulthum",
+    "year": 1946,
+    "difficulty": "impossible",
+    "startAt": 0
+  },
+  {
+    "id": "maqadeer",
+    "title": "مقادير",
+    "titleLatin": "Maqadeer",
+    "artist": "طلال مداح",
+    "artistLatin": "Talal Maddah",
+    "year": 1985,
+    "difficulty": "impossible",
+    "startAt": 0
   }
 ]

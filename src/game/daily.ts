@@ -44,13 +44,32 @@ export function dailySongs(catalogue: Song[], dateKey: string = todayKey()): Son
   return picked
 }
 
-/** A random run for Practice mode — one song per difficulty, unseeded. */
-export function practiceSongs(catalogue: Song[]): Song[] {
+/** Fisher-Yates, on a copy — the caller's array is left alone. */
+export function shuffle<T>(items: readonly T[]): T[] {
+  const out = items.slice()
+  for (let i = out.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[out[i], out[j]] = [out[j], out[i]]
+  }
+  return out
+}
+
+/**
+ * A random run for Practice mode — one song per difficulty.
+ *
+ * Plain random picking repeats badly on a small catalogue: with five songs in a
+ * tier, one in five runs replays the same track in that slot. Songs in
+ * `exclude` (the recently played ones) are skipped, and the tier falls back to
+ * its full contents only once everything in it has been seen.
+ */
+export function practiceSongs(catalogue: Song[], exclude: ReadonlySet<string> = new Set()): Song[] {
   const picked: Song[] = []
   for (const difficulty of DAILY_ORDER) {
     const bucket = catalogue.filter((s) => s.difficulty === difficulty)
     if (bucket.length === 0) continue
-    picked.push(bucket[Math.floor(Math.random() * bucket.length)])
+    const fresh = bucket.filter((s) => !exclude.has(s.id))
+    const pool = fresh.length > 0 ? fresh : bucket
+    picked.push(pool[Math.floor(Math.random() * pool.length)])
   }
   return picked
 }

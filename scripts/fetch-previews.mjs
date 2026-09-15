@@ -218,6 +218,10 @@ export async function run(opts, deps = {}) {
       // track, so the clip window starts at the top of the preview.
       song.startAt = 0
       if (match.artworkUrl100) song.artwork = match.artworkUrl100
+      // Take the year from Apple rather than trusting the seed metadata: the
+      // release date on the matched track is authoritative, ours was a guess.
+      const year = Number(String(match.releaseDate || '').slice(0, 4))
+      if (Number.isFinite(year) && year > 1900) song.year = year
       const flag = score < 0.8 ? '  ← check this one' : ''
       log(`  ✓ ${song.titleLatin || song.title} → “${match.trackName}” / ${match.artistName} (${score.toFixed(2)})${flag}`)
     }

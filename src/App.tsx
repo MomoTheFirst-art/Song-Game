@@ -9,7 +9,7 @@ import { StageBar } from './components/StageBar'
 import { dailySongs, practiceSongs, todayKey } from './game/daily'
 import { roundScore, totalScore } from './game/scoring'
 import { MAX_STAGE, STAGES } from './game/stages'
-import { loadDaily, saveRun } from './game/storage'
+import { loadDaily, recentlyPlayed, rememberPlayed, saveRun } from './game/storage'
 import { DIFFICULTY_LABEL } from './game/types'
 import type { Mode, RoundState, Song } from './game/types'
 import { useAudioClip } from './hooks/useAudioClip'
@@ -43,7 +43,10 @@ function Game() {
   const startRun = useCallback(
     (nextMode: Mode) => {
       stop()
-      const songs = nextMode === 'daily' ? dailySongs(catalogue, dateKey) : practiceSongs(catalogue)
+      const songs =
+        nextMode === 'daily'
+          ? dailySongs(catalogue, dateKey)
+          : practiceSongs(catalogue, recentlyPlayed())
       setMode(nextMode)
       setLineup(songs)
       setRoundIndex(0)
@@ -96,6 +99,7 @@ function Game() {
 
     if (roundIndex + 1 >= lineup.length) {
       const score = totalScore(done)
+      rememberPlayed(lineup.map((s) => s.id))
       saveRun(mode, {
         dateKey,
         score,
