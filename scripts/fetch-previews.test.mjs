@@ -317,3 +317,28 @@ test('searchAs pins the query, overriding the derived ones', () => {
   // without it, the derived Latin-then-Arabic pair is used
   assert.ok(buildQueries(song).length > 1)
 })
+
+test('transliteration variants of the same title score high', () => {
+  // These are the same songs spelled differently by Apple; word-token overlap
+  // rated them 0.33 and buried real errors among the false ones.
+  for (const [a, b] of [
+    ['Tamally Maak', 'Tamly Maak'],
+    ['Boushret Kheir', 'Boshret Kheir'],
+    ['Majida El Roumi', 'Magida El Roumi'],
+    ['Fog El Nakhal', 'Fouk el nakhal'],
+  ]) {
+    assert.ok(similarity(a, b) > 0.65, `${a} ~ ${b} scored ${similarity(a, b).toFixed(2)}`)
+  }
+})
+
+test('unrelated titles still score zero', () => {
+  assert.equal(similarity('Tamally Maak', 'Zay El Hawa'), 0)
+})
+
+test('similarity alone cannot separate titles that share words', () => {
+  // Documented deliberately: "Zay El Hawa" vs "El Hawa Hawaya" are different
+  // songs but overlap heavily, so no threshold separates them. Songs like
+  // these are pinned with searchAs instead of trusted to fuzzy matching.
+  assert.ok(similarity('Zay El Hawa', 'El Hawa Hawaya') > 0.6)
+  assert.ok(similarity('El Leila', 'El Farha El Leila') > 0.6)
+})

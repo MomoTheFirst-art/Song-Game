@@ -56,14 +56,7 @@
     "year": 1970,
     "difficulty": "easy",
     "startAt": 0,
-    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/bf/1b/89/bf1b898a-15b4-1154-cf07-fc22f53f2d19/mzaf_4152731954714281776.plus.aac.p.m4a",
-    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/8b/04/60/8b04606f-2993-6202-9df4-dc3ee305a065/dj.ojgvcnul.jpg/100x100bb.jpg",
-    "matchedAs": {
-      "track": "El Hawa Hawaya",
-      "artist": "Abdel Halim Hafez",
-      "album": "Aghany Felm Aby Fawk El Shagra",
-      "score": 0.68
-    }
+    "searchAs": "عبد الحليم حافظ زي الهوى"
   },
   {
     "id": "li-beirut",
@@ -192,14 +185,7 @@
     "year": 2013,
     "difficulty": "hard",
     "startAt": 0,
-    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/65/79/bf/6579bf3c-6e2c-1f72-e6e5-d4d647283e18/mzaf_7939220463949934952.plus.aac.p.m4a",
-    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/8a/8a/83/8a8a83c9-30ef-b78e-1dc1-954b16d3cbff/196872488937.jpg/100x100bb.jpg",
-    "matchedAs": {
-      "track": "El Farha El Leila",
-      "artist": "Amr Diab",
-      "album": "El Farha El Leila - Single",
-      "score": 0.9
-    }
+    "searchAs": "عمرو دياب الليلة"
   },
   {
     "id": "batwannes-beek",
@@ -708,14 +694,7 @@
     "year": 1970,
     "difficulty": "hard",
     "startAt": 0,
-    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/4b/cb/a5/4bcba550-b01a-a83b-e1a8-8f71c774f160/mzaf_7648064427016843520.plus.aac.p.m4a",
-    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/81/24/0d/81240d4b-a8d3-7718-51ea-549d654dd0fb/198009187546.png/100x100bb.jpg",
-    "matchedAs": {
-      "track": "Shady / Aatini Nay",
-      "artist": "Fairuz",
-      "album": "Ya Qualby",
-      "score": 0.68
-    }
+    "searchAs": "فيروز أعطني الناي وغن"
   },
   {
     "id": "ya-mal-el-sham",

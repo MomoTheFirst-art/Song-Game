@@ -26,6 +26,11 @@ export interface Song {
   /** Pins the lookup to an exact query when the derived ones find the wrong recording. */
   searchAs?: string
   /**
+   * Committed verdict from clip review. Absent means unreviewed. A reviewer's
+   * local decision overrides this until it is committed back to the catalogue.
+   */
+  approved?: boolean
+  /**
    * What the lookup actually matched, so a wrong pick is visible in the data
    * instead of only being findable by listening.
    */

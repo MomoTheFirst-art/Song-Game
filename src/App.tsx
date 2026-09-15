@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import { Review } from './components/Review'
+import { Admin } from './components/Admin'
 import catalogueData from './data/songs.json'
 import { ClipPlayer } from './components/ClipPlayer'
 import { DayComplete } from './components/DayComplete'
@@ -11,13 +11,17 @@ import { dailySongs, practiceSongs, todayKey } from './game/daily'
 import { roundScore, totalScore } from './game/scoring'
 import { MAX_STAGE, STAGES } from './game/stages'
 import { loadDaily, recentlyPlayed, rememberPlayed, saveRun } from './game/storage'
+import { loadDecisions, playableSongs } from './game/review'
 import { DIFFICULTY_LABEL } from './game/types'
 import type { Mode, RoundState, Song } from './game/types'
 import { useAudioClip } from './hooks/useAudioClip'
 
 const allSongs = catalogueData as Song[]
-/** A song is playable only once it has a preview URL. */
-const catalogue = allSongs.filter((s) => Boolean(s.previewUrl))
+/**
+ * What the game may play: a clip, and not one a reviewer rejected. Once every
+ * tier has an approved song, approvals alone decide.
+ */
+const catalogue = playableSongs(allSongs, loadDecisions())
 
 function newRound(song: Song): RoundState {
   return { song, stage: 0, attempts: [], status: 'playing' }
@@ -218,6 +222,6 @@ export default function App() {
     return () => window.removeEventListener('hashchange', onHash)
   }, [])
 
-  if (hash === '#review') return <Review songs={allSongs} />
+  if (hash === '#admin' || hash === '#review') return <Admin songs={allSongs} />
   return catalogue.length > 0 ? <Game /> : <NoPreviews />
 }

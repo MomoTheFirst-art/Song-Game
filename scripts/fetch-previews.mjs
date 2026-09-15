@@ -40,8 +40,29 @@ export const DEFAULTS = {
 
 // ---------------------------------------------------------------- matching
 
+/**
+ * Dice coefficient over character bigrams. Transliteration is the whole
+ * problem here: "Tamally" and "Tamly" are the same word and share almost every
+ * bigram, but as word tokens they do not match at all. Token overlap alone
+ * scored such pairs 0.33 and buried genuine errors among them.
+ */
+export function bigramSimilarity(a, b) {
+  const grams = (t) => {
+    const clean = normalize(t).replace(/\s+/g, '')
+    const set = new Set()
+    for (let i = 0; i < clean.length - 1; i++) set.add(clean.slice(i, i + 2))
+    return set
+  }
+  const A = grams(a || '')
+  const B = grams(b || '')
+  if (A.size === 0 || B.size === 0) return 0
+  let shared = 0
+  for (const g of A) if (B.has(g)) shared++
+  return (2 * shared) / (A.size + B.size)
+}
+
 /** 0..1 similarity over normalized text, tolerant of extra words. */
-export function similarity(a, b) {
+export function tokenSimilarity(a, b) {
   const x = normalize(a || '')
   const y = normalize(b || '')
   if (!x || !y) return 0
@@ -54,6 +75,15 @@ export function similarity(a, b) {
   let shared = 0
   for (const t of A) if (B.has(t)) shared++
   return shared / new Set([...A, ...B]).size
+}
+
+/**
+ * Whole-string agreement: the better of word overlap and character bigrams.
+ * Word overlap catches reordering and extra words; bigrams catch spelling
+ * drift between transliterations of the same Arabic title.
+ */
+export function similarity(a, b) {
+  return Math.max(tokenSimilarity(a, b), bigramSimilarity(a, b))
 }
 
 /**
