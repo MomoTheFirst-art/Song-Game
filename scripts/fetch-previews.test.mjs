@@ -310,3 +310,10 @@ test('an unforced miss leaves an existing preview untouched', async () => {
   assert.equal(res.matched, 0)
   assert.equal(written, null, 'nothing to write: the song was skipped, not cleared')
 })
+
+test('searchAs pins the query, overriding the derived ones', () => {
+  const pinned = { ...song, searchAs: 'Umm Kulthum Alf Leila W Leila 1969' }
+  assert.deepEqual(buildQueries(pinned), ['Umm Kulthum Alf Leila W Leila 1969'])
+  // without it, the derived Latin-then-Arabic pair is used
+  assert.ok(buildQueries(song).length > 1)
+})

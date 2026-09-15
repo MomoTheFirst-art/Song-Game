@@ -1,4 +1,4 @@
-import { STAGES } from './stages'
+import { STAGES } from './stages.ts'
 
 /** Emoji square per round: darker green the earlier it was solved. */
 function cell(stage: number | null): string {

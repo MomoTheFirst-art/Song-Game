@@ -221,3 +221,44 @@ body {
   .recap li { grid-template-columns: 20px 28px 1fr 40px; }
   .recap-artist { display: none; }
 }
+
+
+/* ---------- review: verify every clip against what it matched ---------- */
+.rev { max-width: 760px; }
+.rev-title { font-size: 1.4rem; margin: 0 0 4px; }
+.rev-sub { color: var(--muted); font-size: .88rem; margin: 0 0 18px; }
+.rev-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+
+.rev-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; }
+.rev-row {
+  display: grid; grid-template-columns: 42px 1fr 42px; gap: 10px; align-items: center;
+  background: var(--panel); border: 1px solid var(--line);
+  border-radius: 10px; padding: 9px 11px;
+}
+.rev-flagged { border-color: var(--wrong); background: rgba(229, 72, 77, .08); }
+
+.rev-play { padding: 7px 0; width: 42px; text-align: center; font-size: .95rem; }
+.rev-flag { padding: 7px 0; width: 42px; text-align: center; color: var(--muted); }
+.rev-flag-on { color: var(--wrong); border-color: var(--wrong); font-weight: 700; }
+
+.rev-meta { display: grid; gap: 3px; min-width: 0; }
+.rev-expected, .rev-matched {
+  display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap;
+  font-size: .9rem; min-width: 0;
+}
+.rev-matched { font-size: .82rem; color: var(--ink-soft, var(--muted)); }
+.rev-matched::before { content: '→'; color: var(--muted); }
+.rev-suspect { color: var(--warn); }
+.rev-artist { color: var(--muted); font-size: .82rem; }
+.rev-album { color: var(--muted); font-size: .75rem; opacity: .75; }
+.rev-tier { color: var(--muted); font-size: .72rem; border: 1px solid var(--line); border-radius: 999px; padding: 0 7px; }
+.rev-score { margin-inline-start: auto; font-variant-numeric: tabular-nums; color: var(--accent); font-size: .78rem; }
+
+.rev-actions { display: flex; gap: 10px; justify-content: center; margin-top: 18px; flex-wrap: wrap; }
+.rev-foot { margin-top: 22px; text-align: center; font-size: .85rem; }
+.rev-foot a { color: var(--accent); }
+
+@media (max-width: 520px) {
+  .rev-row { grid-template-columns: 38px 1fr 38px; }
+  .rev-album { display: none; }
+}

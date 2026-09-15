@@ -23,6 +23,18 @@ export interface Song {
   previewUrl?: string
   /** Cover art URL, recorded alongside a preview. */
   artwork?: string
+  /** Pins the lookup to an exact query when the derived ones find the wrong recording. */
+  searchAs?: string
+  /**
+   * What the lookup actually matched, so a wrong pick is visible in the data
+   * instead of only being findable by listening.
+   */
+  matchedAs?: {
+    track: string
+    artist: string
+    album?: string
+    score: number
+  }
   /** Seconds into the preview where the clip window starts. */
   startAt: number
 }

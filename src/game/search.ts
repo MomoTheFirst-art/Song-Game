@@ -1,4 +1,4 @@
-import type { Song } from './types'
+import type { Song } from './types.ts'
 
 /**
  * Fold the spelling variants players actually type: أ/إ/آ for ا, ة for ه,

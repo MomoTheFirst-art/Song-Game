@@ -1,5 +1,5 @@
-import { STAGE_POINTS } from './stages'
-import type { RoundState } from './types'
+import { STAGE_POINTS } from './stages.ts'
+import type { RoundState } from './types.ts'
 
 /** Points for one finished round. A lost round scores nothing. */
 export function roundScore(round: RoundState): number {

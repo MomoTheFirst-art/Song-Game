@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
+import { Review } from './components/Review'
 import catalogueData from './data/songs.json'
 import { ClipPlayer } from './components/ClipPlayer'
 import { DayComplete } from './components/DayComplete'
@@ -208,5 +209,15 @@ function NoPreviews() {
 }
 
 export default function App() {
+  // #review opens the verification list: every clip, what it matched, and a
+  // way to flag the wrong ones. Kept off the main UI, reachable by link.
+  const [hash, setHash] = useState(() => window.location.hash)
+  useEffect(() => {
+    const onHash = () => setHash(window.location.hash)
+    window.addEventListener('hashchange', onHash)
+    return () => window.removeEventListener('hashchange', onHash)
+  }, [])
+
+  if (hash === '#review') return <Review songs={allSongs} />
   return catalogue.length > 0 ? <Game /> : <NoPreviews />
 }

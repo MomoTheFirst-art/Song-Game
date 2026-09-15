@@ -98,6 +98,11 @@ export function pickBest(song, results, minScore = DEFAULTS.minScore) {
 
 /** Latin transliterations match Apple's catalogue more often; Arabic is the retry. */
 export function buildQueries(song) {
+  // An explicit override wins outright: some titles are shared by several
+  // recordings and no derived query separates them, so the catalogue can pin
+  // the exact search that finds the right one.
+  if (song.searchAs) return [song.searchAs]
+
   const queries = []
   const latin = [song.artistLatin, song.titleLatin].filter(Boolean).join(' ').trim()
   const arabic = [song.artist, song.title].filter(Boolean).join(' ').trim()

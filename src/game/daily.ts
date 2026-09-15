@@ -1,4 +1,4 @@
-import type { Difficulty, Song } from './types'
+import type { Difficulty, Song } from './types.ts'
 
 /** Difficulty order for the Daily 5 — same sequence every day. */
 export const DAILY_ORDER: Difficulty[] = ['easy', 'medium', 'hard', 'expert', 'impossible']
