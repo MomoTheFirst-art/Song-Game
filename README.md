@@ -1,6 +1,6 @@
 # 🎵 خمّن الأغنية — Arabic Song Guessing Game
 
-Guess the Arabic song from a clip that starts at a tenth of a second. Modelled
+Guess the Arabic song from a one-second clip. Modelled
 on [Songspot](https://songspot.net/): the less you hear before you answer, the
 more you score.
 
@@ -10,10 +10,10 @@ Each round plays a clip of one song. Guess it or skip, and the clip gets longer:
 
 | Stage | Clip length | Points if correct |
 |-------|-------------|-------------------|
-| 1 | 0.1s | 1200 |
-| 2 | 0.5s | 975 |
-| 3 | 2s | 750 |
-| 4 | 8s | 525 |
+| 1 | 1s | 1200 |
+| 2 | 3s | 975 |
+| 3 | 5s | 750 |
+| 4 | 10s | 525 |
 | 5 | 15s | 300 |
 
 Five wrong guesses or skips ends the round with no points.
@@ -149,8 +149,8 @@ scripts/
 ```
 
 Clips are played through the Web Audio API rather than an `<audio>` element:
-`currentTime` seeking isn't accurate enough for a 0.1s window, so each file is
-decoded once and each stage plays an exact slice of that buffer.
+each file is decoded once and every stage plays an exact slice of that buffer,
+which keeps the clip boundaries honest rather than approximate.
 
 ## Stack
 

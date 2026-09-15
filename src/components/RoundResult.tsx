@@ -1,4 +1,4 @@
-import { STAGES } from '../game/stages'
+import { STAGES, secondsNoun } from '../game/stages'
 import { roundScore } from '../game/scoring'
 import { artworkAt } from '../game/types'
 import type { RoundState } from '../game/types'
@@ -38,7 +38,7 @@ export function RoundResult({ round, onNext, isLast }: Props) {
 
       {won && (
         <p className="result-score">
-          +{roundScore(round)} نقطة — عند {STAGES[round.stage]} ثانية
+          +{roundScore(round)} نقطة — عند {STAGES[round.stage]} {secondsNoun(STAGES[round.stage])}
         </p>
       )}
 

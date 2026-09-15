@@ -1,4 +1,4 @@
-import { STAGES } from '../game/stages'
+import { STAGES, secondsNoun } from '../game/stages'
 import type { ClipMode, ClipStatus } from '../hooks/useAudioClip'
 
 interface Props {
@@ -18,7 +18,7 @@ export function ClipPlayer({ stage, status, mode, onPlay }: Props) {
       <button className="btn btn-play" onClick={onPlay} disabled={busy || broken}>
         {status === 'playing' ? '⏸' : '▶'}
         <span className="play-label">
-          {busy ? 'جارٍ التحميل…' : `تشغيل ${seconds} ثانية`}
+          {busy ? 'جارٍ التحميل…' : `تشغيل ${seconds} ${secondsNoun(seconds)}`}
         </span>
       </button>
 
