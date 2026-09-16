@@ -2,14 +2,32 @@ import { DAILY_ORDER } from './daily.ts'
 import type { Song } from './types.ts'
 
 export type Verdict = 'approved' | 'rejected'
-export type Decisions = Record<string, Verdict>
 
-const KEY = 'song-game:verdicts:v1'
+/**
+ * A verdict is about a clip, not a song. Recording which clip it judged means a
+ * re-fetched song comes back as unreviewed instead of inheriting a verdict
+ * passed on audio that no longer exists.
+ */
+export interface Decision {
+  verdict: Verdict
+  clip: string
+}
+
+export type Decisions = Record<string, Decision>
+
+const KEY = 'song-game:verdicts:v2'
+const LEGACY_KEY = 'song-game:verdicts:v1'
 
 export function loadDecisions(): Decisions {
   try {
     const raw = localStorage.getItem(KEY)
-    return raw ? (JSON.parse(raw) as Decisions) : {}
+    if (raw) return JSON.parse(raw) as Decisions
+    // v1 stored a bare verdict with no record of the clip judged, so there is
+    // no way to tell whether it still applies. Those verdicts are already
+    // committed to the catalogue, so dropping them loses nothing and clears
+    // the stale rejections that were hiding re-fetched songs.
+    if (localStorage.getItem(LEGACY_KEY)) localStorage.removeItem(LEGACY_KEY)
+    return {}
   } catch {
     return {}
   }
@@ -23,10 +41,14 @@ export function saveDecisions(d: Decisions): void {
   }
 }
 
-/** A song's standing: a local review wins over whatever was committed. */
+/**
+ * A song's standing: a local review wins over whatever was committed — but only
+ * while it still describes the clip on offer. A song whose audio was replaced
+ * is unreviewed again, whatever was said about the clip it used to have.
+ */
 export function verdictFor(song: Song, decisions: Decisions): Verdict | undefined {
   const local = decisions[song.id]
-  if (local) return local
+  if (local && local.clip === song.previewUrl) return local.verdict
   if (song.approved === true) return 'approved'
   if (song.approved === false) return 'rejected'
   return undefined

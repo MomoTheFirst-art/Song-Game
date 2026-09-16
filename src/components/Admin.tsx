@@ -127,9 +127,10 @@ export function Admin({ songs }: { songs: Song[] }) {
   const governing = approvalsGovern(songs, decisions)
 
   function setVerdict(id: string, v: Verdict | undefined) {
+    const clip = withClips.find((s) => s.id === id)?.previewUrl
     setDecisions((prev) => {
       const next = { ...prev }
-      if (v) next[id] = v
+      if (v && clip) next[id] = { verdict: v, clip }
       else delete next[id]
       return next
     })
