@@ -1633,5 +1633,395 @@
     "year": 1975,
     "difficulty": "expert",
     "startAt": 0
+  },
+  {
+    "id": "amj-msafer",
+    "title": "مسافر",
+    "titleLatin": "Msafer",
+    "artist": "عبدالمجيد عبدالله",
+    "artistLatin": "Abdul Majeed Abdullah",
+    "year": 2004,
+    "difficulty": "easy",
+    "startAt": 0
+  },
+  {
+    "id": "amj-ya-tayeb-alqalb",
+    "title": "يا طيب القلب",
+    "titleLatin": "Ya Tayeb Al Qalb",
+    "artist": "عبدالمجيد عبدالله",
+    "artistLatin": "Abdul Majeed Abdullah",
+    "year": 2008,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "amj-ensay",
+    "title": "إنساي",
+    "titleLatin": "Ensay",
+    "artist": "عبدالمجيد عبدالله",
+    "artistLatin": "Abdul Majeed Abdullah",
+    "year": 2010,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "amj-jarh",
+    "title": "الجرح",
+    "titleLatin": "Al Jarh",
+    "artist": "عبدالمجيد عبدالله",
+    "artistLatin": "Abdul Majeed Abdullah",
+    "year": 2012,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "amj-tadri",
+    "title": "تدري وش صار",
+    "titleLatin": "Tadri Wesh Sar",
+    "artist": "عبدالمجيد عبدالله",
+    "artistLatin": "Abdul Majeed Abdullah",
+    "year": 2006,
+    "difficulty": "hard",
+    "startAt": 0
+  },
+  {
+    "id": "aj-ya-donya",
+    "title": "يا دنيا",
+    "titleLatin": "Ya Donya",
+    "artist": "عبادي الجوهر",
+    "artistLatin": "Abadi Al Johar",
+    "year": 1995,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "aj-el-jarh-elli",
+    "title": "الجرح اللي ما يبرا",
+    "titleLatin": "El Jarh Elli Ma Yebra",
+    "artist": "عبادي الجوهر",
+    "artistLatin": "Abadi Al Johar",
+    "year": 1998,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "aj-golo-laha",
+    "title": "قولوا لها",
+    "titleLatin": "Golo Laha",
+    "artist": "عبادي الجوهر",
+    "artistLatin": "Abadi Al Johar",
+    "year": 2000,
+    "difficulty": "hard",
+    "startAt": 0
+  },
+  {
+    "id": "aj-ashoufak",
+    "title": "أشوفك كل يوم",
+    "titleLatin": "Ashoufak Kel Youm",
+    "artist": "عبادي الجوهر",
+    "artistLatin": "Abadi Al Johar",
+    "year": 2003,
+    "difficulty": "hard",
+    "startAt": 0
+  },
+  {
+    "id": "sh-kedda-ok",
+    "title": "كده أوكيه",
+    "titleLatin": "Kedda Ok",
+    "artist": "شيرين",
+    "artistLatin": "Sherine",
+    "year": 2008,
+    "difficulty": "easy",
+    "startAt": 0
+  },
+  {
+    "id": "sh-mafish-sahb",
+    "title": "مافيش صاحب يتصاحب",
+    "titleLatin": "Mafish Sahb Yetsahb",
+    "artist": "شيرين",
+    "artistLatin": "Sherine",
+    "year": 2010,
+    "difficulty": "easy",
+    "startAt": 0
+  },
+  {
+    "id": "sh-ah-ya-leil",
+    "title": "آه يا ليل",
+    "titleLatin": "Ah Ya Leil",
+    "artist": "شيرين",
+    "artistLatin": "Sherine",
+    "year": 2005,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "sh-katar-el-kheir",
+    "title": "كتر خيرك",
+    "titleLatin": "Katar Kheirak",
+    "artist": "شيرين",
+    "artistLatin": "Sherine",
+    "year": 2014,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "sh-habeet",
+    "title": "حبيت",
+    "titleLatin": "Habeet",
+    "artist": "شيرين",
+    "artistLatin": "Sherine",
+    "year": 2003,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "as-samahtak",
+    "title": "سامحتك",
+    "titleLatin": "Samahtak",
+    "artist": "أصالة",
+    "artistLatin": "Assala",
+    "year": 2002,
+    "difficulty": "easy",
+    "startAt": 0
+  },
+  {
+    "id": "as-shakhsiya-anida",
+    "title": "شخصية عنيدة",
+    "titleLatin": "Shakhsiya Anida",
+    "artist": "أصالة",
+    "artistLatin": "Assala",
+    "year": 2012,
+    "difficulty": "easy",
+    "startAt": 0
+  },
+  {
+    "id": "as-akteblak-taahod",
+    "title": "اكتبلك تعهد",
+    "titleLatin": "Aktiblak Taahod",
+    "artist": "أصالة",
+    "artistLatin": "Assala",
+    "year": 2009,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "as-ya-magnoun",
+    "title": "يا مجنون",
+    "titleLatin": "Ya Magnoun",
+    "artist": "أصالة",
+    "artistLatin": "Assala",
+    "year": 2006,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "as-adi-el-hob",
+    "title": "عادي الحب",
+    "titleLatin": "Adi El Hob",
+    "artist": "أصالة",
+    "artistLatin": "Assala",
+    "year": 2015,
+    "difficulty": "hard",
+    "startAt": 0
+  },
+  {
+    "id": "rm-abeeh",
+    "title": "أبيه",
+    "titleLatin": "Abeeh",
+    "artist": "راشد الماجد",
+    "artistLatin": "Rashed Al-Majed",
+    "year": 2005,
+    "difficulty": "easy",
+    "startAt": 0
+  },
+  {
+    "id": "rm-taradini",
+    "title": "تراضيني",
+    "titleLatin": "Taradini",
+    "artist": "راشد الماجد",
+    "artistLatin": "Rashed Al-Majed",
+    "year": 2008,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "rm-ma-tiswa",
+    "title": "ما تسوى",
+    "titleLatin": "Ma Tiswa",
+    "artist": "راشد الماجد",
+    "artistLatin": "Rashed Al-Majed",
+    "year": 2010,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "rm-enta-akhi",
+    "title": "إنت أخي",
+    "titleLatin": "Enta Akhi",
+    "artist": "راشد الماجد",
+    "artistLatin": "Rashed Al-Majed",
+    "year": 2013,
+    "difficulty": "hard",
+    "startAt": 0
+  },
+  {
+    "id": "tm-wardak",
+    "title": "وردك يا زارع الورد",
+    "titleLatin": "Wardak Ya Zare El Ward",
+    "artist": "طلال مداح",
+    "artistLatin": "Talal Maddah",
+    "year": 1975,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "tm-zaman-el-samt",
+    "title": "زمان الصمت",
+    "titleLatin": "Zaman El Samt",
+    "artist": "طلال مداح",
+    "artistLatin": "Talal Maddah",
+    "year": 1980,
+    "difficulty": "hard",
+    "startAt": 0
+  },
+  {
+    "id": "tm-taal",
+    "title": "تعال",
+    "titleLatin": "Taal",
+    "artist": "طلال مداح",
+    "artistLatin": "Talal Maddah",
+    "year": 1978,
+    "difficulty": "hard",
+    "startAt": 0
+  },
+  {
+    "id": "tm-al-madi",
+    "title": "الماضي",
+    "titleLatin": "Al Madi",
+    "artist": "طلال مداح",
+    "artistLatin": "Talal Maddah",
+    "year": 1985,
+    "difficulty": "expert",
+    "startAt": 0
+  },
+  {
+    "id": "rs-bint-el-osoul",
+    "title": "بنت الأصول",
+    "titleLatin": "Bint El Osoul",
+    "artist": "رابح صقر",
+    "artistLatin": "Rabeh Saqer",
+    "year": 2005,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "rs-la-tsadeg",
+    "title": "لا تصدق",
+    "titleLatin": "La Tsadeg",
+    "artist": "رابح صقر",
+    "artistLatin": "Rabeh Saqer",
+    "year": 2008,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "rs-ana-wesh-li",
+    "title": "أنا وش لي",
+    "titleLatin": "Ana Wesh Li",
+    "artist": "رابح صقر",
+    "artistLatin": "Rabeh Saqer",
+    "year": 2011,
+    "difficulty": "hard",
+    "startAt": 0
+  },
+  {
+    "id": "rs-kel-el-hekaya",
+    "title": "كل الحكايا",
+    "titleLatin": "Kel El Hekaya",
+    "artist": "رابح صقر",
+    "artistLatin": "Rabeh Saqer",
+    "year": 2014,
+    "difficulty": "hard",
+    "startAt": 0
+  },
+  {
+    "id": "ah-law-tarakoni",
+    "title": "لو تركوني",
+    "titleLatin": "Law Tarakoni",
+    "artist": "أحلام",
+    "artistLatin": "Ahlam",
+    "year": 2006,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "ah-ashhad",
+    "title": "أشهد",
+    "titleLatin": "Ashhad",
+    "artist": "أحلام",
+    "artistLatin": "Ahlam",
+    "year": 2009,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "ah-ya-hayati",
+    "title": "يا حياتي",
+    "titleLatin": "Ya Hayati",
+    "artist": "أحلام",
+    "artistLatin": "Ahlam",
+    "year": 2012,
+    "difficulty": "hard",
+    "startAt": 0
+  },
+  {
+    "id": "ah-madri",
+    "title": "مدري وش أسوي",
+    "titleLatin": "Madri Wesh Asawi",
+    "artist": "أحلام",
+    "artistLatin": "Ahlam",
+    "year": 2004,
+    "difficulty": "hard",
+    "startAt": 0
+  },
+  {
+    "id": "rb-enta-aref-leh",
+    "title": "إنت عارف ليه",
+    "titleLatin": "Enta Aref Leh",
+    "artist": "روبي",
+    "artistLatin": "Ruby",
+    "year": 2004,
+    "difficulty": "easy",
+    "startAt": 0
+  },
+  {
+    "id": "rb-leih-bidari",
+    "title": "ليه بيداري كده",
+    "titleLatin": "Leih Bidari Keda",
+    "artist": "روبي",
+    "artistLatin": "Ruby",
+    "year": 2003,
+    "difficulty": "easy",
+    "startAt": 0
+  },
+  {
+    "id": "rb-mesh-bekeed",
+    "title": "مش بكيد",
+    "titleLatin": "Mesh Bekeed",
+    "artist": "روبي",
+    "artistLatin": "Ruby",
+    "year": 2007,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "rb-ana-kedda",
+    "title": "أنا كده",
+    "titleLatin": "Ana Keda",
+    "artist": "روبي",
+    "artistLatin": "Ruby",
+    "year": 2009,
+    "difficulty": "medium",
+    "startAt": 0
   }
 ]
