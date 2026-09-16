@@ -342,3 +342,32 @@ test('similarity alone cannot separate titles that share words', () => {
   assert.ok(similarity('Zay El Hawa', 'El Hawa Hawaya') > 0.6)
   assert.ok(similarity('El Leila', 'El Farha El Leila') > 0.6)
 })
+
+test('retired songs are never looked up again', async () => {
+  let calls = 0
+  const res = await run(
+    { ...DEFAULTS, delay: 0, force: true },
+    {
+      fetch: async () => { calls++; return ok([hit]) },
+      log: () => {},
+      readCatalogue: async () => [{ ...song, retired: true }],
+      writeCatalogue: async () => {},
+    },
+  )
+  assert.equal(calls, 0, 'not even --force should resurface a retired song')
+  assert.equal(res.matched, 0)
+})
+
+test('--only still reaches a retired song when named explicitly', async () => {
+  let calls = 0
+  await run(
+    { ...DEFAULTS, delay: 0, only: 'tamally-maak' },
+    {
+      fetch: async () => { calls++; return ok([hit]) },
+      log: () => {},
+      readCatalogue: async () => [{ ...song, retired: true }],
+      writeCatalogue: async () => {},
+    },
+  )
+  assert.ok(calls > 0, 'naming a song directly overrides retirement')
+})

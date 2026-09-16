@@ -237,6 +237,11 @@ export async function run(opts, deps = {}) {
   const songs = await readCatalogue()
   const targets = songs.filter((s) => {
     if (opts.only) return s.id === opts.only
+    // Retired songs were rejected on two separate lookups from five store
+    // fronts. Apple either does not carry the recording or carries only
+    // compilations that outrank it, and further attempts just spend a
+    // reviewer's time on the same wrong clips.
+    if (s.retired) return false
     return opts.force || !s.previewUrl
   })
 

@@ -26,6 +26,11 @@ export interface Song {
   /** Pins the lookup to an exact query when the derived ones find the wrong recording. */
   searchAs?: string
   /**
+   * Given up on: rejected after two separate lookups across five store fronts.
+   * The fetch script skips these rather than resurfacing the same wrong clips.
+   */
+  retired?: boolean
+  /**
    * Committed verdict from clip review. Absent means unreviewed. A reviewer's
    * local decision overrides this until it is committed back to the catalogue.
    */

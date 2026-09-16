@@ -54,7 +54,9 @@
       "artist": "Amr Diab",
       "album": "Noor Al Ain",
       "score": 0.56
-    }
+    },
+    "approved": false,
+    "retired": true
   },
   {
     "id": "zay-el-hawa",
@@ -73,7 +75,8 @@
       "artist": "Abdel Halim Hafez",
       "album": "Aghany Felm Aby Fawk El Shagra",
       "score": 0.84
-    }
+    },
+    "approved": false
   },
   {
     "id": "li-beirut",
@@ -92,7 +95,9 @@
       "artist": "Fairouz",
       "album": "Legend - The Best of Fairuz",
       "score": 0.72
-    }
+    },
+    "approved": false,
+    "retired": true
   },
   {
     "id": "alf-leila",
@@ -111,7 +116,9 @@
       "artist": "Om Kolthoum",
       "album": "الف ليلة وليلة",
       "score": 0.81
-    }
+    },
+    "approved": false,
+    "retired": true
   },
   {
     "id": "kifak-inta",
@@ -228,7 +235,8 @@
       "artist": "Amr Diab",
       "album": "Tamally Maak",
       "score": 0.72
-    }
+    },
+    "approved": false
   },
   {
     "id": "batwannes-beek",
@@ -279,7 +287,9 @@
       "artist": "Fairouz",
       "album": "Fairouz World, Pt. 2",
       "score": 0.64
-    }
+    },
+    "approved": false,
+    "retired": true
   },
   {
     "id": "el-hob-kollo",
@@ -376,7 +386,9 @@
       "artist": "Fairouz",
       "album": "Ya Reit",
       "score": 0.56
-    }
+    },
+    "approved": false,
+    "retired": true
   },
   {
     "id": "ahwak",
@@ -566,7 +578,9 @@
       "artist": "Fairouz",
       "album": "Habbaitak Be El Saif",
       "score": 0.8
-    }
+    },
+    "approved": false,
+    "retired": true
   },
   {
     "id": "kalimat",
@@ -585,7 +599,9 @@
       "artist": "Magida El Roumi",
       "album": "Kalimat",
       "score": 0.94
-    }
+    },
+    "approved": false,
+    "retired": true
   },
   {
     "id": "zidini-ishqan",
@@ -604,7 +620,9 @@
       "artist": "Kadim Al Sahir",
       "album": "Fi Madrasat Al Hob",
       "score": 0.76
-    }
+    },
+    "approved": false,
+    "retired": true
   },
   {
     "id": "qouli-ohebbok",
@@ -668,7 +686,9 @@
       "artist": "Warda",
       "album": "Haramt Ahebak",
       "score": 0.92
-    }
+    },
+    "approved": false,
+    "retired": true
   },
   {
     "id": "nassam-alayna",
@@ -732,7 +752,9 @@
       "artist": "Abdel Halim Hafez",
       "album": "Mawood",
       "score": 0.9
-    }
+    },
+    "approved": false,
+    "retired": true
   },
   {
     "id": "amal-hayati",
@@ -773,7 +795,9 @@
       "artist": "Fairouz",
       "album": "Habbaitak Be El Saif",
       "score": 0.7
-    }
+    },
+    "approved": false,
+    "retired": true
   },
   {
     "id": "aatini-al-nay",
@@ -792,7 +816,8 @@
       "artist": "Fairouz",
       "album": "Fairouz World, Pt. 1",
       "score": 0.58
-    }
+    },
+    "approved": true
   },
   {
     "id": "ya-mal-el-sham",
@@ -829,7 +854,8 @@
       "artist": "Mohammed Abdul Wahab",
       "album": "Wahabyat, Vol. 1",
       "score": 0.64
-    }
+    },
+    "approved": false
   },
   {
     "id": "aghadan-alqak",
@@ -848,7 +874,9 @@
       "artist": "Umm Kulthum",
       "album": "Classics from Egypt",
       "score": 0.57
-    }
+    },
+    "approved": false,
+    "retired": true
   },
   {
     "id": "hazihi-laylati",
@@ -949,7 +977,9 @@
       "artist": "Farid El Atrache",
       "album": "Awel Hamsa (Live)",
       "score": 0.78
-    }
+    },
+    "approved": false,
+    "retired": true
   },
   {
     "id": "ya-habibi-taala",
@@ -987,7 +1017,9 @@
       "artist": "سيد درويش",
       "album": "موشحات عربيه",
       "score": 1
-    }
+    },
+    "approved": false,
+    "retired": true
   },
   {
     "id": "aho-da-elli-sar",
@@ -1025,7 +1057,9 @@
       "artist": "Nazem Al Ghazali",
       "album": "Haflet Al Kuwait",
       "score": 0.72
-    }
+    },
+    "approved": false,
+    "retired": true
   },
   {
     "id": "ghabet-shams-el-haq",
@@ -1044,7 +1078,9 @@
       "artist": "Julia Botros",
       "album": "Ghabet Shams El Hak",
       "score": 0.95
-    }
+    },
+    "approved": false,
+    "retired": true
   },
   {
     "id": "ana-albi-dalili",
@@ -1063,7 +1099,9 @@
       "artist": "Laila Mourad",
       "album": "Agmal Aghany Layla Mourad",
       "score": 0.72
-    }
+    },
+    "approved": false,
+    "retired": true
   },
   {
     "id": "layali-el-ons",
@@ -1082,7 +1120,9 @@
       "artist": "Asmahan",
       "album": "Double Best: Asmahan",
       "score": 0.87
-    }
+    },
+    "approved": false,
+    "retired": true
   },
   {
     "id": "salou-qalbi",
@@ -1130,7 +1170,8 @@
       "artist": "Amr Diab",
       "album": "Ahla Ma Ghanna Amr Diab",
       "score": 0.7
-    }
+    },
+    "approved": true
   },
   {
     "id": "youm-talat",
@@ -1148,7 +1189,8 @@
       "artist": "Amr Diab",
       "album": "Sahran",
       "score": 1
-    }
+    },
+    "approved": true
   },
   {
     "id": "lamset-eid",
@@ -1166,7 +1208,8 @@
       "artist": "Nancy Ajram",
       "album": "Betfakar Fi Eih",
       "score": 1
-    }
+    },
+    "approved": true
   },
   {
     "id": "enta-eh",
@@ -1184,7 +1227,8 @@
       "artist": "Nancy Ajram",
       "album": "Ah W Noss",
       "score": 0.7
-    }
+    },
+    "approved": true
   },
   {
     "id": "aa-bali-habibi",
@@ -1202,7 +1246,8 @@
       "artist": "Elissa",
       "album": "Best of Elissa",
       "score": 1
-    }
+    },
+    "approved": false
   },
   {
     "id": "bastanak",
@@ -1220,7 +1265,8 @@
       "artist": "Elissa",
       "album": "Bastanak",
       "score": 1
-    }
+    },
+    "approved": true
   },
   {
     "id": "eish-beshoak",
@@ -1238,7 +1284,8 @@
       "artist": "Tamer Hosny",
       "album": "Eish Besho'ak",
       "score": 1
-    }
+    },
+    "approved": true
   },
   {
     "id": "kan-andak-ha",
@@ -1266,7 +1313,8 @@
       "artist": "Sherine",
       "album": "Mashaier",
       "score": 0.85
-    }
+    },
+    "approved": false
   },
   {
     "id": "nassini-el-donia",
@@ -1284,7 +1332,8 @@
       "artist": "Ragheb Alama",
       "album": "El Hob El Kebir",
       "score": 0.89
-    }
+    },
+    "approved": true
   },
   {
     "id": "lm3allem",
@@ -1302,7 +1351,8 @@
       "artist": "Saad Lamjarred",
       "album": "Lamaallem - Single",
       "score": 0.7
-    }
+    },
+    "approved": true
   },
   {
     "id": "bahwak",
@@ -1320,7 +1370,8 @@
       "artist": "Hussain Al Jassmi",
       "album": "Ahebak - Single",
       "score": 0.74
-    }
+    },
+    "approved": true
   },
   {
     "id": "bahebbo",
@@ -1348,7 +1399,8 @@
       "artist": "Kazem Al Saher",
       "album": "Ana Wa Laila",
       "score": 1
-    }
+    },
+    "approved": false
   },
   {
     "id": "al-hob-al-mustaheel",
@@ -1366,7 +1418,8 @@
       "artist": "Kazem Al Saher",
       "album": "Al Hob Al Mustaheel",
       "score": 1
-    }
+    },
+    "approved": true
   },
   {
     "id": "ya-ghayeb",
@@ -1384,7 +1437,8 @@
       "artist": "Fadel Chaker",
       "album": "Ya Ghayeb - Single",
       "score": 0.93
-    }
+    },
+    "approved": true
   },
   {
     "id": "shou-hal-hala",
@@ -1402,7 +1456,8 @@
       "artist": "Najwa Karam",
       "album": "Kibirel Hob",
       "score": 0.92
-    }
+    },
+    "approved": true
   },
   {
     "id": "fi-hagat",
@@ -1420,7 +1475,8 @@
       "artist": "Nancy Ajram",
       "album": "Nancy 7",
       "score": 1
-    }
+    },
+    "approved": false
   },
   {
     "id": "taa-la-andi",
@@ -1458,7 +1514,8 @@
       "artist": "Mohamed Mounir",
       "album": "Bab Elgamal - EP",
       "score": 0.69
-    }
+    },
+    "approved": true
   },
   {
     "id": "shababeek",
@@ -1476,7 +1533,8 @@
       "artist": "Mohamed Mounir",
       "album": "Shababeek",
       "score": 1
-    }
+    },
+    "approved": false
   },
   {
     "id": "ya-msafer-wahdak",
@@ -1494,7 +1552,8 @@
       "artist": "Mohamed Abdel Wahab",
       "album": "Aghany Film Mamnoaa El Hob, Pt. 1",
       "score": 0.93
-    }
+    },
+    "approved": false
   },
   {
     "id": "gana-el-hawa",
@@ -1512,7 +1571,8 @@
       "artist": "Abdel Halim Hafez",
       "album": "Aghany Felm Aby Fawk El Shagra",
       "score": 1
-    }
+    },
+    "approved": true
   },
   {
     "id": "ahdan-el-habayeb",
