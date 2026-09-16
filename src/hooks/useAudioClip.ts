@@ -11,6 +11,19 @@ export type ClipStatus = 'idle' | 'loading' | 'ready' | 'playing' | 'missing' | 
  */
 export type ClipMode = 'buffer' | 'element'
 
+/**
+ * iOS will not reliably play decoded buffers once an <audio> element has taken
+ * the audio session: the first clip is heard, then every later one is silent
+ * and replay does nothing. The element path is what demonstrably works there,
+ * and with a one-second shortest clip its timing slop is a few percent — worth
+ * paying for playback that happens at all.
+ */
+const PREFERS_ELEMENT =
+  typeof navigator !== 'undefined' &&
+  (/iP(hone|ad|od)/.test(navigator.userAgent) ||
+    // iPadOS reports itself as a Mac; touch points give it away.
+    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1))
+
 let ctx: AudioContext | null = null
 const cache = new Map<string, AudioBuffer>()
 /** URLs known to refuse a cross-origin fetch — don't retry the buffer path. */
@@ -90,7 +103,7 @@ export function useAudioClip(url: string) {
   useEffect(() => {
     stop()
     elRef.current = null
-    setMode(elementOnly.has(url) ? 'element' : 'buffer')
+    setMode(PREFERS_ELEMENT || elementOnly.has(url) ? 'element' : 'buffer')
     setStatus(cache.has(url) ? 'ready' : 'idle')
   }, [url, stop])
 
@@ -136,6 +149,9 @@ export function useAudioClip(url: string) {
       if (!el) {
         el = new Audio(url)
         el.preload = 'auto'
+        // Attached once per element, not once per play, or replays stack
+        // listeners until a single failure fires a dozen times.
+        el.addEventListener('error', () => setStatus('missing'))
         elRef.current = el
       }
       const armStop = () => {
@@ -165,7 +181,6 @@ export function useAudioClip(url: string) {
         },
         () => setStatus('error'),
       )
-      el.addEventListener('error', () => setStatus('missing'), { once: true })
     },
     [url],
   )
@@ -214,16 +229,17 @@ export function useAudioClip(url: string) {
       const context = unlockAudio()
       const decoded = cache.get(url)
 
-      if (decoded && !elementOnly.has(url)) {
+      if (decoded && !elementOnly.has(url) && !PREFERS_ELEMENT) {
         startFromBuffer(context, decoded, startAt, duration)
         return
       }
 
       // Nothing decoded yet: play through the element now, while the gesture
       // still counts, and decode in the background so later stages get exact
-      // slicing.
+      // slicing. On iOS the decode is skipped entirely — switching paths
+      // mid-round is exactly what silenced every clip after the first.
       playViaElement(startAt, duration)
-      if (!elementOnly.has(url)) void loadBuffer()
+      if (!elementOnly.has(url) && !PREFERS_ELEMENT) void loadBuffer()
     },
     [loadBuffer, playViaElement, startFromBuffer, stop, url],
   )
