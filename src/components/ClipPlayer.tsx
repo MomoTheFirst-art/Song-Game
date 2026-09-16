@@ -1,5 +1,6 @@
 import { STAGES, secondsNoun } from '../game/stages'
 import type { ClipMode, ClipStatus } from '../hooks/useAudioClip'
+import { SilentSwitchNotice } from './SilentSwitchNotice'
 
 interface Props {
   stage: number
@@ -15,6 +16,7 @@ export function ClipPlayer({ stage, status, mode, onPlay }: Props) {
 
   return (
     <div className="player">
+      <SilentSwitchNotice />
       <button className="btn btn-play" onClick={onPlay} disabled={busy || broken}>
         {status === 'playing' ? '⏸' : '▶'}
         <span className="play-label">

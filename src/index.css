@@ -333,3 +333,21 @@ body {
   background: none; border: 0; color: var(--accent); cursor: pointer;
   font: inherit; font-size: .82rem; margin-inline-start: 10px; padding: 0;
 }
+
+
+/* ---------- iOS silent-switch notice ---------- */
+.silent-note {
+  display: grid; grid-template-columns: auto 1fr auto; gap: 11px; align-items: center;
+  width: 100%; padding: 11px 13px; border-radius: 10px;
+  border: 1px solid var(--warn); background: color-mix(in srgb, var(--warn) 12%, transparent);
+  text-align: start;
+}
+.silent-icon { font-size: 1.2rem; line-height: 1; }
+.silent-body strong { display: block; font-size: .88rem; margin-bottom: 2px; }
+.silent-body p { margin: 0; font-size: .8rem; color: var(--ink-soft, var(--muted)); line-height: 1.5; }
+.silent-ok { padding: 7px 14px; font-size: .8rem; white-space: nowrap; align-self: center; }
+
+@media (max-width: 460px) {
+  .silent-note { grid-template-columns: auto 1fr; }
+  .silent-ok { grid-column: 2; justify-self: start; margin-top: 4px; }
+}

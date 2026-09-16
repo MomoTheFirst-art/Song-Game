@@ -1,3 +1,5 @@
+import { SilentSwitchNotice } from './SilentSwitchNotice'
+
 interface Props {
   playableCount: number
   onSolo: () => void
@@ -10,6 +12,8 @@ export function Home({ playableCount, onSolo, onParty, partyCapacity }: Props) {
     <main className="app">
       <section className="home">
         <h1 className="logo">🎵 خمّن الأغنية</h1>
+        <SilentSwitchNotice />
+
         <p className="complete-note">
           من ثانية واحدة. كل تخمين خاطئ يطيل المقطع — وكل ثانية إضافية تكلّفك نقاطاً.
         </p>

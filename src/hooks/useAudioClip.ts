@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { isIOS } from '../game/platform'
 
 export type ClipStatus = 'idle' | 'loading' | 'ready' | 'playing' | 'missing' | 'error'
 
@@ -10,19 +11,6 @@ export type ClipStatus = 'idle' | 'loading' | 'ready' | 'playing' | 'missing' | 
  *              of milliseconds, which shows at the 0.1s stage
  */
 export type ClipMode = 'buffer' | 'element'
-
-/**
- * iOS will not reliably play decoded buffers once an <audio> element has taken
- * the audio session: the first clip is heard, then every later one is silent
- * and replay does nothing. The element path is what demonstrably works there,
- * and with a one-second shortest clip its timing slop is a few percent — worth
- * paying for playback that happens at all.
- */
-const PREFERS_ELEMENT =
-  typeof navigator !== 'undefined' &&
-  (/iP(hone|ad|od)/.test(navigator.userAgent) ||
-    // iPadOS reports itself as a Mac; touch points give it away.
-    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1))
 
 let ctx: AudioContext | null = null
 const cache = new Map<string, AudioBuffer>()
@@ -103,7 +91,7 @@ export function useAudioClip(url: string) {
   useEffect(() => {
     stop()
     elRef.current = null
-    setMode(PREFERS_ELEMENT || elementOnly.has(url) ? 'element' : 'buffer')
+    setMode(isIOS || elementOnly.has(url) ? 'element' : 'buffer')
     setStatus(cache.has(url) ? 'ready' : 'idle')
   }, [url, stop])
 
@@ -229,7 +217,7 @@ export function useAudioClip(url: string) {
       const context = unlockAudio()
       const decoded = cache.get(url)
 
-      if (decoded && !elementOnly.has(url) && !PREFERS_ELEMENT) {
+      if (decoded && !elementOnly.has(url) && !isIOS) {
         startFromBuffer(context, decoded, startAt, duration)
         return
       }
@@ -239,7 +227,7 @@ export function useAudioClip(url: string) {
       // slicing. On iOS the decode is skipped entirely — switching paths
       // mid-round is exactly what silenced every clip after the first.
       playViaElement(startAt, duration)
-      if (!elementOnly.has(url) && !PREFERS_ELEMENT) void loadBuffer()
+      if (!elementOnly.has(url) && !isIOS) void loadBuffer()
     },
     [loadBuffer, playViaElement, startFromBuffer, stop, url],
   )
