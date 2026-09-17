@@ -62,6 +62,64 @@ test('a weaker match by the real artist beats a perfect title by the wrong one',
   assert.equal(pickBest(song, [impostor, genuine], 0.55).match, genuine)
 })
 
+test('a preview another song already holds is refused', () => {
+  // Production failure: كده يا قلبي cleared the artist floor (both Sherine)
+  // and squeaked over the title bar at 0.57, so it was handed the clip that
+  // already belonged to صبري قليل. Two entries sharing one recording is a
+  // mismatch by definition, whatever the score says.
+  const taken = new Set([hit.previewUrl])
+  assert.equal(pickBest(song, [hit], 0.55, taken).match, null)
+
+  // The next-best candidate still wins if its audio is free.
+  const alternate = { ...hit, previewUrl: 'https://x/free.m4a' }
+  assert.equal(pickBest(song, [hit, alternate], 0.55, taken).match, alternate)
+})
+
+test('lookup passes the claimed set through to every query', async () => {
+  const taken = new Set([hit.previewUrl])
+  const res = await lookup(song, { ...DEFAULTS, delay: 0 }, async () => ok([hit]), taken)
+  assert.equal(res.match, null, 'the only candidate is spoken for')
+})
+
+test('run does not hand two songs the same preview', async () => {
+  // Both entries resolve to the identical Apple result; only the first may keep it.
+  const catalogue = [
+    { id: 'a', title: 'صبري قليل', titleLatin: 'Sabry Aalil', artist: 'شيرين', artistLatin: 'Sherine', difficulty: 'easy', startAt: 0 },
+    { id: 'b', title: 'كده يا قلبي', titleLatin: 'Keda Ya Alby', artist: 'شيرين', artistLatin: 'Sherine', difficulty: 'easy', startAt: 0 },
+  ]
+  const shared = {
+    trackName: 'Sabry Aalil', artistName: 'Sherine',
+    previewUrl: 'https://audio-ssl.itunes.apple.com/preview/sabry.m4a',
+  }
+  let written
+  await run({ ...DEFAULTS, delay: 0 }, {
+    fetch: async () => ok([shared]),
+    log: () => {},
+    readCatalogue: async () => catalogue,
+    writeCatalogue: async (songs) => { written = songs },
+  })
+  assert.equal(written[0].previewUrl, shared.previewUrl, 'the better match keeps it')
+  assert.equal(written[1].previewUrl, undefined, 'the other is left without a clip')
+})
+
+test('a forced re-fetch is not blocked by the song\'s own current preview', async () => {
+  // Targets release their URLs into the pool before the run starts, or --force
+  // could never return the same clip to the song that already had it.
+  const catalogue = [{
+    id: 'a', title: 'تملي معاك', titleLatin: 'Tamally Maak',
+    artist: 'عمرو دياب', artistLatin: 'Amr Diab', difficulty: 'easy', startAt: 0,
+    previewUrl: hit.previewUrl,
+  }]
+  let written
+  await run({ ...DEFAULTS, delay: 0, force: true }, {
+    fetch: async () => ok([hit]),
+    log: () => {},
+    readCatalogue: async () => catalogue,
+    writeCatalogue: async (songs) => { written = songs },
+  })
+  assert.equal(written[0].previewUrl, hit.previewUrl)
+})
+
 test('pickBest honours the threshold', () => {
   assert.equal(pickBest(song, [wrong], 0.55).match, null)
   assert.equal(pickBest(song, [wrong, hit], 0.55).match, hit)

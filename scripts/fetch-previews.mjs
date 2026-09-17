@@ -112,7 +112,7 @@ export function scoreCandidate(song, candidate) {
   return { score: 0.65 * title + 0.35 * artist, title, artist }
 }
 
-export function pickBest(song, results, minScore = DEFAULTS.minScore) {
+export function pickBest(song, results, minScore = DEFAULTS.minScore, taken = new Set()) {
   const ranked = (results || [])
     .map((c) => ({ candidate: c, ...scoreCandidate(song, c) }))
     .sort((a, b) => b.score - a.score)
@@ -120,7 +120,17 @@ export function pickBest(song, results, minScore = DEFAULTS.minScore) {
   // A right title by the wrong artist is the failure this guards against, so
   // the artist floor is checked per candidate rather than on the top one only:
   // a weaker-scoring result by the actual performer beats a perfect title.
-  const eligible = ranked.filter((r) => r.score >= minScore && r.artist >= MIN_ARTIST_SIMILARITY)
+  //
+  // `taken` rules out audio another song in the catalogue already holds. Two
+  // entries cannot legitimately be the same recording, so a duplicate preview
+  // is proof of a mismatch no score threshold catches: كده يا قلبي matched the
+  // artist perfectly, cleared 0.55 on title, and was handed صبري قليل's clip.
+  const eligible = ranked.filter(
+    (r) =>
+      r.score >= minScore &&
+      r.artist >= MIN_ARTIST_SIMILARITY &&
+      !taken.has(r.candidate.previewUrl),
+  )
   const top = eligible[0]
   if (!top) return { match: null, score: ranked[0] ? ranked[0].score : 0, ranked }
   return { match: top.candidate, score: top.score, artistScore: top.artist, ranked }
@@ -157,7 +167,7 @@ export function searchUrl(term, opts) {
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms))
 
 /** Try each query in turn, stopping at the first acceptable match. */
-export async function lookup(song, opts, fetchImpl = globalThis.fetch) {
+export async function lookup(song, opts, fetchImpl = globalThis.fetch, taken = new Set()) {
   let best = { match: null, score: 0 }
 
   for (const term of buildQueries(song)) {
@@ -177,7 +187,7 @@ export async function lookup(song, opts, fetchImpl = globalThis.fetch) {
       return { match: null, score: 0, error: 'unparseable response' }
     }
 
-    const attempt = pickBest(song, body.results, opts.minScore)
+    const attempt = pickBest(song, body.results, opts.minScore, taken)
     if (attempt.score > best.score) best = { ...attempt, term }
     if (attempt.match) return { ...attempt, term }
     if (opts.delay) await sleep(opts.delay)
@@ -255,9 +265,17 @@ export async function run(opts, deps = {}) {
   const missed = []
   let matched = 0
 
+  // Every preview already spoken for, so a lookup cannot hand one song the
+  // audio of another. Targets release their own URL first: a forced re-fetch
+  // would otherwise be blocked by the very entry it is refreshing.
+  const targeted = new Set(targets.map((s) => s.id))
+  const taken = new Set(
+    songs.filter((s) => s.previewUrl && !targeted.has(s.id)).map((s) => s.previewUrl),
+  )
+
   for (let i = 0; i < targets.length; i++) {
     const song = targets[i]
-    const { match, score, error } = await lookup(song, opts, fetchImpl)
+    const { match, score, error } = await lookup(song, opts, fetchImpl, taken)
 
     if (error) {
       log(`  ✗ ${song.titleLatin || song.title} — ${error}`)
@@ -275,6 +293,7 @@ export async function run(opts, deps = {}) {
       }
     } else {
       matched++
+      taken.add(match.previewUrl)
       song.previewUrl = match.previewUrl
       // Apple previews are already excerpted at a representative part of the
       // track, so the clip window starts at the top of the preview.

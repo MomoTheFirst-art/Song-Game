@@ -1313,7 +1313,8 @@
       "artist": "Sherine",
       "album": "Mashaier",
       "score": 0.85
-    }
+    },
+    "approved": false
   },
   {
     "id": "nassini-el-donia",
@@ -2323,15 +2324,7 @@
     "artistLatin": "Sherine",
     "year": 2012,
     "difficulty": "easy",
-    "startAt": 0,
-    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/cd/1a/e9/cd1ae9ec-f7cb-9f4e-95fe-2ed86dd60d96/mzaf_5355291922452830237.plus.aac.p.m4a",
-    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/83/ab/07/83ab076c-a8b3-0bc8-96d9-8e9e4b855ef4/dj.siwvayyg.jpg/100x100bb.jpg",
-    "matchedAs": {
-      "track": "Sabry Aalil",
-      "artist": "Sherine",
-      "album": "Garh Tany",
-      "score": 0.57
-    }
+    "startAt": 0
   },
   {
     "id": "sh-kalam-eneih",
