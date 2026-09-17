@@ -1305,7 +1305,15 @@
     "artistLatin": "Sherine",
     "year": 2014,
     "difficulty": "easy",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/08/13/32/08133239-98a1-7578-e365-8b489219c0db/mzaf_13654587899466436776.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/a2/11/43/a211436e-93f9-357a-925f-9a7db832f6d2/Hekaayat_Hayaat_Series.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Mashaier",
+      "artist": "Sherine",
+      "album": "Mashaier",
+      "score": 0.85
+    }
   },
   {
     "id": "nassini-el-donia",
@@ -2143,7 +2151,15 @@
     "artistLatin": "Talal Maddah",
     "year": 1985,
     "difficulty": "hard",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/97/44/c1/9744c1ad-365f-70f8-db17-6b95fe197a9b/mzaf_4409857844655460562.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/a4/12/c9/a412c90b-00dd-bc59-aba2-1efb8bd2b2b5/cover.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Ahebak Law Tekoun Hader (Live)",
+      "artist": "Talal Maddah",
+      "album": "Ahebak Law Tekoun Hader (Live) - Single",
+      "score": 0.94
+    }
   },
   {
     "id": "tm-qasri",
@@ -2153,7 +2169,15 @@
     "artistLatin": "Talal Maddah",
     "year": 1990,
     "difficulty": "expert",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/fa/6c/31/fa6c31c2-ef52-456d-ed25-575a689cc3d4/mzaf_15833097954720408262.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/6d/ef/0d/6def0d7d-bf03-1b4b-f1e0-6262ab9cbf6e/5059801042097.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "قصري بُعد المسافة",
+      "artist": "Talal Madaah",
+      "album": "صعب السؤال - EP",
+      "score": 0.96
+    }
   },
   {
     "id": "tm-tesadeg",
@@ -2173,7 +2197,15 @@
     "artistLatin": "Ruby",
     "year": 2011,
     "difficulty": "medium",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/dd/67/2d/dd672d60-463c-36fd-60bc-54bc26e4bd7e/mzaf_13759138244162332344.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/f9/90/da/f990da87-e0ff-8f84-ebc0-acde1e51aeb2/3616848692658_cover.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Namet Nenna",
+      "artist": "Ruby",
+      "album": "Namet Nenna - Single",
+      "score": 0.72
+    }
   },
   {
     "id": "rb-albi-plastic",
@@ -2183,7 +2215,15 @@
     "artistLatin": "Ruby",
     "year": 2014,
     "difficulty": "medium",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/16/73/eb/1673eb95-aae0-9b72-c08f-a429d050e88f/mzaf_16010145658670963326.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/22/e5/60/22e5605f-95d4-6e07-1d5e-8ccf34e4fd58/3616556356972_cover.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Alby Plastic",
+      "artist": "Ruby",
+      "album": "Alby Plastic - Single",
+      "score": 0.87
+    }
   },
   {
     "id": "rb-hetta-tanya",
@@ -2193,7 +2233,15 @@
     "artistLatin": "Ruby",
     "year": 2007,
     "difficulty": "medium",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/01/4d/12/014d12f5-5b29-b041-1c6f-437c7730ce56/mzaf_13264738642866718740.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/e0/5b/f9/e05bf9cc-2a74-25c2-486d-e965c273419b/3616553810507_cover.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Hetta Tanya",
+      "artist": "Ruby",
+      "album": "Hetta Tanya - Single",
+      "score": 1
+    }
   },
   {
     "id": "as-ad-el-horouf",
@@ -2203,7 +2251,15 @@
     "artistLatin": "Assala",
     "year": 2012,
     "difficulty": "medium",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/6f/63/b3/6f63b34e-71b6-310b-3c9d-4ff2016fe5aa/mzaf_9145681121385987827.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/0e/ad/b0/0eadb00c-398e-2157-ab8c-b25ef274ba21/6281130235683.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Ad Lhoroof",
+      "artist": "Assala",
+      "album": "Ad El Horoof",
+      "score": 0.73
+    }
   },
   {
     "id": "as-khanat",
@@ -2213,7 +2269,15 @@
     "artistLatin": "Assala",
     "year": 2015,
     "difficulty": "medium",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/01/d3/d1/01d3d1ec-fab0-2ec1-9a15-81f4222e5fa6/mzaf_7537061656294394522.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/27/50/a3/2750a377-c61d-95bb-fae2-8c10d7bd725a/6281130418512.png/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Khanat El - Zekrayat",
+      "artist": "Assala",
+      "album": "60 Dqiqa Haiah",
+      "score": 1
+    }
   },
   {
     "id": "as-bint-akaber",
@@ -2223,7 +2287,15 @@
     "artistLatin": "Assala",
     "year": 2013,
     "difficulty": "medium",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/aa/17/8f/aa178f9d-4864-2da6-43dd-e73eb3789012/mzaf_4855913814086952517.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/8e/4c/e4/8e4ce4a5-3372-19bf-048f-dd92f2c7a62a/6281130404836.png/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Bent Akaber",
+      "artist": "Assala",
+      "album": "Bent Akaber - Single",
+      "score": 0.89
+    }
   },
   {
     "id": "as-sabab-farhati",
@@ -2233,7 +2305,15 @@
     "artistLatin": "Assala",
     "year": 2018,
     "difficulty": "medium",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/00/6a/93/006a9343-aef1-1ed2-d3b7-9731bc881308/mzaf_12062323669343708358.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/89/3a/10/893a10c5-f6fc-e000-5b22-c9f7250f04a4/6281130421505.png/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Sabb Farhety",
+      "artist": "Assala",
+      "album": "Sabb Farhety - Single",
+      "score": 0.74
+    }
   },
   {
     "id": "sh-keda-ya-alby",
@@ -2243,7 +2323,15 @@
     "artistLatin": "Sherine",
     "year": 2012,
     "difficulty": "easy",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/cd/1a/e9/cd1ae9ec-f7cb-9f4e-95fe-2ed86dd60d96/mzaf_5355291922452830237.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/83/ab/07/83ab076c-a8b3-0bc8-96d9-8e9e4b855ef4/dj.siwvayyg.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Sabry Aalil",
+      "artist": "Sherine",
+      "album": "Garh Tany",
+      "score": 0.57
+    }
   },
   {
     "id": "sh-kalam-eneih",
@@ -2253,7 +2341,15 @@
     "artistLatin": "Sherine",
     "year": 2014,
     "difficulty": "easy",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/67/73/2f/67732f33-bcd6-5927-99de-11eaaf88cb73/mzaf_10287738161216312625.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/9d/7e/42/9d7e42a4-bb6a-17a3-8545-d7f3a75a3fdf/942835.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Kalam Eneih",
+      "artist": "Sherine",
+      "album": "Nassay",
+      "score": 1
+    }
   },
   {
     "id": "sh-ala-bali",
@@ -2263,7 +2359,15 @@
     "artistLatin": "Sherine",
     "year": 2015,
     "difficulty": "easy",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/8c/b1/af/8cb1aff1-be36-3f69-0db9-3778efa2f807/mzaf_17659236028475025302.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/21/1d/df/211ddf6f-33b6-95bb-7f25-3df64c78f297/2005_Shirene_-_Lazem_A3ish.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "3la Bali",
+      "artist": "Sherine",
+      "album": "Lazem A3eesh",
+      "score": 0.94
+    }
   },
   {
     "id": "ah-wesh-zakrak",
@@ -2273,7 +2377,15 @@
     "artistLatin": "Ahlam",
     "year": 2011,
     "difficulty": "medium",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/50/41/f6/5041f609-dab2-5a91-452d-8553bc246e43/mzaf_12987515137433468777.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/c2/a6/e6/c2a6e663-0798-feab-b5d1-665f69f9cdfb/1134372.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Wesh Zakarak",
+      "artist": "Ahlam",
+      "album": "Jalsat Al Thumama (Live)",
+      "score": 0.89
+    }
   },
   {
     "id": "ah-akthar-men-awal",
@@ -2283,7 +2395,15 @@
     "artistLatin": "Ahlam",
     "year": 2013,
     "difficulty": "medium",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/f1/4a/a8/f14aa82b-7d59-0d91-0af5-1c53500239a4/mzaf_2724677643587530480.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/2c/f1/25/2cf12500-faee-2caf-cce1-e18bf6fb1ab7/1117016.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Aktar Men Al Awel",
+      "artist": "Ahlam",
+      "album": "Hafl Dar Al Opera Al Sultania Muscat Allaila Alola",
+      "score": 0.78
+    }
   },
   {
     "id": "ah-nawyalak",
@@ -2293,7 +2413,15 @@
     "artistLatin": "Ahlam",
     "year": 2009,
     "difficulty": "medium",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/a0/9e/71/a09e7191-5bdc-385c-a002-e3e7a9de3de2/mzaf_17209022297201635971.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/2a/aa/24/2aaa24f0-3a86-9f7b-936e-a3693f3c49e6/1155035.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Nawilak",
+      "artist": "Ahlam",
+      "album": "Lailat Fnanat Al Arab Part 4",
+      "score": 0.66
+    }
   },
   {
     "id": "ah-motheer",
@@ -2303,7 +2431,15 @@
     "artistLatin": "Ahlam",
     "year": 2016,
     "difficulty": "medium",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/e2/6e/de/e26eded6-b952-228f-542f-fd51c654f447/mzaf_2209779344440317786.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/fa/b5/5d/fab55da4-e266-2c05-15bb-f2cf1bc6fa26/1185940.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Motheer",
+      "artist": "Ahlam",
+      "album": "Hafl Al Laila Al Maseya 2023",
+      "score": 1
+    }
   },
   {
     "id": "ah-hatha-ana",
@@ -2313,7 +2449,15 @@
     "artistLatin": "Ahlam",
     "year": 2012,
     "difficulty": "medium",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/4e/9f/1a/4e9f1a3e-b94b-e85a-41c7-50323bf41aa4/mzaf_5533414167481798540.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/77/32/77/773277e6-f694-516b-e0d3-2db0c3df0be8/Ahlam.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Haza Ana",
+      "artist": "Ahlam",
+      "album": "Haza Ana",
+      "score": 0.78
+    }
   },
   {
     "id": "amj-ebn-el-awadem",
@@ -2323,7 +2467,15 @@
     "artistLatin": "Abdul Majeed Abdullah",
     "year": 2005,
     "difficulty": "medium",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/ed/96/74/ed967413-c2ca-dafd-2571-fd2cfae7ffca/mzaf_11994331464725624754.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/d8/2a/ae/d82aae5c-f024-07ef-35e6-32ef56cca977/6281130220221.png/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Yabn Elawadem",
+      "artist": "Abdul Majeed Abdullah",
+      "album": "Aalam Mowazi",
+      "score": 0.92
+    }
   },
   {
     "id": "amj-keif-aseebak",
@@ -2333,7 +2485,15 @@
     "artistLatin": "Abdul Majeed Abdullah",
     "year": 2008,
     "difficulty": "medium",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/5e/ed/fe/5eedfe15-250e-42ff-e273-4bc9ba080447/mzaf_3416147146654795947.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/8d/3e/ee/8d3eee51-97c4-0c54-266f-c6bcdb07f162/6281130203576.png/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Keef Aseebak",
+      "artist": "Abdul Majeed Abdullah",
+      "album": "Wenta Testahel",
+      "score": 0.9
+    }
   },
   {
     "id": "amj-raheeb",
@@ -2343,7 +2503,15 @@
     "artistLatin": "Abdul Majeed Abdullah",
     "year": 2010,
     "difficulty": "medium",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/74/ab/70/74ab7000-adc9-8f15-29ce-f5429984f41e/mzaf_8692855491254205740.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/90/fc/3e/90fc3ecd-d6d5-0754-9992-e256446e91f1/6281130203583.png/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Raheeb",
+      "artist": "Abdul Majeed Abdullah",
+      "album": "Raheeb",
+      "score": 1
+    }
   },
   {
     "id": "amj-hala-besh",
@@ -2353,7 +2521,15 @@
     "artistLatin": "Abdul Majeed Abdullah",
     "year": 2015,
     "difficulty": "medium",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/95/9c/be/959cbe76-3b92-af86-6afd-12a725a194eb/mzaf_8306639749200628934.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/3d/a0/1e/3da01e80-1804-5bc1-5a1e-220097518206/6281130214343.png/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Hala Besh",
+      "artist": "Abdul Majeed Abdullah",
+      "album": "Monawa'at Hits 2011",
+      "score": 1
+    }
   },
   {
     "id": "amj-men-methlak",
@@ -2363,7 +2539,15 @@
     "artistLatin": "Abdul Majeed Abdullah",
     "year": 2012,
     "difficulty": "medium",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/23/1b/e5/231be510-3781-c9ab-78c5-88f8083f0da7/mzaf_4543520337391510842.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/98/33/73/983373d2-0a69-1382-b279-8d3e3b720036/974541.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Mn Mithlak Oud",
+      "artist": "Abdul Majeed Abdullah",
+      "album": "Mn Mithlak Oud - Single",
+      "score": 0.69
+    }
   },
   {
     "id": "rs-maghroura",
@@ -2373,7 +2557,15 @@
     "artistLatin": "Rabeh Saqer",
     "year": 2004,
     "difficulty": "medium",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/be/a7/96/bea79673-5922-6d63-b95a-8f7abf9e2604/mzaf_15455014595596959734.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music/v4/32/72/45/3272455f-e781-6ef6-5919-a7cf2b81573e/Rabeh_Saqer_-_Sheft_Elhayah_-_2400x2400.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Maghrora",
+      "artist": "Rabeh Saqer",
+      "album": "Sheft Elhayah",
+      "score": 0.87
+    }
   },
   {
     "id": "rs-wesh-raik",
@@ -2393,7 +2585,15 @@
     "artistLatin": "Rabeh Saqer",
     "year": 2011,
     "difficulty": "medium",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/94/0d/95/940d9517-ac49-f0a1-3fce-40eb72fcb241/mzaf_17310878107773167971.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/21/6a/5c/216a5c3b-200a-36ed-5041-3daac18f420c/1085132.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Enta Malek Takht Sharqy",
+      "artist": "Rabeh Saqer",
+      "album": "Enta Malek Takht Sharqy - Single",
+      "score": 0.7
+    }
   },
   {
     "id": "rs-noaa-men-el-bashar",
@@ -2403,7 +2603,15 @@
     "artistLatin": "Rabeh Saqer",
     "year": 2013,
     "difficulty": "hard",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/2c/90/a6/2c90a6b5-3207-5ef2-9aed-084313f4b7f7/mzaf_3053533902533396876.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/dc/57/ed/dc57edac-0937-8da5-538a-1f423c5c1914/6281130223017.png/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Nou Min Al Bashar",
+      "artist": "Rabeh Saqer",
+      "album": "Rabeh Saqer 2022",
+      "score": 0.69
+    }
   },
   {
     "id": "rs-montaha-el-reqqa",
@@ -2413,7 +2621,15 @@
     "artistLatin": "Rabeh Saqer",
     "year": 2007,
     "difficulty": "hard",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/fd/80/7a/fd807aef-ac1b-98bb-cf95-9e58fceaa60f/mzaf_5288843713820938846.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/28/a0/68/28a06827-15c9-effc-4951-9455e9bc5ade/6281130204689.png/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Mountaha El Reqa",
+      "artist": "Rabeh Saqer",
+      "album": "Ehsas",
+      "score": 0.9
+    }
   },
   {
     "id": "aj-galo-tara",
@@ -2423,7 +2639,15 @@
     "artistLatin": "Abadi Al Johar",
     "year": 2000,
     "difficulty": "hard",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/33/e5/a1/33e5a1fb-de6c-29c7-ee95-eaacac246b72/mzaf_10151220902175025937.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/6c/e2/b5/6ce2b519-3ba0-4cda-39fc-01ad2be88b4d/1105121.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Galo Tara",
+      "artist": "Abade Al Johar",
+      "album": "Galo Tara",
+      "score": 0.94
+    }
   },
   {
     "id": "aj-dokhoon",
@@ -2433,7 +2657,15 @@
     "artistLatin": "Abadi Al Johar",
     "year": 2010,
     "difficulty": "hard",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview112/v4/53/c2/ef/53c2ef74-40b8-b5c8-1176-1d3d8c6d3a93/mzaf_277544983938982696.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/a5/53/6f/a5536f9f-0bdf-7252-88df-538f59e175ad/5059801076146.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "دخون",
+      "artist": "Abade Al Johar",
+      "album": "دخون",
+      "score": 0.94
+    }
   },
   {
     "id": "aj-ma-gelt-lak",
@@ -2443,7 +2675,15 @@
     "artistLatin": "Abadi Al Johar",
     "year": 2005,
     "difficulty": "hard",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/c5/23/59/c523595a-2b96-5f65-5796-f8311eb0ba21/mzaf_683407914019741645.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/6c/e2/b5/6ce2b519-3ba0-4cda-39fc-01ad2be88b4d/1105121.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Ma Gelt Lak",
+      "artist": "Abade Al Johar",
+      "album": "Galo Tara",
+      "score": 0.94
+    }
   },
   {
     "id": "aj-khalas-erjaa",
@@ -2453,7 +2693,15 @@
     "artistLatin": "Abadi Al Johar",
     "year": 2008,
     "difficulty": "hard",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/29/49/58/29495816-5011-032b-772d-cfc9fe991e61/mzaf_12092739229126282271.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/64/6f/e1/646fe13a-bf13-cf31-dde3-657d7743a5b6/6281130219928.png/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Khalas Erjaa",
+      "artist": "Abade Al Johar",
+      "album": "Khalas Erjaa 2017 - EP",
+      "score": 0.94
+    }
   },
   {
     "id": "aj-zaman-awwal",
@@ -2463,7 +2711,15 @@
     "artistLatin": "Abadi Al Johar",
     "year": 1995,
     "difficulty": "expert",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/b0/4d/78/b04d7842-a1c0-fc32-3520-4bfa842c562d/mzaf_10624966673337275266.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/be/db/05/bedb0594-cf3c-4d71-c22a-c2ed6ee1f364/6281130209189.png/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Zaman Awal",
+      "artist": "Abade Al Johar",
+      "album": "Zaman Awal",
+      "score": 0.9
+    }
   },
   {
     "id": "rm-tenadeek",
@@ -2473,7 +2729,15 @@
     "artistLatin": "Rashed Al-Majed",
     "year": 2010,
     "difficulty": "medium",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/d7/9f/7c/d79f7cd3-e0fe-8082-71b9-9544e1a8c9fa/mzaf_9968440400317601303.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/f3/f8/b3/f3f8b361-6c3f-9a52-e0fa-7c689e50179d/838030.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Tenadeek",
+      "artist": "Rashed Al Majid & Majed Al Mohandis",
+      "album": "Jalsat Wanasa 2017, Pt. 9",
+      "score": 0.89
+    }
   },
   {
     "id": "rm-shartan-el-thahab",
@@ -2483,7 +2747,15 @@
     "artistLatin": "Rashed Al-Majed",
     "year": 2012,
     "difficulty": "medium",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/b8/7f/5e/b87f5e8d-0ffe-c028-234a-ed62f315f3b2/mzaf_11267208275545734317.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/84/52/9d/84529dd1-8d5a-42e0-3409-7238bc52bca2/6281130405185.png/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Shertan Al Thahab",
+      "artist": "Rashed Al Majid",
+      "album": "Shertan Al Thahab",
+      "score": 0.77
+    }
   },
   {
     "id": "rm-weily",
@@ -2493,7 +2765,15 @@
     "artistLatin": "Rashed Al-Majed",
     "year": 2014,
     "difficulty": "medium",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/7d/5e/93/7d5e9358-9d13-e44b-7807-b6acdba0b039/mzaf_16417206373790517559.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/15/a4/07/15a40758-08f8-6cac-2b56-58a7ef7f4a41/6281130405284.png/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Weily",
+      "artist": "Rashed Al Majid",
+      "album": "Weily",
+      "score": 0.95
+    }
   },
   {
     "id": "rm-al-asad",
@@ -2503,7 +2783,15 @@
     "artistLatin": "Rashed Al-Majed",
     "year": 2016,
     "difficulty": "medium",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/79/13/d0/7913d0f3-1a2d-b189-6b60-b6f3a66399b2/mzaf_4694752703885959286.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/ca/da/42/cada42b9-c620-669f-7100-fc575e90b2ec/6281130409282.png/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Alassad",
+      "artist": "Rashed Al Majid",
+      "album": "Alassad - Single",
+      "score": 0.9
+    }
   },
   {
     "id": "rm-al-bareha",
@@ -2513,6 +2801,14 @@
     "artistLatin": "Rashed Al-Majed",
     "year": 2006,
     "difficulty": "medium",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/13/11/92/1311920a-2157-cee9-b397-2e11c79b5116/mzaf_3214190929087859098.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/5c/48/87/5c48876e-8c0b-9c2e-ff6f-a8703dc87fde/6281130423226.png/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Jaza Al Bareha - Wanasah Jalasat 2009",
+      "artist": "Rashed Al Majid",
+      "album": "Jaza Al Bareha - Wanasah Jalasat 2009 - Single",
+      "score": 0.86
+    }
   }
 ]
