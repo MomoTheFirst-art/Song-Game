@@ -1660,7 +1660,8 @@
       "artist": "Abdul Majeed Abdullah",
       "album": "Ya Tayeb El qalb (Royo Disco Remix) - Single",
       "score": 0.7
-    }
+    },
+    "approved": false
   },
   {
     "id": "amj-ensay",
@@ -1768,7 +1769,8 @@
       "artist": "Sherine",
       "album": "Free Mix Vol. 3",
       "score": 1
-    }
+    },
+    "approved": true
   },
   {
     "id": "sh-katar-el-kheir",
@@ -1796,7 +1798,8 @@
       "artist": "Sherine",
       "album": "Habeat",
       "score": 0.74
-    }
+    },
+    "approved": true
   },
   {
     "id": "as-samahtak",
@@ -1814,7 +1817,8 @@
       "artist": "Assala",
       "album": "Law Terafoh",
       "score": 0.69
-    }
+    },
+    "approved": false
   },
   {
     "id": "as-shakhsiya-anida",
@@ -1832,7 +1836,8 @@
       "artist": "Assala",
       "album": "Shakhsya Anida",
       "score": 0.92
-    }
+    },
+    "approved": false
   },
   {
     "id": "as-akteblak-taahod",
@@ -1860,7 +1865,8 @@
       "artist": "Assala",
       "album": "Ya Magnon",
       "score": 0.87
-    }
+    },
+    "approved": true
   },
   {
     "id": "as-adi-el-hob",
@@ -1928,7 +1934,8 @@
       "artist": "Talal Madaah",
       "album": "ما نسيتيني - Single",
       "score": 0.96
-    }
+    },
+    "approved": true
   },
   {
     "id": "tm-zaman-el-samt",
@@ -1946,7 +1953,8 @@
       "artist": "Talal Madaah",
       "album": "زمان الصمت - EP",
       "score": 0.96
-    }
+    },
+    "approved": false
   },
   {
     "id": "tm-taal",
@@ -1964,7 +1972,8 @@
       "artist": "Talal Maddah",
       "album": "Talal Madah",
       "score": 0.9
-    }
+    },
+    "approved": true
   },
   {
     "id": "tm-al-madi",
@@ -2012,7 +2021,8 @@
       "artist": "Rabeh Saqer",
       "album": "Yehiqelak Jalsah",
       "score": 0.59
-    }
+    },
+    "approved": false
   },
   {
     "id": "rs-kel-el-hekaya",
@@ -2050,7 +2060,8 @@
       "artist": "Ahlam",
       "album": "Shadini - Single",
       "score": 0.7
-    }
+    },
+    "approved": true
   },
   {
     "id": "ah-ya-hayati",
@@ -2068,7 +2079,8 @@
       "artist": "Ahlam",
       "album": "Alhlam Wa Almusiqar Talal Fi Laylah Men Altareekh",
       "score": 0.7
-    }
+    },
+    "approved": true
   },
   {
     "id": "ah-madri",
@@ -2096,7 +2108,8 @@
       "artist": "Ruby",
       "album": "Eba Abelny",
       "score": 0.91
-    }
+    },
+    "approved": false
   },
   {
     "id": "rb-leih-bidari",
@@ -2114,7 +2127,8 @@
       "artist": "Ruby",
       "album": "ليه بيداري كده (ريمكس) - Single",
       "score": 0.9
-    }
+    },
+    "approved": false
   },
   {
     "id": "rb-mesh-bekeed",
@@ -2142,7 +2156,8 @@
       "artist": "Ruby",
       "album": "Eba Abelny",
       "score": 0.56
-    }
+    },
+    "approved": true
   },
   {
     "id": "tm-ahebak-law",
@@ -2160,7 +2175,8 @@
       "artist": "Talal Maddah",
       "album": "Ahebak Law Tekoun Hader (Live) - Single",
       "score": 0.94
-    }
+    },
+    "approved": true
   },
   {
     "id": "tm-qasri",
@@ -2178,7 +2194,8 @@
       "artist": "Talal Madaah",
       "album": "صعب السؤال - EP",
       "score": 0.96
-    }
+    },
+    "approved": true
   },
   {
     "id": "tm-tesadeg",
@@ -2206,7 +2223,8 @@
       "artist": "Ruby",
       "album": "Namet Nenna - Single",
       "score": 0.72
-    }
+    },
+    "approved": false
   },
   {
     "id": "rb-albi-plastic",
@@ -2224,7 +2242,8 @@
       "artist": "Ruby",
       "album": "Alby Plastic - Single",
       "score": 0.87
-    }
+    },
+    "approved": false
   },
   {
     "id": "rb-hetta-tanya",
@@ -2242,7 +2261,8 @@
       "artist": "Ruby",
       "album": "Hetta Tanya - Single",
       "score": 1
-    }
+    },
+    "approved": false
   },
   {
     "id": "as-ad-el-horouf",
@@ -2260,7 +2280,8 @@
       "artist": "Assala",
       "album": "Ad El Horoof",
       "score": 0.73
-    }
+    },
+    "approved": false
   },
   {
     "id": "as-khanat",
@@ -2278,7 +2299,8 @@
       "artist": "Assala",
       "album": "60 Dqiqa Haiah",
       "score": 1
-    }
+    },
+    "approved": false
   },
   {
     "id": "as-bint-akaber",
@@ -2296,7 +2318,8 @@
       "artist": "Assala",
       "album": "Bent Akaber - Single",
       "score": 0.89
-    }
+    },
+    "approved": false
   },
   {
     "id": "as-sabab-farhati",
@@ -2314,7 +2337,8 @@
       "artist": "Assala",
       "album": "Sabb Farhety - Single",
       "score": 0.74
-    }
+    },
+    "approved": false
   },
   {
     "id": "sh-keda-ya-alby",
@@ -2342,7 +2366,8 @@
       "artist": "Sherine",
       "album": "Nassay",
       "score": 1
-    }
+    },
+    "approved": true
   },
   {
     "id": "sh-ala-bali",
@@ -2360,7 +2385,8 @@
       "artist": "Sherine",
       "album": "Lazem A3eesh",
       "score": 0.94
-    }
+    },
+    "approved": true
   },
   {
     "id": "ah-wesh-zakrak",
@@ -2378,7 +2404,8 @@
       "artist": "Ahlam",
       "album": "Jalsat Al Thumama (Live)",
       "score": 0.89
-    }
+    },
+    "approved": false
   },
   {
     "id": "ah-akthar-men-awal",
@@ -2396,7 +2423,8 @@
       "artist": "Ahlam",
       "album": "Hafl Dar Al Opera Al Sultania Muscat Allaila Alola",
       "score": 0.78
-    }
+    },
+    "approved": false
   },
   {
     "id": "ah-nawyalak",
@@ -2414,7 +2442,8 @@
       "artist": "Ahlam",
       "album": "Lailat Fnanat Al Arab Part 4",
       "score": 0.66
-    }
+    },
+    "approved": true
   },
   {
     "id": "ah-motheer",
@@ -2432,7 +2461,8 @@
       "artist": "Ahlam",
       "album": "Hafl Al Laila Al Maseya 2023",
       "score": 1
-    }
+    },
+    "approved": false
   },
   {
     "id": "ah-hatha-ana",
@@ -2450,7 +2480,8 @@
       "artist": "Ahlam",
       "album": "Haza Ana",
       "score": 0.78
-    }
+    },
+    "approved": false
   },
   {
     "id": "amj-ebn-el-awadem",
@@ -2468,7 +2499,8 @@
       "artist": "Abdul Majeed Abdullah",
       "album": "Aalam Mowazi",
       "score": 0.92
-    }
+    },
+    "approved": true
   },
   {
     "id": "amj-keif-aseebak",
@@ -2486,7 +2518,8 @@
       "artist": "Abdul Majeed Abdullah",
       "album": "Wenta Testahel",
       "score": 0.9
-    }
+    },
+    "approved": false
   },
   {
     "id": "amj-raheeb",
@@ -2504,7 +2537,8 @@
       "artist": "Abdul Majeed Abdullah",
       "album": "Raheeb",
       "score": 1
-    }
+    },
+    "approved": true
   },
   {
     "id": "amj-hala-besh",
@@ -2522,7 +2556,8 @@
       "artist": "Abdul Majeed Abdullah",
       "album": "Monawa'at Hits 2011",
       "score": 1
-    }
+    },
+    "approved": false
   },
   {
     "id": "amj-men-methlak",
@@ -2540,7 +2575,8 @@
       "artist": "Abdul Majeed Abdullah",
       "album": "Mn Mithlak Oud - Single",
       "score": 0.69
-    }
+    },
+    "approved": true
   },
   {
     "id": "rs-maghroura",
@@ -2558,7 +2594,8 @@
       "artist": "Rabeh Saqer",
       "album": "Sheft Elhayah",
       "score": 0.87
-    }
+    },
+    "approved": true
   },
   {
     "id": "rs-wesh-raik",
@@ -2586,7 +2623,8 @@
       "artist": "Rabeh Saqer",
       "album": "Enta Malek Takht Sharqy - Single",
       "score": 0.7
-    }
+    },
+    "approved": true
   },
   {
     "id": "rs-noaa-men-el-bashar",
@@ -2604,7 +2642,8 @@
       "artist": "Rabeh Saqer",
       "album": "Rabeh Saqer 2022",
       "score": 0.69
-    }
+    },
+    "approved": false
   },
   {
     "id": "rs-montaha-el-reqqa",
@@ -2622,7 +2661,8 @@
       "artist": "Rabeh Saqer",
       "album": "Ehsas",
       "score": 0.9
-    }
+    },
+    "approved": true
   },
   {
     "id": "aj-galo-tara",
@@ -2640,7 +2680,8 @@
       "artist": "Abade Al Johar",
       "album": "Galo Tara",
       "score": 0.94
-    }
+    },
+    "approved": true
   },
   {
     "id": "aj-dokhoon",
@@ -2658,7 +2699,8 @@
       "artist": "Abade Al Johar",
       "album": "دخون",
       "score": 0.94
-    }
+    },
+    "approved": false
   },
   {
     "id": "aj-ma-gelt-lak",
@@ -2676,7 +2718,8 @@
       "artist": "Abade Al Johar",
       "album": "Galo Tara",
       "score": 0.94
-    }
+    },
+    "approved": true
   },
   {
     "id": "aj-khalas-erjaa",
@@ -2694,7 +2737,8 @@
       "artist": "Abade Al Johar",
       "album": "Khalas Erjaa 2017 - EP",
       "score": 0.94
-    }
+    },
+    "approved": false
   },
   {
     "id": "aj-zaman-awwal",
@@ -2712,7 +2756,8 @@
       "artist": "Abade Al Johar",
       "album": "Zaman Awal",
       "score": 0.9
-    }
+    },
+    "approved": false
   },
   {
     "id": "rm-tenadeek",
@@ -2730,7 +2775,8 @@
       "artist": "Rashed Al Majid & Majed Al Mohandis",
       "album": "Jalsat Wanasa 2017, Pt. 9",
       "score": 0.89
-    }
+    },
+    "approved": true
   },
   {
     "id": "rm-shartan-el-thahab",
@@ -2748,7 +2794,8 @@
       "artist": "Rashed Al Majid",
       "album": "Shertan Al Thahab",
       "score": 0.77
-    }
+    },
+    "approved": false
   },
   {
     "id": "rm-weily",
@@ -2766,7 +2813,8 @@
       "artist": "Rashed Al Majid",
       "album": "Weily",
       "score": 0.95
-    }
+    },
+    "approved": false
   },
   {
     "id": "rm-al-asad",
@@ -2784,7 +2832,8 @@
       "artist": "Rashed Al Majid",
       "album": "Alassad - Single",
       "score": 0.9
-    }
+    },
+    "approved": false
   },
   {
     "id": "rm-al-bareha",
@@ -2802,6 +2851,7 @@
       "artist": "Rashed Al Majid",
       "album": "Jaza Al Bareha - Wanasah Jalasat 2009 - Single",
       "score": 0.86
-    }
+    },
+    "approved": false
   }
 ]
