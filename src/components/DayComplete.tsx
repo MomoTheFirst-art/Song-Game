@@ -10,10 +10,11 @@ interface Props {
   score: number
   dateKey: string
   mode: Mode
-  onPractice: () => void
+  /** Deals a fresh challenge run. */
+  onReplay: () => void
 }
 
-export function DayComplete({ rounds, score, dateKey, mode, onPractice }: Props) {
+export function DayComplete({ rounds, score, dateKey, mode, onReplay }: Props) {
   const [copied, setCopied] = useState(false)
   const solved = rounds.filter((r) => r.status === 'won').length
   const stages = rounds.map((r) => (r.status === 'won' ? r.stage : null))
@@ -70,8 +71,8 @@ export function DayComplete({ rounds, score, dateKey, mode, onPractice }: Props)
             {copied ? 'تم النسخ ✓' : 'شارك النتيجة'}
           </button>
         )}
-        <button className="btn btn-next" onClick={onPractice}>
-          جولة تدريب
+        <button className="btn btn-next" onClick={onReplay}>
+          ٥ أغانٍ جديدة
         </button>
       </div>
 

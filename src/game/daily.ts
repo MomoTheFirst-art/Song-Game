@@ -54,22 +54,47 @@ export function shuffle<T>(items: readonly T[]): T[] {
   return out
 }
 
+/** Songs in one challenge run. */
+export const CHALLENGE_LENGTH = 5
+
 /**
- * A random run for Practice mode — one song per difficulty.
+ * Draw `count` distinct items at random.
  *
- * Plain random picking repeats badly on a small catalogue: with five songs in a
- * tier, one in five runs replays the same track in that slot. Songs in
- * `exclude` (the recently played ones) are skipped, and the tier falls back to
- * its full contents only once everything in it has been seen.
+ * Splicing out of a copy is what makes them distinct: indexing a pool at
+ * random can return the same item twice, which in a run means one song with
+ * two chances at it and in a party means two players sharing a clip.
  */
-export function practiceSongs(catalogue: Song[], exclude: ReadonlySet<string> = new Set()): Song[] {
-  const picked: Song[] = []
-  for (const difficulty of DAILY_ORDER) {
-    const bucket = catalogue.filter((s) => s.difficulty === difficulty)
-    if (bucket.length === 0) continue
-    const fresh = bucket.filter((s) => !exclude.has(s.id))
-    const pool = fresh.length > 0 ? fresh : bucket
-    picked.push(pool[Math.floor(Math.random() * pool.length)])
+export function takeRandom<T>(pool: readonly T[], count: number): T[] {
+  const bag = pool.slice()
+  const out: T[] = []
+  for (let i = 0; i < count && bag.length > 0; i++) {
+    out.push(...bag.splice(Math.floor(Math.random() * bag.length), 1))
+  }
+  return out
+}
+
+/**
+ * A challenge run: five songs drawn from the whole catalogue, any difficulty.
+ *
+ * Unlike the daily, nothing here is one-per-tier — a run might be three easy
+ * songs and two impossible ones, and no two runs feel alike. That also means
+ * the no-repeat guarantee has to be enforced rather than inherited: the daily
+ * cannot repeat a song because each slot is a different difficulty, whereas
+ * this draws every song from one pool.
+ *
+ * Recently played songs are held back, but never at the cost of a short run:
+ * once the unseen pool cannot fill five, the remainder comes from the rest.
+ */
+export function challengeSongs(
+  catalogue: Song[],
+  exclude: ReadonlySet<string> = new Set(),
+): Song[] {
+  const fresh = catalogue.filter((s) => !exclude.has(s.id))
+  const picked = takeRandom(fresh, CHALLENGE_LENGTH)
+  if (picked.length < CHALLENGE_LENGTH) {
+    const seen = new Set(picked.map((s) => s.id))
+    const rest = catalogue.filter((s) => !seen.has(s.id))
+    picked.push(...takeRandom(rest, CHALLENGE_LENGTH - picked.length))
   }
   return picked
 }

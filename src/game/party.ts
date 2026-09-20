@@ -1,3 +1,4 @@
+import { takeRandom } from './daily.ts'
 import { STAGE_POINTS } from './stages.ts'
 import type { Difficulty, Song } from './types.ts'
 
@@ -25,15 +26,6 @@ export function maxPlayersFor(catalogue: Song[]): number {
   return Math.max(0, Math.min(MAX_PLAYERS, ...perTier))
 }
 
-function pickDistinct(pool: Song[], count: number): Song[] {
-  const bag = pool.slice()
-  const out: Song[] = []
-  for (let i = 0; i < count && bag.length > 0; i++) {
-    out.push(...bag.splice(Math.floor(Math.random() * bag.length), 1))
-  }
-  return out
-}
-
 /**
  * One row per player, each holding SONGS_PER_PLAYER songs in tier order.
  * Drawing per tier and dealing across players keeps every player's run the
@@ -42,7 +34,7 @@ function pickDistinct(pool: Song[], count: number): Song[] {
 export function dealSongs(catalogue: Song[], playerCount: number): Song[][] {
   const hands: Song[][] = Array.from({ length: playerCount }, () => [])
   for (const tier of PARTY_TIERS) {
-    const drawn = pickDistinct(catalogue.filter((s) => s.difficulty === tier), playerCount)
+    const drawn = takeRandom(catalogue.filter((s) => s.difficulty === tier), playerCount)
     drawn.forEach((song, i) => hands[i].push(song))
   }
   return hands

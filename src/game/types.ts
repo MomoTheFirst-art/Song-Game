@@ -63,7 +63,7 @@ export interface RoundState {
   status: 'playing' | 'won' | 'lost'
 }
 
-export type Mode = 'daily' | 'practice'
+export type Mode = 'daily' | 'challenge'
 
 
 /**

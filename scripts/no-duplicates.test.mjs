@@ -13,7 +13,7 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { dealSongs, maxPlayersFor, PARTY_TIERS, SONGS_PER_PLAYER, MIN_PLAYERS } from '../src/game/party.ts'
-import { dailySongs, practiceSongs, todayKey } from '../src/game/daily.ts'
+import { challengeSongs, dailySongs, todayKey, CHALLENGE_LENGTH } from '../src/game/daily.ts'
 
 const all = JSON.parse(readFileSync(new URL('../src/data/songs.json', import.meta.url), 'utf8'))
 const playable = all.filter((s) => s.previewUrl && s.approved !== false)
@@ -23,8 +23,9 @@ const ids = (songs) => songs.map((s) => s.id)
 const allDistinct = (songs) => new Set(ids(songs)).size === songs.length
 
 test('every song sits in exactly one difficulty tier', () => {
-  // The whole no-duplicate guarantee rests on this: both modes draw one song
-  // per tier, so a song belonging to two tiers could be drawn twice.
+  // The daily's no-duplicate guarantee rests on this: it draws one song per
+  // tier, so a song belonging to two tiers could be drawn twice. Challenge
+  // runs no longer draw per tier and are guarded directly instead.
   for (const s of all) {
     assert.equal(typeof s.difficulty, 'string', `${s.id} has no difficulty`)
   }
@@ -44,8 +45,12 @@ test('no two catalogue entries share a preview clip', () => {
 })
 
 test('a solo run never repeats a song', () => {
+  // Challenge draws all five from one pool, so unlike the daily it has no
+  // structural reason not to repeat — this is the guard for that.
   for (let i = 0; i < 200; i++) {
-    assert.ok(allDistinct(practiceSongs(playable)), 'practice run repeated a song')
+    const run = challengeSongs(playable)
+    assert.equal(run.length, CHALLENGE_LENGTH, 'a challenge run must be five songs')
+    assert.ok(allDistinct(run), 'challenge run repeated a song')
   }
   // Daily is seeded, so sweep a year of keys rather than trusting one draw.
   const start = Date.parse('2026-01-01T00:00:00Z')

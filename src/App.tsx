@@ -11,7 +11,7 @@ import { GuessInput } from './components/GuessInput'
 import { Header } from './components/Header'
 import { RoundResult } from './components/RoundResult'
 import { StageBar } from './components/StageBar'
-import { dailySongs, practiceSongs, todayKey } from './game/daily'
+import { challengeSongs, dailySongs, todayKey } from './game/daily'
 import { roundScore, totalScore } from './game/scoring'
 import { MAX_STAGE, STAGES } from './game/stages'
 import { loadDaily, recentlyPlayed, rememberPlayed, saveRun } from './game/storage'
@@ -63,7 +63,7 @@ function Game({ onHome }: { onHome: () => void }) {
       const songs =
         nextMode === 'daily'
           ? dailySongs(catalogue, dateKey)
-          : practiceSongs(catalogue, recentlyPlayed())
+          : challengeSongs(catalogue, recentlyPlayed())
       setMode(nextMode)
       setLineup(songs)
       setRoundIndex(0)
@@ -150,14 +150,14 @@ function Game({ onHome }: { onHome: () => void }) {
             score={totalScore(rounds)}
             dateKey={dateKey}
             mode={mode}
-            onPractice={() => startRun('practice')}
+            onReplay={() => startRun('challenge')}
           />
         ) : (
           <section className="complete">
             <h2>لعبت تحدي اليوم بالفعل</h2>
-            <p className="complete-note">عُد غداً لتحدٍ جديد، أو جرّب وضع التدريب.</p>
-            <button className="btn btn-next" onClick={() => startRun('practice')}>
-              جولة تدريب
+            <p className="complete-note">عُد غداً لتحدٍ جديد، أو جرّب جولة عشوائية.</p>
+            <button className="btn btn-next" onClick={() => startRun('challenge')}>
+              جولة عشوائية
             </button>
           </section>
         )}

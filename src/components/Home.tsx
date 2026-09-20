@@ -21,7 +21,7 @@ export function Home({ playableCount, onSolo, onParty, partyCapacity }: Props) {
         <div className="home-modes">
           <button className="btn btn-next home-mode" onClick={onSolo}>
             <strong>فردي</strong>
-            <span>تحدي اليوم أو تدريب</span>
+            <span>تحدي اليوم أو جولة عشوائية</span>
           </button>
           <button
             className="btn home-mode"

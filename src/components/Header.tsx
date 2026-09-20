@@ -21,10 +21,10 @@ export function Header({ mode, score, roundIndex, roundCount, onMode }: Props) {
           تحدي اليوم
         </button>
         <button
-          className={mode === 'practice' ? 'tab tab-on' : 'tab'}
-          onClick={() => onMode('practice')}
+          className={mode === 'challenge' ? 'tab tab-on' : 'tab'}
+          onClick={() => onMode('challenge')}
         >
-          تدريب
+          عشوائي
         </button>
       </nav>
 
