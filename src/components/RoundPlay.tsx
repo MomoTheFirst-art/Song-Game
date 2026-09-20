@@ -7,6 +7,7 @@ import { MAX_STAGE, STAGES } from '../game/stages'
 import { DIFFICULTY_LABEL } from '../game/types'
 import type { Attempt, RoundState, Song } from '../game/types'
 import { useAudioClip } from '../hooks/useAudioClip'
+import { useLoopPreference } from '../hooks/useLoopPreference'
 
 interface Props {
   song: Song
@@ -29,6 +30,7 @@ export function RoundPlay({ song, catalogue, onDone, isLast }: Props) {
     status: 'playing',
   })
   const { status, mode: clipMode, play, stop } = useAudioClip(song.previewUrl as string)
+  const [loop, setLoop] = useLoopPreference()
   const over = round.status !== 'playing'
 
   const advance = useCallback(
@@ -66,7 +68,10 @@ export function RoundPlay({ song, catalogue, onDone, isLast }: Props) {
         stage={round.stage}
         status={status}
         mode={clipMode}
-        onPlay={() => play(song.startAt, STAGES[round.stage])}
+        loop={loop}
+        onLoopChange={setLoop}
+        onPlay={() => play(song.startAt, STAGES[round.stage], loop)}
+        onStop={stop}
       />
 
       {over ? (

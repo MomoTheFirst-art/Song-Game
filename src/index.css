@@ -113,6 +113,19 @@ body {
 .btn-play:not(:disabled):hover { background: #23d466; }
 .play-label { font-size: 0.95rem; }
 
+.loop-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: var(--muted);
+  cursor: pointer;
+  user-select: none;
+}
+.loop-toggle input { width: 17px; height: 17px; accent-color: var(--accent); cursor: pointer; }
+.loop-toggle input:disabled { cursor: default; }
+.loop-toggle:has(input:checked) { color: var(--text); }
+
 .notice { margin: 0; font-size: 0.85rem; text-align: center; }
 .notice-warn { color: var(--warn); }
 .notice-soft { color: var(--muted); }

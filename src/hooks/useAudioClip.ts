@@ -132,7 +132,7 @@ export function useAudioClip(url: string) {
   }, [url])
 
   const playViaElement = useCallback(
-    (startAt: number, duration: number) => {
+    (startAt: number, duration: number, loop: boolean) => {
       let el = elRef.current
       if (!el) {
         el = new Audio(url)
@@ -142,10 +142,22 @@ export function useAudioClip(url: string) {
         el.addEventListener('error', () => setStatus('missing'))
         elRef.current = el
       }
+      // Looping an element means seeking back and re-arming rather than
+      // pausing: the clip window is a slice of a 30-second preview, so the
+      // tag's own `loop` attribute would repeat the whole file, not the stage.
       const armStop = () => {
         stopTimer.current = window.setTimeout(() => {
-          el!.pause()
-          setStatus('ready')
+          if (!loop) {
+            el!.pause()
+            setStatus('ready')
+            return
+          }
+          try {
+            el!.currentTime = startAt
+          } catch {
+            // Not seekable; it keeps running from wherever it is.
+          }
+          armStop()
         }, duration * 1000)
       }
 
@@ -175,7 +187,13 @@ export function useAudioClip(url: string) {
 
   /** Slice an already-decoded buffer. Synchronous, so it keeps the gesture. */
   const startFromBuffer = useCallback(
-    (context: AudioContext, buffer: AudioBuffer, startAt: number, duration: number) => {
+    (
+      context: AudioContext,
+      buffer: AudioBuffer,
+      startAt: number,
+      duration: number,
+      loop: boolean,
+    ) => {
       // Never run past the end of the file, however the clip window was set.
       const offset = Math.min(startAt, Math.max(0, buffer.duration - 0.05))
       const length = Math.min(duration, buffer.duration - offset)
@@ -184,7 +202,20 @@ export function useAudioClip(url: string) {
       const source = context.createBufferSource()
       source.buffer = buffer
       source.connect(context.destination)
-      source.start(0, offset, length)
+
+      if (loop) {
+        // loopStart/loopEnd repeat the stage window itself, so the seam is
+        // sample-accurate — no gap, and no drift back into the rest of the
+        // preview. Passing a duration to start() would end playback before
+        // the first repeat, so it is deliberately omitted here.
+        source.loop = true
+        source.loopStart = offset
+        source.loopEnd = offset + length
+        source.start(0, offset)
+      } else {
+        source.start(0, offset, length)
+      }
+
       sourceRef.current = source
       setStatus('playing')
 
@@ -193,10 +224,13 @@ export function useAudioClip(url: string) {
         setStatus('ready')
       }
       // onended can lag on some browsers; this keeps the button state honest.
-      stopTimer.current = window.setTimeout(
-        () => setStatus((s) => (s === 'playing' ? 'ready' : s)),
-        length * 1000 + 120,
-      )
+      // A looping source never ends on its own, so it gets no such timer.
+      if (!loop) {
+        stopTimer.current = window.setTimeout(
+          () => setStatus((s) => (s === 'playing' ? 'ready' : s)),
+          length * 1000 + 120,
+        )
+      }
     },
     [],
   )
@@ -212,13 +246,13 @@ export function useAudioClip(url: string) {
    * the fault on Android.
    */
   const play = useCallback(
-    async (startAt: number, duration: number) => {
+    async (startAt: number, duration: number, loop = false) => {
       stop()
       const context = unlockAudio()
       const decoded = cache.get(url)
 
       if (decoded && !elementOnly.has(url) && !isIOS) {
-        startFromBuffer(context, decoded, startAt, duration)
+        startFromBuffer(context, decoded, startAt, duration, loop)
         return
       }
 
@@ -226,7 +260,7 @@ export function useAudioClip(url: string) {
       // still counts, and decode in the background so later stages get exact
       // slicing. On iOS the decode is skipped entirely — switching paths
       // mid-round is exactly what silenced every clip after the first.
-      playViaElement(startAt, duration)
+      playViaElement(startAt, duration, loop)
       if (!elementOnly.has(url) && !isIOS) void loadBuffer()
     },
     [loadBuffer, playViaElement, startFromBuffer, stop, url],

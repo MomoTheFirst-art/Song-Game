@@ -19,6 +19,7 @@ import { loadDecisions, playableSongs } from './game/review'
 import { DIFFICULTY_LABEL } from './game/types'
 import type { Mode, RoundState, Song } from './game/types'
 import { useAudioClip } from './hooks/useAudioClip'
+import { useLoopPreference } from './hooks/useLoopPreference'
 
 const allSongs = catalogueData as Song[]
 /**
@@ -48,6 +49,7 @@ function Game({ onHome }: { onHome: () => void }) {
 
   const clipUrl = round.song.previewUrl as string
   const { status, mode: clipMode, play, stop } = useAudioClip(clipUrl)
+  const [loop, setLoop] = useLoopPreference()
 
   // A daily run is one per UTC day — returning players see their result, not a replay.
   useEffect(() => {
@@ -184,7 +186,10 @@ function Game({ onHome }: { onHome: () => void }) {
         stage={round.stage}
         status={status}
         mode={clipMode}
-        onPlay={() => play(round.song.startAt, STAGES[round.stage])}
+        loop={loop}
+        onLoopChange={setLoop}
+        onPlay={() => play(round.song.startAt, STAGES[round.stage], loop)}
+        onStop={stop}
       />
 
       {phase === 'playing' ? (
