@@ -1,0 +1,39 @@
+name: Deploy to Firebase Hosting
+
+# Runs alongside the Pages deploy rather than replacing it. The live site keeps
+# working until Firebase is verified; removing pages.yml is a separate, later
+# decision once a domain is pointed here.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: firebase
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    # Both are set by the repository owner; without them the job is skipped
+    # rather than failing every push on a repo that has not been wired up yet.
+    if: vars.FIREBASE_PROJECT_ID != ''
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      # Deliberately no PAGES_BASE. Firebase serves from the root, so `base`
+      # falls back to '/'. Setting the Pages prefix here would point every
+      # asset URL at /Song-Game/ on a host that has no such path.
+      - run: npm run build
+
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          projectId: ${{ vars.FIREBASE_PROJECT_ID }}
+          channelId: live
