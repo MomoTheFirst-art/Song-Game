@@ -59,21 +59,24 @@ function inTile(x, y, rx) {
  *               less: a launcher may crop to a circle inscribed in the middle
  *               80%, and a mark drawn edge to edge loses its headstock.
  */
-function sample(x, y, rx, scale) {
+function sample(x, y, rx, scale, bare) {
   const m = 16 * (1 - scale)
   const u = (x - m) / scale
   const v = (y - m) / scale
   if (!inTile(x, y, rx)) return null
   if (u >= 0 && u <= 32 && v >= 0 && v <= 32) {
-    if (inCircle(u, v, hole)) return TILE
+    // `bare` draws the mark alone on transparency, for an adaptive icon's
+    // foreground layer: Android composites it over its own background and
+    // shifts the two apart for parallax, which an opaque tile would defeat.
+    if (inCircle(u, v, hole)) return bare ? null : TILE
     if (circles.some((c) => inCircle(u, v, c))) return MARK
     if (rects.some((r) => inRect(u, v, r))) return MARK
   }
-  return TILE
+  return bare ? null : TILE
 }
 
 /** 4×4 supersampling — without it every curve and the diagonal neck alias badly. */
-function render(size, { rx = 7, scale = 1 } = {}) {
+function render(size, { rx = 7, scale = 1, bare = false } = {}) {
   const px = Buffer.alloc(size * size * 4)
   const SS = 4
   for (let j = 0; j < size; j++) {
@@ -83,7 +86,7 @@ function render(size, { rx = 7, scale = 1 } = {}) {
         for (let sx = 0; sx < SS; sx++) {
           const x = ((i + (sx + 0.5) / SS) / size) * 32
           const y = ((j + (sy + 0.5) / SS) / size) * 32
-          const c = sample(x, y, rx, scale)
+          const c = sample(x, y, rx, scale, bare)
           if (c) { r += c[0]; g += c[1]; b += c[2]; a += 255 }
         }
       }
@@ -161,4 +164,27 @@ for (const [name, size, opts] of targets) {
   const file = path.join(OUT, name)
   writeFileSync(file, png(size, render(size, opts)))
   console.log(`${name.padEnd(26)} ${size}×${size}`)
+}
+
+// ---------------------------------------------------------------- android
+// Launcher icons, written straight into the native project. Android wants a
+// bitmap per density; the adaptive foreground is drawn at the maskable scale
+// because the launcher crops it to whatever shape the device uses.
+const android = [
+  ['mdpi', 48], ['hdpi', 72], ['xhdpi', 96], ['xxhdpi', 144], ['xxxhdpi', 192],
+]
+const RES = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'android', 'app', 'src', 'main', 'res')
+import { existsSync, mkdirSync } from 'node:fs'
+if (existsSync(RES)) {
+  for (const [density, size] of android) {
+    const dir = path.join(RES, `mipmap-${density}`)
+    mkdirSync(dir, { recursive: true })
+    writeFileSync(path.join(dir, 'ic_launcher.png'), png(size, render(size, { rx: 7 })))
+    writeFileSync(path.join(dir, 'ic_launcher_round.png'), png(size, render(size, { rx: 16 })))
+    writeFileSync(
+      path.join(dir, 'ic_launcher_foreground.png'),
+      png(size * 2, render(size * 2, { rx: 0, scale: 0.72, bare: true })),
+    )
+    console.log(`android mipmap-${density.padEnd(8)} ${size}×${size}`)
+  }
 }

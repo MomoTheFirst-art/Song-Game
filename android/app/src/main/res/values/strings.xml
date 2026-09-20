@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Guess it under 15s</string>
+    <string name="title_activity_main">Guess it under 15s</string>
+    <string name="package_name">art.momothefirst.guessit</string>
+    <string name="custom_url_scheme">art.momothefirst.guessit</string>
+</resources>

@@ -1,0 +1,49 @@
+name: Build Android APK
+
+# Produces an installable debug APK on every push, downloadable from the run's
+# artifacts. No Play account and no signing keys are involved — this is for
+# putting the app on a phone to try, not for releasing it.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: android
+  cancel-in-progress: true
+
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+
+      # The runner ships a JDK and the Android SDK; only the toolchain version
+      # needs pinning, or Gradle picks whichever JDK happens to be default.
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+
+      # Copies dist/ into the native project. Without this the APK ships
+      # whatever web build was last committed, which is none.
+      - run: npx cap sync android
+
+      - name: Assemble
+        run: ./gradlew assembleDebug --no-daemon
+        working-directory: android
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: guess-it-debug-apk
+          path: android/app/build/outputs/apk/debug/*.apk
+          if-no-files-found: error

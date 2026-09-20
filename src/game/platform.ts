@@ -11,3 +11,18 @@ export const isIOS =
   (/iP(hone|ad|od)/.test(navigator.userAgent) ||
     // iPadOS reports itself as a Mac; touch points give it away.
     (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1))
+
+/**
+ * Running inside the Capacitor shell rather than a browser tab.
+ *
+ * The native app sets its audio session to .playback at launch, so the silent
+ * switch no longer mutes anything and the warning about it would be a lie.
+ * Capacitor injects this global; in a browser it is simply absent, so the
+ * check is safe in both builds and needs no import.
+ */
+export const isNativeApp =
+  typeof window !== 'undefined' &&
+  Boolean(
+    (window as unknown as { Capacitor?: { isNativePlatform?: () => boolean } })
+      .Capacitor?.isNativePlatform?.(),
+  )

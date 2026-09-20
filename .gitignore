@@ -4,3 +4,15 @@ dist/
 *.local
 .vite/
 *.tsbuildinfo
+
+# Capacitor copies the built web app into the native projects on every sync,
+# so these are build output, not source.
+android/app/src/main/assets/public/
+android/app/src/main/assets/capacitor.config.json
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+ios/App/App/public/
+ios/App/Pods/
+ios/App/App/capacitor.config.json

@@ -1,0 +1,14 @@
+{
+  "appId": "art.momothefirst.guessit",
+  "appName": "Guess it under 15s",
+  "webDir": "dist",
+  "android": {
+    "allowMixedContent": false
+  },
+  "ios": {
+    "contentInset": "always"
+  },
+  "server": {
+    "androidScheme": "https"
+  }
+}

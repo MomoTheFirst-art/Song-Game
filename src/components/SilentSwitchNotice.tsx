@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { isIOS } from '../game/platform'
+import { isIOS, isNativeApp } from '../game/platform'
 
 const KEY = 'song-game:silent-notice-dismissed'
 
@@ -16,11 +16,13 @@ function alreadySeen(): boolean {
  *
  * The silent switch mutes web audio outright, and raising the volume does not
  * help — so a player with it on concludes the game is broken. Shown only on
- * iOS, and only until dismissed.
+ * iOS in a browser, and only until dismissed: the native app claims a
+ * .playback audio session at launch and plays straight through the switch, so
+ * there the notice would be telling people to fix something that is not wrong.
  */
 export function SilentSwitchNotice() {
   const [hidden, setHidden] = useState(alreadySeen)
-  if (!isIOS || hidden) return null
+  if (!isIOS || isNativeApp || hidden) return null
 
   return (
     <aside className="silent-note" role="note">
