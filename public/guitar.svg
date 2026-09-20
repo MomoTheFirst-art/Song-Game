@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="جيتار">
+  <!-- A filled tile, not a bare silhouette: a transparent icon disappears
+       against a tab bar that happens to match its colour, and a favicon gets
+       no background of its own. -->
+  <rect width="32" height="32" rx="7" fill="#161b22"/>
+
+  <g fill="#1db954">
+    <!-- Neck and headstock first, so the body laps over the joint and the two
+         read as one object once the detail is gone. -->
+    <rect x="19.6" y="4.4" width="3" height="14" rx="1.2"
+          transform="rotate(37 21.15 11.4)"/>
+    <rect x="23.9" y="3.1" width="4.6" height="4" rx="1.4"
+          transform="rotate(37 26.2 5.1)"/>
+
+    <!-- Figure-of-eight body. The centres sit 9.1 apart against radii of 7.3
+         and 5.4: closer and the waist disappears into one blob, further and
+         the two bouts pinch almost apart at 16px. -->
+    <circle cx="12.2" cy="21" r="7.3"/>
+    <circle cx="18" cy="14" r="5.4"/>
+  </g>
+
+  <!-- Soundhole in the tile colour — what makes the shape read as a guitar
+       rather than a gourd. Kept inside the lower bout and away from the
+       waist, which it would otherwise cut through. -->
+  <circle cx="12.8" cy="20.4" r="2" fill="#161b22"/>
+</svg>

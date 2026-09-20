@@ -3,8 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>لعبة الأغاني — خمّن الأغنية</title>
+    <title>Guess it under 15s</title>
     <meta name="description" content="خمّن الأغنية العربية من مقطع قصير." />
+
+    <!-- Written as an absolute path so Vite rewrites it against `base`: the
+         Pages build serves from /Song-Game/, where a bare /guitar.svg 404s. -->
+    <link rel="icon" type="image/svg+xml" href="/guitar.svg" />
+
+    <!-- What a shared link shows. Without these a messaging app falls back to
+         the URL, which says nothing about the game. -->
+    <meta property="og:title" content="Guess it under 15s" />
+    <meta property="og:description" content="خمّن الأغنية العربية من مقطع قصير." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet" />
