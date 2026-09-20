@@ -38,12 +38,19 @@ function newRound(song: Song): RoundState {
   return { song, stage: 0, attempts: [], status: 'playing' }
 }
 
-function Game({ onHome }: { onHome: () => void }) {
+function Game({ onHome, startMode = 'daily' }: { onHome: () => void; startMode?: Mode }) {
   const dateKey = useMemo(() => todayKey(), [])
-  const [mode, setMode] = useState<Mode>('daily')
-  const [lineup, setLineup] = useState<Song[]>(() => dailySongs(catalogue, dateKey))
+  const [mode, setMode] = useState<Mode>(startMode)
+  // Both of these are seeded from the same draw rather than calling it twice:
+  // a challenge draw is random, so a second call would deal a different five
+  // and the first round would not be the lineup's first song.
+  const [lineup, setLineup] = useState<Song[]>(() =>
+    startMode === 'daily'
+      ? dailySongs(catalogue, dateKey)
+      : challengeSongs(catalogue, recentlyPlayed()),
+  )
   const [roundIndex, setRoundIndex] = useState(0)
-  const [round, setRound] = useState<RoundState>(() => newRound(dailySongs(catalogue, dateKey)[0]))
+  const [round, setRound] = useState<RoundState>(() => newRound(lineup[0]))
   const [finished, setFinished] = useState<RoundState[]>([])
   const [phase, setPhase] = useState<'playing' | 'roundOver' | 'done'>('playing')
 
@@ -51,7 +58,8 @@ function Game({ onHome }: { onHome: () => void }) {
   const { status, mode: clipMode, play, stop } = useAudioClip(clipUrl)
   const [loop, setLoop] = useLoopPreference()
 
-  // A daily run is one per UTC day — returning players see their result, not a replay.
+  // A daily run is one per UTC day — returning players see their result, not a
+  // replay. Challenge runs are unlimited, so this must not catch them.
   useEffect(() => {
     if (mode !== 'daily') return
     if (loadDaily(dateKey)) setPhase('done')
@@ -230,7 +238,7 @@ function NoPreviews() {
   )
 }
 
-type Screen = 'home' | 'solo' | 'party'
+type Screen = 'home' | 'solo' | 'challenge' | 'party'
 
 export default function App() {
   // #admin opens the clip review console: every clip, what it matched, and a
@@ -251,6 +259,9 @@ export default function App() {
   if (catalogue.length === 0) return <NoPreviews />
 
   if (screen === 'solo') return <Game onHome={() => setScreen('home')} />
+  if (screen === 'challenge') {
+    return <Game onHome={() => setScreen('home')} startMode="challenge" />
+  }
   if (screen === 'party') {
     return (
       <PartyGame
@@ -266,6 +277,7 @@ export default function App() {
       playableCount={catalogue.length}
       partyCapacity={maxPlayersFor(partyPool)}
       onSolo={() => setScreen('solo')}
+      onChallenge={() => setScreen('challenge')}
       onParty={() => setScreen('party')}
     />
   )
