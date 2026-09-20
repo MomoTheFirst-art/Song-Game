@@ -49,11 +49,17 @@ export interface Song {
   startAt: number
 }
 
+/**
+ * What a guess is aimed at. Every mode but مبتدئ only ever asks for the song;
+ * there the player picks before each guess, trading certainty for points.
+ */
+export type GuessTarget = 'artist' | 'song'
+
 /** What happened on a single guess slot within a round. */
 export type Attempt =
   | { kind: 'skipped' }
-  | { kind: 'wrong'; songId: string }
-  | { kind: 'correct'; songId: string }
+  | { kind: 'wrong'; target: GuessTarget; value: string }
+  | { kind: 'correct'; target: GuessTarget; value: string }
 
 export interface RoundState {
   song: Song
@@ -61,9 +67,15 @@ export interface RoundState {
   stage: number
   attempts: Attempt[]
   status: 'playing' | 'won' | 'lost'
+  /**
+   * Which answer won the round. Absent on a loss, and on wins from the modes
+   * that only ask for the song — scoring reads it, so it must never be
+   * guessed at from the attempts.
+   */
+  solvedAs?: GuessTarget
 }
 
-export type Mode = 'daily' | 'challenge'
+export type Mode = 'daily' | 'challenge' | 'pick'
 
 
 /**

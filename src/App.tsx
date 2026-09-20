@@ -17,6 +17,7 @@ import { MAX_STAGE, STAGES } from './game/stages'
 import { loadDaily, recentlyPlayed, rememberPlayed, saveRun } from './game/storage'
 import { loadDecisions, playableSongs } from './game/review'
 import { DIFFICULTY_LABEL } from './game/types'
+import { normalize } from './game/search'
 import type { Mode, RoundState, Song } from './game/types'
 import { useAudioClip } from './hooks/useAudioClip'
 import { useLoopPreference } from './hooks/useLoopPreference'
@@ -89,7 +90,9 @@ function Game({ onHome, startMode = 'daily' }: { onHome: () => void; startMode?:
         const attempts = [...r.attempts, attempt]
         if (attempt.kind === 'correct') {
           setPhase('roundOver')
-          return { ...r, attempts, status: 'won' }
+          // solvedAs is what scoring reads, so it is recorded here rather than
+          // inferred later from the attempt list.
+          return { ...r, attempts, status: 'won', solvedAs: attempt.target }
         }
         if (r.stage >= MAX_STAGE) {
           setPhase('roundOver')
@@ -106,11 +109,27 @@ function Game({ onHome, startMode = 'daily' }: { onHome: () => void; startMode?:
       if (phase !== 'playing') return
       advance(
         song.id === round.song.id
-          ? { kind: 'correct', songId: song.id }
-          : { kind: 'wrong', songId: song.id },
+          ? { kind: 'correct', target: 'song', value: song.id }
+          : { kind: 'wrong', target: 'song', value: song.id },
       )
     },
     [advance, phase, round.song.id],
+  )
+
+  const onGuessArtist = useCallback(
+    (artist: string) => {
+      if (phase !== 'playing') return
+      // Compared on the normalized form: the catalogue spells the same
+      // performer several ways (أصالة / اصاله), and the player picked from a
+      // list built by folding exactly those variants together.
+      const right = normalize(artist) === normalize(round.song.artist)
+      advance(
+        right
+          ? { kind: 'correct', target: 'artist', value: artist }
+          : { kind: 'wrong', target: 'artist', value: artist },
+      )
+    },
+    [advance, phase, round.song.artist],
   )
 
   const onSkip = useCallback(() => {
@@ -205,6 +224,7 @@ function Game({ onHome, startMode = 'daily' }: { onHome: () => void; startMode?:
           catalogue={catalogue}
           disabled={false}
           onGuess={onGuess}
+          onGuessArtist={mode === 'pick' ? onGuessArtist : undefined}
           onSkip={onSkip}
           skipLabel={round.stage >= MAX_STAGE ? 'استسلمت' : 'تخطّي'}
         />
@@ -238,7 +258,7 @@ function NoPreviews() {
   )
 }
 
-type Screen = 'home' | 'solo' | 'challenge' | 'party'
+type Screen = 'home' | 'solo' | 'challenge' | 'pick' | 'party'
 
 export default function App() {
   // #admin opens the clip review console: every clip, what it matched, and a
@@ -262,6 +282,7 @@ export default function App() {
   if (screen === 'challenge') {
     return <Game onHome={() => setScreen('home')} startMode="challenge" />
   }
+  if (screen === 'pick') return <Game onHome={() => setScreen('home')} startMode="pick" />
   if (screen === 'party') {
     return (
       <PartyGame
@@ -278,6 +299,7 @@ export default function App() {
       partyCapacity={maxPlayersFor(partyPool)}
       onSolo={() => setScreen('solo')}
       onChallenge={() => setScreen('challenge')}
+      onPick={() => setScreen('pick')}
       onParty={() => setScreen('party')}
     />
   )

@@ -4,11 +4,14 @@ interface Props {
   playableCount: number
   onSolo: () => void
   onChallenge: () => void
+  onPick: () => void
   onParty: () => void
   partyCapacity: number
 }
 
-export function Home({ playableCount, onSolo, onChallenge, onParty, partyCapacity }: Props) {
+export function Home({
+  playableCount, onSolo, onChallenge, onPick, onParty, partyCapacity,
+}: Props) {
   return (
     <main className="app">
       <section className="home">
@@ -27,6 +30,10 @@ export function Home({ playableCount, onSolo, onChallenge, onParty, partyCapacit
           <button className="btn home-mode" onClick={onChallenge}>
             <strong>تحدي عشوائي</strong>
             <span>خمس أغانٍ عشوائية · العب بلا حدود</span>
+          </button>
+          <button className="btn home-mode" onClick={onPick}>
+            <strong>مبتدئ</strong>
+            <span>خمّن الفنان بنصف النقاط، أو الأغنية بالكامل</span>
           </button>
           <button
             className="btn home-mode"

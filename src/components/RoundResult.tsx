@@ -16,7 +16,13 @@ export function RoundResult({ round, onNext, isLast }: Props) {
 
   return (
     <div className={won ? 'result result-won' : 'result result-lost'}>
-      <p className="result-verdict">{won ? 'صحيح! 🎉' : 'انتهت المحاولات'}</p>
+      <p className="result-verdict">
+        {!won
+          ? 'انتهت المحاولات'
+          : round.solvedAs === 'artist'
+            ? 'الفنان صحيح! 🎉'
+            : 'صحيح! 🎉'}
+      </p>
 
       <div className="reveal">
         {cover && (
@@ -39,6 +45,7 @@ export function RoundResult({ round, onNext, isLast }: Props) {
       {won && (
         <p className="result-score">
           +{roundScore(round)} نقطة — عند {STAGES[round.stage]} {secondsNoun(STAGES[round.stage])}
+          {round.solvedAs === 'artist' && <span className="result-half"> (نصف النقاط)</span>}
         </p>
       )}
 

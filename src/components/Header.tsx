@@ -26,6 +26,12 @@ export function Header({ mode, score, roundIndex, roundCount, onMode }: Props) {
         >
           عشوائي
         </button>
+        <button
+          className={mode === 'pick' ? 'tab tab-on' : 'tab'}
+          onClick={() => onMode('pick')}
+        >
+          مبتدئ
+        </button>
       </nav>
 
       <div className="meta">

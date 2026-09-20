@@ -51,3 +51,24 @@ export function searchSongs(catalogue: Song[], query: string, limit = 8): Song[]
     .slice(0, limit)
     .map((s) => s.song)
 }
+
+/**
+ * Distinct artists matching a query, for the mode where the artist is the
+ * answer rather than a way of finding a song. Names are deduplicated on the
+ * normalized form so a spelling variant in the catalogue cannot offer the
+ * same performer twice.
+ */
+export function searchArtists(catalogue: Song[], query: string, limit = 8): string[] {
+  const q = normalize(query)
+  const seen = new Set<string>()
+  const out: string[] = []
+  for (const song of catalogue) {
+    const key = normalize(song.artist)
+    if (!key || seen.has(key)) continue
+    if (q && !key.includes(q) && !normalize(song.artistLatin).includes(q)) continue
+    seen.add(key)
+    out.push(song.artist)
+    if (out.length >= limit) break
+  }
+  return out
+}
