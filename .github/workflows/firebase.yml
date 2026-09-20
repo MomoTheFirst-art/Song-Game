@@ -15,9 +15,13 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    # Both are set by the repository owner; without them the job is skipped
-    # rather than failing every push on a repo that has not been wired up yet.
     if: vars.FIREBASE_PROJECT_ID != ''
+    env:
+      # Whether the secret exists, as a plain string. The `secrets` context is
+      # not available in a job-level `if`, only in a step's, so the deploy step
+      # below is what actually gets guarded. This exposes only emptiness, never
+      # the value.
+      HAS_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT != '' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -31,7 +35,13 @@ jobs:
       # asset URL at /Song-Game/ on a host that has no such path.
       - run: npm run build
 
+      # Guarded because the project id alone is not enough to deploy. An
+      # earlier version checked only that, so a repo holding the variable but
+      # not the secret ran everything and then died here on "Input required
+      # and not supplied: firebaseServiceAccount", reddening every push
+      # through setup — the opposite of lying dormant until wired up.
       - uses: FirebaseExtended/action-hosting-deploy@v0
+        if: env.HAS_SERVICE_ACCOUNT == 'true'
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
