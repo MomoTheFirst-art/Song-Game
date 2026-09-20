@@ -132,8 +132,22 @@ export function pickBest(song, results, minScore = DEFAULTS.minScore, taken = ne
       !taken.has(r.candidate.previewUrl),
   )
   const top = eligible[0]
-  if (!top) return { match: null, score: ranked[0] ? ranked[0].score : 0, ranked }
-  return { match: top.candidate, score: top.score, artistScore: top.artist, ranked }
+  if (top) return { match: top.candidate, score: top.score, artistScore: top.artist, ranked }
+
+  // Say which guard actually refused, not just the top score. Reporting
+  // "no match above 0.55 (best 0.74)" was self-contradicting: 0.74 clears the
+  // threshold, and the real reason — every candidate failed the artist floor —
+  // was invisible. Without it a miss cannot be told apart from a song Apple
+  // simply does not carry, so there is nothing to act on.
+  const best = ranked[0]
+  if (!best) return { match: null, score: 0, reason: 'no results', ranked }
+  const overBar = ranked.filter((r) => r.score >= minScore)
+  const reason = overBar.length === 0
+    ? `best ${best.score.toFixed(2)} < ${minScore}`
+    : overBar.every((r) => r.artist < MIN_ARTIST_SIMILARITY)
+      ? `wrong artist (“${overBar[0].candidate.artistName}”, ${overBar[0].artist.toFixed(2)})`
+      : `clip already taken by another song`
+  return { match: null, score: best.score, reason, ranked }
 }
 
 /** Latin transliterations match Apple's catalogue more often; Arabic is the retry. */
@@ -275,14 +289,15 @@ export async function run(opts, deps = {}) {
 
   for (let i = 0; i < targets.length; i++) {
     const song = targets[i]
-    const { match, score, error } = await lookup(song, opts, fetchImpl, taken)
+    const { match, score, error, reason } = await lookup(song, opts, fetchImpl, taken)
 
     if (error) {
       log(`  ✗ ${song.titleLatin || song.title} — ${error}`)
       missed.push({ song, reason: error })
     } else if (!match) {
-      log(`  ✗ ${song.titleLatin || song.title} — no match above ${opts.minScore} (best ${score.toFixed(2)})`)
-      missed.push({ song, reason: `best score ${score.toFixed(2)}` })
+      const why = reason || `best ${score.toFixed(2)}`
+      log(`  ✗ ${song.titleLatin || song.title} — ${why}`)
+      missed.push({ song, reason: why })
       // A forced re-fetch exists because the stored value is suspect. Leaving
       // it in place would keep a rejected match live AND make later store-front
       // passes skip the song, since it still looks populated.

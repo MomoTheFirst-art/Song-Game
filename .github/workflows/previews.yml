@@ -17,9 +17,13 @@ on:
   workflow_dispatch:
     inputs:
       country:
-        description: 'iTunes store front (SA, EG, AE, LB, US…)'
+        description: 'Store fronts to walk, space separated. Blank walks them all.'
         required: false
-        default: 'SA'
+        # Deliberately blank. A non-empty default here silently defeats the
+        # `|| ...` fallback below, because `inputs.country` is then always set:
+        # every manual run searched Saudi alone while the logs and the step's
+        # own comment claimed it was walking five store fronts.
+        default: ''
       force:
         description: 'Re-fetch songs that already have a preview'
         type: boolean
@@ -59,7 +63,7 @@ jobs:
           # is often present in another. --force applies to the first pass only,
           # otherwise each later pass would overwrite the one before it.
           FORCE="${{ inputs.force && '--force' || '' }}"
-          for front in ${{ inputs.country || 'SA EG AE LB US' }}; do
+          for front in ${{ inputs.country || 'SA EG AE KW LB US' }}; do
             echo "── store front: $front"
             node scripts/fetch-previews.mjs --country "$front" $FORCE
             FORCE=""

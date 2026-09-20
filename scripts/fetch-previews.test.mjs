@@ -429,3 +429,23 @@ test('--only still reaches a retired song when named explicitly', async () => {
   )
   assert.ok(calls > 0, 'naming a song directly overrides retirement')
 })
+
+test('a miss says which guard refused it', () => {
+  // "no match above 0.55 (best 0.74)" was self-contradicting and sent me
+  // looking for absent recordings when the artist floor was doing the work.
+  const wrongArtist = { trackName: 'Tamally Maak', artistName: 'Nobody At All', previewUrl: 'https://x/1.m4a' }
+  const refused = pickBest(song, [wrongArtist], 0.55)
+  assert.equal(refused.match, null)
+  assert.match(refused.reason, /wrong artist/)
+  assert.match(refused.reason, /Nobody At All/)
+
+  const weak = pickBest(song, [{ trackName: 'Something Else', artistName: 'Amr Diab', previewUrl: 'https://x/2.m4a' }], 0.55)
+  assert.equal(weak.match, null)
+  assert.match(weak.reason, /< 0\.55/)
+
+  assert.equal(pickBest(song, [], 0.55).reason, 'no results')
+
+  const claimed = pickBest(song, [hit], 0.55, new Set([hit.previewUrl]))
+  assert.equal(claimed.match, null)
+  assert.match(claimed.reason, /already taken/)
+})
