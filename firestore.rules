@@ -1,0 +1,68 @@
+rules_version = '2';
+
+// Prototype rules for the song game. Two shapes of data:
+//
+//   users/{uid}            a player's name and totals. Readable by any signed-in
+//                          player, because that is what the leaderboard reads;
+//                          writable only by its owner.
+//   users/{uid}/runs/{id}  one finished run. Private to its owner — nobody
+//                          needs another player's round-by-round history.
+//
+// Default deny: anything not matched below is refused.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(uid) {
+      return signedIn() && request.auth.uid == uid;
+    }
+
+    // Shape and bounds for a profile. Applied to creates AND updates, so a
+    // second write cannot introduce what the first was not allowed to.
+    function validProfile(data) {
+      return data.keys().hasOnly(['displayName', 'bestScore', 'runs', 'updatedAt'])
+        && data.displayName is string
+        && data.displayName.size() > 0
+        && data.displayName.size() <= 40
+        && data.bestScore is number
+        && data.bestScore >= 0
+        // A run is five songs at 1200 apiece, so anything past 6000 is not a
+        // score — it is someone writing whatever they like to the scoreboard.
+        && data.bestScore <= 6000
+        && data.runs is int
+        && data.runs >= 0;
+    }
+
+    function validRun(data) {
+      return data.keys().hasOnly(['mode', 'dateKey', 'score', 'stages', 'createdAt'])
+        && data.mode in ['daily', 'challenge', 'pick']
+        && data.dateKey is string
+        && data.dateKey.size() <= 10
+        && data.score is number
+        && data.score >= 0
+        && data.score <= 6000
+        && data.stages is list
+        && data.stages.size() <= 5;
+    }
+
+    match /users/{uid} {
+      // The leaderboard needs every signed-in player to read these, which is
+      // why a profile holds a display name and totals and nothing else — no
+      // email, no identifying detail beyond what the player chose to show.
+      allow read: if signedIn();
+      allow create, update: if isOwner(uid) && validProfile(request.resource.data);
+      allow delete: if isOwner(uid);
+
+      match /runs/{runId} {
+        allow read: if isOwner(uid);
+        allow create: if isOwner(uid) && validRun(request.resource.data);
+        // Runs are a record of what happened. Editing one after the fact is
+        // just score editing with extra steps.
+        allow update, delete: if false;
+      }
+    }
+  }
+}

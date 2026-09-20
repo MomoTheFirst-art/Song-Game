@@ -6,11 +6,17 @@ interface Props {
   onChallenge: () => void
   onPick: () => void
   onParty: () => void
+  /** False when the build has no Firebase config; the account UI is then hidden. */
+  accountsAvailable: boolean
+  playerName: string | null
+  onAccount: () => void
+  onBoard: () => void
   partyCapacity: number
 }
 
 export function Home({
   playableCount, onSolo, onChallenge, onPick, onParty, partyCapacity,
+  accountsAvailable, playerName, onAccount, onBoard,
 }: Props) {
   return (
     <main className="app">
@@ -48,6 +54,15 @@ export function Home({
             </span>
           </button>
         </div>
+
+        {accountsAvailable && (
+          <div className="home-account">
+            <button className="linkish" onClick={onAccount}>
+              {playerName ? `مرحباً ${playerName}` : 'تسجيل الدخول'}
+            </button>
+            <button className="linkish" onClick={onBoard}>لوحة الصدارة</button>
+          </div>
+        )}
 
         <p className="complete-note">{playableCount} أغنية جاهزة للعب</p>
       </section>

@@ -1,0 +1,71 @@
+name: Firebase project setup
+
+# One-off provisioning, run by hand. Everything here needs credentials for the
+# Firebase project, which live only in this repository's secrets — they are not
+# available to a local dev machine or to an agent, so the runner does it.
+#
+# Safe to re-run: registering an app is skipped when one exists, and deploying
+# rules is idempotent.
+on:
+  workflow_dispatch:
+    inputs:
+      create_database:
+        description: 'Create the Firestore database if none exists'
+        type: boolean
+        default: true
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    if: vars.FIREBASE_PROJECT_ID != ''
+    env:
+      PROJECT: ${{ vars.FIREBASE_PROJECT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Authenticate
+        run: |
+          # The service account JSON is written to a file the gcloud/Firebase
+          # libraries pick up by convention. It is never echoed.
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT" > "$RUNNER_TEMP/sa.json"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/sa.json" >> "$GITHUB_ENV"
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+
+      - name: Firestore database
+        run: |
+          echo "── existing databases"
+          npx -y firebase-tools@latest firestore:databases:list --project "$PROJECT" || true
+          if [ "${{ inputs.create_database }}" = "true" ]; then
+            # Standard edition, not the Enterprise default the Firebase skill
+            # suggests: this stores a name and two counters per player, which
+            # the free Standard tier covers outright.
+            npx -y firebase-tools@latest firestore:databases:create '(default)' \
+              --location=eur3 --project "$PROJECT" || \
+              echo "Database already exists, or could not be created — see above."
+          fi
+
+      - name: Register a web app if none exists
+        run: |
+          echo "── existing apps"
+          npx -y firebase-tools@latest apps:list WEB --project "$PROJECT" || true
+          if ! npx -y firebase-tools@latest apps:list WEB --project "$PROJECT" 2>/dev/null | grep -q 'WEB'; then
+            npx -y firebase-tools@latest apps:create WEB "Guess it under 15s" --project "$PROJECT"
+          else
+            echo "A web app is already registered; leaving it alone."
+          fi
+
+      - name: Print the web SDK config
+        run: |
+          # Printed on purpose. A Firebase web config is public by design — it
+          # ships inside every client bundle, and security rules rather than
+          # secrecy control access. This is how the values reach the repo.
+          npx -y firebase-tools@latest apps:sdkconfig WEB --project "$PROJECT"
+
+      - name: Deploy auth providers and Firestore rules
+        run: |
+          npx -y firebase-tools@latest deploy \
+            --only auth,firestore:rules --project "$PROJECT" --non-interactive

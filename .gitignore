@@ -16,3 +16,6 @@ android/local.properties
 ios/App/App/public/
 ios/App/Pods/
 ios/App/App/capacitor.config.json
+
+.env
+.env.local

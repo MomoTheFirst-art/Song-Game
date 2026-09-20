@@ -1,7 +1,11 @@
 {
   "hosting": {
     "public": "dist",
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
     "cleanUrls": true,
     "rewrites": [
       {
@@ -14,20 +18,51 @@
         "comment": "The catalogue is fetched at runtime so preview URLs can be refreshed without a store release. A Capacitor app requests it from capacitor://localhost, which is a cross-origin request, so it needs CORS explicitly. GitHub Pages cannot set this — it is the main reason to host here.",
         "source": "**/*.json",
         "headers": [
-          { "key": "Access-Control-Allow-Origin", "value": "*" },
-          { "key": "Cache-Control", "value": "public, max-age=300, must-revalidate" }
+          {
+            "key": "Access-Control-Allow-Origin",
+            "value": "*"
+          },
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=300, must-revalidate"
+          }
         ]
       },
       {
         "comment": "Vite fingerprints these, so the filename changes whenever the contents do and they can be cached indefinitely.",
         "source": "/assets/**",
-        "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=31536000, immutable"
+          }
+        ]
       },
       {
         "comment": "The entry point must never be cached, or a deploy leaves browsers pointed at asset filenames that no longer exist.",
         "source": "/index.html",
-        "headers": [{ "key": "Cache-Control", "value": "no-cache" }]
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache"
+          }
+        ]
       }
     ]
+  },
+  "auth": {
+    "authorizedDomains": [
+      "localhost",
+      "song-game-719a2.web.app",
+      "song-game-719a2.firebaseapp.com",
+      "momothefirst-art.github.io"
+    ],
+    "providers": {
+      "emailPassword": true
+    }
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
   }
 }

@@ -1,7 +1,9 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
+import { AccountPanel } from './components/AccountPanel'
 import { Admin } from './components/Admin'
 import { AudioCheck } from './components/AudioCheck'
 import { Home } from './components/Home'
+import { Leaderboard } from './components/Leaderboard'
 import { PartyGame } from './PartyGame'
 import { maxPlayersFor } from './game/party'
 import catalogueData from './data/songs.json'
@@ -14,13 +16,17 @@ import { StageBar } from './components/StageBar'
 import { challengeSongs, dailySongs, todayKey } from './game/daily'
 import { roundScore, totalScore } from './game/scoring'
 import { MAX_STAGE, STAGES } from './game/stages'
-import { loadDaily, recentlyPlayed, rememberPlayed, saveRun } from './game/storage'
+import {
+  loadDaily, recentlyPlayed, rememberPlayed, saveRun as saveLocalRun,
+} from './game/storage'
 import { loadDecisions, playableSongs } from './game/review'
 import { DIFFICULTY_LABEL } from './game/types'
 import { normalize } from './game/search'
 import type { Mode, RoundState, Song } from './game/types'
 import { useAudioClip } from './hooks/useAudioClip'
 import { useLoopPreference } from './hooks/useLoopPreference'
+import { useAuth } from './hooks/useAuth'
+import { recordRun, saveRun } from './firebase/scores'
 
 const allSongs = catalogueData as Song[]
 /**
@@ -58,6 +64,7 @@ function Game({ onHome, startMode = 'daily' }: { onHome: () => void; startMode?:
   const clipUrl = round.song.previewUrl as string
   const { status, mode: clipMode, play, stop } = useAudioClip(clipUrl)
   const [loop, setLoop] = useLoopPreference()
+  const { user } = useAuth()
 
   // A daily run is one per UTC day — returning players see their result, not a
   // replay. Challenge runs are unlimited, so this must not catch them.
@@ -143,12 +150,18 @@ function Game({ onHome, startMode = 'daily' }: { onHome: () => void; startMode?:
 
     if (roundIndex + 1 >= lineup.length) {
       const score = totalScore(done)
+      const stages = done.map((r) => (r.status === 'won' ? r.stage : null))
       rememberPlayed(lineup.map((s) => s.id))
-      saveRun(mode, {
-        dateKey,
-        score,
-        stages: done.map((r) => (r.status === 'won' ? r.stage : null)),
-      })
+      saveLocalRun(mode, { dateKey, score, stages })
+
+      // Signed in? Keep a copy in Firestore too. Deliberately fire-and-forget:
+      // the run is already saved locally, and a network failure must not block
+      // the player from seeing the result they just earned.
+      if (user) {
+        const name = user.displayName || 'لاعب'
+        void saveRun(user.uid, { mode, dateKey, score, stages }).catch(() => {})
+        void recordRun(user.uid, name, score).catch(() => {})
+      }
       setPhase('done')
       return
     }
@@ -156,7 +169,7 @@ function Game({ onHome, startMode = 'daily' }: { onHome: () => void; startMode?:
     setRoundIndex((i) => i + 1)
     setRound(newRound(lineup[roundIndex + 1]))
     setPhase('playing')
-  }, [dateKey, finished, lineup, mode, round, roundIndex])
+  }, [dateKey, finished, lineup, mode, round, roundIndex, user])
 
   const runningScore = totalScore(finished) + (phase === 'roundOver' ? roundScore(round) : 0)
 
@@ -258,13 +271,14 @@ function NoPreviews() {
   )
 }
 
-type Screen = 'home' | 'solo' | 'challenge' | 'pick' | 'party'
+type Screen = 'home' | 'solo' | 'challenge' | 'pick' | 'party' | 'account' | 'board'
 
 export default function App() {
   // #admin opens the clip review console: every clip, what it matched, and a
   // verdict. Kept off the player-facing UI, reachable by link.
   const [hash, setHash] = useState(() => window.location.hash)
   const [screen, setScreen] = useState<Screen>('home')
+  const { user, available: accountsAvailable } = useAuth()
 
   useEffect(() => {
     const onHash = () => setHash(window.location.hash)
@@ -283,6 +297,20 @@ export default function App() {
     return <Game onHome={() => setScreen('home')} startMode="challenge" />
   }
   if (screen === 'pick') return <Game onHome={() => setScreen('home')} startMode="pick" />
+  if (screen === 'account') {
+    return (
+      <main className="app">
+        <AccountPanel user={user} onClose={() => setScreen('home')} />
+      </main>
+    )
+  }
+  if (screen === 'board') {
+    return (
+      <main className="app">
+        <Leaderboard meUid={user?.uid ?? null} onClose={() => setScreen('home')} />
+      </main>
+    )
+  }
   if (screen === 'party') {
     return (
       <PartyGame
@@ -300,6 +328,10 @@ export default function App() {
       onSolo={() => setScreen('solo')}
       onChallenge={() => setScreen('challenge')}
       onPick={() => setScreen('pick')}
+      accountsAvailable={accountsAvailable}
+      playerName={user?.displayName ?? null}
+      onAccount={() => setScreen('account')}
+      onBoard={() => setScreen('board')}
       onParty={() => setScreen('party')}
     />
   )
