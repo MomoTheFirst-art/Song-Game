@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { AccountPanel } from './components/AccountPanel'
+import { AuthGate } from './components/AuthGate'
 import { Admin } from './components/Admin'
 import { AudioCheck } from './components/AudioCheck'
 import { Home } from './components/Home'
@@ -278,7 +279,7 @@ export default function App() {
   // verdict. Kept off the player-facing UI, reachable by link.
   const [hash, setHash] = useState(() => window.location.hash)
   const [screen, setScreen] = useState<Screen>('home')
-  const { user, available: accountsAvailable } = useAuth()
+  const { user, ready: authReady } = useAuth()
 
   useEffect(() => {
     const onHash = () => setHash(window.location.hash)
@@ -286,12 +287,22 @@ export default function App() {
     return () => window.removeEventListener('hashchange', onHash)
   }, [])
 
+  // Left outside the gate on purpose: it is the owner's review console,
+  // already reachable only by knowing the URL, and gating it would mean a
+  // broken auth provider locks the catalogue out of review too.
   if (hash === '#admin' || hash === '#review') return <Admin songs={allSongs} />
   // #audio reports what the audio stack does on the device in hand — the only
   // way to diagnose an iOS failure from a machine that has no iOS.
   if (hash === '#audio') return <AudioCheck songs={catalogue} />
   if (catalogue.length === 0) return <NoPreviews />
 
+  return (
+    <AuthGate user={user} ready={authReady}>
+      {renderScreen()}
+    </AuthGate>
+  )
+
+  function renderScreen() {
   if (screen === 'solo') return <Game onHome={() => setScreen('home')} />
   if (screen === 'challenge') {
     return <Game onHome={() => setScreen('home')} startMode="challenge" />
@@ -328,11 +339,11 @@ export default function App() {
       onSolo={() => setScreen('solo')}
       onChallenge={() => setScreen('challenge')}
       onPick={() => setScreen('pick')}
-      accountsAvailable={accountsAvailable}
       playerName={user?.displayName ?? null}
       onAccount={() => setScreen('account')}
       onBoard={() => setScreen('board')}
       onParty={() => setScreen('party')}
     />
   )
+  }
 }

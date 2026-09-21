@@ -4,6 +4,8 @@ import { authErrorMessage, signIn, signOut, signUp, type User } from '../firebas
 interface Props {
   user: User | null
   onClose: () => void
+  /** Shown as the gate before the game, where there is no "back" to offer. */
+  gated?: boolean
 }
 
 type Tab = 'in' | 'up'
@@ -12,7 +14,7 @@ type Tab = 'in' | 'up'
  * Email/password sign-in. Deliberately the whole of the account surface: the
  * game works signed out, so this only ever has to get someone in or out.
  */
-export function AccountPanel({ user, onClose }: Props) {
+export function AccountPanel({ user, onClose, gated = false }: Props) {
   const [tab, setTab] = useState<Tab>('in')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -57,7 +59,9 @@ export function AccountPanel({ user, onClose }: Props) {
     <section className="account">
       <h2>{tab === 'in' ? 'تسجيل الدخول' : 'حساب جديد'}</h2>
       <p className="complete-note">
-        الحساب اختياري — يحفظ نتائجك ويضعك في لوحة الصدارة. اللعب ممكن بدونه.
+        {gated
+          ? 'أنشئ حساباً للعب. نتائجك تُحفظ وتظهر في لوحة الصدارة.'
+          : 'يحفظ نتائجك ويضعك في لوحة الصدارة.'}
       </p>
 
       <nav className="modes">
@@ -115,7 +119,9 @@ export function AccountPanel({ user, onClose }: Props) {
           <button className="btn btn-next" type="submit" disabled={busy}>
             {busy ? 'لحظة…' : tab === 'in' ? 'دخول' : 'إنشاء الحساب'}
           </button>
-          <button className="btn" type="button" onClick={onClose}>رجوع</button>
+          {!gated && (
+            <button className="btn" type="button" onClick={onClose}>رجوع</button>
+          )}
         </div>
       </form>
     </section>

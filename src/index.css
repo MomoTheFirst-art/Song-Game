@@ -136,7 +136,7 @@ body {
 .board { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
 .board-row {
   display: grid;
-  grid-template-columns: 2.2rem 1fr auto;
+  grid-template-columns: 2.2rem 1fr 3.5rem 5rem;
   align-items: center;
   gap: 10px;
   background: var(--panel);
@@ -146,6 +146,10 @@ body {
 }
 .board-me { border-color: var(--accent); }
 .board-rank { color: var(--muted); font-size: 0.85rem; }
+.board-runs { color: var(--muted); font-size: 0.85rem; text-align: center; }
+.board-head { background: none; border-color: transparent; padding-block: 2px; }
+.board-head span { color: var(--muted); font-size: 0.75rem; }
+.board-score { text-align: end; }
 .board-score { color: var(--accent); font-weight: 600; }
 
 .notice { margin: 0; font-size: 0.85rem; text-align: center; }
