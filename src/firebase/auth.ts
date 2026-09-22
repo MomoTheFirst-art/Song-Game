@@ -9,15 +9,10 @@ export type { User }
  * unrecognised falls back to a generic line instead of leaking a code.
  */
 const MESSAGES: Record<string, string> = {
-  'auth/email-already-in-use': 'هذا البريد مسجَّل بالفعل. سجّل الدخول بدلاً من إنشاء حساب.',
-  'auth/invalid-email': 'صيغة البريد غير صحيحة.',
-  'auth/weak-password': 'كلمة المرور قصيرة — استخدم ٦ أحرف على الأقل.',
-  'auth/invalid-credential': 'البريد أو كلمة المرور غير صحيحة.',
-  'auth/user-not-found': 'لا يوجد حساب بهذا البريد.',
-  'auth/wrong-password': 'كلمة المرور غير صحيحة.',
+  'auth/operation-not-allowed': 'الدخول بدون كلمة مرور غير مُفعَّل في المشروع بعد.',
+  'auth/admin-restricted-operation': 'الدخول بدون كلمة مرور غير مُفعَّل في المشروع بعد.',
   'auth/too-many-requests': 'محاولات كثيرة. انتظر قليلاً ثم أعد المحاولة.',
   'auth/network-request-failed': 'تعذّر الاتصال. تحقّق من الإنترنت.',
-  'auth/operation-not-allowed': 'تسجيل الدخول بالبريد غير مُفعَّل في المشروع بعد.',
 }
 
 export function authErrorMessage(err: unknown): string {
@@ -32,22 +27,35 @@ async function required() {
   return fb
 }
 
-export async function signUp(email: string, password: string, displayName: string): Promise<User> {
+/**
+ * Join with nothing but a name.
+ *
+ * Anonymous sign-in mints a real uid, which is what the security rules and
+ * every score document key on — the account is real, it simply carries no
+ * credential. The name goes on the profile so the scoreboard has something to
+ * show.
+ *
+ * The cost of having no password, stated here because it is not obvious from
+ * the call site: the account lives in this browser. Clearing site data or
+ * moving to another device loses it, and nothing can recover it, because
+ * there is no credential with which to prove it was yours.
+ */
+export async function joinAsPlayer(displayName: string): Promise<User> {
   const { auth } = await required()
-  const { createUserWithEmailAndPassword, updateProfile } = await import('firebase/auth')
-  const { user } = await createUserWithEmailAndPassword(auth, email, password)
+  const { signInAnonymously, updateProfile } = await import('firebase/auth')
   const name = displayName.trim()
-  // Set separately: createUserWithEmailAndPassword takes no profile fields, and
-  // the leaderboard shows a name rather than an email.
+  const { user } = await signInAnonymously(auth)
   if (name) await updateProfile(user, { displayName: name })
   return user
 }
 
-export async function signIn(email: string, password: string): Promise<User> {
+/** Rename an existing player. The uid, and so every score, is untouched. */
+export async function renamePlayer(displayName: string): Promise<void> {
   const { auth } = await required()
-  const { signInWithEmailAndPassword } = await import('firebase/auth')
-  const { user } = await signInWithEmailAndPassword(auth, email, password)
-  return user
+  const { updateProfile } = await import('firebase/auth')
+  const user = auth.currentUser
+  if (!user) throw new Error('Not signed in')
+  await updateProfile(user, { displayName: displayName.trim() })
 }
 
 export async function signOut(): Promise<void> {

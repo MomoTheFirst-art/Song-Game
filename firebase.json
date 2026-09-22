@@ -58,6 +58,7 @@
       "momothefirst-art.github.io"
     ],
     "providers": {
+      "anonymous": true,
       "emailPassword": true
     }
   },

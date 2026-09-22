@@ -65,7 +65,17 @@ jobs:
           # secrecy control access. This is how the values reach the repo.
           npx -y firebase-tools@latest apps:sdkconfig WEB --project "$PROJECT"
 
-      - name: Deploy auth providers and Firestore rules
+      # Deployed separately. Bundled as `--only auth,firestore:rules`, the
+      # Firestore half checks that its API is enabled, 403s when it is not, and
+      # takes the auth half down with it — so a project without Firestore could
+      # not get its sign-in providers either, which is the one thing that
+      # unblocks the game.
+      - name: Deploy auth providers
         run: |
           npx -y firebase-tools@latest deploy \
-            --only auth,firestore:rules --project "$PROJECT" --non-interactive
+            --only auth --project "$PROJECT" --non-interactive
+
+      - name: Deploy Firestore rules
+        run: |
+          npx -y firebase-tools@latest deploy \
+            --only firestore:rules --project "$PROJECT" --non-interactive
