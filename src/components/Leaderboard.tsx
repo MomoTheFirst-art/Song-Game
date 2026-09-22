@@ -28,7 +28,7 @@ export function Leaderboard({ meUid, onClose }: Props) {
         // A rules rejection and a missing database look identical to a player,
         // so say what a player can act on and keep the detail in the console.
         console.warn('Leaderboard read failed', err)
-        setError('تعذّر تحميل النتائج الآن.')
+        setError('لوحة النتائج المشتركة غير متاحة بعد. نتائجك محفوظة على جهازك.')
       },
     )
     return () => {

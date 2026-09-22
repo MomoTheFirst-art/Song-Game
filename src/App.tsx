@@ -26,7 +26,7 @@ import { normalize } from './game/search'
 import type { Mode, RoundState, Song } from './game/types'
 import { useAudioClip } from './hooks/useAudioClip'
 import { useLoopPreference } from './hooks/useLoopPreference'
-import { useAuth } from './hooks/useAuth'
+import { usePlayer } from './hooks/usePlayer'
 import { recordRun, saveRun } from './firebase/scores'
 
 const allSongs = catalogueData as Song[]
@@ -65,7 +65,7 @@ function Game({ onHome, startMode = 'daily' }: { onHome: () => void; startMode?:
   const clipUrl = round.song.previewUrl as string
   const { status, mode: clipMode, play, stop } = useAudioClip(clipUrl)
   const [loop, setLoop] = useLoopPreference()
-  const { user } = useAuth()
+  const { player } = usePlayer()
 
   // A daily run is one per UTC day — returning players see their result, not a
   // replay. Challenge runs are unlimited, so this must not catch them.
@@ -158,10 +158,11 @@ function Game({ onHome, startMode = 'daily' }: { onHome: () => void; startMode?:
       // Signed in? Keep a copy in Firestore too. Deliberately fire-and-forget:
       // the run is already saved locally, and a network failure must not block
       // the player from seeing the result they just earned.
-      if (user) {
-        const name = user.displayName || 'لاعب'
-        void saveRun(user.uid, { mode, dateKey, score, stages }).catch(() => {})
-        void recordRun(user.uid, name, score).catch(() => {})
+      // Only a Firebase-backed player can sync; a device-local one already
+      // has the run in localStorage and there is nowhere else to put it.
+      if (player?.remote) {
+        void saveRun(player.id, { mode, dateKey, score, stages }).catch(() => {})
+        void recordRun(player.id, player.name, score).catch(() => {})
       }
       setPhase('done')
       return
@@ -170,7 +171,7 @@ function Game({ onHome, startMode = 'daily' }: { onHome: () => void; startMode?:
     setRoundIndex((i) => i + 1)
     setRound(newRound(lineup[roundIndex + 1]))
     setPhase('playing')
-  }, [dateKey, finished, lineup, mode, round, roundIndex, user])
+  }, [dateKey, finished, lineup, mode, round, roundIndex, player])
 
   const runningScore = totalScore(finished) + (phase === 'roundOver' ? roundScore(round) : 0)
 
@@ -279,7 +280,7 @@ export default function App() {
   // verdict. Kept off the player-facing UI, reachable by link.
   const [hash, setHash] = useState(() => window.location.hash)
   const [screen, setScreen] = useState<Screen>('home')
-  const { user, ready: authReady } = useAuth()
+  const { player, ready: playerReady, join, rename, leave } = usePlayer()
 
   useEffect(() => {
     const onHash = () => setHash(window.location.hash)
@@ -297,7 +298,13 @@ export default function App() {
   if (catalogue.length === 0) return <NoPreviews />
 
   return (
-    <AuthGate user={user} ready={authReady}>
+    <AuthGate
+      player={player}
+      ready={playerReady}
+      onJoin={join}
+      onRename={rename}
+      onLeave={leave}
+    >
       {renderScreen()}
     </AuthGate>
   )
@@ -311,14 +318,20 @@ export default function App() {
   if (screen === 'account') {
     return (
       <main className="app">
-        <AccountPanel user={user} onClose={() => setScreen('home')} />
+        <AccountPanel
+          player={player}
+          onJoin={join}
+          onRename={rename}
+          onLeave={leave}
+          onClose={() => setScreen('home')}
+        />
       </main>
     )
   }
   if (screen === 'board') {
     return (
       <main className="app">
-        <Leaderboard meUid={user?.uid ?? null} onClose={() => setScreen('home')} />
+        <Leaderboard meUid={player?.id ?? null} onClose={() => setScreen('home')} />
       </main>
     )
   }
@@ -339,7 +352,7 @@ export default function App() {
       onSolo={() => setScreen('solo')}
       onChallenge={() => setScreen('challenge')}
       onPick={() => setScreen('pick')}
-      playerName={user?.displayName ?? null}
+      playerName={player?.name ?? null}
       onAccount={() => setScreen('account')}
       onBoard={() => setScreen('board')}
       onParty={() => setScreen('party')}

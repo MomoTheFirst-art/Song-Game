@@ -1,23 +1,26 @@
 import { useState } from 'react'
-import { authErrorMessage, joinAsPlayer, renamePlayer, signOut, type User } from '../firebase/auth'
+import { authErrorMessage } from '../firebase/auth'
+import type { Player } from '../hooks/usePlayer'
 
 interface Props {
-  user: User | null
+  player: Player | null
+  onJoin: (name: string) => Promise<void>
+  onRename: (name: string) => Promise<void>
+  onLeave: () => Promise<void>
   onClose: () => void
   /** Shown as the gate before the game, where there is no "back" to offer. */
   gated?: boolean
 }
 
 /**
- * A name, and nothing else.
+ * A name, and nothing else. No password is asked for, stored, or possible.
  *
- * No password is asked for, stored, or possible. What that costs is worth
- * saying out loud on the screen rather than only in the code: without a
- * credential there is nothing to prove the account was yours, so it lives in
- * this browser and cannot be recovered elsewhere.
+ * What that costs is said on screen rather than only in the code: with no
+ * credential there is nothing to prove the account was yours, so it lives on
+ * this device and cannot be recovered elsewhere.
  */
-export function AccountPanel({ user, onClose, gated = false }: Props) {
-  const [name, setName] = useState(user?.displayName ?? '')
+export function AccountPanel({ player, onJoin, onRename, onLeave, onClose, gated = false }: Props) {
+  const [name, setName] = useState(player?.name ?? '')
   const [error, setError] = useState<string | null>(null)
   const [busy, setBusy] = useState(false)
   const [saved, setSaved] = useState(false)
@@ -28,11 +31,11 @@ export function AccountPanel({ user, onClose, gated = false }: Props) {
     setBusy(true)
     setError(null)
     try {
-      if (user) {
-        await renamePlayer(name)
+      if (player) {
+        await onRename(name)
         setSaved(true)
       } else {
-        await joinAsPlayer(name)
+        await onJoin(name)
         onClose()
       }
     } catch (err) {
@@ -44,9 +47,9 @@ export function AccountPanel({ user, onClose, gated = false }: Props) {
 
   return (
     <section className="account">
-      <h2>{user ? 'حسابك' : 'اختر اسمك'}</h2>
+      <h2>{player ? 'حسابك' : 'اختر اسمك'}</h2>
       <p className="complete-note">
-        {user
+        {player
           ? 'نتائجك محفوظة على هذا الاسم.'
           : 'اكتب اسماً لتبدأ. لا حاجة لكلمة مرور ولا بريد إلكتروني.'}
       </p>
@@ -74,7 +77,7 @@ export function AccountPanel({ user, onClose, gated = false }: Props) {
 
         <div className="complete-actions">
           <button className="btn btn-next" type="submit" disabled={busy || !name.trim()}>
-            {busy ? 'لحظة…' : user ? 'حفظ الاسم' : 'ابدأ اللعب'}
+            {busy ? 'لحظة…' : player ? 'حفظ الاسم' : 'ابدأ اللعب'}
           </button>
           {!gated && (
             <button className="btn" type="button" onClick={onClose}>رجوع</button>
@@ -82,21 +85,21 @@ export function AccountPanel({ user, onClose, gated = false }: Props) {
         </div>
       </form>
 
-      {user ? (
-        <>
-          <p className="notice notice-soft">
-            نتائجك محفوظة على هذا الجهاز وهذا المتصفح. مسح بيانات الموقع أو الانتقال
-            لجهاز آخر يعني بداية جديدة — لا توجد كلمة مرور لاستعادتها.
-          </p>
-          <button className="linkish" onClick={() => void signOut().then(onClose)}>
-            الخروج والبدء باسم آخر
-          </button>
-        </>
-      ) : (
+      <p className="notice notice-soft">
+        اسمك ونتائجك محفوظة على هذا الجهاز وهذا المتصفح. بدون كلمة مرور لا يمكن
+        استعادة الحساب على جهاز آخر.
+      </p>
+
+      {player && !player.remote && (
         <p className="notice notice-soft">
-          اسمك ونتائجك تُحفظ على هذا الجهاز. بدون كلمة مرور لا يمكن استعادة الحساب
-          على جهاز آخر.
+          نتائجك محفوظة محلياً فقط — لوحة النتائج المشتركة غير متاحة الآن.
         </p>
+      )}
+
+      {player && (
+        <button className="linkish" onClick={() => void onLeave().then(onClose)}>
+          الخروج والبدء باسم آخر
+        </button>
       )}
     </section>
   )

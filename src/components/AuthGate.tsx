@@ -1,51 +1,25 @@
-import { useEffect, useState } from 'react'
 import { AccountPanel } from './AccountPanel'
-import { firebaseConfigured, loadFirebase } from '../firebase/app'
-import type { User } from '../firebase/auth'
+import type { Player } from '../hooks/usePlayer'
 
 interface Props {
-  user: User | null
+  player: Player | null
   ready: boolean
+  onJoin: (name: string) => Promise<void>
+  onRename: (name: string) => Promise<void>
+  onLeave: () => Promise<void>
   children: React.ReactNode
 }
 
 /**
- * Nobody plays without an account.
+ * Nobody plays without a name.
  *
- * The failure mode matters more than the happy path here. If the project's
- * email provider is off, or Firebase cannot load at all, a naive gate shows a
- * spinner forever and the whole game looks broken with no clue why — so an
- * unreachable backend is reported as exactly that, with the fix named.
+ * The gate deliberately does not depend on a backend being reachable. Joining
+ * falls back to a device-local identity when Firebase is unavailable, so a
+ * console toggle can never leave the game unplayable — it only decides whether
+ * scores sync.
  */
-export function AuthGate({ user, ready, children }: Props) {
-  const [reachable, setReachable] = useState<boolean | null>(null)
-
-  useEffect(() => {
-    if (!firebaseConfigured) {
-      setReachable(false)
-      return
-    }
-    let live = true
-    loadFirebase().then((fb) => live && setReachable(Boolean(fb)))
-    return () => {
-      live = false
-    }
-  }, [])
-
-  if (reachable === false) {
-    return (
-      <main className="app">
-        <section className="complete">
-          <h2>تعذّر الوصول إلى الحساب</h2>
-          <p className="complete-note">
-            اللعبة تتطلّب تسجيل الدخول، لكن خدمة الحسابات غير متاحة الآن. حاول لاحقاً.
-          </p>
-        </section>
-      </main>
-    )
-  }
-
-  if (!ready || reachable === null) {
+export function AuthGate({ player, ready, onJoin, onRename, onLeave, children }: Props) {
+  if (!ready) {
     return (
       <main className="app">
         <section className="complete">
@@ -55,12 +29,18 @@ export function AuthGate({ user, ready, children }: Props) {
     )
   }
 
-  if (!user) {
+  if (!player) {
     return (
       <main className="app">
         <h1 className="logo">🎵 خمّن الأغنية</h1>
-        {/* onClose is a no-op: there is nowhere to go until they are in. */}
-        <AccountPanel user={null} onClose={() => {}} gated />
+        <AccountPanel
+          player={null}
+          onJoin={onJoin}
+          onRename={onRename}
+          onLeave={onLeave}
+          onClose={() => {}}
+          gated
+        />
       </main>
     )
   }
