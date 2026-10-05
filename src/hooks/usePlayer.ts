@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useState } from 'react'
-import { firebaseConfigured } from '../firebase/app'
 import { joinAsPlayer, renamePlayer, signOut, watchAuth, type User } from '../firebase/auth'
 import { clearLocalPlayer, loadLocalPlayer, saveLocalPlayer } from '../game/player'
 
@@ -26,10 +25,9 @@ export interface PlayerState {
 export function usePlayer(): PlayerState {
   const [remoteUser, setRemoteUser] = useState<User | null>(null)
   const [local, setLocal] = useState(loadLocalPlayer)
-  const [ready, setReady] = useState(!firebaseConfigured)
+  const [ready, setReady] = useState(false)
 
   useEffect(() => {
-    if (!firebaseConfigured) return
     return watchAuth((user) => {
       setRemoteUser(user)
       setReady(true)

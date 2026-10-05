@@ -51,8 +51,8 @@ export function RoundPlay({ song, catalogue, onDone, isLast }: Props) {
       if (over) return
       advance(
         picked.id === song.id
-          ? { kind: 'correct', target: 'song', value: picked.id }
-          : { kind: 'wrong', target: 'song', value: picked.id },
+          ? { kind: 'correct', target: 'song' }
+          : { kind: 'wrong', target: 'song' },
       )
     },
     [advance, over, song.id],

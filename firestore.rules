@@ -5,8 +5,6 @@ rules_version = '2';
 //   users/{uid}            a player's name and totals. Readable by any signed-in
 //                          player, because that is what the leaderboard reads;
 //                          writable only by its owner.
-//   users/{uid}/runs/{id}  one finished run. Private to its owner — nobody
-//                          needs another player's round-by-round history.
 //
 // Default deny: anything not matched below is refused.
 service cloud.firestore {
@@ -36,18 +34,6 @@ service cloud.firestore {
         && data.runs >= 0;
     }
 
-    function validRun(data) {
-      return data.keys().hasOnly(['mode', 'dateKey', 'score', 'stages', 'createdAt'])
-        && data.mode in ['daily', 'challenge', 'pick']
-        && data.dateKey is string
-        && data.dateKey.size() <= 10
-        && data.score is number
-        && data.score >= 0
-        && data.score <= 6000
-        && data.stages is list
-        && data.stages.size() <= 5;
-    }
-
     match /users/{uid} {
       // The leaderboard needs every signed-in player to read these, which is
       // why a profile holds a display name and totals and nothing else — no
@@ -55,14 +41,6 @@ service cloud.firestore {
       allow read: if signedIn();
       allow create, update: if isOwner(uid) && validProfile(request.resource.data);
       allow delete: if isOwner(uid);
-
-      match /runs/{runId} {
-        allow read: if isOwner(uid);
-        allow create: if isOwner(uid) && validRun(request.resource.data);
-        // Runs are a record of what happened. Editing one after the fact is
-        // just score editing with extra steps.
-        allow update, delete: if false;
-      }
     }
   }
 }

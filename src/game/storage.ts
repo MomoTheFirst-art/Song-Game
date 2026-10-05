@@ -11,7 +11,6 @@ export interface DayRecord {
 
 interface Store {
   lastDaily?: DayRecord
-  history: DayRecord[]
   /** Song ids seen recently, newest last — keeps practice runs from repeating. */
   recent?: string[]
 }
@@ -19,12 +18,11 @@ interface Store {
 function read(): Store {
   try {
     const raw = localStorage.getItem(KEY)
-    if (!raw) return { history: [] }
-    const parsed = JSON.parse(raw) as Store
-    return { ...parsed, history: parsed.history ?? [] }
+    if (!raw) return {}
+    return JSON.parse(raw) as Store
   } catch {
     // Private windows and blocked site data both land here — play on without stats.
-    return { history: [] }
+    return {}
   }
 }
 
@@ -43,24 +41,8 @@ export function loadDaily(dateKey: string): DayRecord | null {
 
 export function saveRun(mode: Mode, record: DayRecord): void {
   if (mode !== 'daily') return
-  const store = read()
-  const history = store.history.filter((d) => d.dateKey !== record.dateKey)
-  history.push(record)
-  write({ lastDaily: record, history: history.slice(-365) })
+  write({ ...read(), lastDaily: record })
 }
-
-export function stats(): { played: number; best: number; average: number } {
-  const { history } = read()
-  if (history.length === 0) return { played: 0, best: 0, average: 0 }
-  const scores = history.map((d) => d.score)
-  const total = scores.reduce((a, b) => a + b, 0)
-  return {
-    played: history.length,
-    best: Math.max(...scores),
-    average: Math.round(total / history.length),
-  }
-}
-
 
 /** How many past songs the randomiser avoids before allowing a repeat. */
 const RECENT_LIMIT = 40

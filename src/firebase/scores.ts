@@ -1,13 +1,4 @@
 import { loadFirebase } from './app'
-import type { Mode } from '../game/types'
-
-export interface RunRecord {
-  mode: Mode
-  dateKey: string
-  score: number
-  /** Stage each song was solved at, or null if lost. */
-  stages: (number | null)[]
-}
 
 export interface LeaderboardRow {
   uid: string
@@ -21,20 +12,12 @@ export interface LeaderboardRow {
  *
  *   users/{uid}              name and running totals. Readable by any signed-in
  *                            player, which is what the leaderboard reads.
- *   users/{uid}/runs/{id}    one finished run, private to its owner.
  *
  * The profile carries bestScore and a run count rather than the leaderboard
  * deriving them, because ordering across subcollections needs a collection
  * group index and a client able to read everyone's history — far more access
  * than a scoreboard should require.
  */
-
-export async function saveRun(uid: string, run: RunRecord): Promise<void> {
-  const fb = await loadFirebase()
-  if (!fb) return
-  const { addDoc, collection, serverTimestamp } = await import('firebase/firestore')
-  await addDoc(collection(fb.db, 'users', uid, 'runs'), { ...run, createdAt: serverTimestamp() })
-}
 
 /**
  * Folds one finished run into the profile the leaderboard reads.

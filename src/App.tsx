@@ -26,8 +26,8 @@ import { normalize } from './game/search'
 import type { Mode, RoundState, Song } from './game/types'
 import { useAudioClip } from './hooks/useAudioClip'
 import { useLoopPreference } from './hooks/useLoopPreference'
-import { usePlayer } from './hooks/usePlayer'
-import { recordRun, saveRun } from './firebase/scores'
+import { usePlayer, type Player } from './hooks/usePlayer'
+import { recordRun } from './firebase/scores'
 
 const allSongs = catalogueData as Song[]
 /**
@@ -46,7 +46,15 @@ function newRound(song: Song): RoundState {
   return { song, stage: 0, attempts: [], status: 'playing' }
 }
 
-function Game({ onHome, startMode = 'daily' }: { onHome: () => void; startMode?: Mode }) {
+function Game({
+  onHome,
+  player,
+  startMode = 'daily',
+}: {
+  onHome: () => void
+  player: Player | null
+  startMode?: Mode
+}) {
   const dateKey = useMemo(() => todayKey(), [])
   const [mode, setMode] = useState<Mode>(startMode)
   // Both of these are seeded from the same draw rather than calling it twice:
@@ -65,7 +73,6 @@ function Game({ onHome, startMode = 'daily' }: { onHome: () => void; startMode?:
   const clipUrl = round.song.previewUrl as string
   const { status, mode: clipMode, play, stop } = useAudioClip(clipUrl)
   const [loop, setLoop] = useLoopPreference()
-  const { player } = usePlayer()
 
   // A daily run is one per UTC day — returning players see their result, not a
   // replay. Challenge runs are unlimited, so this must not catch them.
@@ -117,8 +124,8 @@ function Game({ onHome, startMode = 'daily' }: { onHome: () => void; startMode?:
       if (phase !== 'playing') return
       advance(
         song.id === round.song.id
-          ? { kind: 'correct', target: 'song', value: song.id }
-          : { kind: 'wrong', target: 'song', value: song.id },
+          ? { kind: 'correct', target: 'song' }
+          : { kind: 'wrong', target: 'song' },
       )
     },
     [advance, phase, round.song.id],
@@ -133,8 +140,8 @@ function Game({ onHome, startMode = 'daily' }: { onHome: () => void; startMode?:
       const right = normalize(artist) === normalize(round.song.artist)
       advance(
         right
-          ? { kind: 'correct', target: 'artist', value: artist }
-          : { kind: 'wrong', target: 'artist', value: artist },
+          ? { kind: 'correct', target: 'artist' }
+          : { kind: 'wrong', target: 'artist' },
       )
     },
     [advance, phase, round.song.artist],
@@ -158,10 +165,9 @@ function Game({ onHome, startMode = 'daily' }: { onHome: () => void; startMode?:
       // Signed in? Keep a copy in Firestore too. Deliberately fire-and-forget:
       // the run is already saved locally, and a network failure must not block
       // the player from seeing the result they just earned.
-      // Only a Firebase-backed player can sync; a device-local one already
-      // has the run in localStorage and there is nowhere else to put it.
+      // Only a Firebase-backed player reaches the shared board; a device-local
+      // one already has the run in localStorage.
       if (player?.remote) {
-        void saveRun(player.id, { mode, dateKey, score, stages }).catch(() => {})
         void recordRun(player.id, player.name, score).catch(() => {})
       }
       setPhase('done')
@@ -310,11 +316,11 @@ export default function App() {
   )
 
   function renderScreen() {
-  if (screen === 'solo') return <Game onHome={() => setScreen('home')} />
+  if (screen === 'solo') return <Game onHome={() => setScreen('home')} player={player} />
   if (screen === 'challenge') {
-    return <Game onHome={() => setScreen('home')} startMode="challenge" />
+    return <Game onHome={() => setScreen('home')} player={player} startMode="challenge" />
   }
-  if (screen === 'pick') return <Game onHome={() => setScreen('home')} startMode="pick" />
+  if (screen === 'pick') return <Game onHome={() => setScreen('home')} player={player} startMode="pick" />
   if (screen === 'account') {
     return (
       <main className="app">

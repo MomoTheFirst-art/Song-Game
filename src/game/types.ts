@@ -58,8 +58,8 @@ export type GuessTarget = 'artist' | 'song'
 /** What happened on a single guess slot within a round. */
 export type Attempt =
   | { kind: 'skipped' }
-  | { kind: 'wrong'; target: GuessTarget; value: string }
-  | { kind: 'correct'; target: GuessTarget; value: string }
+  | { kind: 'wrong'; target: GuessTarget }
+  | { kind: 'correct'; target: GuessTarget }
 
 export interface RoundState {
   song: Song
