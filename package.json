@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "typecheck": "tsc -b --noEmit",
     "test": "node --test scripts/*.test.mjs",
-    "previews": "node scripts/fetch-previews.mjs"
+    "previews": "node scripts/fetch-previews.mjs",
+    "e2e": "playwright test"
   },
   "dependencies": {
     "@capacitor/android": "^6.2.2",
@@ -21,6 +22,7 @@
   },
   "devDependencies": {
     "@capacitor/cli": "^6.2.2",
+    "@playwright/test": "^1.56.1",
     "@types/node": "^26.5.1",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
