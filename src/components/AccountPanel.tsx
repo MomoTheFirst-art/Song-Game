@@ -47,7 +47,7 @@ export function AccountPanel({ player, onJoin, onRename, onLeave, onClose, gated
 
   return (
     <section className="account">
-      <h2>{player ? 'حسابك' : 'اختر اسمك'}</h2>
+      {!gated && <h2>{player ? 'حسابك' : 'اختر اسمك'}</h2>}
       <p className="complete-note">
         {player
           ? 'نتائجك محفوظة على هذا الاسم.'
@@ -86,15 +86,8 @@ export function AccountPanel({ player, onJoin, onRename, onLeave, onClose, gated
       </form>
 
       <p className="notice notice-soft">
-        اسمك ونتائجك محفوظة على هذا الجهاز وهذا المتصفح. بدون كلمة مرور لا يمكن
-        استعادة الحساب على جهاز آخر.
+        نتائجك محفوظة على هذا الجهاز. بدون كلمة مرور لا يمكن استعادتها على جهاز آخر.
       </p>
-
-      {player && !player.remote && (
-        <p className="notice notice-soft">
-          نتائجك محفوظة محلياً فقط — لوحة النتائج المشتركة غير متاحة الآن.
-        </p>
-      )}
 
       {player && (
         <button className="linkish" onClick={() => void onLeave().then(onClose)}>

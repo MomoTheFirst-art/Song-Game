@@ -126,7 +126,6 @@ body {
 .loop-toggle input:disabled { cursor: default; }
 .loop-toggle:has(input:checked) { color: var(--text); }
 
-.home-account { display: flex; gap: 14px; justify-content: center; margin-top: 4px; }
 
 .account { display: grid; gap: 14px; }
 .account-form { display: grid; gap: 12px; }
@@ -346,12 +345,71 @@ body {
 
 
 /* ---------- home ---------- */
-.home { display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; }
-.home .logo { font-size: 1.8rem; margin: 0; }
-.home-modes { display: flex; flex-direction: column; gap: 10px; width: 100%; max-width: 340px; margin-top: 6px; }
-.home-mode { display: grid; gap: 3px; padding: 16px 18px; text-align: center; }
-.home-mode strong { font-size: 1.05rem; }
-.home-mode span { font-size: .82rem; opacity: .85; font-weight: 400; }
+/* The gate has one field and one button; centring it stops the screen being
+   a third of content above two thirds of nothing. */
+.app-gate { min-height: 100svh; display: flex; flex-direction: column; justify-content: center; gap: 8px; }
+
+/* ---------- hero ---------- */
+.hero { display: grid; gap: 6px; justify-items: center; text-align: center; margin-bottom: 6px; }
+.hero-name { margin: 0; font-size: 1.35rem; font-weight: 600; letter-spacing: .01em; }
+
+/* The ladder reads right to left as the clip grows: ١ then ٣ ٥ ١٠ ١٥. The
+   first number is the whole point, so it carries the size and everything
+   after it recedes. */
+.hero-ladder {
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-variant-numeric: tabular-nums;
+}
+.hero-first { font-size: 3.4rem; font-weight: 800; line-height: 1; color: var(--accent); }
+.hero-rest { display: flex; gap: 9px; font-size: 1.1rem; font-weight: 600; color: var(--muted); }
+.hero-rest span:last-child { color: var(--line); }
+.hero-unit { font-size: .9rem; color: var(--muted); }
+.hero-tagline { margin: 4px 0 0; max-width: 34ch; font-size: .88rem; color: var(--muted); line-height: 1.55; }
+
+/* ---------- home ---------- */
+.home { display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; }
+.home-modes { display: flex; flex-direction: column; gap: 8px; width: 100%; max-width: 360px; }
+
+/* Shared shape, three weights of emphasis — the lead is filled, its siblings
+   are outlined, and multiplayer sits apart because it is a different game
+   rather than a fourth difficulty. */
+.mode {
+  display: grid;
+  gap: 2px;
+  padding: 15px 18px;
+  text-align: center;
+  font: inherit;
+  cursor: pointer;
+  color: var(--text);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.mode strong { font-size: 1.02rem; font-weight: 600; }
+.mode span { font-size: .8rem; color: var(--muted); font-weight: 400; }
+.mode:not(:disabled):hover { border-color: var(--accent-dim); }
+.mode:disabled { cursor: default; opacity: .55; }
+
+.mode-lead { background: var(--accent); border-color: var(--accent); color: #06210f; }
+.mode-lead strong { font-weight: 800; }
+.mode-lead span { color: #06210f; opacity: .72; }
+.mode-lead:not(:disabled):hover { background: #23d466; border-color: #23d466; }
+
+.home-party { position: relative; padding-top: 14px; max-width: 360px; }
+.home-party::before {
+  content: '';
+  position: absolute;
+  inset-inline: 22%;
+  top: 0;
+  border-top: 1px solid var(--line);
+}
+
+.home-foot { display: flex; flex-wrap: wrap; gap: 4px 20px; justify-content: center; align-items: baseline; margin-top: 2px; }
+.home-foot .linkish:first-child { color: var(--muted); }
+.home-count { margin: 0; flex-basis: 100%; font-size: .8rem; color: var(--muted); }
 
 /* ---------- party setup ---------- */
 .setup { display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; }

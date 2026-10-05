@@ -1,4 +1,6 @@
+import { Hero } from './Hero'
 import { SilentSwitchNotice } from './SilentSwitchNotice'
+import { ar } from '../game/numerals'
 
 interface Props {
   playableCount: number
@@ -6,10 +8,10 @@ interface Props {
   onChallenge: () => void
   onPick: () => void
   onParty: () => void
+  partyCapacity: number
   playerName: string | null
   onAccount: () => void
   onBoard: () => void
-  partyCapacity: number
 }
 
 export function Home({
@@ -19,48 +21,45 @@ export function Home({
   return (
     <main className="app">
       <section className="home">
-        <h1 className="logo">🎵 خمّن الأغنية</h1>
+        <Hero tagline="كل تخمين خاطئ يطيل المقطع، وكل ثانية إضافية تكلّفك نقاطاً." />
         <SilentSwitchNotice />
 
-        <p className="complete-note">
-          من ثانية واحدة. كل تخمين خاطئ يطيل المقطع — وكل ثانية إضافية تكلّفك نقاطاً.
-        </p>
-
+        {/* One primary, two alternatives, then a different kind of game. Four
+            identical cards made every mode look equally weighted, which is
+            how you end up never noticing three of them. */}
         <div className="home-modes">
-          <button className="btn btn-next home-mode" onClick={onSolo}>
+          <button className="mode mode-lead" onClick={onSolo}>
             <strong>تحدي اليوم</strong>
             <span>خمس أغانٍ، مرة واحدة كل يوم</span>
           </button>
-          <button className="btn home-mode" onClick={onChallenge}>
+          <button className="mode" onClick={onChallenge}>
             <strong>تحدي عشوائي</strong>
-            <span>خمس أغانٍ عشوائية · العب بلا حدود</span>
+            <span>خمس أغانٍ، العب بلا حدود</span>
           </button>
-          <button className="btn home-mode" onClick={onPick}>
+          <button className="mode" onClick={onPick}>
             <strong>مبتدئ</strong>
             <span>خمّن الفنان بنصف النقاط، أو الأغنية بالكامل</span>
           </button>
-          <button
-            className="btn home-mode"
-            onClick={onParty}
-            disabled={partyCapacity < 2}
-          >
+        </div>
+
+        <div className="home-modes home-party">
+          <button className="mode" onClick={onParty} disabled={partyCapacity < 2}>
             <strong>لاعبون متعددون</strong>
             <span>
               {partyCapacity < 2
                 ? 'يحتاج مقاطع معتمدة أكثر'
-                : `حتى ${partyCapacity} لاعبين · ٣ أغانٍ لكل لاعب`}
+                : `حتى ${ar(partyCapacity)} لاعبين، ثلاث أغانٍ لكل لاعب`}
             </span>
           </button>
         </div>
 
-        <div className="home-account">
+        <footer className="home-foot">
           <button className="linkish" onClick={onAccount}>
             {playerName ? `مرحباً ${playerName}` : 'حسابك'}
           </button>
           <button className="linkish" onClick={onBoard}>نتائج اللاعبين</button>
-        </div>
-
-        <p className="complete-note">{playableCount} أغنية جاهزة للعب</p>
+          <p className="home-count">{ar(playableCount)} أغنية جاهزة للعب</p>
+        </footer>
       </section>
     </main>
   )

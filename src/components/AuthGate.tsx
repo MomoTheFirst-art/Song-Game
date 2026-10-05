@@ -1,4 +1,5 @@
 import { AccountPanel } from './AccountPanel'
+import { Hero } from './Hero'
 import type { Player } from '../hooks/usePlayer'
 
 interface Props {
@@ -31,8 +32,8 @@ export function AuthGate({ player, ready, onJoin, onRename, onLeave, children }:
 
   if (!player) {
     return (
-      <main className="app">
-        <h1 className="logo">🎵 خمّن الأغنية</h1>
+      <main className="app app-gate">
+        <Hero />
         <AccountPanel
           player={null}
           onJoin={onJoin}
