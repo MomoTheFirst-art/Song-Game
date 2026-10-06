@@ -2,7 +2,7 @@ import { useCallback, useState } from 'react'
 import { ClipPlayer } from './ClipPlayer'
 import { GuessInput } from './GuessInput'
 import { RoundResult } from './RoundResult'
-import { StageBar } from './StageBar'
+import { ClipBar } from './ClipBar'
 import { WrongGuesses } from './WrongGuesses'
 import { MAX_STAGE, STAGES } from '../game/stages'
 import { DIFFICULTY_LABEL } from '../game/types'
@@ -63,7 +63,12 @@ export function RoundPlay({ song, catalogue, onDone, isLast }: Props) {
     <>
       <p className="difficulty">المستوى: {DIFFICULTY_LABEL[song.difficulty]}</p>
 
-      <StageBar stage={round.stage} attempts={round.attempts} />
+      <ClipBar
+        stage={round.stage}
+        attempts={round.attempts}
+        playing={status === 'playing'}
+        loop={loop}
+      />
 
       <ClipPlayer
         stage={round.stage}

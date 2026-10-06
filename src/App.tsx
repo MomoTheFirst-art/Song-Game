@@ -13,7 +13,7 @@ import { DayComplete } from './components/DayComplete'
 import { GuessInput } from './components/GuessInput'
 import { Header } from './components/Header'
 import { RoundResult } from './components/RoundResult'
-import { StageBar } from './components/StageBar'
+import { ClipBar } from './components/ClipBar'
 import { WrongGuesses } from './components/WrongGuesses'
 import { challengeSongs, dailySongs, todayKey } from './game/daily'
 import { roundScore, totalScore } from './game/scoring'
@@ -21,7 +21,7 @@ import { MAX_STAGE, STAGES } from './game/stages'
 import {
   loadDaily, recentlyPlayed, rememberPlayed, saveRun as saveLocalRun,
 } from './game/storage'
-import { loadDecisions, playableSongs } from './game/review'
+import { loadDecisions, playableSongs, verdictFor } from './game/review'
 import { loadStarts, withStarts } from './game/starts'
 import { DIFFICULTY_LABEL } from './game/types'
 import { normalize } from './game/search'
@@ -42,7 +42,8 @@ const catalogue = withStarts(playableSongs(allSongs, loadDecisions()), loadStart
  * not just a round. Guessing still searches the whole playable catalogue so
  * the answer does not stand out among the suggestions.
  */
-const partyPool = catalogue.filter((s) => s.approved === true)
+const localDecisions = loadDecisions()
+const partyPool = catalogue.filter((s) => verdictFor(s, localDecisions) === 'approved')
 
 function newRound(song: Song): RoundState {
   return { song, stage: 0, attempts: [], status: 'playing' }
@@ -230,7 +231,12 @@ function Game({
         <button className="linkish" onClick={onHome}>القائمة</button>
       </p>
 
-      <StageBar stage={round.stage} attempts={round.attempts} />
+      <ClipBar
+        stage={round.stage}
+        attempts={round.attempts}
+        playing={status === 'playing'}
+        loop={loop}
+      />
 
       <ClipPlayer
         stage={round.stage}

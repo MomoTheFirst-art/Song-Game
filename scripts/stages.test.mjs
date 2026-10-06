@@ -44,3 +44,19 @@ test('stage labels read correctly end to end', () => {
   assert.equal(stageLabel(3), '10 ثوانٍ')
   assert.equal(stageLabel(4), '15 ثانية')
 })
+
+/**
+ * The clip bar draws each stage proportional to the seconds it adds, so these
+ * spans are what makes the bar an honest picture of the clip rather than five
+ * equal boxes.
+ */
+test('stage spans are the gaps between stages and fill the clip exactly', () => {
+  const spans = STAGES.map((s, i) => s - (STAGES[i - 1] ?? 0))
+  assert.deepEqual(spans, [1, 2, 2, 5, 5])
+  assert.equal(
+    spans.reduce((a, b) => a + b, 0),
+    STAGES[STAGES.length - 1],
+    'spans must add up to the full clip length',
+  )
+  assert.ok(spans.every((s) => s > 0), 'a stage that adds no time would be invisible')
+})
