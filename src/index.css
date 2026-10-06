@@ -442,26 +442,54 @@ body {
 .adm-start {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-top: 4px;
-  font-size: .78rem;
-  color: var(--muted);
+  gap: 10px;
+  margin-top: 6px;
 }
-.adm-start label { white-space: nowrap; }
-/* A time axis runs left to right even in an RTL page — every media player
-   scrubber does. Inherited RTL put zero on the right. */
-.adm-start input[type='range'] {
-  flex: 1;
-  min-width: 90px;
-  accent-color: var(--accent);
-  direction: ltr;
+
+/* The full 30-second preview. Time runs left to right even on an RTL page,
+   as it does in every media player. */
+.cwin { flex: 1; min-width: 120px; direction: ltr; }
+.cwin-track {
+  position: relative;
+  height: 26px;
+  border-radius: 7px;
+  background: repeating-linear-gradient(
+    to right,
+    var(--bg) 0 1px,
+    transparent 1px calc(100% / 30)
+  ), var(--panel-2);
+  border: 1px solid var(--line);
+  overflow: hidden;
 }
-.adm-start output {
-  font-variant-numeric: tabular-nums;
-  min-width: 34px;
-  text-align: center;
+.cwin-sel {
+  position: absolute;
+  inset-block: 0;
+  background: var(--accent-dim);
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  cursor: grab;
+  touch-action: none;
+  display: flex;
+  align-items: center;
+}
+.cwin-sel:active { cursor: grabbing; }
+.cwin-sel:focus-visible { outline: 2px solid var(--text); outline-offset: 1px; }
+/* The one second nearly every player hears. */
+.cwin-first {
+  align-self: stretch;
+  background: var(--accent);
+  border-inline-end: 1px solid var(--text);
+}
+.cwin-read {
+  margin: 3px 0 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
   color: var(--text);
+  font-variant-numeric: tabular-nums;
 }
+.cwin-dim { color: var(--muted); }
+
 .adm-audition { padding: 3px 9px; font-size: .75rem; border-radius: 999px; white-space: nowrap; }
 .adm-matched::before { content: '→'; color: var(--muted); }
 .adm-weak { color: var(--warn); }

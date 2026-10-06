@@ -3,7 +3,8 @@ import { DIFFICULTY_LABEL } from '../game/types'
 import type { Song } from '../game/types'
 import type { Decisions, Verdict } from '../game/review'
 import { approvalsGovern, loadDecisions, saveDecisions, verdictFor } from '../game/review'
-import { MAX_START, clampStart, loadStarts, saveStarts } from '../game/starts'
+import { loadStarts, saveStarts } from '../game/starts'
+import { ClipWindow } from './ClipWindow'
 import type { Starts } from '../game/starts'
 import { STAGES } from '../game/stages'
 import { useAudioClip } from '../hooks/useAudioClip'
@@ -61,23 +62,13 @@ function ClipRow({
         {/* Where the clip begins. Every stage starts here, so this decides
             whether the hardest one is a hook or an intro nobody can place. */}
         <div className="adm-start">
-          <label htmlFor={`start-${song.id}`}>بداية المقطع</label>
-          <input
-            id={`start-${song.id}`}
-            type="range"
-            min={0}
-            max={MAX_START}
-            step={0.5}
-            value={start}
-            onChange={(e) => onStart(clampStart(Number(e.target.value)))}
-          />
-          <output htmlFor={`start-${song.id}`}>{start}s</output>
+          <ClipWindow start={start} onStart={onStart} />
           <button
             className="btn adm-audition"
             onClick={() => (playing ? stop() : play(start, LONGEST))}
             title={`اسمع ما يسمعه اللاعب: ${LONGEST} ثانية من هنا`}
           >
-            ▶ {LONGEST}s
+            {playing ? '■' : '▶'} {LONGEST}s
           </button>
         </div>
       </div>
@@ -217,7 +208,8 @@ export function Admin({ songs }: { songs: Song[] }) {
         <h1>لوحة المراجعة</h1>
         <p className="adm-dim">
           شغّل كل مقطع وتأكد أنه الأغنية الصحيحة. ✓ يدخل اللعبة، ✗ يُستبعد منها.
-          اسحب «بداية المقطع» لتختار من أين يبدأ ما يسمعه اللاعب في كل المراحل.
+          الشريط هو المعاينة كاملة (٣٠ ثانية)؛ اسحب الجزء المضيء لتختار الـ١٥ ثانية
+          التي يسمعها اللاعب — والشريحة الفاتحة في أوله هي الثانية الأولى.
         </p>
       </header>
 

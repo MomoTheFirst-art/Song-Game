@@ -2,7 +2,7 @@ import { STAGES } from './stages.ts'
 import type { Song } from './types.ts'
 
 /** An Apple preview is 30 seconds — nothing may be scheduled past its end. */
-const PREVIEW_SECONDS = 30
+export const PREVIEW_SECONDS = 30
 
 /**
  * The latest a clip may begin and still have the longest stage fit inside the
