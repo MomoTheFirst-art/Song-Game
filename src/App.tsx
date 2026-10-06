@@ -22,6 +22,7 @@ import {
   loadDaily, recentlyPlayed, rememberPlayed, saveRun as saveLocalRun,
 } from './game/storage'
 import { loadDecisions, playableSongs } from './game/review'
+import { loadStarts, withStarts } from './game/starts'
 import { DIFFICULTY_LABEL } from './game/types'
 import { normalize } from './game/search'
 import type { Mode, RoundState, Song } from './game/types'
@@ -35,7 +36,7 @@ const allSongs = catalogueData as Song[]
  * What the game may play: a clip, and not one a reviewer rejected. Once every
  * tier has an approved song, approvals alone decide.
  */
-const catalogue = playableSongs(allSongs, loadDecisions())
+const catalogue = withStarts(playableSongs(allSongs, loadDecisions()), loadStarts())
 /**
  * A party deals only approved clips — a wrong one costs a player their turn,
  * not just a round. Guessing still searches the whole playable catalogue so

@@ -368,6 +368,31 @@ body {
 .adm-expected, .adm-matched { display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; min-width: 0; }
 .adm-expected { font-size: .92rem; }
 .adm-matched { font-size: .8rem; }
+
+.adm-start {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+  font-size: .78rem;
+  color: var(--muted);
+}
+.adm-start label { white-space: nowrap; }
+/* A time axis runs left to right even in an RTL page — every media player
+   scrubber does. Inherited RTL put zero on the right. */
+.adm-start input[type='range'] {
+  flex: 1;
+  min-width: 90px;
+  accent-color: var(--accent);
+  direction: ltr;
+}
+.adm-start output {
+  font-variant-numeric: tabular-nums;
+  min-width: 34px;
+  text-align: center;
+  color: var(--text);
+}
+.adm-audition { padding: 3px 9px; font-size: .75rem; border-radius: 999px; white-space: nowrap; }
 .adm-matched::before { content: '→'; color: var(--muted); }
 .adm-weak { color: var(--warn); }
 .adm-weak .adm-dim { color: var(--warn); opacity: .8; }

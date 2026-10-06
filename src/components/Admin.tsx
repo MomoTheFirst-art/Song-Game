@@ -3,17 +3,27 @@ import { DIFFICULTY_LABEL } from '../game/types'
 import type { Song } from '../game/types'
 import type { Decisions, Verdict } from '../game/review'
 import { approvalsGovern, loadDecisions, saveDecisions, verdictFor } from '../game/review'
+import { MAX_START, clampStart, loadStarts, saveStarts } from '../game/starts'
+import type { Starts } from '../game/starts'
+import { STAGES } from '../game/stages'
 import { useAudioClip } from '../hooks/useAudioClip'
+
+/** What a player hears at the last stage, and the longest clip to audition. */
+const LONGEST = STAGES[STAGES.length - 1]
 
 /** One clip: play it, judge it. */
 function ClipRow({
   song,
   verdict,
   onVerdict,
+  start,
+  onStart,
 }: {
   song: Song
   verdict: Verdict | undefined
   onVerdict: (v: Verdict | undefined) => void
+  start: number
+  onStart: (seconds: number) => void
 }) {
   const { status, play, stop } = useAudioClip(song.previewUrl as string)
   const playing = status === 'playing'
@@ -24,7 +34,7 @@ function ClipRow({
     <li className={`adm-row adm-${verdict ?? 'new'}`}>
       <button
         className="btn adm-play"
-        onClick={() => (playing ? stop() : play(song.startAt, 30))}
+        onClick={() => (playing ? stop() : play(0, 30))}
         aria-label={playing ? 'إيقاف' : 'تشغيل'}
       >
         {playing ? '■' : '▶'}
@@ -46,6 +56,29 @@ function ClipRow({
           ) : (
             <span className="adm-dim">لا سجل مطابقة</span>
           )}
+        </div>
+
+        {/* Where the clip begins. Every stage starts here, so this decides
+            whether the hardest one is a hook or an intro nobody can place. */}
+        <div className="adm-start">
+          <label htmlFor={`start-${song.id}`}>بداية المقطع</label>
+          <input
+            id={`start-${song.id}`}
+            type="range"
+            min={0}
+            max={MAX_START}
+            step={0.5}
+            value={start}
+            onChange={(e) => onStart(clampStart(Number(e.target.value)))}
+          />
+          <output htmlFor={`start-${song.id}`}>{start}s</output>
+          <button
+            className="btn adm-audition"
+            onClick={() => (playing ? stop() : play(start, LONGEST))}
+            title={`اسمع ما يسمعه اللاعب: ${LONGEST} ثانية من هنا`}
+          >
+            ▶ {LONGEST}s
+          </button>
         </div>
       </div>
 
@@ -93,10 +126,12 @@ type Filter = 'all' | 'new' | 'approved' | 'rejected' | 'weak' | 'awaiting'
 
 export function Admin({ songs }: { songs: Song[] }) {
   const [decisions, setDecisions] = useState<Decisions>(loadDecisions)
+  const [starts, setStarts] = useState<Starts>(loadStarts)
   const [filter, setFilter] = useState<Filter>('new')
   const [copied, setCopied] = useState('')
 
   useEffect(() => saveDecisions(decisions), [decisions])
+  useEffect(() => saveStarts(starts), [starts])
 
   const withClips = useMemo(() => songs.filter((s) => s.previewUrl), [songs])
   // Songs still waiting on a lookup have nothing to play, but hiding them made
@@ -125,6 +160,7 @@ export function Admin({ songs }: { songs: Song[] }) {
   }, [withClips, awaiting, decisions, filter])
 
   const governing = approvalsGovern(songs, decisions)
+  const startCount = Object.keys(starts).length
 
   function setVerdict(id: string, v: Verdict | undefined) {
     const clip = withClips.find((s) => s.id === id)?.previewUrl
@@ -136,9 +172,22 @@ export function Admin({ songs }: { songs: Song[] }) {
     })
   }
 
-  async function copy(what: 'patch' | 'rejected') {
+  function setStart(song: Song, seconds: number) {
+    setStarts((prev) => {
+      const next = { ...prev }
+      // Back at the shipped value there is nothing to override, and keeping
+      // the entry would pin the song if the catalogue ever moved it.
+      if (seconds === song.startAt) delete next[song.id]
+      else next[song.id] = seconds
+      return next
+    })
+  }
+
+  async function copy(what: 'patch' | 'rejected' | 'starts') {
     const text =
-      what === 'patch'
+      what === 'starts'
+        ? JSON.stringify(starts, null, 2)
+        : what === 'patch'
         ? JSON.stringify(
             Object.fromEntries(
               withClips
@@ -168,6 +217,7 @@ export function Admin({ songs }: { songs: Song[] }) {
         <h1>لوحة المراجعة</h1>
         <p className="adm-dim">
           شغّل كل مقطع وتأكد أنه الأغنية الصحيحة. ✓ يدخل اللعبة، ✗ يُستبعد منها.
+          اسحب «بداية المقطع» لتختار من أين يبدأ ما يسمعه اللاعب في كل المراحل.
         </p>
       </header>
 
@@ -210,6 +260,8 @@ export function Admin({ songs }: { songs: Song[] }) {
               song={s}
               verdict={verdictFor(s, decisions)}
               onVerdict={(v) => setVerdict(s.id, v)}
+              start={starts[s.id] ?? s.startAt}
+              onStart={(seconds) => setStart(s, seconds)}
             />
           ) : (
             <PendingRow key={s.id} song={s} />
@@ -225,13 +277,23 @@ export function Admin({ songs }: { songs: Song[] }) {
         <button className="btn" onClick={() => copy('rejected')}>
           {copied === 'rejected' ? 'تم النسخ ✓' : 'انسخ المرفوضة'}
         </button>
-        <button className="btn" onClick={() => setDecisions({})}>
+        <button className="btn" onClick={() => copy('starts')} disabled={startCount === 0}>
+          {copied === 'starts' ? 'تم النسخ ✓' : `انسخ نقاط البداية (${startCount})`}
+        </button>
+        <button
+          className="btn"
+          onClick={() => {
+            setDecisions({})
+            setStarts({})
+          }}
+        >
           مسح الكل
         </button>
       </div>
 
       <p className="adm-foot">
-        القرارات محفوظة في هذا المتصفح. انسخ الـ JSON لتثبيتها للجميع.
+        القرارات ونقاط البداية محفوظة في هذا المتصفح، وتسري على اللعبة هنا بعد
+        إعادة تحميل الصفحة. انسخ الـ JSON لتثبيتها للجميع.
         <br />
         <a href="#">← عودة للعبة</a>
       </p>
