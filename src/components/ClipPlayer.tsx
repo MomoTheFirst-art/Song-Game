@@ -1,4 +1,5 @@
 import { STAGES, secondsNoun } from '../game/stages'
+import { ar } from '../game/numerals'
 import type { ClipMode, ClipStatus } from '../hooks/useAudioClip'
 import { SilentSwitchNotice } from './SilentSwitchNotice'
 
@@ -17,6 +18,11 @@ export function ClipPlayer({ stage, status, mode, loop, onLoopChange, onPlay, on
   const busy = status === 'loading'
   const broken = status === 'missing' || status === 'error'
   const playing = status === 'playing'
+  const label = busy
+    ? 'جارٍ التحميل…'
+    : playing
+      ? 'إيقاف'
+      : `تشغيل ${ar(seconds)} ${secondsNoun(seconds)}`
 
   return (
     <div className="player">
@@ -29,16 +35,11 @@ export function ClipPlayer({ stage, status, mode, loop, onLoopChange, onPlay, on
         className="btn btn-play"
         onClick={playing ? onStop : onPlay}
         disabled={busy || broken}
+        aria-label={label}
       >
-        {playing ? '⏸' : '▶'}
-        <span className="play-label">
-          {busy
-            ? 'جارٍ التحميل…'
-            : playing
-              ? 'إيقاف'
-              : `تشغيل ${seconds} ${secondsNoun(seconds)}`}
-        </span>
+        <span aria-hidden="true">{playing ? '⏸' : '▶'}</span>
       </button>
+      <p className="play-label" aria-hidden="true">{label}</p>
 
       <label className="loop-toggle">
         <input

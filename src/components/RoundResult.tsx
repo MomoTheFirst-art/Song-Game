@@ -1,6 +1,7 @@
 import { STAGES, secondsNoun } from '../game/stages'
 import { roundScore } from '../game/scoring'
 import { artworkAt } from '../game/types'
+import { ar } from '../game/numerals'
 import type { RoundState } from '../game/types'
 
 interface Props {
@@ -37,14 +38,14 @@ export function RoundResult({ round, onNext, isLast }: Props) {
         <p className="result-song">
           <strong>{song.title}</strong>
           <span className="result-artist">
-            {song.artist} · {song.year}
+            {song.artist} · {ar(song.year)}
           </span>
         </p>
       </div>
 
       {won && (
         <p className="result-score">
-          +{roundScore(round)} نقطة — عند {STAGES[round.stage]} {secondsNoun(STAGES[round.stage])}
+          +{ar(roundScore(round))} نقطة — عند {ar(STAGES[round.stage])} {secondsNoun(STAGES[round.stage])}
           {round.solvedAs === 'artist' && <span className="result-half"> (نصف النقاط)</span>}
         </p>
       )}

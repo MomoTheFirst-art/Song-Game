@@ -214,7 +214,7 @@ function Game({
   }
 
   return (
-    <main className="app">
+    <main className="app app-playing">
       <Header
         mode={mode}
         score={runningScore}

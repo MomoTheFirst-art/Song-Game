@@ -45,15 +45,18 @@ body {
 }
 .tab-on { background: var(--accent); border-color: var(--accent); color: #06210f; font-weight: 600; }
 
-.meta { display: flex; justify-content: space-between; color: var(--muted); font-size: 0.9rem; }
+.meta { display: flex; justify-content: space-between; color: var(--muted); font-size: 0.85rem; }
+.meta-round { font-variant-numeric: tabular-nums; }
 .meta-score { color: var(--accent); font-weight: 600; }
 
 .difficulty {
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
   color: var(--muted);
   font-size: 0.85rem;
-  margin: 0 0 14px;
-  letter-spacing: 0.04em;
+  margin: 0 0 12px;
 }
 
 /* ---------- stages ---------- */
@@ -69,23 +72,31 @@ body {
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 10px;
-  padding: 9px 4px;
+  padding: 8px 3px;
   text-align: center;
   display: grid;
   gap: 2px;
 }
-.stage-time { font-size: 0.85rem; font-weight: 600; }
-.stage-points { font-size: 0.7rem; color: var(--muted); }
+.stage-time { font-size: 0.8rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+.stage-points { font-size: 0.68rem; color: var(--muted); font-variant-numeric: tabular-nums; }
 
+/* The live stake: bigger than its neighbours, and the only one in the accent,
+   because it is the number the next guess is actually worth. */
 .stage-current { border-color: var(--accent); background: var(--panel-2); }
-.stage-current .stage-time { color: var(--accent); }
+.stage-current .stage-time { color: var(--accent); font-size: 0.95rem; }
+.stage-current .stage-points { color: var(--accent); font-weight: 600; }
+
+/* Spent rungs read as spent. A price already paid is struck through; a rung
+   not yet reached is simply faint. These used to differ by 0.15 of opacity. */
 .stage-correct { border-color: var(--accent); background: rgba(29, 185, 84, 0.16); }
-.stage-wrong { border-color: var(--wrong); background: rgba(229, 72, 77, 0.12); }
-.stage-skipped { border-color: var(--line); opacity: 0.55; }
-.stage-locked { opacity: 0.4; }
+.stage-wrong { border-color: var(--wrong); background: rgba(229, 72, 77, 0.1); }
+.stage-wrong .stage-points,
+.stage-skipped .stage-points { text-decoration: line-through; }
+.stage-skipped { opacity: 0.6; }
+.stage-locked { opacity: 0.34; }
 
 /* ---------- player ---------- */
-.player { display: grid; gap: 10px; justify-items: center; margin-bottom: 22px; }
+.player { display: grid; gap: 10px; justify-items: center; margin-bottom: 16px; }
 
 .btn {
   font: inherit;
@@ -98,20 +109,28 @@ body {
 }
 .btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
+/* The one thing a player comes to this screen to press, so it is the one
+   thing the screen is built around. The label sits under the disc; the
+   accessible name stays on the button via aria-label. */
 .btn-play {
   background: var(--accent);
   border-color: var(--accent);
   color: #06210f;
-  font-weight: 700;
-  font-size: 1.05rem;
-  padding: 14px 30px;
-  border-radius: 999px;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
+  width: 132px;
+  height: 132px;
+  padding: 0;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 2.7rem;
+  line-height: 1;
+  box-shadow: 0 0 0 9px rgba(45, 212, 101, 0.09);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
 }
 .btn-play:not(:disabled):hover { background: #23d466; }
-.play-label { font-size: 0.95rem; }
+.btn-play:not(:disabled):active { transform: scale(0.96); }
+.btn-play:disabled { box-shadow: none; }
+.play-label { margin: 0; font-size: 0.95rem; font-weight: 600; }
 
 .loop-toggle {
   display: inline-flex;
@@ -121,8 +140,13 @@ body {
   color: var(--muted);
   cursor: pointer;
   user-select: none;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 14px;
 }
-.loop-toggle input { width: 17px; height: 17px; accent-color: var(--accent); cursor: pointer; }
+.loop-toggle input { width: 15px; height: 15px; accent-color: var(--accent); cursor: pointer; }
+.loop-toggle:has(input:checked) { border-color: var(--accent-dim); }
 .loop-toggle input:disabled { cursor: default; }
 .loop-toggle:has(input:checked) { color: var(--text); }
 
@@ -274,7 +298,6 @@ body {
 .complete-note { margin: 0; color: var(--muted); font-size: 0.85rem; }
 
 @media (max-width: 480px) {
-  .stage-points { display: none; }
   .recap li { grid-template-columns: 20px 28px 1fr 40px; }
   .recap-artist { display: none; }
 }
@@ -347,6 +370,10 @@ body {
 /* ---------- home ---------- */
 /* The gate has one field and one button; centring it stops the screen being
    a third of content above two thirds of nothing. */
+.app-playing { min-height: 100svh; display: flex; flex-direction: column; }
+.app-playing > .player { margin-block: auto; }
+.app-playing > .guess, .app-playing > .result { margin-top: auto; padding-bottom: 8px; }
+
 .app-gate { min-height: 100svh; display: flex; flex-direction: column; justify-content: center; gap: 8px; }
 
 /* ---------- hero ---------- */
