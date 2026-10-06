@@ -15,7 +15,7 @@ export function Hero({ tagline }: { tagline?: string }) {
   return (
     <header className="hero">
       <h1 className="hero-name">خمّن الأغنية</h1>
-      <p className="hero-ladder" aria-label={`يبدأ المقطع من ${ar(first)} ثانية ويطول حتى ${ar(STAGES[STAGES.length - 1])}`}>
+      <p className="hero-ladder" aria-label={`النقاط تنقص كلما طال المقطع: عند ${STAGES.map(ar).join('، ')} ثانية`}>
         <span className="hero-first">{ar(first)}</span>
         <span className="hero-rest" aria-hidden="true">
           {rest.map((s) => (

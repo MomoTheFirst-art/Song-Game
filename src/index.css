@@ -97,20 +97,19 @@ body {
 /* Not yet reached, and spent, both recede — but mixed toward the panel rather
    than faded toward black, which turned the amber end of the ramp to mud and
    cost the value ramp its legibility exactly where most of the bar sits. */
-.seg-locked { opacity: 0.3; }
-.seg-wrong, .seg-skipped { opacity: 0.34; }
+.seg-ahead { opacity: 0.3; }
+.seg-spent { opacity: 0.34; }
 @supports (background: color-mix(in srgb, red 50%, blue)) {
-  .seg-locked {
+  .seg-ahead {
     background: color-mix(in srgb, var(--seg) 38%, var(--panel-2));
     opacity: 1;
   }
-  .seg-wrong, .seg-skipped {
+  .seg-spent {
     background: color-mix(in srgb, var(--seg) 30%, var(--panel-2));
     opacity: 1;
   }
 }
 .seg-current { opacity: 1; box-shadow: 0 0 14px -2px var(--seg); }
-.seg-correct { opacity: 1; }
 
 .clipbar-head {
   position: absolute;
@@ -125,7 +124,7 @@ body {
 .clipbar-head-loop { animation-iteration-count: infinite; }
 @keyframes clip-sweep {
   from { width: 0; }
-  to { width: var(--to); }
+  to { width: 100%; }
 }
 
 .clipbar-keys {
@@ -147,13 +146,13 @@ body {
 .key-time { font-size: 0.74rem; font-weight: 700; color: var(--seg); }
 .key-points { font-size: 0.66rem; color: var(--muted); }
 
-.key-locked { opacity: 0.62; }
+.key-ahead { opacity: 0.62; }
 .key-current .key-points { color: var(--seg); font-weight: 700; font-size: 0.72rem; }
-.key-wrong, .key-skipped { opacity: 0.5; }
-.key-wrong .key-points, .key-skipped .key-points { text-decoration: line-through; }
+.key-spent { opacity: 0.5; }
+.key-spent .key-points { text-decoration: line-through; }
 
 @media (prefers-reduced-motion: reduce) {
-  .clipbar-head { animation: none; width: var(--to); opacity: 0.5; }
+  .clipbar-head { animation: none; width: 100%; opacity: 0.35; }
 }
 
 .player { display: grid; gap: 10px; justify-items: center; margin-bottom: 16px; }
@@ -208,6 +207,14 @@ body {
 .loop-toggle input { width: 15px; height: 15px; accent-color: var(--accent); cursor: pointer; }
 .loop-toggle:has(input:checked) { border-color: var(--accent-dim); }
 .loop-toggle input:disabled { cursor: default; }
+
+.guess-left {
+  margin: 7px 0 0;
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+.guess-left-low { color: var(--warn); font-weight: 600; }
 
 .wrongs {
   list-style: none;

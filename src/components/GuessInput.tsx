@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { searchArtists, searchSongs } from '../game/search'
+import { ar } from '../game/numerals'
 import type { GuessTarget, Song } from '../game/types'
 
 interface Props {
@@ -13,6 +14,9 @@ interface Props {
   onGuessArtist?: (artist: string) => void
   onSkip: () => void
   skipLabel: string
+  /** Wrong guesses still allowed. The cap is what ends a round now, so it is
+      stated rather than left for the player to discover. */
+  left: number
 }
 
 export function GuessInput({
@@ -22,6 +26,7 @@ export function GuessInput({
   onGuessArtist,
   onSkip,
   skipLabel,
+  left,
 }: Props) {
   const picking = Boolean(onGuessArtist)
   // Nothing is preselected when picking: choosing is the decision the mode is
@@ -140,6 +145,10 @@ export function GuessInput({
           {skipLabel}
         </button>
       </div>
+
+      <p className={left <= 1 ? 'guess-left guess-left-low' : 'guess-left'}>
+        {left === 1 ? 'محاولة أخيرة' : `${ar(left)} محاولات متبقية`}
+      </p>
 
       {target === 'artist' && artists.length > 0 && (
         <ul className="suggestions" role="listbox">

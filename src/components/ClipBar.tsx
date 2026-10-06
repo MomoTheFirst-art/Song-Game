@@ -1,63 +1,51 @@
-import { STAGES, STAGE_POINTS } from '../game/stages'
+import { CLIP_SECONDS, STAGES, STAGE_POINTS } from '../game/stages'
 import { ar } from '../game/numerals'
-import type { Attempt } from '../game/types'
 
 interface Props {
+  /** The tier the clock has brought the round down to. */
   stage: number
-  attempts: Attempt[]
-  /** Sweeps a playhead across the current stage while the clip runs. */
+  /** Sweeps the playhead across the whole clip while it runs. */
   playing?: boolean
   loop?: boolean
 }
 
-/** Seconds this stage adds on top of the one before it. */
+/** Seconds this tier adds on top of the one before it. */
 const span = (i: number): number => STAGES[i] - (STAGES[i - 1] ?? 0)
 
-const LONGEST = STAGES[STAGES.length - 1]
-
-function stateOf(attempt: Attempt | undefined, i: number, stage: number) {
-  if (attempt) return attempt.kind === 'correct' ? 'correct' : attempt.kind
-  return i === stage ? 'current' : 'locked'
-}
-
 /**
- * The clip as a timeline: fifteen seconds wide, broken where each stage ends.
+ * The clip as a timeline: fifteen seconds wide, marked where its value steps
+ * down.
  *
- * Widths are proportional to time rather than equal, so the one-second sliver
- * looks like what it is — the narrowest window and the one worth the most. The
- * colour cools from green to amber as the points fall, which is a different
- * axis from the spent/locked dimming, so a player can read what a stage is
- * worth and whether they still have it at the same glance.
+ * Widths are proportional to time rather than equal, so the one-second window
+ * looks like what it is — the narrowest slice and the one worth the most. The
+ * colour cools from green to coral as the points fall, which is a different
+ * axis from the spent/ahead dimming, so a player can read what a stretch is
+ * worth and whether it has already gone by at the same glance.
  */
-export function ClipBar({ stage, attempts, playing = false, loop = false }: Props) {
-  const reached = STAGES[stage] ?? LONGEST
-
+export function ClipBar({ stage, playing = false, loop = false }: Props) {
   return (
     <div className="clipbar">
       <div className="clipbar-track" aria-hidden="true">
         {STAGES.map((seconds, i) => (
           <span
             key={seconds}
-            className={`seg seg-${stateOf(attempts[i], i, stage)}`}
+            className={`seg seg-${i < stage ? 'spent' : i === stage ? 'current' : 'ahead'}`}
             style={{ flexGrow: span(i) }}
           />
         ))}
         {playing && (
+          // One press, one sweep: the head crosses the whole clip in the time
+          // the clip takes, rather than restarting per tier.
           <span
             className={loop ? 'clipbar-head clipbar-head-loop' : 'clipbar-head'}
-            style={{
-              // The head crosses exactly the window being played, in the time
-              // it takes to play it.
-              ['--to' as string]: `${(reached / LONGEST) * 100}%`,
-              ['--dur' as string]: `${reached}s`,
-            }}
+            style={{ ['--dur' as string]: `${CLIP_SECONDS}s` }}
           />
         )}
       </div>
 
-      <ol className="clipbar-keys" aria-label="مراحل المقطع ونقاطها">
+      <ol className="clipbar-keys" aria-label="قيمة المقطع بمرور الوقت">
         {STAGES.map((seconds, i) => {
-          const state = stateOf(attempts[i], i, stage)
+          const state = i < stage ? 'spent' : i === stage ? 'current' : 'ahead'
           return (
             <li
               key={seconds}

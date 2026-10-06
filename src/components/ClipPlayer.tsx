@@ -1,10 +1,9 @@
-import { STAGES, secondsNoun } from '../game/stages'
+import { CLIP_SECONDS, secondsNoun } from '../game/stages'
 import { ar } from '../game/numerals'
 import type { ClipMode, ClipStatus } from '../hooks/useAudioClip'
 import { SilentSwitchNotice } from './SilentSwitchNotice'
 
 interface Props {
-  stage: number
   status: ClipStatus
   mode: ClipMode
   loop: boolean
@@ -13,24 +12,24 @@ interface Props {
   onStop: () => void
 }
 
-export function ClipPlayer({ stage, status, mode, loop, onLoopChange, onPlay, onStop }: Props) {
-  const seconds = STAGES[stage]
+export function ClipPlayer({ status, mode, loop, onLoopChange, onPlay, onStop }: Props) {
   const busy = status === 'loading'
   const broken = status === 'missing' || status === 'error'
   const playing = status === 'playing'
+  // One press plays the clip right through — the tier falls as it runs, so the
+  // button no longer names a length the player is buying.
   const label = busy
     ? 'جارٍ التحميل…'
     : playing
       ? 'إيقاف'
-      : `تشغيل ${ar(seconds)} ${secondsNoun(seconds)}`
+      : `تشغيل ${ar(CLIP_SECONDS)} ${secondsNoun(CLIP_SECONDS)}`
 
   return (
     <div className="player">
       <SilentSwitchNotice />
 
-      {/* While playing this stops rather than restarts. With the loop on there
-          is otherwise no way out of it, and the ⏸ glyph was already promising
-          a stop the button did not deliver. */}
+      {/* While playing this stops rather than restarts. Stopping does not give
+          the tier back — the player has already heard that much. */}
       <button
         className="btn btn-play"
         onClick={playing ? onStop : onPlay}

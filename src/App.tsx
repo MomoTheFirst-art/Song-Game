@@ -17,7 +17,8 @@ import { ClipBar } from './components/ClipBar'
 import { WrongGuesses } from './components/WrongGuesses'
 import { challengeSongs, dailySongs, todayKey } from './game/daily'
 import { roundScore, totalScore } from './game/scoring'
-import { MAX_STAGE, STAGES } from './game/stages'
+import { CLIP_SECONDS, MAX_ATTEMPTS, STAGES } from './game/stages'
+import { applyAttempt, applyListened } from './game/round'
 import {
   loadDaily, recentlyPlayed, rememberPlayed, saveRun as saveLocalRun,
 } from './game/storage'
@@ -101,22 +102,28 @@ function Game({
     [dateKey, stop],
   )
 
+  /**
+   * The clip runs straight through, so the clock spends the points: each mark
+   * it crosses drops the round a tier. A replay cannot buy the tier back — the
+   * player has already heard that much — so this only ever moves down.
+   */
+  useEffect(() => {
+    if (status !== 'playing') return
+    const timers = STAGES.map((seconds) =>
+      window.setTimeout(() => {
+        setRound((r) => applyListened(r, seconds))
+      }, seconds * 1000),
+    )
+    return () => timers.forEach(window.clearTimeout)
+  }, [status])
+
   const advance = useCallback(
     (attempt: RoundState['attempts'][number]) => {
       stop()
       setRound((r) => {
-        const attempts = [...r.attempts, attempt]
-        if (attempt.kind === 'correct') {
-          setPhase('roundOver')
-          // solvedAs is what scoring reads, so it is recorded here rather than
-          // inferred later from the attempt list.
-          return { ...r, attempts, status: 'won', solvedAs: attempt.target }
-        }
-        if (r.stage >= MAX_STAGE) {
-          setPhase('roundOver')
-          return { ...r, attempts, status: 'lost' }
-        }
-        return { ...r, attempts, stage: r.stage + 1 }
+        const next = applyAttempt(r, attempt)
+        if (next.status !== 'playing') setPhase('roundOver')
+        return next
       })
     },
     [stop],
@@ -231,20 +238,14 @@ function Game({
         <button className="linkish" onClick={onHome}>القائمة</button>
       </p>
 
-      <ClipBar
-        stage={round.stage}
-        attempts={round.attempts}
-        playing={status === 'playing'}
-        loop={loop}
-      />
+      <ClipBar stage={round.stage} playing={status === 'playing'} loop={loop} />
 
       <ClipPlayer
-        stage={round.stage}
         status={status}
         mode={clipMode}
         loop={loop}
         onLoopChange={setLoop}
-        onPlay={() => play(round.song.startAt, STAGES[round.stage], loop)}
+        onPlay={() => play(round.song.startAt, CLIP_SECONDS, loop)}
         onStop={stop}
       />
 
@@ -257,7 +258,8 @@ function Game({
           onGuess={onGuess}
           onGuessArtist={mode === 'pick' ? onGuessArtist : undefined}
           onSkip={onSkip}
-          skipLabel={round.stage >= MAX_STAGE ? 'استسلمت' : 'تخطّي'}
+          skipLabel="استسلمت"
+          left={MAX_ATTEMPTS - round.attempts.length}
         />
       ) : (
         <RoundResult round={round} onNext={onNext} isLast={roundIndex + 1 >= lineup.length} />

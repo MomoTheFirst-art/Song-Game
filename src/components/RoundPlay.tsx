@@ -1,10 +1,11 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { ClipPlayer } from './ClipPlayer'
 import { GuessInput } from './GuessInput'
 import { RoundResult } from './RoundResult'
 import { ClipBar } from './ClipBar'
 import { WrongGuesses } from './WrongGuesses'
-import { MAX_STAGE, STAGES } from '../game/stages'
+import { CLIP_SECONDS, MAX_ATTEMPTS, STAGES } from '../game/stages'
+import { applyAttempt, applyListened } from '../game/round'
 import { DIFFICULTY_LABEL } from '../game/types'
 import type { Attempt, RoundState, Song } from '../game/types'
 import { useAudioClip } from '../hooks/useAudioClip'
@@ -34,15 +35,21 @@ export function RoundPlay({ song, catalogue, onDone, isLast }: Props) {
   const [loop, setLoop] = useLoopPreference()
   const over = round.status !== 'playing'
 
+  // The clock spends the points here exactly as it does in the solo game.
+  useEffect(() => {
+    if (status !== 'playing') return
+    const timers = STAGES.map((seconds) =>
+      window.setTimeout(() => {
+        setRound((r) => applyListened(r, seconds))
+      }, seconds * 1000),
+    )
+    return () => timers.forEach(window.clearTimeout)
+  }, [status])
+
   const advance = useCallback(
     (attempt: Attempt) => {
       stop()
-      setRound((r) => {
-        const attempts = [...r.attempts, attempt]
-        if (attempt.kind === 'correct') return { ...r, attempts, status: 'won' }
-        if (r.stage >= MAX_STAGE) return { ...r, attempts, status: 'lost' }
-        return { ...r, attempts, stage: r.stage + 1 }
-      })
+      setRound((r) => applyAttempt(r, attempt))
     },
     [stop],
   )
@@ -63,20 +70,14 @@ export function RoundPlay({ song, catalogue, onDone, isLast }: Props) {
     <>
       <p className="difficulty">المستوى: {DIFFICULTY_LABEL[song.difficulty]}</p>
 
-      <ClipBar
-        stage={round.stage}
-        attempts={round.attempts}
-        playing={status === 'playing'}
-        loop={loop}
-      />
+      <ClipBar stage={round.stage} playing={status === 'playing'} loop={loop} />
 
       <ClipPlayer
-        stage={round.stage}
         status={status}
         mode={clipMode}
         loop={loop}
         onLoopChange={setLoop}
-        onPlay={() => play(song.startAt, STAGES[round.stage], loop)}
+        onPlay={() => play(song.startAt, CLIP_SECONDS, loop)}
         onStop={stop}
       />
 
@@ -97,7 +98,8 @@ export function RoundPlay({ song, catalogue, onDone, isLast }: Props) {
           disabled={false}
           onGuess={onGuess}
           onSkip={() => !over && advance({ kind: 'skipped' })}
-          skipLabel={round.stage >= MAX_STAGE ? 'استسلمت' : 'تخطّي'}
+          skipLabel="استسلمت"
+          left={MAX_ATTEMPTS - round.attempts.length}
         />
       )}
     </>

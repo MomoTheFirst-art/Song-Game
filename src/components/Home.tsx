@@ -21,7 +21,7 @@ export function Home({
   return (
     <main className="app">
       <section className="home">
-        <Hero tagline="كل تخمين خاطئ يطيل المقطع، وكل ثانية إضافية تكلّفك نقاطاً." />
+        <Hero tagline="المقطع يعمل كاملاً — كلما طال استماعك قلّت نقاطك." />
         <SilentSwitchNotice />
 
         {/* One primary, two alternatives, then a different kind of game. Four
