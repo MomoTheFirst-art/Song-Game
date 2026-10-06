@@ -1,11 +1,11 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useState } from 'react'
 import { ClipPlayer } from './ClipPlayer'
 import { GuessInput } from './GuessInput'
 import { RoundResult } from './RoundResult'
 import { ClipBar } from './ClipBar'
 import { WrongGuesses } from './WrongGuesses'
-import { CLIP_SECONDS, MAX_ATTEMPTS, STAGES } from '../game/stages'
-import { applyAttempt, applyListened } from '../game/round'
+import { MAX_STAGE, STAGES } from '../game/stages'
+import { applyAttempt, triesLeft } from '../game/round'
 import { DIFFICULTY_LABEL } from '../game/types'
 import type { Attempt, RoundState, Song } from '../game/types'
 import { useAudioClip } from '../hooks/useAudioClip'
@@ -35,16 +35,6 @@ export function RoundPlay({ song, catalogue, onDone, isLast }: Props) {
   const [loop, setLoop] = useLoopPreference()
   const over = round.status !== 'playing'
 
-  // The clock spends the points here exactly as it does in the solo game.
-  useEffect(() => {
-    if (status !== 'playing') return
-    const timers = STAGES.map((seconds) =>
-      window.setTimeout(() => {
-        setRound((r) => applyListened(r, seconds))
-      }, seconds * 1000),
-    )
-    return () => timers.forEach(window.clearTimeout)
-  }, [status])
 
   const advance = useCallback(
     (attempt: Attempt) => {
@@ -73,11 +63,12 @@ export function RoundPlay({ song, catalogue, onDone, isLast }: Props) {
       <ClipBar stage={round.stage} playing={status === 'playing'} loop={loop} />
 
       <ClipPlayer
+        stage={round.stage}
         status={status}
         mode={clipMode}
         loop={loop}
         onLoopChange={setLoop}
-        onPlay={() => play(song.startAt, CLIP_SECONDS, loop)}
+        onPlay={() => play(song.startAt, STAGES[round.stage], loop)}
         onStop={stop}
       />
 
@@ -98,8 +89,8 @@ export function RoundPlay({ song, catalogue, onDone, isLast }: Props) {
           disabled={false}
           onGuess={onGuess}
           onSkip={() => !over && advance({ kind: 'skipped' })}
-          skipLabel="استسلمت"
-          left={MAX_ATTEMPTS - round.attempts.length}
+          skipLabel={round.stage >= MAX_STAGE ? 'استسلمت' : 'اسمع أكثر'}
+          left={triesLeft(round)}
         />
       )}
     </>

@@ -17,8 +17,8 @@ import { ClipBar } from './components/ClipBar'
 import { WrongGuesses } from './components/WrongGuesses'
 import { challengeSongs, dailySongs, todayKey } from './game/daily'
 import { roundScore, totalScore } from './game/scoring'
-import { CLIP_SECONDS, MAX_ATTEMPTS, STAGES } from './game/stages'
-import { applyAttempt, applyListened } from './game/round'
+import { MAX_STAGE, STAGES } from './game/stages'
+import { applyAttempt, triesLeft } from './game/round'
 import {
   loadDaily, recentlyPlayed, rememberPlayed, saveRun as saveLocalRun,
 } from './game/storage'
@@ -102,20 +102,6 @@ function Game({
     [dateKey, stop],
   )
 
-  /**
-   * The clip runs straight through, so the clock spends the points: each mark
-   * it crosses drops the round a tier. A replay cannot buy the tier back — the
-   * player has already heard that much — so this only ever moves down.
-   */
-  useEffect(() => {
-    if (status !== 'playing') return
-    const timers = STAGES.map((seconds) =>
-      window.setTimeout(() => {
-        setRound((r) => applyListened(r, seconds))
-      }, seconds * 1000),
-    )
-    return () => timers.forEach(window.clearTimeout)
-  }, [status])
 
   const advance = useCallback(
     (attempt: RoundState['attempts'][number]) => {
@@ -241,11 +227,12 @@ function Game({
       <ClipBar stage={round.stage} playing={status === 'playing'} loop={loop} />
 
       <ClipPlayer
+        stage={round.stage}
         status={status}
         mode={clipMode}
         loop={loop}
         onLoopChange={setLoop}
-        onPlay={() => play(round.song.startAt, CLIP_SECONDS, loop)}
+        onPlay={() => play(round.song.startAt, STAGES[round.stage], loop)}
         onStop={stop}
       />
 
@@ -258,8 +245,8 @@ function Game({
           onGuess={onGuess}
           onGuessArtist={mode === 'pick' ? onGuessArtist : undefined}
           onSkip={onSkip}
-          skipLabel="استسلمت"
-          left={MAX_ATTEMPTS - round.attempts.length}
+          skipLabel={round.stage >= MAX_STAGE ? 'استسلمت' : 'اسمع أكثر'}
+          left={triesLeft(round)}
         />
       ) : (
         <RoundResult round={round} onNext={onNext} isLast={roundIndex + 1 >= lineup.length} />

@@ -1,16 +1,18 @@
-import { CLIP_SECONDS, STAGES, STAGE_POINTS } from '../game/stages'
+import { STAGES, STAGE_POINTS } from '../game/stages'
 import { ar } from '../game/numerals'
 
 interface Props {
   /** The tier the clock has brought the round down to. */
   stage: number
-  /** Sweeps the playhead across the whole clip while it runs. */
+  /** Sweeps the playhead across what is being played, while it plays. */
   playing?: boolean
   loop?: boolean
 }
 
 /** Seconds this tier adds on top of the one before it. */
 const span = (i: number): number => STAGES[i] - (STAGES[i - 1] ?? 0)
+
+const CLIP = STAGES[STAGES.length - 1]
 
 /**
  * The clip as a timeline: fifteen seconds wide, marked where its value steps
@@ -34,11 +36,15 @@ export function ClipBar({ stage, playing = false, loop = false }: Props) {
           />
         ))}
         {playing && (
-          // One press, one sweep: the head crosses the whole clip in the time
-          // the clip takes, rather than restarting per tier.
+          // One sweep from the start of the clip to the mark the round has
+          // reached — the same stretch the player is hearing, in the time it
+          // takes to hear it.
           <span
             className={loop ? 'clipbar-head clipbar-head-loop' : 'clipbar-head'}
-            style={{ ['--dur' as string]: `${CLIP_SECONDS}s` }}
+            style={{
+              ['--to' as string]: `${(STAGES[stage] / CLIP) * 100}%`,
+              ['--dur' as string]: `${STAGES[stage]}s`,
+            }}
           />
         )}
       </div>

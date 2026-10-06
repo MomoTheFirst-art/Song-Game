@@ -114,7 +114,10 @@ body {
 .clipbar-head {
   position: absolute;
   inset-block: 0;
-  inset-inline-end: 0;
+  /* The clip starts at the track's inline start — the right edge in this RTL
+     page. Anchoring to inline-end swept the head backwards, against the
+     colour ramp it is meant to follow. */
+  inset-inline-start: 0;
   width: 0;
   border-radius: 999px;
   background: linear-gradient(to left, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.07));
@@ -124,7 +127,7 @@ body {
 .clipbar-head-loop { animation-iteration-count: infinite; }
 @keyframes clip-sweep {
   from { width: 0; }
-  to { width: 100%; }
+  to { width: var(--to); }
 }
 
 .clipbar-keys {
@@ -152,7 +155,7 @@ body {
 .key-spent .key-points { text-decoration: line-through; }
 
 @media (prefers-reduced-motion: reduce) {
-  .clipbar-head { animation: none; width: 100%; opacity: 0.35; }
+  .clipbar-head { animation: none; width: var(--to); opacity: 0.35; }
 }
 
 .player { display: grid; gap: 10px; justify-items: center; margin-bottom: 16px; }

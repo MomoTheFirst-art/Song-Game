@@ -1,9 +1,10 @@
-import { CLIP_SECONDS, secondsNoun } from '../game/stages'
+import { STAGES, secondsNoun } from '../game/stages'
 import { ar } from '../game/numerals'
 import type { ClipMode, ClipStatus } from '../hooks/useAudioClip'
 import { SilentSwitchNotice } from './SilentSwitchNotice'
 
 interface Props {
+  stage: number
   status: ClipStatus
   mode: ClipMode
   loop: boolean
@@ -12,17 +13,18 @@ interface Props {
   onStop: () => void
 }
 
-export function ClipPlayer({ status, mode, loop, onLoopChange, onPlay, onStop }: Props) {
+export function ClipPlayer({ stage, status, mode, loop, onLoopChange, onPlay, onStop }: Props) {
+  const seconds = STAGES[stage]
   const busy = status === 'loading'
   const broken = status === 'missing' || status === 'error'
   const playing = status === 'playing'
-  // One press plays the clip right through — the tier falls as it runs, so the
-  // button no longer names a length the player is buying.
+  // One press plays from the start to the mark the round has reached, then
+  // stops: more of the clip is asked for, never taken by waiting.
   const label = busy
     ? 'جارٍ التحميل…'
     : playing
       ? 'إيقاف'
-      : `تشغيل ${ar(CLIP_SECONDS)} ${secondsNoun(CLIP_SECONDS)}`
+      : `تشغيل ${ar(seconds)} ${secondsNoun(seconds)}`
 
   return (
     <div className="player">
