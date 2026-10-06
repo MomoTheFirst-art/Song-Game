@@ -3,6 +3,7 @@ import { ClipPlayer } from './ClipPlayer'
 import { GuessInput } from './GuessInput'
 import { RoundResult } from './RoundResult'
 import { StageBar } from './StageBar'
+import { WrongGuesses } from './WrongGuesses'
 import { MAX_STAGE, STAGES } from '../game/stages'
 import { DIFFICULTY_LABEL } from '../game/types'
 import type { Attempt, RoundState, Song } from '../game/types'
@@ -52,7 +53,7 @@ export function RoundPlay({ song, catalogue, onDone, isLast }: Props) {
       advance(
         picked.id === song.id
           ? { kind: 'correct', target: 'song' }
-          : { kind: 'wrong', target: 'song' },
+          : { kind: 'wrong', target: 'song', label: picked.title },
       )
     },
     [advance, over, song.id],
@@ -73,6 +74,8 @@ export function RoundPlay({ song, catalogue, onDone, isLast }: Props) {
         onPlay={() => play(song.startAt, STAGES[round.stage], loop)}
         onStop={stop}
       />
+
+      <WrongGuesses attempts={round.attempts} />
 
       {over ? (
         <RoundResult

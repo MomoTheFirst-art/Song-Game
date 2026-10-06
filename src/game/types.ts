@@ -58,7 +58,7 @@ export type GuessTarget = 'artist' | 'song'
 /** What happened on a single guess slot within a round. */
 export type Attempt =
   | { kind: 'skipped' }
-  | { kind: 'wrong'; target: GuessTarget }
+  | { kind: 'wrong'; target: GuessTarget; label: string }
   | { kind: 'correct'; target: GuessTarget }
 
 export interface RoundState {
@@ -74,6 +74,13 @@ export interface RoundState {
    */
   solvedAs?: GuessTarget
 }
+
+/**
+ * What the player already guessed and got wrong, oldest first. Skips carry no
+ * label — nothing was guessed — so they are not in the list.
+ */
+export const wrongGuesses = (attempts: Attempt[]): string[] =>
+  attempts.flatMap((a) => (a.kind === 'wrong' ? [a.label] : []))
 
 export type Mode = 'daily' | 'challenge' | 'pick'
 

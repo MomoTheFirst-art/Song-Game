@@ -14,6 +14,7 @@ import { GuessInput } from './components/GuessInput'
 import { Header } from './components/Header'
 import { RoundResult } from './components/RoundResult'
 import { StageBar } from './components/StageBar'
+import { WrongGuesses } from './components/WrongGuesses'
 import { challengeSongs, dailySongs, todayKey } from './game/daily'
 import { roundScore, totalScore } from './game/scoring'
 import { MAX_STAGE, STAGES } from './game/stages'
@@ -125,7 +126,7 @@ function Game({
       advance(
         song.id === round.song.id
           ? { kind: 'correct', target: 'song' }
-          : { kind: 'wrong', target: 'song' },
+          : { kind: 'wrong', target: 'song', label: song.title },
       )
     },
     [advance, phase, round.song.id],
@@ -141,7 +142,7 @@ function Game({
       advance(
         right
           ? { kind: 'correct', target: 'artist' }
-          : { kind: 'wrong', target: 'artist' },
+          : { kind: 'wrong', target: 'artist', label: artist },
       )
     },
     [advance, phase, round.song.artist],
@@ -239,6 +240,8 @@ function Game({
         onPlay={() => play(round.song.startAt, STAGES[round.stage], loop)}
         onStop={stop}
       />
+
+      <WrongGuesses attempts={round.attempts} />
 
       {phase === 'playing' ? (
         <GuessInput

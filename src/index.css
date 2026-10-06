@@ -148,6 +148,32 @@ body {
 .loop-toggle input { width: 15px; height: 15px; accent-color: var(--accent); cursor: pointer; }
 .loop-toggle:has(input:checked) { border-color: var(--accent-dim); }
 .loop-toggle input:disabled { cursor: default; }
+
+.wrongs {
+  list-style: none;
+  margin: 0 0 14px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+}
+.wrong-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: var(--muted);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 5px 12px;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.wrong-mark { color: #f2777a; font-size: 0.75rem; }
 .loop-toggle:has(input:checked) { color: var(--text); }
 
 
@@ -372,6 +398,7 @@ body {
    a third of content above two thirds of nothing. */
 .app-playing { min-height: 100svh; display: flex; flex-direction: column; }
 .app-playing > .player { margin-block: auto; }
+.app-playing > .wrongs { margin-bottom: auto; }
 .app-playing > .guess, .app-playing > .result { margin-top: auto; padding-bottom: 8px; }
 
 .app-gate { min-height: 100svh; display: flex; flex-direction: column; justify-content: center; gap: 8px; }
