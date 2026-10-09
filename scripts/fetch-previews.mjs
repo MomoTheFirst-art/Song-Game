@@ -201,13 +201,19 @@ export function buildQueries(song) {
   // the exact search that finds the right one.
   if (song.searchAs) return [song.searchAs]
 
+  // Where the performer is the work — a cartoon opening belongs to its show,
+  // not to whichever singer recorded the dub — artist and title are the same
+  // string, and pairing them searched for "Adnan wa Lina Adnan wa Lina".
+  const pair = (artist, title) =>
+    [artist, artist === title ? '' : title].filter(Boolean).join(' ').trim()
+
   const queries = []
-  const latin = [song.artistLatin, song.titleLatin].filter(Boolean).join(' ').trim()
-  const arabic = [song.artist, song.title].filter(Boolean).join(' ').trim()
+  const latin = pair(song.artistLatin, song.titleLatin)
+  const arabic = pair(song.artist, song.title)
   if (latin) queries.push(latin)
   if (arabic && arabic !== latin) queries.push(arabic)
   if (song.titleLatin) queries.push(song.titleLatin)
-  return queries
+  return [...new Set(queries)]
 }
 
 export function searchUrl(term, opts) {

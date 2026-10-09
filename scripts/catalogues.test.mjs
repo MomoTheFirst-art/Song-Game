@@ -43,3 +43,17 @@ test('every song carries what the game and the lookup both need', () => {
 test('an unknown genre falls back rather than crashing', () => {
   assert.equal(genreById('nope'), GENRES[0])
 })
+
+test('a genre whose performer is the work says so', () => {
+  // Spacetoon credits the show rather than the singer, so artist and title
+  // hold the same string — and مبتدئ, which pays half for naming the artist,
+  // would be paying half for the same answer.
+  for (const g of GENRES) {
+    const sameAsTitle = g.all.filter((s) => s.artist === s.title).length
+    if (sameAsTitle === g.all.length) {
+      assert.equal(g.performerIsWork, true, `${g.id} must be flagged`)
+    } else {
+      assert.ok(!g.performerIsWork, `${g.id} has real performers and must not be flagged`)
+    }
+  }
+})

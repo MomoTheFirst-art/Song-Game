@@ -91,10 +91,14 @@ export function Home({
             <strong>تحدي عشوائي</strong>
             <span>خمس أغانٍ، العب بلا حدود</span>
           </button>
-          <button className="mode" onClick={onPick}>
-            <strong>مبتدئ</strong>
-            <span>خمّن الفنان بنصف النقاط، أو الأغنية بالكامل</span>
-          </button>
+          {/* Pointless where the performer is the work: both halves of the
+              choice are the same answer. */}
+          {!genre.performerIsWork && (
+            <button className="mode" onClick={onPick}>
+              <strong>مبتدئ</strong>
+              <span>خمّن الفنان بنصف النقاط، أو الأغنية بالكامل</span>
+            </button>
+          )}
         </div>
 
         <div className="home-modes home-party">

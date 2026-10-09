@@ -631,3 +631,20 @@ test('the length guard is on artists only, not titles', () => {
   assert.ok(similarity('Nawilak Ala Niya', 'Nawilak') > 0.5, 'a long title must still find its short release')
   assert.ok(bigramSimilarity('Al Madi', 'Talal Madah') > 0, 'bigrams themselves stay unguarded')
 })
+
+test('a song whose performer is its own title is not searched for twice', () => {
+  // Spacetoon credits the show, not the singer, so artist and title are the
+  // same string — which paired into "Adnan wa Lina Adnan wa Lina".
+  const theme = {
+    id: 'adnan-lina', title: 'عدنان ولينا', titleLatin: 'Adnan wa Lina',
+    artist: 'عدنان ولينا', artistLatin: 'Adnan wa Lina',
+    difficulty: 'easy', startAt: 0,
+  }
+  const qs = buildQueries(theme)
+  assert.deepEqual(qs, ['Adnan wa Lina', 'عدنان ولينا'])
+  assert.equal(new Set(qs).size, qs.length, 'no query may repeat')
+})
+
+test('an ordinary song still pairs artist with title', () => {
+  assert.deepEqual(buildQueries(song), ['Amr Diab Tamally Maak', 'عمرو دياب تملي معاك', 'Tamally Maak'])
+})

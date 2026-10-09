@@ -16,6 +16,12 @@ export interface Genre {
    * Latin title is never typed into a right-to-left box.
    */
   dir: 'rtl' | 'ltr'
+  /**
+   * True where the performer is the work itself — a cartoon opening belongs to
+   * its show, not to whichever singer recorded the dub. Guessing the artist is
+   * then the same answer as guessing the song, so مبتدئ has nothing to offer.
+   */
+  performerIsWork?: boolean
   all: Song[]
 }
 
@@ -38,6 +44,7 @@ export const GENRES: Genre[] = [
     label: 'سبيستون',
     note: 'شارات الكرتون التي كبرنا عليها.',
     dir: 'rtl',
+    performerIsWork: true,
     all: spacetoonData as Song[],
   },
   {
