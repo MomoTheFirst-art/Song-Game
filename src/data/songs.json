@@ -184,16 +184,7 @@
     "year": 1964,
     "difficulty": "hard",
     "startAt": 0,
-    "searchAs": "أم كلثوم أنت عمري",
-    "previewUrl": "https://cdnt-preview.dzcdn.net/api/1/1/1/9/d/0/19dde4997bdf31f56cf5b3e92beb4dee.mp3?hdnea=exp=1791574083~acl=/api/1/1/1/9/d/0/19dde4997bdf31f56cf5b3e92beb4dee.mp3*~data=user_id=0,application_id=42~hmac=6ac119df7e5af37a03999b3ef37bb0952b9409fb41a23a23834cf061aa578e8b",
-    "artwork": "https://cdn-images.dzcdn.net/images/cover/9cbe1757fdc1a8102d175ba58fdacc18/250x250-000000-80-0-0.jpg",
-    "matchedAs": {
-      "track": "انت عمري",
-      "artist": "Umm Kulthum",
-      "album": "انت عمري",
-      "score": 1,
-      "source": "deezer"
-    }
+    "searchAs": "أم كلثوم أنت عمري"
   },
   {
     "id": "sawah",
@@ -774,16 +765,7 @@
     "year": 1965,
     "difficulty": "hard",
     "startAt": 0,
-    "searchAs": "أم كلثوم أمل حياتي",
-    "previewUrl": "https://cdnt-preview.dzcdn.net/api/1/1/5/0/a/0/50a7442906abddd0eca3f0115b687663.mp3?hdnea=exp=1791574114~acl=/api/1/1/5/0/a/0/50a7442906abddd0eca3f0115b687663.mp3*~data=user_id=0,application_id=42~hmac=ea40c8638e7566bbdec7a13f4f52dc37e516065ea96aaa874c5d77dafcf0e337",
-    "artwork": "https://cdn-images.dzcdn.net/images/cover/10cfea5c858c7cb5c487a59827b627a4/250x250-000000-80-0-0.jpg",
-    "matchedAs": {
-      "track": "امل حياتي",
-      "artist": "Umm Kulthum",
-      "album": "امل حياتي",
-      "score": 1,
-      "source": "deezer"
-    }
+    "searchAs": "أم كلثوم أمل حياتي"
   },
   {
     "id": "fakkarouni",
@@ -905,16 +887,7 @@
     "year": 1968,
     "difficulty": "expert",
     "startAt": 0,
-    "searchAs": "أم كلثوم هذه ليلتي",
-    "previewUrl": "https://cdnt-preview.dzcdn.net/api/1/1/0/5/8/0/058f1b1507ff17c55b7ad1a7724165dd.mp3?hdnea=exp=1791574126~acl=/api/1/1/0/5/8/0/058f1b1507ff17c55b7ad1a7724165dd.mp3*~data=user_id=0,application_id=42~hmac=dd66042f26a73be8d3059d73ae7fde2f733348c31268a445b2374b56313da8b4",
-    "artwork": "https://cdn-images.dzcdn.net/images/cover/3fcc5114350582bb8e0d286ab8a5b5cf/250x250-000000-80-0-0.jpg",
-    "matchedAs": {
-      "track": "هذه ليلتي",
-      "artist": "Umm Kulthum",
-      "album": "هذه ليلتي",
-      "score": 1,
-      "source": "deezer"
-    }
+    "searchAs": "أم كلثوم هذه ليلتي"
   },
   {
     "id": "baeed-anak",
@@ -925,16 +898,7 @@
     "year": 1965,
     "difficulty": "expert",
     "startAt": 0,
-    "searchAs": "أم كلثوم بعيد عنك",
-    "previewUrl": "https://cdnt-preview.dzcdn.net/api/1/1/c/9/3/0/c93289695e74960defb784d6f7229ffe.mp3?hdnea=exp=1791574130~acl=/api/1/1/c/9/3/0/c93289695e74960defb784d6f7229ffe.mp3*~data=user_id=0,application_id=42~hmac=a066fc8a74a0b3536b824cf9e4aa0a57beea867c9cd221499cd49d6c64d84dc2",
-    "artwork": "https://cdn-images.dzcdn.net/images/cover/e4de64a72ae0163d78da89910f99f660/250x250-000000-80-0-0.jpg",
-    "matchedAs": {
-      "track": "بعيد عنك",
-      "artist": "Umm Kulthum",
-      "album": "بعيد عنك",
-      "score": 1,
-      "source": "deezer"
-    }
+    "searchAs": "أم كلثوم بعيد عنك"
   },
   {
     "id": "fog-el-nakhal",
@@ -1417,16 +1381,7 @@
     "artistLatin": "Angham",
     "year": 2004,
     "difficulty": "medium",
-    "startAt": 0,
-    "previewUrl": "https://cdnt-preview.dzcdn.net/api/1/1/b/1/6/0/b169938d67377c310e3286ddbbbf024b.mp3?hdnea=exp=1791574177~acl=/api/1/1/b/1/6/0/b169938d67377c310e3286ddbbbf024b.mp3*~data=user_id=0,application_id=42~hmac=d3e9825cea8e59aa8b68988b4c17fde461cb7fc6edea660149a540779d243888",
-    "artwork": "https://cdn-images.dzcdn.net/images/cover/594bef8b691bea1e2df46b5a91bc0dde/250x250-000000-80-0-0.jpg",
-    "matchedAs": {
-      "track": "Bahebak We Bartahlak",
-      "artist": "Angham",
-      "album": "Bahebak We Bartahlak",
-      "score": 0.64,
-      "source": "deezer"
-    }
+    "startAt": 0
   },
   {
     "id": "ana-wa-laila",
@@ -1657,16 +1612,7 @@
     "artistLatin": "Fairuz",
     "year": 1970,
     "difficulty": "expert",
-    "startAt": 0,
-    "previewUrl": "https://cdnt-preview.dzcdn.net/api/1/1/5/f/1/0/5f14cfd6053b6b2dd208e156e28ce6cc.mp3?hdnea=exp=1791574259~acl=/api/1/1/5/f/1/0/5f14cfd6053b6b2dd208e156e28ce6cc.mp3*~data=user_id=0,application_id=42~hmac=147181397b5d9ea117415d27b84ef7cabe48394bb7471b093e6b2353763e8148",
-    "artwork": "https://cdn-images.dzcdn.net/images/cover/bf9219b4089beef6fa23beca51818472/250x250-000000-80-0-0.jpg",
-    "matchedAs": {
-      "track": "Mein Hal Gharib",
-      "artist": "Fairuz",
-      "album": "Mein Hal Gharib",
-      "score": 0.71,
-      "source": "deezer"
-    }
+    "startAt": 0
   },
   {
     "id": "ya-hala-bil-dhaif",
@@ -1734,16 +1680,7 @@
     "artistLatin": "Abdul Majeed Abdullah",
     "year": 2010,
     "difficulty": "medium",
-    "startAt": 0,
-    "previewUrl": "https://cdnt-preview.dzcdn.net/api/1/1/7/0/5/0/705c9199c10ff3216ab074ba517713fb.mp3?hdnea=exp=1791574294~acl=/api/1/1/7/0/5/0/705c9199c10ff3216ab074ba517713fb.mp3*~data=user_id=0,application_id=42~hmac=c780243094db18b1124ddfb6524528477d05b21fc2d7fe0d34243acd797434df",
-    "artwork": "https://cdn-images.dzcdn.net/images/cover/94a1fd44b6e0dd35d707bfd81dd28bbd/250x250-000000-80-0-0.jpg",
-    "matchedAs": {
-      "track": "Ensan Aktar",
-      "artist": "Abdul Majeed Abdullah",
-      "album": "Ensan Aktar",
-      "score": 0.65,
-      "source": "deezer"
-    }
+    "startAt": 0
   },
   {
     "id": "amj-jarh",
@@ -1852,16 +1789,7 @@
     "artistLatin": "Sherine",
     "year": 2014,
     "difficulty": "medium",
-    "startAt": 0,
-    "previewUrl": "https://cdnt-preview.dzcdn.net/api/1/1/7/8/1/0/781627ccd6ac15a543751c4071971122.mp3?hdnea=exp=1791574418~acl=/api/1/1/7/8/1/0/781627ccd6ac15a543751c4071971122.mp3*~data=user_id=0,application_id=42~hmac=d114f485daa431f76649f68833fdb0d7ef636cda84870b979ac52d0fe9eb7ef8",
-    "artwork": "https://cdn-images.dzcdn.net/images/cover/6d35c575b9ea6fa970184a19915e2f36/250x250-000000-80-0-0.jpg",
-    "matchedAs": {
-      "track": "Katar Khaere",
-      "artist": "Sherine",
-      "album": "Habeat",
-      "score": 0.72,
-      "source": "deezer"
-    }
+    "startAt": 0
   },
   {
     "id": "sh-habeet",
@@ -1967,16 +1895,7 @@
     "artistLatin": "Rashed Al-Majed",
     "year": 2005,
     "difficulty": "easy",
-    "startAt": 0,
-    "previewUrl": "https://cdnt-preview.dzcdn.net/api/1/1/1/b/2/0/1b281e9f57aaf233ea2ffdae4114ea53.mp3?hdnea=exp=1791574446~acl=/api/1/1/1/b/2/0/1b281e9f57aaf233ea2ffdae4114ea53.mp3*~data=user_id=0,application_id=42~hmac=65445fe9fcb5b885df392e984430daa98a394cffe84b4d76136985eeb11c4aa7",
-    "artwork": "https://cdn-images.dzcdn.net/images/cover/3f2f77535e635c02cf1747ba3369f694/250x250-000000-80-0-0.jpg",
-    "matchedAs": {
-      "track": "Ma Abeek",
-      "artist": "Rashed Al Majed",
-      "album": "Weily",
-      "score": 0.74,
-      "source": "deezer"
-    }
+    "startAt": 0
   },
   {
     "id": "rm-taradini",
@@ -2074,16 +1993,7 @@
     "artistLatin": "Talal Maddah",
     "year": 1985,
     "difficulty": "expert",
-    "startAt": 0,
-    "previewUrl": "https://cdnt-preview.dzcdn.net/api/1/1/a/7/f/0/a7fb7e507c6a310eccffc8a94adfd1f4.mp3?hdnea=exp=1791574481~acl=/api/1/1/a/7/f/0/a7fb7e507c6a310eccffc8a94adfd1f4.mp3*~data=user_id=0,application_id=42~hmac=21566132f114f29de0461f9ef21ca703e8d1e03911e812fb21dec5ccdde47c47",
-    "artwork": "https://cdn-images.dzcdn.net/images/cover/7d042d62f2abab81cf4308c63890745c/250x250-000000-80-0-0.jpg",
-    "matchedAs": {
-      "track": "Talal Madah",
-      "artist": "Talal Madah",
-      "album": "Talal Madah",
-      "score": 0.73,
-      "source": "deezer"
-    }
+    "startAt": 0
   },
   {
     "id": "rs-bint-el-osoul",

@@ -28,43 +28,43 @@ test('ids are readable, bounded, and never empty', () => {
   assert.ok(slugify('x'.repeat(200), 3).length <= 48)
 })
 
-test('a harvested song arrives unapproved', () => {
-  // The whole point: bulk collection must not bypass the gate that makes a
-  // clip playable only once someone has heard it.
+test('a harvested song arrives with no clip and no verdict', () => {
+  // Two gates, and bulk collection is exactly where both get bypassed. The
+  // clip is absent on purpose: Deezer signs its previews with a ~12 minute
+  // expiry, so storing one puts audio in the catalogue that is dead before
+  // anyone can review it.
   const s = toSong(track(1, 'Lose Yourself', 'Eminem'), { difficulty: 'easy' })
+  assert.equal(s.previewUrl, undefined, 'an expiring URL must never be stored')
+  assert.equal(s.artwork, undefined)
   assert.equal(s.approved, undefined)
   assert.equal(s.startAt, 0)
-  assert.equal(s.previewUrl, 'https://cdns-preview/1.mp3')
-  assert.equal(s.matchedAs.source, 'deezer-harvest', 'where it came from is recorded')
+  assert.equal(s.harvestedFrom, 'deezer', 'where it came from is recorded')
 })
 
-test('a harvest never duplicates audio the catalogue already holds', () => {
-  const existing = [{ id: 'old', title: 'Juicy', artist: 'The Notorious B.I.G.', previewUrl: 'https://p/j.mp3' }]
+test('a harvest never re-adds a song the catalogue already has', () => {
+  const existing = [{ id: 'old', title: 'Juicy', artist: 'The Notorious B.I.G.' }]
   const candidates = [
-    toSong(track(1, 'Hypnotize', 'The Notorious B.I.G.', 'https://p/j.mp3'), { difficulty: 'easy' }),
-    toSong(track(2, 'Juicy', 'The Notorious B.I.G.', 'https://p/other.mp3'), { difficulty: 'easy' }),
+    toSong(track(2, 'Juicy', 'The Notorious B.I.G.'), { difficulty: 'easy' }),
     toSong(track(3, 'Big Poppa', 'The Notorious B.I.G.'), { difficulty: 'easy' }),
   ]
   const { kept, skipped } = dedupe(candidates, existing)
   assert.deepEqual(kept.map((s) => s.title), ['Big Poppa'])
-  assert.deepEqual(skipped.map((s) => s.why), ['clip already in the catalogue', 'already have this title by this artist'])
+  assert.deepEqual(skipped.map((s) => s.why), ['already have this title by this artist'])
 })
 
 test('a clashing id is suffixed, and only by a song actually kept', () => {
-  const existing = [{ id: 'alright', title: 'Other', artist: 'Someone', previewUrl: 'https://p/o.mp3' }]
+  const existing = [
+    { id: 'alright', title: 'Other', artist: 'Someone' },
+    { id: 'alright-2', title: 'Alright', artist: 'Someone Else' },
+  ]
   const candidates = [
-    toSong(track(1, 'Alright', 'Kendrick Lamar', 'https://p/o.mp3'), { difficulty: 'easy' }), // dropped
-    toSong(track(2, 'Alright', 'Kendrick Lamar', 'https://p/a.mp3'), { difficulty: 'easy' }),
+    toSong(track(1, 'Alright', 'Someone Else'), { difficulty: 'easy' }), // dropped: same title+artist
+    toSong(track(2, 'Alright', 'Kendrick Lamar'), { difficulty: 'easy' }),
   ]
   const { kept } = dedupe(candidates, existing)
-  assert.deepEqual(kept.map((s) => s.id), ['alright-2'], 'the dropped one must not burn the suffix')
+  assert.deepEqual(kept.map((s) => s.id), ['alright-3'], 'the dropped one must not burn a suffix')
 })
 
-test('a track with no preview is never a candidate', () => {
-  const { kept, skipped } = dedupe([toSong(track(1, 'Silent', 'X', ''), { difficulty: 'easy' })], [])
-  assert.equal(kept.length, 0)
-  assert.equal(skipped[0].why, 'no preview')
-})
 
 test('an exact name beats a more-followed near match', () => {
   const fetchImpl = async () => ok([

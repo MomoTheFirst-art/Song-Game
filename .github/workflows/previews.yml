@@ -58,6 +58,12 @@ permissions:
 jobs:
   previews:
     runs-on: ubuntu-latest
+    env:
+      # Every step reads this one value. The lookup took the catalogue from
+      # the input while the commit had songs.json hardcoded, so a run that
+      # filled english.json checked songs.json for changes, found none, and
+      # discarded 38 matched songs while reporting success.
+      CATALOGUE: src/data/${{ inputs.catalogue || 'songs' }}.json
     steps:
       - uses: actions/checkout@v4
 
@@ -76,7 +82,7 @@ jobs:
           # otherwise each later pass would overwrite the one before it.
           FORCE="${{ inputs.force && '--force' || '' }}"
           SOURCES="${{ inputs.sources || 'itunes deezer' }}"
-          FILE="src/data/${{ inputs.catalogue || 'songs' }}.json"
+          FILE="$CATALOGUE"
           MINA="${{ inputs.min_artist && format('--min-artist {0}', inputs.min_artist) || '' }}"
           test -f "$FILE" || { echo "no such catalogue: $FILE"; exit 1; }
           echo "catalogue: $FILE"
@@ -112,7 +118,7 @@ jobs:
       - name: Report coverage
         run: |
           node -e "
-            const s = require('./src/data/songs.json');
+            const s = require('./' + process.env.CATALOGUE);
             const withUrl = s.filter(x => x.previewUrl).length;
             console.log(\`previews: \${withUrl}/\${s.length}\`);
             const missing = s.filter(x => !x.previewUrl).map(x => x.id);
@@ -121,14 +127,14 @@ jobs:
 
       - name: Commit the catalogue
         run: |
-          if git diff --quiet src/data/songs.json; then
-            echo "No change to the catalogue."
+          if git diff --quiet "$CATALOGUE"; then
+            echo "No change to $CATALOGUE."
             exit 0
           fi
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add src/data/songs.json
-          git commit -m "Update song previews from iTunes"
+          git add "$CATALOGUE"
+          git commit -m "Update previews in $CATALOGUE"
 
           # Any push to this branch while the lookup ran leaves the runner
           # behind, and a plain push is then rejected — throwing away ten

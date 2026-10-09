@@ -7,13 +7,17 @@
  * misremembered title is indistinguishable from one Apple does not carry.
  *
  * This is catalogue-first. Deezer's top-tracks endpoint returns a performer's
- * real releases, ordered by popularity, each already carrying a 30-second
- * preview — so nothing has to be matched, spelled correctly, or guessed. One
- * call per artist replaces three per song, and what comes back is by
- * construction a real recording with working audio.
+ * real releases, ordered by popularity — so a title here is one that exists,
+ * spelled as the label spells it, rather than one someone recalled.
  *
- * Harvested songs land unapproved, so they play only once they have been heard
- * in the review console, exactly like every other song.
+ * It harvests metadata only. Deezer signs its preview URLs with roughly a
+ * twelve-minute expiry: measured, one answered 200 when fetched and 403 less
+ * than two hours later. A committed catalogue cannot hold audio with that
+ * lifetime, so the clip itself is left to fetch-previews.mjs and Apple, whose
+ * URLs are stable. Harvest finds the songs; the lookup gives them sound.
+ *
+ * Harvested songs land with no clip and no verdict, so they play only once
+ * Apple has supplied audio and someone has heard it.
  *
  *   node scripts/harvest.mjs --artist "عمرو دياب" --dry-run
  *   node scripts/harvest.mjs --artists-file artists.txt --into src/data/songs.json
@@ -63,7 +67,14 @@ export function slugify(text, fallback) {
   return slug || `dz-${fallback}`
 }
 
-/** Deezer's track onto a catalogue entry. No verdict: review decides that. */
+/**
+ * Deezer's track onto a catalogue entry — metadata only.
+ *
+ * Deliberately no previewUrl and no artwork. Deezer's are signed and expire in
+ * about twelve minutes, so storing them puts audio in the catalogue that is
+ * dead before anyone can review it. fetch-previews.mjs fills those in from
+ * Apple, whose URLs keep working.
+ */
 export function toSong(track, { difficulty, year }) {
   const title = track.title_short || track.title
   return {
@@ -74,44 +85,27 @@ export function toSong(track, { difficulty, year }) {
     artistLatin: track.artist?.name ?? '',
     year: year ?? 0,
     difficulty,
-    previewUrl: track.preview,
-    ...(track.album?.cover_medium ? { artwork: track.album.cover_medium } : {}),
-    matchedAs: {
-      track: track.title,
-      artist: track.artist?.name ?? '',
-      ...(track.album?.title ? { album: track.album.title } : {}),
-      score: 1,
-      source: 'deezer-harvest',
-    },
     startAt: 0,
+    harvestedFrom: 'deezer',
   }
 }
 
 const key = (s) => `${normalize(s.title)}|${normalize(s.artist)}`
 
 /**
- * Keep only what the catalogue does not already hold.
- *
- * Three ways a harvest repeats itself: the same recording under a new id, the
- * same title by the same artist from a different release, and the same id. A
- * duplicate preview is the one that matters most — two entries sharing audio
- * is the bug the song lookup already guards against.
+ * Keep only what the catalogue does not already hold: the same title by the
+ * same artist, or the same id. Audio is not compared here because a harvest
+ * carries none — the duplicate-clip guard lives in the lookup, which is where
+ * clips are actually assigned.
  */
 export function dedupe(candidates, existing) {
-  const urls = new Set(existing.map((s) => s.previewUrl).filter(Boolean))
   const names = new Set(existing.map(key))
   const ids = new Set(existing.map((s) => s.id))
   const kept = []
   const skipped = []
 
   for (const c of candidates) {
-    const why = !c.previewUrl
-      ? 'no preview'
-      : urls.has(c.previewUrl)
-        ? 'clip already in the catalogue'
-        : names.has(key(c))
-          ? 'already have this title by this artist'
-          : null
+    const why = names.has(key(c)) ? 'already have this title by this artist' : null
     if (why) {
       skipped.push({ song: c, why })
       continue
@@ -122,7 +116,6 @@ export function dedupe(candidates, existing) {
     for (let n = 2; ids.has(id); n++) id = `${c.id}-${n}`
     const song = { ...c, id }
     ids.add(id)
-    urls.add(song.previewUrl)
     names.add(key(song))
     kept.push(song)
   }
@@ -162,6 +155,9 @@ export async function harvestArtist(name, opts, fetchImpl = globalThis.fetch) {
   const artist = await findArtist(name, fetchImpl)
   if (!artist) return { name, artist: null, songs: [], reason: 'no such artist on Deezer' }
 
+  // A track with no preview on Deezer is still a real release, and Apple may
+  // well carry it — but it is also the shape a placeholder takes, so it is
+  // dropped as weak evidence rather than kept as a title to chase.
   const tracks = (await topTracks(artist.id, opts.limit, fetchImpl))
     .filter((t) => t.preview && (t.rank ?? 0) >= opts.minRank)
   const songs = tracks.map((t, i) => toSong(t, { difficulty: difficultyFor(i, tracks.length) }))
@@ -202,8 +198,9 @@ Pull artists' catalogues from Deezer in bulk, for review.
   --dry-run            report what would be added, write nothing
   -h, --help           this text
 
-Everything lands unapproved: harvested songs play only once they have been
-heard in the review console, like every other song.
+Metadata only — Deezer's own previews expire in minutes, so clips come from
+Apple afterwards via fetch-previews.mjs. Harvested songs play only once they
+have audio and have been heard in the review console.
 `.trim()
 
 export async function run(opts, deps = {}) {
@@ -263,7 +260,8 @@ export async function run(opts, deps = {}) {
     log('\n--dry-run: nothing written.')
   } else if (kept.length) {
     await writeCatalogue([...existing, ...kept])
-    log(`\nWrote ${opts.into} — ${kept.length} song(s) added, all awaiting review.`)
+    log(`\nWrote ${opts.into} — ${kept.length} song(s) added, none with clips yet.`)
+    log('Run fetch-previews.mjs against the same file to give them audio.')
   }
 
   return { added: kept.length, skipped: skipped.length, failures, songs: kept }

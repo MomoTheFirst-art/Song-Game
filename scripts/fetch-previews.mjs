@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 /**
- * Fill in `previewUrl` for each song in the catalogue from the iTunes and
- * Deezer search APIs.
+ * Fill in `previewUrl` for each song in the catalogue from the iTunes Search
+ * API.
  *
- * Both still serve 30-second previews for free with no authentication, which
- * is why clip games kept working after Spotify withdrew `preview_url` in
- * November 2024. Apple is asked first — its Arabic metadata fits this
- * catalogue better — and Deezer covers what Apple does not carry. Neither
- * sends CORS headers on search, so the lookup happens here rather than in the
- * browser; the page only ever touches the audio CDN.
+ * Apple still serves 30-second previews for free with no authentication, and —
+ * the part that matters for a committed catalogue — serves them from a stable
+ * URL. Deezer's expire in about twelve minutes, which is why it is a discovery
+ * source in scripts/harvest.mjs and not a clip source here. The API sends no
+ * CORS headers, so the lookup happens here rather than in the browser; the
+ * page only ever touches the audio CDN.
  *
  * Run it, review what it matched, commit the catalogue. Nothing is downloaded:
  * previews stream from the rights holder's own CDN to the player, which is
@@ -16,7 +16,6 @@
  *
  *   node scripts/fetch-previews.mjs --dry-run
  *   node scripts/fetch-previews.mjs --country EG
- *   node scripts/fetch-previews.mjs --source deezer
  *   node scripts/fetch-previews.mjs --only tamally-maak --force
  */
 
@@ -28,7 +27,6 @@ import { normalize } from '../src/game/search.ts'
 const HERE = path.dirname(fileURLToPath(import.meta.url))
 const CATALOGUE = path.join(HERE, '..', 'src', 'data', 'songs.json')
 const ITUNES = 'https://itunes.apple.com/search'
-const DEEZER = 'https://api.deezer.com/search'
 
 /**
  * Minimum artist resemblance for any match. Famous titles are re-recorded and
@@ -48,10 +46,10 @@ export const DEFAULTS = {
   // there. Lowering it leans harder on the review step, which is why it is a
   // flag rather than a new default.
   minArtist: MIN_ARTIST_SIMILARITY,
+  sources: ['itunes'],
   only: null,
   force: false,
   dryRun: false,
-  sources: ['itunes', 'deezer'],
   in: CATALOGUE,
   out: null,          // defaults to `in`
 }
@@ -226,38 +224,16 @@ export function searchUrl(term, opts) {
   return u.toString()
 }
 
-export function deezerUrl(term, opts) {
-  const u = new URL(DEEZER)
-  u.searchParams.set('q', term)
-  u.searchParams.set('limit', String(opts.limit))
-  return u.toString()
-}
-
 /**
- * Deezer's track onto the shape the scorer already reads.
+ * Where clips come from.
  *
- * Everything downstream — the title/artist weighting, the artist floor, the
- * duplicate-preview guard — is about a candidate, not about Apple, so a second
- * source only has to arrive in the same shape. `preview` is empty on tracks
- * Deezer has not excerpted; scoreCandidate already refuses a candidate with no
- * audio, so those rank themselves out.
- */
-export function fromDeezer(track) {
-  return {
-    trackName: track.title,
-    artistName: track.artist?.name,
-    collectionName: track.album?.title,
-    previewUrl: track.preview || undefined,
-    artworkUrl100: track.album?.cover_medium || track.album?.cover,
-  }
-}
-
-/**
- * Where clips come from. Apple is first because its Arabic metadata is the
- * better match for this catalogue; Deezer covers what Apple does not carry.
- *
- * Deezer answers errors with HTTP 200 and an `error` object, so a failed
- * lookup there looks exactly like a song with no results unless it is read.
+ * Apple only. Deezer was a second source here until its previews were measured:
+ * it signs them with roughly a twelve-minute expiry, so a URL fetched at 19:28
+ * answered 200 and the same URL answered 403 by 21:09. A catalogue that is
+ * committed and served for weeks cannot hold audio with that lifetime — ten
+ * songs had already been given clips that were dead before anyone reviewed
+ * them. Deezer still earns its keep for discovery, in scripts/harvest.mjs,
+ * where only the metadata is kept.
  */
 export const SOURCES = {
   itunes: {
@@ -266,15 +242,6 @@ export const SOURCES = {
     results: (body) => {
       if (!Array.isArray(body.results)) throw new Error('no results array')
       return body.results
-    },
-  },
-  deezer: {
-    label: 'Deezer',
-    url: deezerUrl,
-    results: (body) => {
-      if (body.error) throw new Error(`${body.error.type || 'error'}: ${body.error.message || ''}`.trim())
-      if (!Array.isArray(body.data)) throw new Error('no data array')
-      return body.data.map(fromDeezer)
     },
   },
 }
@@ -378,7 +345,7 @@ export function parseArgs(argv) {
 }
 
 const HELP = `
-Fill in previewUrl for each song from the iTunes and Deezer search APIs.
+Fill in previewUrl for each song from the iTunes Search API.
 
   node scripts/fetch-previews.mjs [options]
 
