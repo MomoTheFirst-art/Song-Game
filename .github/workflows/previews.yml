@@ -84,7 +84,14 @@ jobs:
           case "$SOURCES" in *itunes*)
             for front in ${{ inputs.country || 'SA EG AE KW LB US' }}; do
               echo "── iTunes store front: $front"
-              node scripts/fetch-previews.mjs --in "$FILE" --source itunes --country "$front" $MINA $FORCE
+              node scripts/fetch-previews.mjs --in "$FILE" --source itunes --country "$front" $MINA $FORCE \
+                2>&1 | tee /tmp/pass.log
+              # Surfaced as an annotation: run logs are served from a host the
+              # API will not follow, so a run that matched nothing looks
+              # identical to one that was never dispatched.
+              echo "::notice title=iTunes $front::$(grep -E '^[0-9]+ matched' /tmp/pass.log | tail -1)"
+              grep -E 'rate limited|HTTP [0-9]{3}|network:' /tmp/pass.log | sort -u | head -3 \
+                | while read -r line; do echo "::warning title=iTunes $front::$line"; done
               FORCE=""
             done
           esac
@@ -93,7 +100,10 @@ jobs:
           # and by here it only ever sees what Apple could not find anywhere.
           case "$SOURCES" in *deezer*)
             echo "── Deezer"
-            node scripts/fetch-previews.mjs --in "$FILE" --source deezer $MINA $FORCE
+            node scripts/fetch-previews.mjs --in "$FILE" --source deezer $MINA $FORCE 2>&1 | tee /tmp/dz.log
+            echo "::notice title=Deezer::$(grep -E '^[0-9]+ matched' /tmp/dz.log | tail -1)"
+            grep -E 'rate limited|HTTP [0-9]{3}|network:|Quota' /tmp/dz.log | sort -u | head -3 \
+              | while read -r line; do echo "::warning title=Deezer::$line"; done
           esac
 
       - name: Verify the catalogue still builds
@@ -148,6 +158,7 @@ jobs:
             const files = ['songs', 'spacetoon', 'english'];
             const songs = files.flatMap(f => require('./src/data/' + f + '.json')).filter(s => s.previewUrl);
             let bad = 0;
+            const byHost = {};
             (async () => {
               for (const s of songs) {
                 // Not every CDN answers HEAD — Deezer's may not — so a refusal
@@ -157,9 +168,15 @@ jobs:
                   res = await fetch(s.previewUrl, { headers: { Range: 'bytes=0-0' } })
                     .catch(e => ({ ok: false, status: e.message }));
                 }
-                if (!res.ok) { bad++; console.log('DEAD  ' + s.id + '  ' + res.status + '  ' + (s.matchedAs?.source || 'itunes')); }
+                if (!res.ok) {
+                  bad++;
+                  const host = (() => { try { return new URL(s.previewUrl).host } catch { return '?' } })();
+                  byHost[host] = (byHost[host] || 0) + 1;
+                  if (bad <= 5) console.log('::warning title=dead clip::' + s.id + '  ' + res.status + '  ' + host);
+                }
               }
-              console.log(\`\${songs.length - bad}/\${songs.length} preview URLs reachable\`);
+              console.log('::notice title=reachability::' + (songs.length - bad) + '/' + songs.length + ' preview URLs reachable');
+              for (const [h, n] of Object.entries(byHost)) console.log('::warning title=dead by host::' + h + ': ' + n);
               if (bad) process.exit(1);
             })();
           "
