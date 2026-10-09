@@ -1,19 +1,22 @@
 #!/usr/bin/env node
 /**
- * Fill in `previewUrl` for each song in the catalogue from the iTunes Search API.
+ * Fill in `previewUrl` for each song in the catalogue from the iTunes and
+ * Deezer search APIs.
  *
- * Apple still serves 30-second previews for free with no authentication, which
+ * Both still serve 30-second previews for free with no authentication, which
  * is why clip games kept working after Spotify withdrew `preview_url` in
- * November 2024. The API sends no CORS headers, so the lookup has to happen
- * here rather than in the browser — the page only ever touches Apple's CDN for
- * the audio itself.
+ * November 2024. Apple is asked first — its Arabic metadata fits this
+ * catalogue better — and Deezer covers what Apple does not carry. Neither
+ * sends CORS headers on search, so the lookup happens here rather than in the
+ * browser; the page only ever touches the audio CDN.
  *
  * Run it, review what it matched, commit the catalogue. Nothing is downloaded:
- * previews stream from Apple to the player, which is both the lighter and the
- * licensable arrangement.
+ * previews stream from the rights holder's own CDN to the player, which is
+ * both the lighter and the licensable arrangement.
  *
  *   node scripts/fetch-previews.mjs --dry-run
  *   node scripts/fetch-previews.mjs --country EG
+ *   node scripts/fetch-previews.mjs --source deezer
  *   node scripts/fetch-previews.mjs --only tamally-maak --force
  */
 
@@ -24,7 +27,8 @@ import { normalize } from '../src/game/search.ts'
 
 const HERE = path.dirname(fileURLToPath(import.meta.url))
 const CATALOGUE = path.join(HERE, '..', 'src', 'data', 'songs.json')
-const ENDPOINT = 'https://itunes.apple.com/search'
+const ITUNES = 'https://itunes.apple.com/search'
+const DEEZER = 'https://api.deezer.com/search'
 
 export const DEFAULTS = {
   country: 'SA',      // Saudi store — good Arabic coverage; try EG, AE, LB
@@ -34,6 +38,7 @@ export const DEFAULTS = {
   only: null,
   force: false,
   dryRun: false,
+  sources: ['itunes', 'deezer'],
   in: CATALOGUE,
   out: null,          // defaults to `in`
 }
@@ -167,7 +172,7 @@ export function buildQueries(song) {
 }
 
 export function searchUrl(term, opts) {
-  const u = new URL(ENDPOINT)
+  const u = new URL(ITUNES)
   u.searchParams.set('term', term)
   u.searchParams.set('media', 'music')
   u.searchParams.set('entity', 'song')
@@ -176,34 +181,91 @@ export function searchUrl(term, opts) {
   return u.toString()
 }
 
+export function deezerUrl(term, opts) {
+  const u = new URL(DEEZER)
+  u.searchParams.set('q', term)
+  u.searchParams.set('limit', String(opts.limit))
+  return u.toString()
+}
+
+/**
+ * Deezer's track onto the shape the scorer already reads.
+ *
+ * Everything downstream — the title/artist weighting, the artist floor, the
+ * duplicate-preview guard — is about a candidate, not about Apple, so a second
+ * source only has to arrive in the same shape. `preview` is empty on tracks
+ * Deezer has not excerpted; scoreCandidate already refuses a candidate with no
+ * audio, so those rank themselves out.
+ */
+export function fromDeezer(track) {
+  return {
+    trackName: track.title,
+    artistName: track.artist?.name,
+    collectionName: track.album?.title,
+    previewUrl: track.preview || undefined,
+    artworkUrl100: track.album?.cover_medium || track.album?.cover,
+  }
+}
+
+/**
+ * Where clips come from. Apple is first because its Arabic metadata is the
+ * better match for this catalogue; Deezer covers what Apple does not carry.
+ *
+ * Deezer answers errors with HTTP 200 and an `error` object, so a failed
+ * lookup there looks exactly like a song with no results unless it is read.
+ */
+export const SOURCES = {
+  itunes: {
+    label: 'iTunes',
+    url: searchUrl,
+    results: (body) => {
+      if (!Array.isArray(body.results)) throw new Error('no results array')
+      return body.results
+    },
+  },
+  deezer: {
+    label: 'Deezer',
+    url: deezerUrl,
+    results: (body) => {
+      if (body.error) throw new Error(`${body.error.type || 'error'}: ${body.error.message || ''}`.trim())
+      if (!Array.isArray(body.data)) throw new Error('no data array')
+      return body.data.map(fromDeezer)
+    },
+  },
+}
+
 // ---------------------------------------------------------------- lookup
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms))
 
 /** Try each query in turn, stopping at the first acceptable match. */
-export async function lookup(song, opts, fetchImpl = globalThis.fetch, taken = new Set()) {
+export async function lookup(song, opts, fetchImpl = globalThis.fetch, taken = new Set(), sourceKey = 'itunes') {
+  const source = SOURCES[sourceKey]
+  if (!source) throw new Error(`unknown source: ${sourceKey}`)
   let best = { match: null, score: 0 }
 
   for (const term of buildQueries(song)) {
     let res
     try {
-      res = await fetchImpl(searchUrl(term, opts))
+      res = await fetchImpl(source.url(term, opts))
     } catch (err) {
-      return { match: null, score: 0, error: `network: ${err.message}` }
+      return { match: null, score: 0, error: `${source.label}: network: ${err.message}` }
     }
-    if (res.status === 403) return { match: null, score: 0, error: 'rate limited (403) — raise --delay' }
-    if (!res.ok) return { match: null, score: 0, error: `HTTP ${res.status}` }
+    if (res.status === 403) {
+      return { match: null, score: 0, error: `${source.label}: rate limited (403) — raise --delay` }
+    }
+    if (!res.ok) return { match: null, score: 0, error: `${source.label}: HTTP ${res.status}` }
 
-    let body
+    let candidates
     try {
-      body = await res.json()
-    } catch {
-      return { match: null, score: 0, error: 'unparseable response' }
+      candidates = source.results(await res.json())
+    } catch (err) {
+      return { match: null, score: 0, error: `${source.label}: ${err.message}` }
     }
 
-    const attempt = pickBest(song, body.results, opts.minScore, taken)
-    if (attempt.score > best.score) best = { ...attempt, term }
-    if (attempt.match) return { ...attempt, term }
+    const attempt = pickBest(song, candidates, opts.minScore, taken)
+    if (attempt.score > best.score) best = { ...attempt, term, source: sourceKey }
+    if (attempt.match) return { ...attempt, term, source: sourceKey }
     if (opts.delay) await sleep(opts.delay)
   }
   return best
@@ -221,6 +283,11 @@ export function parseArgs(argv) {
     else if (a === '--limit') opts.limit = Number(next())
     else if (a === '--min-score') opts.minScore = Number(next())
     else if (a === '--only') opts.only = next()
+    else if (a === '--source') {
+      opts.sources = next().split(/[ ,]+/).filter(Boolean)
+      const bad = opts.sources.filter((k) => !SOURCES[k])
+      if (bad.length) throw new Error(`unknown source: ${bad.join(', ')} (have ${Object.keys(SOURCES).join(', ')})`)
+    }
     else if (a === '--in') opts.in = next()
     else if (a === '--out') opts.out = next()
     else if (a === '--force') opts.force = true
@@ -233,7 +300,7 @@ export function parseArgs(argv) {
 }
 
 const HELP = `
-Fill in previewUrl for each song from the iTunes Search API.
+Fill in previewUrl for each song from the iTunes and Deezer search APIs.
 
   node scripts/fetch-previews.mjs [options]
 
@@ -242,13 +309,15 @@ Fill in previewUrl for each song from the iTunes Search API.
   --limit N        candidates to weigh per query (default ${DEFAULTS.limit})
   --min-score N    0..1 acceptance threshold (default ${DEFAULTS.minScore})
   --only ID        look up a single song by its catalogue id
+  --source LIST    where to look, in order (default "${DEFAULTS.sources.join(' ')}")
   --force          re-fetch songs that already have a previewUrl
   --dry-run        report matches without writing the file
   --in PATH        catalogue to read  (default src/data/songs.json)
   --out PATH       catalogue to write (default: same as --in)
   -h, --help       this text
 
-Previews stream from Apple to the browser; nothing is downloaded or stored.
+Previews stream from the source's own CDN to the browser; nothing is
+downloaded or stored.
 `.trim()
 
 export async function run(opts, deps = {}) {
@@ -274,7 +343,8 @@ export async function run(opts, deps = {}) {
     return { matched: 0, missed: 0, songs }
   }
 
-  log(`Looking up ${targets.length} song(s) in the ${opts.country} store…\n`)
+  log(`Looking up ${targets.length} song(s) — ${opts.sources.map((k) => SOURCES[k].label).join(' then ')}`)
+  log(`iTunes store front: ${opts.country}\n`)
 
   const missed = []
   let matched = 0
@@ -289,7 +359,31 @@ export async function run(opts, deps = {}) {
 
   for (let i = 0; i < targets.length; i++) {
     const song = targets[i]
-    const { match, score, error, reason } = await lookup(song, opts, fetchImpl, taken)
+
+    // Sources are tried in order and the first acceptable match wins, so a
+    // fallback never overrides a clip the preferred source already found.
+    //
+    // A judgement from any source outranks a transport failure from another.
+    // Overwriting the result each time let the last source's error bury the
+    // first source's verdict — which under --force meant a stale preview the
+    // run had actually rejected stayed in the catalogue, because clearing it
+    // hangs off "no match" rather than "error".
+    let result = { match: null, score: 0 }
+    const failures = []
+    for (const key of opts.sources) {
+      const attempt = await lookup(song, opts, fetchImpl, taken, key)
+      if (attempt.match) {
+        result = attempt
+        break
+      }
+      if (attempt.error) failures.push(attempt.error)
+      else if (!result.reason || attempt.score > result.score) result = attempt
+      if (opts.delay) await sleep(opts.delay)
+    }
+    if (!result.match && !result.reason && failures.length > 0) {
+      result = { ...result, error: failures.join('; ') }
+    }
+    const { match, score, error, reason, source } = result
 
     if (error) {
       log(`  ✗ ${song.titleLatin || song.title} — ${error}`)
@@ -321,6 +415,9 @@ export async function run(opts, deps = {}) {
         artist: match.artistName,
         ...(match.collectionName ? { album: match.collectionName } : {}),
         score: Number(score.toFixed(2)),
+        // Which catalogue answered. A clip that behaves oddly in the player is
+        // otherwise untraceable to the source that supplied it.
+        ...(source && source !== 'itunes' ? { source } : {}),
       }
       // Deliberately NOT taking match.releaseDate as the year. Apple reports
       // the date of the release the track sits on, which for this repertoire is
@@ -329,7 +426,8 @@ export async function run(opts, deps = {}) {
       // curated year is an approximation, but it is an approximation of the
       // right thing.
       const flag = score < 0.8 ? '  ← check this one' : ''
-      log(`  ✓ ${song.titleLatin || song.title} → “${match.trackName}” / ${match.artistName} (${score.toFixed(2)})${flag}`)
+      const via = source && source !== 'itunes' ? ` [${SOURCES[source].label}]` : ''
+      log(`  ✓ ${song.titleLatin || song.title} → “${match.trackName}” / ${match.artistName} (${score.toFixed(2)})${via}${flag}`)
     }
 
     if (opts.delay && i < targets.length - 1) await sleep(opts.delay)

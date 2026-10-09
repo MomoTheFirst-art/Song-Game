@@ -24,6 +24,10 @@ on:
         # every manual run searched Saudi alone while the logs and the step's
         # own comment claimed it was walking five store fronts.
         default: ''
+      sources:
+        description: 'Where to look, space separated. Blank means iTunes then Deezer.'
+        required: false
+        default: ''
       force:
         description: 'Re-fetch songs that already have a preview'
         type: boolean
@@ -63,11 +67,22 @@ jobs:
           # is often present in another. --force applies to the first pass only,
           # otherwise each later pass would overwrite the one before it.
           FORCE="${{ inputs.force && '--force' || '' }}"
-          for front in ${{ inputs.country || 'SA EG AE KW LB US' }}; do
-            echo "── store front: $front"
-            node scripts/fetch-previews.mjs --country "$front" $FORCE
-            FORCE=""
-          done
+          SOURCES="${{ inputs.sources || 'itunes deezer' }}"
+
+          case "$SOURCES" in *itunes*)
+            for front in ${{ inputs.country || 'SA EG AE KW LB US' }}; do
+              echo "── iTunes store front: $front"
+              node scripts/fetch-previews.mjs --source itunes --country "$front" $FORCE
+              FORCE=""
+            done
+          esac
+
+          # Deezer has no store fronts, so one pass is the whole catalogue —
+          # and by here it only ever sees what Apple could not find anywhere.
+          case "$SOURCES" in *deezer*)
+            echo "── Deezer"
+            node scripts/fetch-previews.mjs --source deezer $FORCE
+          esac
 
       - name: Check every preview URL actually resolves
         run: |
@@ -78,8 +93,14 @@ jobs:
             let bad = 0;
             (async () => {
               for (const s of songs) {
-                const res = await fetch(s.previewUrl, { method: 'HEAD' }).catch(e => ({ ok: false, status: e.message }));
-                if (!res.ok) { bad++; console.log('DEAD  ' + s.id + '  ' + res.status); }
+                // Not every CDN answers HEAD — Deezer's may not — so a refusal
+                // is retried as a one-byte ranged GET before calling it dead.
+                let res = await fetch(s.previewUrl, { method: 'HEAD' }).catch(e => ({ ok: false, status: e.message }));
+                if (!res.ok) {
+                  res = await fetch(s.previewUrl, { headers: { Range: 'bytes=0-0' } })
+                    .catch(e => ({ ok: false, status: e.message }));
+                }
+                if (!res.ok) { bad++; console.log('DEAD  ' + s.id + '  ' + res.status + '  ' + (s.matchedAs?.source || 'itunes')); }
               }
               console.log(\`\${songs.length - bad}/\${songs.length} preview URLs reachable\`);
               if (bad) process.exit(1);

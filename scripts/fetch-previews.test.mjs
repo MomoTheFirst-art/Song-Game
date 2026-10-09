@@ -2,7 +2,7 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import {
   similarity, scoreCandidate, pickBest, buildQueries, searchUrl, lookup, parseArgs, run, DEFAULTS,
-  MIN_ARTIST_SIMILARITY,
+  MIN_ARTIST_SIMILARITY, SOURCES, deezerUrl, fromDeezer,
 } from './fetch-previews.mjs'
 
 const song = {
@@ -448,4 +448,129 @@ test('a miss says which guard refused it', () => {
   const claimed = pickBest(song, [hit], 0.55, new Set([hit.previewUrl]))
   assert.equal(claimed.match, null)
   assert.match(claimed.reason, /already taken/)
+})
+
+// ------------------------------------------------------------ deezer
+
+/** One track as Deezer's search returns it, trimmed to the fields read. */
+const deezerTrack = (title, artist, preview = 'https://cdns-preview-x.dzcdn.net/stream/a.mp3') => ({
+  id: 1,
+  title,
+  title_short: title,
+  preview,
+  artist: { id: 2, name: artist },
+  album: { id: 3, title: `${title} - Single`, cover_medium: 'https://e-cdns-images.dzcdn.net/c.jpg' },
+})
+
+test('a Deezer track maps onto the shape the scorer reads', () => {
+  const c = fromDeezer(deezerTrack('Tamally Maak', 'Amr Diab'))
+  assert.equal(c.trackName, 'Tamally Maak')
+  assert.equal(c.artistName, 'Amr Diab')
+  assert.equal(c.collectionName, 'Tamally Maak - Single')
+  assert.match(c.previewUrl, /^https:\/\/cdns-preview/)
+  assert.ok(c.artworkUrl100, 'artwork carries over so the reveal still shows a cover')
+})
+
+test('a Deezer track with no excerpt is not a candidate', () => {
+  const c = fromDeezer(deezerTrack('Tamally Maak', 'Amr Diab', ''))
+  assert.equal(c.previewUrl, undefined)
+  assert.equal(scoreCandidate(song, c).score, 0, 'a clip game cannot use a track with no clip')
+})
+
+test('a malformed Deezer track does not throw', () => {
+  assert.doesNotThrow(() => fromDeezer({ title: 'x' }))
+  assert.equal(fromDeezer({ title: 'x' }).artistName, undefined)
+})
+
+test('Deezer reports its errors with HTTP 200, so the body is what is read', () => {
+  const quota = { error: { type: 'Exception', message: 'Quota limit exceeded', code: 4 } }
+  assert.throws(() => SOURCES.deezer.results(quota), /Quota limit exceeded/)
+  assert.throws(() => SOURCES.deezer.results({}), /no data array/)
+  assert.deepEqual(SOURCES.deezer.results({ data: [] }), [])
+})
+
+test('the Deezer query is a plain q= search', () => {
+  const u = new URL(deezerUrl('Amr Diab Tamally Maak', { limit: 10 }))
+  assert.equal(u.origin + u.pathname, 'https://api.deezer.com/search')
+  assert.equal(u.searchParams.get('q'), 'Amr Diab Tamally Maak')
+  assert.equal(u.searchParams.get('limit'), '10')
+})
+
+test('both sources are scored by the same rules', () => {
+  const apple = { trackName: 'Tamally Maak', artistName: 'Amr Diab', previewUrl: 'https://apple/a.m4a' }
+  const deezer = fromDeezer(deezerTrack('Tamally Maak', 'Amr Diab'))
+  assert.equal(
+    scoreCandidate(song, apple).score.toFixed(4),
+    scoreCandidate(song, deezer).score.toFixed(4),
+    'a source must not change what a match is worth',
+  )
+})
+
+test('a wrong artist is refused on Deezer exactly as on iTunes', () => {
+  const results = SOURCES.deezer.results({
+    data: [deezerTrack('Tamally Maak', 'Some Cover Band')],
+  })
+  const { match, reason } = pickBest(song, results)
+  assert.equal(match, null)
+  assert.match(reason, /wrong artist/)
+})
+
+test('a later source failing does not bury an earlier source’s verdict', async () => {
+  // Regression: with two sources the loop overwrote the result each time, so
+  // Deezer being unreachable masked iTunes having genuinely rejected every
+  // candidate — and clearing a stale preview hangs off "no match", not
+  // "error", so --force quietly kept audio the run had just refused.
+  let written = null
+  const stale = {
+    ...song,
+    previewUrl: 'https://old/wrong.m4a',
+    artwork: 'https://old/art.jpg',
+    matchedAs: { track: 'Wrong Song', artist: 'Wrong Artist', score: 0.6 },
+  }
+  await run(
+    { ...DEFAULTS, delay: 0, force: true },
+    {
+      fetch: async (url) =>
+        url.includes('deezer')
+          ? Promise.reject(new Error('ENOTFOUND'))
+          : ok([wrong]),                           // iTunes: nothing acceptable
+      log: () => {},
+      readCatalogue: async () => [{ ...stale }],
+      writeCatalogue: async (s) => { written = s },
+    },
+  )
+  assert.equal(written[0].previewUrl, undefined, 'the refused clip must still be cleared')
+})
+
+test('every source failing is reported as a failure, not as a miss', async () => {
+  const lines = []
+  await run(
+    { ...DEFAULTS, delay: 0 },
+    {
+      fetch: async () => Promise.reject(new Error('ENOTFOUND')),
+      log: (l) => lines.push(l),
+      readCatalogue: async () => [{ ...song }],
+      writeCatalogue: async () => {},
+    },
+  )
+  const miss = lines.find((l) => l.includes('✗'))
+  assert.match(miss, /iTunes/, 'the report must name which sources failed')
+  assert.match(miss, /Deezer/)
+})
+
+test('Deezer is only asked for what iTunes did not find', async () => {
+  const asked = []
+  await run(
+    { ...DEFAULTS, delay: 0 },
+    {
+      fetch: async (url) => {
+        asked.push(url.includes('deezer') ? 'deezer' : 'itunes')
+        return ok([hit])
+      },
+      log: () => {},
+      readCatalogue: async () => [{ ...song }],
+      writeCatalogue: async () => {},
+    },
+  )
+  assert.deepEqual(asked, ['itunes'], 'a found clip must not cost a second lookup')
 })
