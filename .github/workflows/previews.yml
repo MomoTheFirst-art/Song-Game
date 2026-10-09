@@ -28,6 +28,14 @@ on:
         description: 'Where to look, space separated. Blank means iTunes then Deezer.'
         required: false
         default: ''
+      catalogue:
+        description: 'Which file to fill: songs, spacetoon, english.'
+        required: false
+        default: 'songs'
+      min_artist:
+        description: 'Artist floor 0..1. Lower it for cartoon themes, whose credits are unreliable.'
+        required: false
+        default: ''
       force:
         description: 'Re-fetch songs that already have a preview'
         type: boolean
@@ -68,11 +76,15 @@ jobs:
           # otherwise each later pass would overwrite the one before it.
           FORCE="${{ inputs.force && '--force' || '' }}"
           SOURCES="${{ inputs.sources || 'itunes deezer' }}"
+          FILE="src/data/${{ inputs.catalogue || 'songs' }}.json"
+          MINA="${{ inputs.min_artist && format('--min-artist {0}', inputs.min_artist) || '' }}"
+          test -f "$FILE" || { echo "no such catalogue: $FILE"; exit 1; }
+          echo "catalogue: $FILE"
 
           case "$SOURCES" in *itunes*)
             for front in ${{ inputs.country || 'SA EG AE KW LB US' }}; do
               echo "── iTunes store front: $front"
-              node scripts/fetch-previews.mjs --source itunes --country "$front" $FORCE
+              node scripts/fetch-previews.mjs --in "$FILE" --source itunes --country "$front" $MINA $FORCE
               FORCE=""
             done
           esac
@@ -81,7 +93,7 @@ jobs:
           # and by here it only ever sees what Apple could not find anywhere.
           case "$SOURCES" in *deezer*)
             echo "── Deezer"
-            node scripts/fetch-previews.mjs --source deezer $FORCE
+            node scripts/fetch-previews.mjs --in "$FILE" --source deezer $MINA $FORCE
           esac
 
       - name: Check every preview URL actually resolves
@@ -89,7 +101,8 @@ jobs:
           # A matched URL is not a working one — previews expire, and a dead
           # link is indistinguishable from a broken game.
           node -e "
-            const songs = require('./src/data/songs.json').filter(s => s.previewUrl);
+            const files = ['songs', 'spacetoon', 'english'];
+            const songs = files.flatMap(f => require('./src/data/' + f + '.json')).filter(s => s.previewUrl);
             let bad = 0;
             (async () => {
               for (const s of songs) {
