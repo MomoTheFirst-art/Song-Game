@@ -1,0 +1,95 @@
+name: Harvest clips in bulk
+
+# The previews workflow is song-first: it is handed a title and goes looking
+# for it. This is catalogue-first — it pulls a performer's real releases, each
+# already carrying a preview, so nothing has to be matched or spelled right.
+# Everything lands unapproved and plays only after review.
+on:
+  workflow_dispatch:
+    inputs:
+      artists:
+        description: 'Performers, one per line or comma separated.'
+        required: true
+      catalogue:
+        description: 'Which file to append to: songs, spacetoon, english.'
+        required: false
+        default: 'songs'
+      limit:
+        description: 'Tracks per artist, most popular first.'
+        required: false
+        default: '25'
+      dry_run:
+        description: 'Report what would be added without writing'
+        type: boolean
+        required: false
+        default: false
+
+# Shared with the previews workflow on purpose: both commit catalogue files,
+# and two runs doing that at once would race and lose one of them.
+concurrency:
+  group: previews
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  harvest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'   # type stripping, so the script can import .ts
+          cache: npm
+
+      - run: npm ci
+
+      - name: Harvest
+        env:
+          ARTISTS: ${{ inputs.artists }}
+        run: |
+          FILE="src/data/${{ inputs.catalogue || 'songs' }}.json"
+          test -f "$FILE" || { echo "no such catalogue: $FILE"; exit 1; }
+          # Commas and newlines both separate, so a list can be pasted either way.
+          printf '%s\n' "$ARTISTS" | tr ',' '\n' | sed 's/^[[:space:]]*//; s/[[:space:]]*$//' | grep -v '^$' > /tmp/artists.txt
+          echo "catalogue: $FILE"
+          echo "artists:"; cat /tmp/artists.txt
+          node scripts/harvest.mjs \
+            --artists-file /tmp/artists.txt \
+            --into "$FILE" \
+            --limit "${{ inputs.limit || '25' }}" \
+            ${{ inputs.dry_run && '--dry-run' || '' }}
+
+      - name: Verify the catalogue still builds
+        run: npm test && npm run build
+
+      - name: Report what is waiting for review
+        run: |
+          node -e "
+            const files = ['songs', 'spacetoon', 'english'];
+            for (const f of files) {
+              const songs = require('./src/data/' + f + '.json');
+              const clips = songs.filter(s => s.previewUrl);
+              const pending = clips.filter(s => s.approved === undefined).length;
+              console.log(\`\${f}: \${songs.length} songs, \${clips.length} with clips, \${pending} awaiting review\`);
+            }
+          "
+
+      - name: Commit the catalogue
+        if: ${{ !inputs.dry_run }}
+        run: |
+          git config user.name  'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          if git diff --quiet -- src/data; then
+            echo 'Nothing new.'
+            exit 0
+          fi
+          git add src/data
+          git commit -m 'Harvest clips for review
+
+          Pulled from Deezer by artist. Everything lands unapproved and plays
+          only once it has been heard in the review console.'
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
