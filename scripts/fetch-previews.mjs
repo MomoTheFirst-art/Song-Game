@@ -283,6 +283,34 @@ export const SOURCES = {
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms))
 
+/**
+ * Apple rate-limits hard, and intermittently: the same query answers 200 and
+ * then 403 a minute later. Treating a 403 as this song's final answer is what
+ * made a throttled run report "no match" for all forty songs and commit
+ * nothing — indistinguishable, from the outside, from Apple not carrying any
+ * of them.
+ *
+ * Backs off and retries; only a 403 that survives every attempt is reported.
+ */
+const RATE_LIMIT_BACKOFF_MS = [4000, 12000, 30000]
+
+export async function fetchWithBackoff(url, fetchImpl, delayFor) {
+  // The attempt count bounds the loop, not the delay function. Deriving the
+  // stop condition from "delayFor returned undefined" spun forever the moment
+  // a caller passed a function that always returns a number.
+  const wait = delayFor ?? ((i) => RATE_LIMIT_BACKOFF_MS[i])
+  let res
+  for (let attempt = 0; attempt <= RATE_LIMIT_BACKOFF_MS.length; attempt++) {
+    res = await fetchImpl(url)
+    if (res.status !== 403 && res.status !== 429) return res
+    if (attempt === RATE_LIMIT_BACKOFF_MS.length) return res
+    // Retry-After, when offered, knows better than any constant here.
+    const after = Number(res.headers?.get?.('retry-after'))
+    await sleep(Number.isFinite(after) && after > 0 ? after * 1000 : (wait(attempt) ?? 0))
+  }
+  return res
+}
+
 /** Try each query in turn, stopping at the first acceptable match. */
 export async function lookup(song, opts, fetchImpl = globalThis.fetch, taken = new Set(), sourceKey = 'itunes') {
   const source = SOURCES[sourceKey]
@@ -292,12 +320,16 @@ export async function lookup(song, opts, fetchImpl = globalThis.fetch, taken = n
   for (const term of buildQueries(song)) {
     let res
     try {
-      res = await fetchImpl(source.url(term, opts))
+      res = await fetchWithBackoff(source.url(term, opts), fetchImpl, opts.backoffFor)
     } catch (err) {
       return { match: null, score: 0, error: `${source.label}: network: ${err.message}` }
     }
-    if (res.status === 403) {
-      return { match: null, score: 0, error: `${source.label}: rate limited (403) — raise --delay` }
+    if (res.status === 403 || res.status === 429) {
+      return {
+        match: null,
+        score: 0,
+        error: `${source.label}: rate limited (${res.status}) after retries — raise --delay`,
+      }
     }
     if (!res.ok) return { match: null, score: 0, error: `${source.label}: HTTP ${res.status}` }
 

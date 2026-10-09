@@ -2,7 +2,7 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import {
   similarity, scoreCandidate, pickBest, buildQueries, searchUrl, lookup, parseArgs, run, DEFAULTS,
-  MIN_ARTIST_SIMILARITY, SOURCES, deezerUrl, fromDeezer, artistSimilarity, bigramSimilarity,
+  MIN_ARTIST_SIMILARITY, SOURCES, deezerUrl, fromDeezer, artistSimilarity, bigramSimilarity, fetchWithBackoff,
 } from './fetch-previews.mjs'
 
 const song = {
@@ -157,7 +157,12 @@ test('lookup falls through to the Arabic query when Latin misses', async () => {
 })
 
 test('lookup reports rate limiting distinctly', async () => {
-  const r = await lookup(song, { ...DEFAULTS, delay: 0 }, async () => ({ ok: false, status: 403 }))
+  // backoffFor keeps the retries instant; the waiting itself is Apple's.
+  const r = await lookup(
+    song,
+    { ...DEFAULTS, delay: 0, backoffFor: () => 0 },
+    async () => ({ ok: false, status: 403, headers: { get: () => null } }),
+  )
   assert.match(r.error, /rate limited/)
   assert.equal(r.match, null)
 })
@@ -647,4 +652,66 @@ test('a song whose performer is its own title is not searched for twice', () => 
 
 test('an ordinary song still pairs artist with title', () => {
   assert.deepEqual(buildQueries(song), ['Amr Diab Tamally Maak', 'عمرو دياب تملي معاك', 'Tamally Maak'])
+})
+
+// ------------------------------------------------------- rate limiting
+
+test('a 403 is retried, not taken as the song’s answer', async () => {
+  // What cost two whole runs: Apple answers 200 then 403 a minute later, and
+  // treating the 403 as final reported "no match" for all forty songs.
+  let calls = 0
+  const res = await lookup(song, { ...DEFAULTS, delay: 0, backoffFor: () => 0 }, async () => {
+    calls++
+    return calls < 3
+      ? { ok: false, status: 403, headers: { get: () => null } }
+      : { ok: true, status: 200, json: async () => ({ results: [hit] }) }
+  })
+  assert.ok(res.match, 'the song must still be found once the throttle lifts')
+  assert.equal(calls, 3)
+})
+
+test('a 403 that never lifts is reported as throttling, not as a miss', async () => {
+  const res = await lookup(song, { ...DEFAULTS, delay: 0, backoffFor: () => 0 }, async () => ({
+    ok: false, status: 403, headers: { get: () => null },
+  }))
+  assert.equal(res.match, null)
+  assert.match(res.error, /rate limited \(403\) after retries/)
+})
+
+test('429 is treated the same as 403', async () => {
+  let calls = 0
+  const res = await lookup(song, { ...DEFAULTS, delay: 0, backoffFor: () => 0 }, async () => {
+    calls++
+    return calls === 1
+      ? { ok: false, status: 429, headers: { get: () => null } }
+      : { ok: true, status: 200, json: async () => ({ results: [hit] }) }
+  })
+  assert.ok(res.match)
+})
+
+test('Retry-After is honoured over the built-in backoff', async () => {
+  const waits = []
+  let calls = 0
+  const started = Date.now()
+  await lookup(song, { ...DEFAULTS, delay: 0, backoffFor: () => 50 }, async () => {
+    calls++
+    waits.push(Date.now() - started)
+    return calls === 1
+      ? { ok: false, status: 429, headers: { get: (h) => (h === 'retry-after' ? '0' : null) } }
+      : { ok: true, status: 200, json: async () => ({ results: [hit] }) }
+  })
+  assert.equal(calls, 2)
+})
+
+test('backoff gives up after a bounded number of attempts', async () => {
+  // The loop used to end only when the delay function returned undefined, so
+  // a caller that always returned a number retried for ever.
+  let calls = 0
+  const res = await fetchWithBackoff(
+    'https://x/y',
+    async () => { calls++; return { ok: false, status: 403, headers: { get: () => null } } },
+    () => 0,
+  )
+  assert.equal(res.status, 403)
+  assert.ok(calls > 1 && calls <= 5, `tried ${calls} times, which must be bounded`)
 })
