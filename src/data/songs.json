@@ -1773,16 +1773,7 @@
     "artistLatin": "Abadi Al Johar",
     "year": 1995,
     "difficulty": "medium",
-    "startAt": 0,
-    "previewUrl": "https://cdnt-preview.dzcdn.net/api/1/1/b/c/0/0/bc00fbbb07e806d39e1423073a814d5c.mp3?hdnea=exp=1791574335~acl=/api/1/1/b/c/0/0/bc00fbbb07e806d39e1423073a814d5c.mp3*~data=user_id=0,application_id=42~hmac=d5b01b77690ef5025a126b952497d808daca260a550fdd106963097fefd889d1",
-    "artwork": "https://cdn-images.dzcdn.net/images/cover/3c1a0ed25fc76654ac160d672a3c10a9/250x250-000000-80-0-0.jpg",
-    "matchedAs": {
-      "track": "Ya Donya Zawaouky",
-      "artist": "Shadia",
-      "album": "The Complete Collection",
-      "score": 0.73,
-      "source": "deezer"
-    }
+    "startAt": 0
   },
   {
     "id": "aj-el-jarh-elli",
@@ -1966,16 +1957,7 @@
     "artistLatin": "Assala",
     "year": 2015,
     "difficulty": "hard",
-    "startAt": 0,
-    "previewUrl": "https://cdnt-preview.dzcdn.net/api/1/1/9/3/3/0/933d9fbf071893961330bbd08564864c.mp3?hdnea=exp=1791574443~acl=/api/1/1/9/3/3/0/933d9fbf071893961330bbd08564864c.mp3*~data=user_id=0,application_id=42~hmac=1c75ad8f3f4a62ae31ec094e7febaf8687677c60a8cf5ac267f0c6647553efbf",
-    "artwork": "https://cdn-images.dzcdn.net/images/cover/86037e097ab7cbad4e1ca79a9034cdbc/250x250-000000-80-0-0.jpg",
-    "matchedAs": {
-      "track": "Ahl El Hob",
-      "artist": "Essam Sasa",
-      "album": "Ahl El Hob",
-      "score": 0.56,
-      "source": "deezer"
-    }
+    "startAt": 0
   },
   {
     "id": "rm-abeeh",

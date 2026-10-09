@@ -64,19 +64,53 @@ export const DEFAULTS = {
  * bigram, but as word tokens they do not match at all. Token overlap alone
  * scored such pairs 0.33 and buried genuine errors among them.
  */
+const squeeze = (t) => normalize(t || '').replace(/\s+/g, '')
+
+const lengthRatio = (a, b) => {
+  const x = squeeze(a)
+  const y = squeeze(b)
+  if (!x || !y) return 0
+  return Math.min(x.length, y.length) / Math.max(x.length, y.length)
+}
+
 export function bigramSimilarity(a, b) {
+  const x = squeeze(a)
+  const y = squeeze(b)
+  if (!x || !y) return 0
+
   const grams = (t) => {
-    const clean = normalize(t).replace(/\s+/g, '')
     const set = new Set()
-    for (let i = 0; i < clean.length - 1; i++) set.add(clean.slice(i, i + 2))
+    for (let i = 0; i < t.length - 1; i++) set.add(t.slice(i, i + 2))
     return set
   }
-  const A = grams(a || '')
-  const B = grams(b || '')
+  const A = grams(x)
+  const B = grams(y)
   if (A.size === 0 || B.size === 0) return 0
   let shared = 0
   for (const g of A) if (B.has(g)) shared++
   return (2 * shared) / (A.size + B.size)
+}
+
+/**
+ * Agreement between two performer names.
+ *
+ * Same measures as a title, except the bigram fallback is withheld when one
+ * name is far shorter than the other. A short name's few bigrams land inside a
+ * long one by coincidence: "Shadia" scored 0.50 against "Abadi Al Johar" on
+ * nothing but ad/di/ia/ha, cleared the artist floor, and handed عبادي الجوهر a
+ * Shadia recording.
+ *
+ * Deliberately not applied to titles. The same ratio would have refused
+ * "Nawilak" for ناويلك على نية and two other clips already approved in review:
+ * a catalogue holding the long form of a title while the release carries the
+ * short one is ordinary, whereas two performers whose names differ that much
+ * in length are simply different people.
+ */
+const MIN_ARTIST_LENGTH_RATIO = 0.75
+
+export function artistSimilarity(a, b) {
+  const bigrams = lengthRatio(a, b) >= MIN_ARTIST_LENGTH_RATIO ? bigramSimilarity(a, b) : 0
+  return Math.max(tokenSimilarity(a, b), bigrams)
 }
 
 /** 0..1 similarity over normalized text, tolerant of extra words. */
@@ -116,8 +150,8 @@ export function scoreCandidate(song, candidate) {
     similarity(song.titleLatin, candidate.trackName),
   )
   const artist = Math.max(
-    similarity(song.artist, candidate.artistName),
-    similarity(song.artistLatin, candidate.artistName),
+    artistSimilarity(song.artist, candidate.artistName),
+    artistSimilarity(song.artistLatin, candidate.artistName),
   )
   return { score: 0.65 * title + 0.35 * artist, title, artist }
 }

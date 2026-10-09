@@ -2,7 +2,7 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import {
   similarity, scoreCandidate, pickBest, buildQueries, searchUrl, lookup, parseArgs, run, DEFAULTS,
-  MIN_ARTIST_SIMILARITY, SOURCES, deezerUrl, fromDeezer,
+  MIN_ARTIST_SIMILARITY, SOURCES, deezerUrl, fromDeezer, artistSimilarity, bigramSimilarity,
 } from './fetch-previews.mjs'
 
 const song = {
@@ -597,4 +597,37 @@ test('lowering the artist floor does not lower the score threshold', () => {
   const { match, reason } = pickBest(song, junk, DEFAULTS.minScore, new Set(), 0)
   assert.equal(match, null, 'a bad title is still a bad match whoever sang it')
   assert.match(reason, /< 0.55/)
+})
+
+// -------------------------------------------------- short-name inflation
+
+test('a short artist name does not match a long one on coincidence', () => {
+  // Production failure: Deezer offered عبادي الجوهر a Shadia recording.
+  // "Shadia" shares ad/di/ia/ha with "Abadi Al Johar" and nothing else, which
+  // Dice scored 0.50 — over the 0.4 floor — on no real resemblance.
+  assert.ok(artistSimilarity('Abadi Al Johar', 'Shadia') < MIN_ARTIST_SIMILARITY)
+  assert.ok(artistSimilarity('Assala', 'Essam Sasa') < MIN_ARTIST_SIMILARITY)
+  assert.equal(artistSimilarity('عبادي الجوهر', 'Shadia'), 0)
+})
+
+test('transliterations of the same performer still match', () => {
+  for (const [a, b] of [
+    ['Amr Diab', 'Amr Diyab'],
+    ['Umm Kulthum', 'Om Kalthoum'],
+    ['Rashed Al Majed', 'Rashed Almajed'],
+    ['Sherine', 'Sherine Abdel Wahab'],
+  ]) {
+    assert.ok(
+      artistSimilarity(a, b) >= MIN_ARTIST_SIMILARITY,
+      `${a} / ${b} scored ${artistSimilarity(a, b).toFixed(2)}`,
+    )
+  }
+})
+
+test('the length guard is on artists only, not titles', () => {
+  // A catalogue holding a title's long form while the release carries the
+  // short one is ordinary — ناويلك على نية is released as "Nawilak", and two
+  // other approved clips are the same shape. Guarding titles rejected all three.
+  assert.ok(similarity('Nawilak Ala Niya', 'Nawilak') > 0.5, 'a long title must still find its short release')
+  assert.ok(bigramSimilarity('Al Madi', 'Talal Madah') > 0, 'bigrams themselves stay unguarded')
 })
