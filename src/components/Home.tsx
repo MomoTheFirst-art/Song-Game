@@ -10,6 +10,8 @@ interface Props {
   playableCount: number
   /** Songs in this genre at all, clip or no clip — the empty state needs it. */
   genreTotal: number
+  /** Clips fetched but not yet judged. Nothing plays until they are. */
+  pendingReview: number
   onSolo: () => void
   onChallenge: () => void
   onPick: () => void
@@ -22,7 +24,7 @@ interface Props {
 
 export function Home({
   genres, genreId, onGenre,
-  playableCount, genreTotal, onSolo, onChallenge, onPick, onParty, partyCapacity,
+  playableCount, genreTotal, pendingReview, onSolo, onChallenge, onPick, onParty, partyCapacity,
   playerName, onAccount, onBoard,
 }: Props) {
   const genre = genres.find((g) => g.id === genreId) ?? genres[0]
@@ -55,11 +57,25 @@ export function Home({
             out of the game. */}
         {playableCount === 0 ? (
           <div className="home-empty">
-            <p>
-              لا مقاطع في «{genre.label}» بعد — {ar(genreTotal)} أغنية بانتظار الجلب.
-            </p>
-            <p className="genre-note">اختر مجموعة أخرى، أو شغّل:</p>
-            <pre className="cmd">npm run previews</pre>
+            {pendingReview > 0 ? (
+              <>
+                <p>
+                  «{genre.label}» فيه {ar(pendingReview)} مقطعاً بانتظار المراجعة.
+                </p>
+                <p className="genre-note">
+                  لا يُشغَّل أي مقطع قبل اعتماده. راجعها في لوحة المراجعة، أو اختر
+                  مجموعة أخرى.
+                </p>
+              </>
+            ) : (
+              <>
+                <p>
+                  لا مقاطع في «{genre.label}» بعد — {ar(genreTotal)} أغنية بانتظار الجلب.
+                </p>
+                <p className="genre-note">اختر مجموعة أخرى، أو شغّل:</p>
+                <pre className="cmd">npm run previews</pre>
+              </>
+            )}
           </div>
         ) : (
         <>

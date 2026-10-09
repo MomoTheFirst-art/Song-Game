@@ -1,85 +1,74 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { verdictFor, canFieldRun, playableSongs, approvalsGovern } from '../src/game/review.ts'
+import { verdictFor, canFieldRun, playableSongs, awaitingReview } from '../src/game/review.ts'
+import { DAILY_ORDER } from '../src/game/daily.ts'
 
-const TIERS = ['easy', 'medium', 'hard', 'expert', 'impossible']
 const song = (id, difficulty, extra = {}) => ({
-  id, difficulty, previewUrl: `https://x/${id}.m4a`, ...extra,
+  id, title: id, titleLatin: id, artist: 'x', artistLatin: 'x',
+  year: 2000, difficulty, startAt: 0, previewUrl: `https://x/${id}.m4a`, ...extra,
 })
-/** One song in every tier, so a full run can be fielded. */
-const fullSet = (prefix, extra = {}) => TIERS.map((t) => song(`${prefix}-${t}`, t, extra))
-/** A verdict passed on the clip the song currently has. */
+const fullSet = (prefix, extra = {}) =>
+  DAILY_ORDER.map((tier) => song(`${prefix}-${tier}`, tier, extra))
 const on = (s, verdict) => ({ verdict, clip: s.previewUrl })
 
-test('a local verdict overrides the committed one', () => {
+test('a local verdict overrides the committed one, while it still fits the clip', () => {
   const s = song('a', 'easy', { approved: false })
-  assert.equal(verdictFor(s, {}), 'rejected', 'committed rejection stands on its own')
-  assert.equal(verdictFor(s, { a: on(s, 'approved') }), 'approved', 'local review wins')
+  assert.equal(verdictFor(s, {}), 'rejected')
+  assert.equal(verdictFor(s, { a: on(s, 'approved') }), 'approved')
+  assert.equal(
+    verdictFor(s, { a: { verdict: 'approved', clip: 'https://x/other.m4a' } }),
+    'rejected',
+    'a verdict on audio that was replaced no longer applies',
+  )
 })
 
-test('an unreviewed song has no verdict', () => {
-  assert.equal(verdictFor(song('a', 'easy'), {}), undefined)
-})
-
-test('a run can only be fielded with every tier represented', () => {
+test('canFieldRun wants one song in every tier', () => {
   assert.equal(canFieldRun(fullSet('x')), true)
   assert.equal(canFieldRun(fullSet('x').slice(0, 4)), false, 'one tier missing')
   assert.equal(canFieldRun([]), false)
 })
 
-test('rejected songs never play, even before approvals govern', () => {
-  const all = [...fullSet('a'), song('bad', 'easy')]
-  const out = playableSongs(all, { bad: on(all[all.length - 1], 'rejected') })
-  assert.ok(!out.some((s) => s.id === 'bad'), 'a rejected clip must never reach the game')
+test('nothing plays until it is approved', () => {
+  // The rule the whole review step exists for: a clip nobody has heard is not
+  // a clip the game may use, however many or few of them there are.
+  const all = fullSet('x')
+  assert.deepEqual(playableSongs(all, {}), [], 'unreviewed is not playable')
+  assert.equal(awaitingReview(all, {}), all.length)
+})
+
+test('approving songs one at a time makes exactly those playable', () => {
+  const all = fullSet('x')
+  const decisions = { 'x-easy': on(all[0], 'approved') }
+  const out = playableSongs(all, decisions)
+  assert.deepEqual(out.map((s) => s.id), ['x-easy'])
+  assert.equal(awaitingReview(all, decisions), all.length - 1)
+})
+
+test('a rejected clip is never playable, however the rest stand', () => {
+  const all = fullSet('x')
+  const decisions = Object.fromEntries(all.map((s) => [s.id, on(s, 'approved')]))
+  decisions['x-hard'] = on(all[2], 'rejected')
+  const out = playableSongs(all, decisions)
+  assert.ok(!out.some((s) => s.id === 'x-hard'))
   assert.equal(out.length, all.length - 1)
 })
 
-test('unreviewed songs keep playing while approvals are too few', () => {
-  const all = fullSet('a')
-  const one = { 'a-easy': on(all[0], 'approved') }   // only one tier approved
-  const out = playableSongs(all, one)
-  assert.equal(out.length, 5, 'the game must not empty out mid-review')
-  assert.equal(approvalsGovern(all, one), false)
-})
-
-test('once every tier is approved, only approved songs play', () => {
-  const all = [...fullSet('good'), ...fullSet('unreviewed')]
-  const good = fullSet('good')
-  const decisions = Object.fromEntries(good.map((s) => [s.id, on(s, 'approved')]))
-  const out = playableSongs(all, decisions)
-  assert.equal(out.length, 5)
-  assert.ok(out.every((s) => s.id.startsWith('good-')), 'unreviewed songs step aside')
-  assert.equal(approvalsGovern(all, decisions), true)
-})
-
-test('committed approvals work without any local review', () => {
-  const all = fullSet('c', { approved: true })
-  assert.equal(approvalsGovern(all, {}), true)
+test('a committed approval needs no local decision', () => {
+  const all = fullSet('x', { approved: true })
   assert.equal(playableSongs(all, {}).length, 5)
+  assert.equal(awaitingReview(all, {}), 0, 'already judged is not pending')
 })
 
-test('songs without a clip are never playable', () => {
-  const all = [...fullSet('a'), { id: 'noclip', difficulty: 'easy' }]
+test('a song with no clip is never playable and never pending', () => {
+  const all = [...fullSet('x', { approved: true }), { ...song('noclip', 'easy'), previewUrl: undefined }]
   assert.ok(!playableSongs(all, {}).some((s) => s.id === 'noclip'))
-  const claimed = { noclip: { verdict: 'approved', clip: 'https://x/ghost.m4a' } }
-  assert.ok(!playableSongs(all, claimed).some((s) => s.id === 'noclip'))
+  assert.equal(awaitingReview(all, {}), 0, 'there is nothing to listen to')
 })
 
-test('a verdict does not survive the clip being replaced', () => {
-  // A rejected song gets re-fetched and comes back with different audio. The
-  // old verdict described audio that no longer exists, so it must not hide the
-  // new clip from review — this is what left 18 re-fetched songs invisible.
-  const before = song('x', 'easy')
-  const decisions = { x: { verdict: 'rejected', clip: before.previewUrl } }
-  assert.equal(verdictFor(before, decisions), 'rejected', 'still applies to the same clip')
-
-  const after = { ...before, previewUrl: 'https://x/DIFFERENT.m4a' }
-  assert.equal(verdictFor(after, decisions), undefined, 'new audio means unreviewed again')
-})
-
-test('a committed verdict still applies after a stale local one is voided', () => {
-  const before = song('y', 'easy', { approved: true })
-  const after = { ...before, previewUrl: 'https://x/NEW.m4a' }
-  const decisions = { y: { verdict: 'rejected', clip: before.previewUrl } }
-  assert.equal(verdictFor(after, decisions), 'approved', 'falls back to the catalogue')
+test('a brand new catalogue plays nothing at all', () => {
+  // This is the case the old bootstrap got wrong: it let a whole unheard
+  // catalogue through precisely because none of it had been approved yet.
+  const fresh = fullSet('spacetoon')
+  assert.deepEqual(playableSongs(fresh, {}), [])
+  assert.equal(awaitingReview(fresh, {}), 5)
 })

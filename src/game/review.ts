@@ -60,24 +60,25 @@ export function canFieldRun(approved: Song[]): boolean {
 }
 
 /**
- * What the game is allowed to play.
+ * What the game is allowed to play: approved clips, and nothing else.
  *
- * A rejected clip is never played — that is the whole point of reviewing. But
- * gating strictly on approval would empty the game the moment reviewing began,
- * so unreviewed songs keep playing until enough approvals exist to field a run
- * on their own; from then on, approved songs are the game.
+ * This used to let unreviewed songs play until enough approvals existed to
+ * field a run, so that reviewing a fresh catalogue did not empty the game
+ * while it was under way. That bootstrap is what let a lookup put audio in
+ * front of players before anyone had heard it — and with a catalogue per
+ * genre it fired on every new one, which is exactly backwards: a brand new
+ * catalogue is the one least worth trusting unheard.
+ *
+ * Every song now takes the same route, whatever file it lives in: matched,
+ * reviewed, approved, played.
  */
 export function playableSongs(all: Song[], decisions: Decisions): Song[] {
-  const withClips = all.filter((s) => Boolean(s.previewUrl))
-  const approved = withClips.filter((s) => verdictFor(s, decisions) === 'approved')
-  if (canFieldRun(approved)) return approved
-  return withClips.filter((s) => verdictFor(s, decisions) !== 'rejected')
+  return all.filter(
+    (s) => Boolean(s.previewUrl) && verdictFor(s, decisions) === 'approved',
+  )
 }
 
-/** True once approvals alone carry the game, so the UI can say so. */
-export function approvalsGovern(all: Song[], decisions: Decisions): boolean {
-  const approved = all.filter(
-    (s) => s.previewUrl && verdictFor(s, decisions) === 'approved',
-  )
-  return canFieldRun(approved)
+/** Clips waiting on a verdict — what the home screen counts to explain itself. */
+export function awaitingReview(all: Song[], decisions: Decisions): number {
+  return all.filter((s) => s.previewUrl && verdictFor(s, decisions) === undefined).length
 }

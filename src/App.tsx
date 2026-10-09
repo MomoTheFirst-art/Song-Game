@@ -22,7 +22,7 @@ import { applyAttempt, triesLeft } from './game/round'
 import {
   loadDaily, recentlyPlayed, rememberPlayed, saveRun as saveLocalRun,
 } from './game/storage'
-import { loadDecisions, playableSongs, verdictFor } from './game/review'
+import { awaitingReview, loadDecisions, playableSongs } from './game/review'
 import { GENRES, everySong, genreById, loadGenre, saveGenre } from './game/catalogues'
 import type { Genre, GenreId } from './game/catalogues'
 import { loadStarts, withStarts } from './game/starts'
@@ -45,11 +45,10 @@ import { recordRun } from './firebase/scores'
 function buildCatalogue(genre: Genre) {
   const decisions = loadDecisions()
   const catalogue = withStarts(playableSongs(genre.all, decisions), loadStarts())
-  // A party deals only approved clips — a wrong one costs a player their turn,
-  // not just a round. Guessing still searches the whole playable catalogue so
-  // the answer does not stand out among the suggestions.
-  const partyPool = catalogue.filter((s) => verdictFor(s, decisions) === 'approved')
-  return { catalogue, partyPool }
+  // Why the genre is empty, when it is: nothing fetched yet, or fetched and
+  // not yet heard by a reviewer. They need different advice.
+  const pending = awaitingReview(genre.all, decisions)
+  return { catalogue, pending }
 }
 
 function newRound(song: Song): RoundState {
@@ -277,7 +276,7 @@ export default function App() {
   const [screen, setScreen] = useState<Screen>('home')
   const [genreId, setGenreId] = useState<GenreId>(loadGenre)
   const genre = genreById(genreId)
-  const { catalogue, partyPool } = useMemo(() => buildCatalogue(genre), [genre])
+  const { catalogue, pending } = useMemo(() => buildCatalogue(genre), [genre])
   const { player, ready: playerReady, join, rename, leave } = usePlayer()
 
   useEffect(() => {
@@ -334,7 +333,7 @@ export default function App() {
   if (screen === 'party') {
     return (
       <PartyGame
-        pool={partyPool}
+        pool={catalogue}
         catalogue={catalogue}
         onHome={() => setScreen('home')}
       />
@@ -351,7 +350,8 @@ export default function App() {
       }}
       playableCount={catalogue.length}
       genreTotal={genre.all.length}
-      partyCapacity={maxPlayersFor(partyPool)}
+      pendingReview={pending}
+      partyCapacity={maxPlayersFor(catalogue)}
       onSolo={() => setScreen('solo')}
       onChallenge={() => setScreen('challenge')}
       onPick={() => setScreen('pick')}

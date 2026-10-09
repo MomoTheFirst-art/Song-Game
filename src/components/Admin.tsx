@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { DIFFICULTY_LABEL } from '../game/types'
 import type { Song } from '../game/types'
 import type { Decisions, Verdict } from '../game/review'
-import { approvalsGovern, loadDecisions, saveDecisions, verdictFor } from '../game/review'
+import { loadDecisions, saveDecisions, verdictFor } from '../game/review'
 import { loadStarts, saveStarts } from '../game/starts'
 import { ClipWindow } from './ClipWindow'
 import type { Starts } from '../game/starts'
@@ -150,7 +150,6 @@ export function Admin({ songs }: { songs: Song[] }) {
     })
   }, [withClips, awaiting, decisions, filter])
 
-  const governing = approvalsGovern(songs, decisions)
   const startCount = Object.keys(starts).length
 
   function setVerdict(id: string, v: Verdict | undefined) {
@@ -219,10 +218,8 @@ export function Admin({ songs }: { songs: Song[] }) {
         <span className="adm-stat">بانتظار المراجعة {counts.fresh}</span>
       </div>
 
-      <p className={governing ? 'adm-banner adm-live' : 'adm-banner'}>
-        {governing
-          ? 'اللعبة تستخدم المقاطع المعتمدة فقط.'
-          : 'اعتمد أغنية واحدة على الأقل من كل مستوى لتقتصر اللعبة على المعتمد. المرفوض مستبعد الآن.'}
+<p className="adm-banner adm-live">
+        لا يُشغَّل أي مقطع قبل اعتماده هنا — المراجَع وغير المراجَع سواء.
       </p>
 
       <div className="adm-tabs">

@@ -96,30 +96,6 @@ jobs:
             node scripts/fetch-previews.mjs --in "$FILE" --source deezer $MINA $FORCE
           esac
 
-      - name: Check every preview URL actually resolves
-        run: |
-          # A matched URL is not a working one — previews expire, and a dead
-          # link is indistinguishable from a broken game.
-          node -e "
-            const files = ['songs', 'spacetoon', 'english'];
-            const songs = files.flatMap(f => require('./src/data/' + f + '.json')).filter(s => s.previewUrl);
-            let bad = 0;
-            (async () => {
-              for (const s of songs) {
-                // Not every CDN answers HEAD — Deezer's may not — so a refusal
-                // is retried as a one-byte ranged GET before calling it dead.
-                let res = await fetch(s.previewUrl, { method: 'HEAD' }).catch(e => ({ ok: false, status: e.message }));
-                if (!res.ok) {
-                  res = await fetch(s.previewUrl, { headers: { Range: 'bytes=0-0' } })
-                    .catch(e => ({ ok: false, status: e.message }));
-                }
-                if (!res.ok) { bad++; console.log('DEAD  ' + s.id + '  ' + res.status + '  ' + (s.matchedAs?.source || 'itunes')); }
-              }
-              console.log(\`\${songs.length - bad}/\${songs.length} preview URLs reachable\`);
-              if (bad) process.exit(1);
-            })();
-          "
-
       - name: Verify the catalogue still builds
         run: npm test && npm run build
 
@@ -159,3 +135,31 @@ jobs:
           done
           echo "::error::Could not push the catalogue after 3 attempts."
           exit 1
+
+      # Last on purpose. This ran before the commit, so one unreachable URL
+      # threw away the whole lookup: the step failed, the commit was skipped,
+      # and a run that had just matched 30 songs saved none of them. A dead
+      # link should still fail the run — loudly — but after the work is kept.
+      - name: Check every preview URL actually resolves
+        run: |
+          # A matched URL is not a working one — previews expire, and a dead
+          # link is indistinguishable from a broken game.
+          node -e "
+            const files = ['songs', 'spacetoon', 'english'];
+            const songs = files.flatMap(f => require('./src/data/' + f + '.json')).filter(s => s.previewUrl);
+            let bad = 0;
+            (async () => {
+              for (const s of songs) {
+                // Not every CDN answers HEAD — Deezer's may not — so a refusal
+                // is retried as a one-byte ranged GET before calling it dead.
+                let res = await fetch(s.previewUrl, { method: 'HEAD' }).catch(e => ({ ok: false, status: e.message }));
+                if (!res.ok) {
+                  res = await fetch(s.previewUrl, { headers: { Range: 'bytes=0-0' } })
+                    .catch(e => ({ ok: false, status: e.message }));
+                }
+                if (!res.ok) { bad++; console.log('DEAD  ' + s.id + '  ' + res.status + '  ' + (s.matchedAs?.source || 'itunes')); }
+              }
+              console.log(\`\${songs.length - bad}/\${songs.length} preview URLs reachable\`);
+              if (bad) process.exit(1);
+            })();
+          "
