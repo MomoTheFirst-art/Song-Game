@@ -1,0 +1,402 @@
+[
+  {
+    "id": "lose-yourself",
+    "title": "Lose Yourself",
+    "titleLatin": "Lose Yourself",
+    "artist": "Eminem",
+    "artistLatin": "Eminem",
+    "year": 2002,
+    "difficulty": "easy",
+    "startAt": 0
+  },
+  {
+    "id": "in-da-club",
+    "title": "In da Club",
+    "titleLatin": "In da Club",
+    "artist": "50 Cent",
+    "artistLatin": "50 Cent",
+    "year": 2003,
+    "difficulty": "easy",
+    "startAt": 0
+  },
+  {
+    "id": "gold-digger",
+    "title": "Gold Digger",
+    "titleLatin": "Gold Digger",
+    "artist": "Kanye West",
+    "artistLatin": "Kanye West",
+    "year": 2005,
+    "difficulty": "easy",
+    "startAt": 0
+  },
+  {
+    "id": "california-love",
+    "title": "California Love",
+    "titleLatin": "California Love",
+    "artist": "2Pac",
+    "artistLatin": "2Pac",
+    "year": 1995,
+    "difficulty": "easy",
+    "startAt": 0
+  },
+  {
+    "id": "hypnotize",
+    "title": "Hypnotize",
+    "titleLatin": "Hypnotize",
+    "artist": "The Notorious B.I.G.",
+    "artistLatin": "The Notorious B.I.G.",
+    "year": 1997,
+    "difficulty": "easy",
+    "startAt": 0
+  },
+  {
+    "id": "stan",
+    "title": "Stan",
+    "titleLatin": "Stan",
+    "artist": "Eminem",
+    "artistLatin": "Eminem",
+    "year": 2000,
+    "difficulty": "easy",
+    "startAt": 0
+  },
+  {
+    "id": "hotline-bling",
+    "title": "Hotline Bling",
+    "titleLatin": "Hotline Bling",
+    "artist": "Drake",
+    "artistLatin": "Drake",
+    "year": 2015,
+    "difficulty": "easy",
+    "startAt": 0
+  },
+  {
+    "id": "humble",
+    "title": "HUMBLE.",
+    "titleLatin": "HUMBLE.",
+    "artist": "Kendrick Lamar",
+    "artistLatin": "Kendrick Lamar",
+    "year": 2017,
+    "difficulty": "easy",
+    "startAt": 0
+  },
+  {
+    "id": "sicko-mode",
+    "title": "SICKO MODE",
+    "titleLatin": "SICKO MODE",
+    "artist": "Travis Scott",
+    "artistLatin": "Travis Scott",
+    "year": 2018,
+    "difficulty": "easy",
+    "startAt": 0
+  },
+  {
+    "id": "empire-state-of-mind",
+    "title": "Empire State of Mind",
+    "titleLatin": "Empire State of Mind",
+    "artist": "JAY-Z",
+    "artistLatin": "JAY-Z",
+    "year": 2009,
+    "difficulty": "easy",
+    "startAt": 0
+  },
+  {
+    "id": "the-real-slim-shady",
+    "title": "The Real Slim Shady",
+    "titleLatin": "The Real Slim Shady",
+    "artist": "Eminem",
+    "artistLatin": "Eminem",
+    "year": 2000,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "changes",
+    "title": "Changes",
+    "titleLatin": "Changes",
+    "artist": "2Pac",
+    "artistLatin": "2Pac",
+    "year": 1998,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "juicy",
+    "title": "Juicy",
+    "titleLatin": "Juicy",
+    "artist": "The Notorious B.I.G.",
+    "artistLatin": "The Notorious B.I.G.",
+    "year": 1994,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "nuthin-but-a-g-thang",
+    "title": "Nuthin' but a 'G' Thang",
+    "titleLatin": "Nuthin' but a 'G' Thang",
+    "artist": "Dr. Dre",
+    "artistLatin": "Dr. Dre",
+    "year": 1992,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "gin-and-juice",
+    "title": "Gin and Juice",
+    "titleLatin": "Gin and Juice",
+    "artist": "Snoop Dogg",
+    "artistLatin": "Snoop Dogg",
+    "year": 1993,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "alright",
+    "title": "Alright",
+    "titleLatin": "Alright",
+    "artist": "Kendrick Lamar",
+    "artistLatin": "Kendrick Lamar",
+    "year": 2015,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "ms-jackson",
+    "title": "Ms. Jackson",
+    "titleLatin": "Ms. Jackson",
+    "artist": "OutKast",
+    "artistLatin": "OutKast",
+    "year": 2000,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "god-s-plan",
+    "title": "God's Plan",
+    "titleLatin": "God's Plan",
+    "artist": "Drake",
+    "artistLatin": "Drake",
+    "year": 2018,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "99-problems",
+    "title": "99 Problems",
+    "titleLatin": "99 Problems",
+    "artist": "JAY-Z",
+    "artistLatin": "JAY-Z",
+    "year": 2003,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "work-out",
+    "title": "Work Out",
+    "titleLatin": "Work Out",
+    "artist": "J. Cole",
+    "artistLatin": "J. Cole",
+    "year": 2011,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "n-y-state-of-mind",
+    "title": "N.Y. State of Mind",
+    "titleLatin": "N.Y. State of Mind",
+    "artist": "Nas",
+    "artistLatin": "Nas",
+    "year": 1994,
+    "difficulty": "hard",
+    "startAt": 0
+  },
+  {
+    "id": "c-r-e-a-m",
+    "title": "C.R.E.A.M.",
+    "titleLatin": "C.R.E.A.M.",
+    "artist": "Wu-Tang Clan",
+    "artistLatin": "Wu-Tang Clan",
+    "year": 1993,
+    "difficulty": "hard",
+    "startAt": 0
+  },
+  {
+    "id": "doo-wop",
+    "title": "Doo Wop (That Thing)",
+    "titleLatin": "Doo Wop (That Thing)",
+    "artist": "Ms. Lauryn Hill",
+    "artistLatin": "Ms. Lauryn Hill",
+    "year": 1998,
+    "difficulty": "hard",
+    "startAt": 0
+  },
+  {
+    "id": "get-ur-freak-on",
+    "title": "Get Ur Freak On",
+    "titleLatin": "Get Ur Freak On",
+    "artist": "Missy Elliott",
+    "artistLatin": "Missy Elliott",
+    "year": 2001,
+    "difficulty": "hard",
+    "startAt": 0
+  },
+  {
+    "id": "it-was-a-good-day",
+    "title": "It Was a Good Day",
+    "titleLatin": "It Was a Good Day",
+    "artist": "Ice Cube",
+    "artistLatin": "Ice Cube",
+    "year": 1992,
+    "difficulty": "hard",
+    "startAt": 0
+  },
+  {
+    "id": "a-milli",
+    "title": "A Milli",
+    "titleLatin": "A Milli",
+    "artist": "Lil Wayne",
+    "artistLatin": "Lil Wayne",
+    "year": 2008,
+    "difficulty": "hard",
+    "startAt": 0
+  },
+  {
+    "id": "mo-bamba",
+    "title": "Mo Bamba",
+    "titleLatin": "Mo Bamba",
+    "artist": "Sheck Wes",
+    "artistLatin": "Sheck Wes",
+    "year": 2017,
+    "difficulty": "hard",
+    "startAt": 0
+  },
+  {
+    "id": "bodak-yellow",
+    "title": "Bodak Yellow",
+    "titleLatin": "Bodak Yellow",
+    "artist": "Cardi B",
+    "artistLatin": "Cardi B",
+    "year": 2017,
+    "difficulty": "hard",
+    "startAt": 0
+  },
+  {
+    "id": "earfquake",
+    "title": "EARFQUAKE",
+    "titleLatin": "EARFQUAKE",
+    "artist": "Tyler, The Creator",
+    "artistLatin": "Tyler, The Creator",
+    "year": 2019,
+    "difficulty": "hard",
+    "startAt": 0
+  },
+  {
+    "id": "praise-the-lord",
+    "title": "Praise the Lord (Da Shine)",
+    "titleLatin": "Praise the Lord (Da Shine)",
+    "artist": "A$AP Rocky",
+    "artistLatin": "A$AP Rocky",
+    "year": 2018,
+    "difficulty": "hard",
+    "startAt": 0
+  },
+  {
+    "id": "shook-ones-pt-ii",
+    "title": "Shook Ones, Pt. II",
+    "titleLatin": "Shook Ones, Pt. II",
+    "artist": "Mobb Deep",
+    "artistLatin": "Mobb Deep",
+    "year": 1995,
+    "difficulty": "expert",
+    "startAt": 0
+  },
+  {
+    "id": "dear-mama",
+    "title": "Dear Mama",
+    "titleLatin": "Dear Mama",
+    "artist": "2Pac",
+    "artistLatin": "2Pac",
+    "year": 1995,
+    "difficulty": "expert",
+    "startAt": 0
+  },
+  {
+    "id": "passin-me-by",
+    "title": "Passin' Me By",
+    "titleLatin": "Passin' Me By",
+    "artist": "The Pharcyde",
+    "artistLatin": "The Pharcyde",
+    "year": 1992,
+    "difficulty": "expert",
+    "startAt": 0
+  },
+  {
+    "id": "players-ball",
+    "title": "Player's Ball",
+    "titleLatin": "Player's Ball",
+    "artist": "OutKast",
+    "artistLatin": "OutKast",
+    "year": 1993,
+    "difficulty": "expert",
+    "startAt": 0
+  },
+  {
+    "id": "the-what",
+    "title": "The What",
+    "titleLatin": "The What",
+    "artist": "The Notorious B.I.G.",
+    "artistLatin": "The Notorious B.I.G.",
+    "year": 1994,
+    "difficulty": "expert",
+    "startAt": 0
+  },
+  {
+    "id": "liquid-swords",
+    "title": "Liquid Swords",
+    "titleLatin": "Liquid Swords",
+    "artist": "GZA",
+    "artistLatin": "GZA",
+    "year": 1995,
+    "difficulty": "expert",
+    "startAt": 0
+  },
+  {
+    "id": "simon-says",
+    "title": "Simon Says",
+    "titleLatin": "Simon Says",
+    "artist": "Pharoahe Monch",
+    "artistLatin": "Pharoahe Monch",
+    "year": 1999,
+    "difficulty": "impossible",
+    "startAt": 0
+  },
+  {
+    "id": "ego-trippin",
+    "title": "Ego Trippin’",
+    "titleLatin": "Ego Trippin’",
+    "artist": "Ultramagnetic MCs",
+    "artistLatin": "Ultramagnetic MCs",
+    "year": 1986,
+    "difficulty": "impossible",
+    "startAt": 0
+  },
+  {
+    "id": "the-message",
+    "title": "The Message",
+    "titleLatin": "The Message",
+    "artist": "Grandmaster Flash & The Furious Five",
+    "artistLatin": "Grandmaster Flash & The Furious Five",
+    "year": 1982,
+    "difficulty": "impossible",
+    "startAt": 0
+  },
+  {
+    "id": "rebel-without-a-pause",
+    "title": "Rebel Without a Pause",
+    "titleLatin": "Rebel Without a Pause",
+    "artist": "Public Enemy",
+    "artistLatin": "Public Enemy",
+    "year": 1987,
+    "difficulty": "impossible",
+    "startAt": 0
+  }
+]

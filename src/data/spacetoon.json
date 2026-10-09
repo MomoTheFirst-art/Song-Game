@@ -1,0 +1,302 @@
+[
+  {
+    "id": "adnan-lina",
+    "title": "عدنان ولينا",
+    "titleLatin": "Adnan wa Lina",
+    "artist": "طارق العربي طرقان",
+    "artistLatin": "Tarek Al Arabi Tourgane",
+    "year": 1990,
+    "difficulty": "easy",
+    "startAt": 0
+  },
+  {
+    "id": "captain-majed",
+    "title": "كابتن ماجد",
+    "titleLatin": "Captain Majed",
+    "artist": "طارق العربي طرقان",
+    "artistLatin": "Tarek Al Arabi Tourgane",
+    "year": 1994,
+    "difficulty": "easy",
+    "startAt": 0
+  },
+  {
+    "id": "sanafer",
+    "title": "السنافر",
+    "titleLatin": "Al Sanafer",
+    "artist": "طارق العربي طرقان",
+    "artistLatin": "Tarek Al Arabi Tourgane",
+    "year": 1992,
+    "difficulty": "easy",
+    "startAt": 0
+  },
+  {
+    "id": "sally",
+    "title": "سالي",
+    "titleLatin": "Sally",
+    "artist": "طارق العربي طرقان",
+    "artistLatin": "Tarek Al Arabi Tourgane",
+    "year": 1991,
+    "difficulty": "easy",
+    "startAt": 0
+  },
+  {
+    "id": "grendizer",
+    "title": "جريندايزر",
+    "titleLatin": "Grendizer",
+    "artist": "سامي كلارك",
+    "artistLatin": "Sammy Clark",
+    "year": 1979,
+    "difficulty": "easy",
+    "startAt": 0
+  },
+  {
+    "id": "detective-conan",
+    "title": "المحقق كونان",
+    "titleLatin": "Al Mohaqqeq Conan",
+    "artist": "رشا رزق",
+    "artistLatin": "Rasha Rizk",
+    "year": 2000,
+    "difficulty": "easy",
+    "startAt": 0
+  },
+  {
+    "id": "sandy-bell",
+    "title": "ساندي بيل",
+    "titleLatin": "Sandy Bell",
+    "artist": "طارق العربي طرقان",
+    "artistLatin": "Tarek Al Arabi Tourgane",
+    "year": 1990,
+    "difficulty": "easy",
+    "startAt": 0
+  },
+  {
+    "id": "pokemon-ar",
+    "title": "بوكيمون",
+    "titleLatin": "Pokemon",
+    "artist": "رشا رزق",
+    "artistLatin": "Rasha Rizk",
+    "year": 2000,
+    "difficulty": "easy",
+    "startAt": 0
+  },
+  {
+    "id": "heidi",
+    "title": "هايدي",
+    "titleLatin": "Heidi",
+    "artist": "طارق العربي طرقان",
+    "artistLatin": "Tarek Al Arabi Tourgane",
+    "year": 1988,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "remi",
+    "title": "ريمي",
+    "titleLatin": "Remi",
+    "artist": "طارق العربي طرقان",
+    "artistLatin": "Tarek Al Arabi Tourgane",
+    "year": 1988,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "digimon-ar",
+    "title": "أبطال الديجيتال",
+    "titleLatin": "Abtal Al Digital",
+    "artist": "رشا رزق",
+    "artistLatin": "Rasha Rizk",
+    "year": 2001,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "sindibad",
+    "title": "مغامرات سندباد",
+    "titleLatin": "Moghamarat Sindibad",
+    "artist": "طارق العربي طرقان",
+    "artistLatin": "Tarek Al Arabi Tourgane",
+    "year": 1992,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "zeina-nahoul",
+    "title": "زينة ونحول",
+    "titleLatin": "Zeina wa Nahoul",
+    "artist": "طارق العربي طرقان",
+    "artistLatin": "Tarek Al Arabi Tourgane",
+    "year": 1990,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "lady-oscar",
+    "title": "ليدي أوسكار",
+    "titleLatin": "Lady Oscar",
+    "artist": "رشا رزق",
+    "artistLatin": "Rasha Rizk",
+    "year": 1995,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "flona",
+    "title": "فلونة",
+    "titleLatin": "Flona",
+    "artist": "طارق العربي طرقان",
+    "artistLatin": "Tarek Al Arabi Tourgane",
+    "year": 1991,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "tom-sawyer-ar",
+    "title": "توم سوير",
+    "titleLatin": "Tom Sawyer",
+    "artist": "طارق العربي طرقان",
+    "artistLatin": "Tarek Al Arabi Tourgane",
+    "year": 1990,
+    "difficulty": "medium",
+    "startAt": 0
+  },
+  {
+    "id": "treasure-island-ar",
+    "title": "جزيرة الكنز",
+    "titleLatin": "Jazirat Al Kanz",
+    "artist": "طارق العربي طرقان",
+    "artistLatin": "Tarek Al Arabi Tourgane",
+    "year": 1991,
+    "difficulty": "hard",
+    "startAt": 0
+  },
+  {
+    "id": "spacetoon-theme",
+    "title": "سبيستون",
+    "titleLatin": "Spacetoon",
+    "artist": "رشا رزق",
+    "artistLatin": "Rasha Rizk",
+    "year": 2000,
+    "difficulty": "hard",
+    "startAt": 0
+  },
+  {
+    "id": "nils",
+    "title": "مغامرات نيلز",
+    "titleLatin": "Moghamarat Nils",
+    "artist": "طارق العربي طرقان",
+    "artistLatin": "Tarek Al Arabi Tourgane",
+    "year": 1989,
+    "difficulty": "hard",
+    "startAt": 0
+  },
+  {
+    "id": "mowgli",
+    "title": "فتى الأدغال ماوكلي",
+    "titleLatin": "Mowgli",
+    "artist": "طارق العربي طرقان",
+    "artistLatin": "Tarek Al Arabi Tourgane",
+    "year": 1990,
+    "difficulty": "hard",
+    "startAt": 0
+  },
+  {
+    "id": "robin-hood-ar",
+    "title": "روبن هود",
+    "titleLatin": "Robin Hood",
+    "artist": "طارق العربي طرقان",
+    "artistLatin": "Tarek Al Arabi Tourgane",
+    "year": 1992,
+    "difficulty": "hard",
+    "startAt": 0
+  },
+  {
+    "id": "ninja-hattori",
+    "title": "نينجا هاتوري",
+    "titleLatin": "Ninja Hattori",
+    "artist": "رشا رزق",
+    "artistLatin": "Rasha Rizk",
+    "year": 2003,
+    "difficulty": "hard",
+    "startAt": 0
+  },
+  {
+    "id": "babar",
+    "title": "بابار",
+    "titleLatin": "Babar",
+    "artist": "طارق العربي طرقان",
+    "artistLatin": "Tarek Al Arabi Tourgane",
+    "year": 1992,
+    "difficulty": "expert",
+    "startAt": 0
+  },
+  {
+    "id": "ninja-turtles-ar",
+    "title": "سلاحف النينجا",
+    "titleLatin": "Salahef Al Ninja",
+    "artist": "طارق العربي طرقان",
+    "artistLatin": "Tarek Al Arabi Tourgane",
+    "year": 1993,
+    "difficulty": "expert",
+    "startAt": 0
+  },
+  {
+    "id": "abtal-malaeb",
+    "title": "أبطال الملاعب",
+    "titleLatin": "Abtal Al Malaeb",
+    "artist": "طارق العربي طرقان",
+    "artistLatin": "Tarek Al Arabi Tourgane",
+    "year": 1995,
+    "difficulty": "expert",
+    "startAt": 0
+  },
+  {
+    "id": "white-lion",
+    "title": "الليث الأبيض",
+    "titleLatin": "Al Laith Al Abyad",
+    "artist": "طارق العربي طرقان",
+    "artistLatin": "Tarek Al Arabi Tourgane",
+    "year": 1991,
+    "difficulty": "expert",
+    "startAt": 0
+  },
+  {
+    "id": "sakura-ar",
+    "title": "ساكورا",
+    "titleLatin": "Sakura",
+    "artist": "رشا رزق",
+    "artistLatin": "Rasha Rizk",
+    "year": 2002,
+    "difficulty": "expert",
+    "startAt": 0
+  },
+  {
+    "id": "ahd-asdiqaa",
+    "title": "عهد الأصدقاء",
+    "titleLatin": "Ahd Al Asdiqaa",
+    "artist": "رشا رزق",
+    "artistLatin": "Rasha Rizk",
+    "year": 2001,
+    "difficulty": "impossible",
+    "startAt": 0
+  },
+  {
+    "id": "bassem",
+    "title": "باسم ونجوم",
+    "titleLatin": "Bassem",
+    "artist": "طارق العربي طرقان",
+    "artistLatin": "Tarek Al Arabi Tourgane",
+    "year": 1993,
+    "difficulty": "impossible",
+    "startAt": 0
+  },
+  {
+    "id": "kaedat-al-saff",
+    "title": "قائدة الصف",
+    "titleLatin": "Qaedat Al Saff",
+    "artist": "رشا رزق",
+    "artistLatin": "Rasha Rizk",
+    "year": 2001,
+    "difficulty": "impossible",
+    "startAt": 0
+  }
+]

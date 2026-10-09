@@ -63,6 +63,49 @@ body {
 
 /* The points fall 1200 → 300, so the colour cools with them. Red is not in
    this ramp: it means a wrong answer everywhere else in the game. */
+/* ---------- genre ---------- */
+
+.genres {
+  display: flex;
+  gap: 7px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 2px 0 0;
+}
+.genre {
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 7px 15px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--muted);
+}
+.genre-on {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #06210f;
+  font-weight: 700;
+}
+.home-empty {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  display: grid;
+  gap: 6px;
+}
+.home-empty p { margin: 0; }
+
+.genre-note {
+  margin: 7px 0 0;
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
 .clipbar {
   --v1: #2ee06a;
   --v2: #9ada42;

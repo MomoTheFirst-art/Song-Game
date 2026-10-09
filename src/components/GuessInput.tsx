@@ -17,6 +17,12 @@ interface Props {
   /** Wrong guesses still allowed. The cap is what ends a round now, so it is
       stated rather than left for the player to discover. */
   left: number
+  /**
+   * The script the catalogue's titles are written in. A Latin title typed into
+   * a right-to-left field has its punctuation thrown to the wrong end, and the
+   * suggestions under it read as gibberish.
+   */
+  dir?: 'rtl' | 'ltr'
 }
 
 export function GuessInput({
@@ -27,6 +33,7 @@ export function GuessInput({
   onSkip,
   skipLabel,
   left,
+  dir = 'rtl',
 }: Props) {
   const picking = Boolean(onGuessArtist)
   // Nothing is preselected when picking: choosing is the decision the mode is
@@ -94,7 +101,7 @@ export function GuessInput({
   }
 
   return (
-    <div className="guess" ref={boxRef}>
+    <div className="guess" ref={boxRef} dir={dir}>
       {picking && (
         <div className="targets" role="radiogroup" aria-label="ما الذي تخمّنه؟">
           <button

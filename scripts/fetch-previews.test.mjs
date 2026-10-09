@@ -574,3 +574,27 @@ test('Deezer is only asked for what iTunes did not find', async () => {
   )
   assert.deepEqual(asked, ['itunes'], 'a found clip must not cost a second lookup')
 })
+
+test('the artist floor is lowerable for repertoire with unreliable credits', () => {
+  // A Spacetoon opening is routinely credited to a studio or to nobody, so the
+  // floor that protects the song catalogue would reject the right recording.
+  const theme = {
+    id: 'sally', title: 'سالي', titleLatin: 'Sally',
+    artist: 'طارق العربي طرقان', artistLatin: 'Tarek Al Arabi Tourgane',
+    difficulty: 'easy', startAt: 0,
+  }
+  const candidates = [{ trackName: 'Sally', artistName: 'Spacetoon', previewUrl: 'https://x/s.m4a' }]
+
+  assert.equal(pickBest(theme, candidates).match, null, 'the default floor still refuses it')
+  assert.match(pickBest(theme, candidates).reason, /wrong artist/)
+
+  const loosened = pickBest(theme, candidates, DEFAULTS.minScore, new Set(), 0)
+  assert.ok(loosened.match, 'a lowered floor lets the review step decide instead')
+})
+
+test('lowering the artist floor does not lower the score threshold', () => {
+  const junk = [{ trackName: 'Nothing Alike', artistName: 'Nobody', previewUrl: 'https://x/j.m4a' }]
+  const { match, reason } = pickBest(song, junk, DEFAULTS.minScore, new Set(), 0)
+  assert.equal(match, null, 'a bad title is still a bad match whoever sang it')
+  assert.match(reason, /< 0.55/)
+})

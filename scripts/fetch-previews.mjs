@@ -30,11 +30,24 @@ const CATALOGUE = path.join(HERE, '..', 'src', 'data', 'songs.json')
 const ITUNES = 'https://itunes.apple.com/search'
 const DEEZER = 'https://api.deezer.com/search'
 
+/**
+ * Minimum artist resemblance for any match. Famous titles are re-recorded and
+ * re-used constantly — "ألف ليلة وليلة" alone names songs by several artists —
+ * and a perfect title carries 0.65 on its own, which clears the combined bar
+ * with a completely wrong performer. The artist has to be plausible too.
+ */
+export const MIN_ARTIST_SIMILARITY = 0.4
+
 export const DEFAULTS = {
   country: 'SA',      // Saudi store — good Arabic coverage; try EG, AE, LB
   delay: 3000,        // Apple asks for roughly 20 calls a minute
   limit: 10,
   minScore: 0.55,
+  // Lowerable per run: cartoon themes credit a studio, a channel or nobody,
+  // so the floor that protects the song catalogue rejects almost everything
+  // there. Lowering it leans harder on the review step, which is why it is a
+  // flag rather than a new default.
+  minArtist: MIN_ARTIST_SIMILARITY,
   only: null,
   force: false,
   dryRun: false,
@@ -92,14 +105,6 @@ export function similarity(a, b) {
 }
 
 /**
- * Minimum artist resemblance for any match. Famous titles are re-recorded and
- * re-used constantly — "ألف ليلة وليلة" alone names songs by several artists —
- * and a perfect title carries 0.65 on its own, which clears the combined bar
- * with a completely wrong performer. The artist has to be plausible too.
- */
-export const MIN_ARTIST_SIMILARITY = 0.4
-
-/**
  * Title carries more weight than artist: compilations and features mangle the
  * artist field far more often than they mangle the track name. Returns the
  * parts as well as the total so the artist floor can be applied separately.
@@ -117,7 +122,7 @@ export function scoreCandidate(song, candidate) {
   return { score: 0.65 * title + 0.35 * artist, title, artist }
 }
 
-export function pickBest(song, results, minScore = DEFAULTS.minScore, taken = new Set()) {
+export function pickBest(song, results, minScore = DEFAULTS.minScore, taken = new Set(), minArtist = MIN_ARTIST_SIMILARITY) {
   const ranked = (results || [])
     .map((c) => ({ candidate: c, ...scoreCandidate(song, c) }))
     .sort((a, b) => b.score - a.score)
@@ -133,7 +138,7 @@ export function pickBest(song, results, minScore = DEFAULTS.minScore, taken = ne
   const eligible = ranked.filter(
     (r) =>
       r.score >= minScore &&
-      r.artist >= MIN_ARTIST_SIMILARITY &&
+      r.artist >= minArtist &&
       !taken.has(r.candidate.previewUrl),
   )
   const top = eligible[0]
@@ -149,7 +154,7 @@ export function pickBest(song, results, minScore = DEFAULTS.minScore, taken = ne
   const overBar = ranked.filter((r) => r.score >= minScore)
   const reason = overBar.length === 0
     ? `best ${best.score.toFixed(2)} < ${minScore}`
-    : overBar.every((r) => r.artist < MIN_ARTIST_SIMILARITY)
+    : overBar.every((r) => r.artist < minArtist)
       ? `wrong artist (“${overBar[0].candidate.artistName}”, ${overBar[0].artist.toFixed(2)})`
       : `clip already taken by another song`
   return { match: null, score: best.score, reason, ranked }
@@ -263,7 +268,7 @@ export async function lookup(song, opts, fetchImpl = globalThis.fetch, taken = n
       return { match: null, score: 0, error: `${source.label}: ${err.message}` }
     }
 
-    const attempt = pickBest(song, candidates, opts.minScore, taken)
+    const attempt = pickBest(song, candidates, opts.minScore, taken, opts.minArtist ?? MIN_ARTIST_SIMILARITY)
     if (attempt.score > best.score) best = { ...attempt, term, source: sourceKey }
     if (attempt.match) return { ...attempt, term, source: sourceKey }
     if (opts.delay) await sleep(opts.delay)
@@ -282,6 +287,7 @@ export function parseArgs(argv) {
     else if (a === '--delay') opts.delay = Number(next())
     else if (a === '--limit') opts.limit = Number(next())
     else if (a === '--min-score') opts.minScore = Number(next())
+    else if (a === '--min-artist') opts.minArtist = Number(next())
     else if (a === '--only') opts.only = next()
     else if (a === '--source') {
       opts.sources = next().split(/[ ,]+/).filter(Boolean)
@@ -308,6 +314,8 @@ Fill in previewUrl for each song from the iTunes and Deezer search APIs.
   --delay MS       pause between requests (default ${DEFAULTS.delay}; Apple suggests ~20/min)
   --limit N        candidates to weigh per query (default ${DEFAULTS.limit})
   --min-score N    0..1 acceptance threshold (default ${DEFAULTS.minScore})
+  --min-artist N   0..1 artist floor (default ${DEFAULTS.minArtist}; lower it for
+                   cartoon themes, whose performer credits are unreliable)
   --only ID        look up a single song by its catalogue id
   --source LIST    where to look, in order (default "${DEFAULTS.sources.join(' ')}")
   --force          re-fetch songs that already have a previewUrl

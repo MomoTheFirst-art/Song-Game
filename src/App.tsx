@@ -7,7 +7,7 @@ import { Home } from './components/Home'
 import { Leaderboard } from './components/Leaderboard'
 import { PartyGame } from './PartyGame'
 import { maxPlayersFor } from './game/party'
-import catalogueData from './data/songs.json'
+
 import { ClipPlayer } from './components/ClipPlayer'
 import { DayComplete } from './components/DayComplete'
 import { GuessInput } from './components/GuessInput'
@@ -23,6 +23,8 @@ import {
   loadDaily, recentlyPlayed, rememberPlayed, saveRun as saveLocalRun,
 } from './game/storage'
 import { loadDecisions, playableSongs, verdictFor } from './game/review'
+import { GENRES, everySong, genreById, loadGenre, saveGenre } from './game/catalogues'
+import type { Genre, GenreId } from './game/catalogues'
 import { loadStarts, withStarts } from './game/starts'
 import { DIFFICULTY_LABEL } from './game/types'
 import { normalize } from './game/search'
@@ -32,19 +34,23 @@ import { useLoopPreference } from './hooks/useLoopPreference'
 import { usePlayer, type Player } from './hooks/usePlayer'
 import { recordRun } from './firebase/scores'
 
-const allSongs = catalogueData as Song[]
+
 /**
- * What the game may play: a clip, and not one a reviewer rejected. Once every
- * tier has an approved song, approvals alone decide.
+ * What a genre can actually be played with: a clip, not one a reviewer
+ * rejected, and the start point the reviewer chose.
+ *
+ * Built per genre rather than once at module load, because the player switches
+ * between them without reloading.
  */
-const catalogue = withStarts(playableSongs(allSongs, loadDecisions()), loadStarts())
-/**
- * A party deals only approved clips — a wrong one costs a player their turn,
- * not just a round. Guessing still searches the whole playable catalogue so
- * the answer does not stand out among the suggestions.
- */
-const localDecisions = loadDecisions()
-const partyPool = catalogue.filter((s) => verdictFor(s, localDecisions) === 'approved')
+function buildCatalogue(genre: Genre) {
+  const decisions = loadDecisions()
+  const catalogue = withStarts(playableSongs(genre.all, decisions), loadStarts())
+  // A party deals only approved clips — a wrong one costs a player their turn,
+  // not just a round. Guessing still searches the whole playable catalogue so
+  // the answer does not stand out among the suggestions.
+  const partyPool = catalogue.filter((s) => verdictFor(s, decisions) === 'approved')
+  return { catalogue, partyPool }
+}
 
 function newRound(song: Song): RoundState {
   return { song, stage: 0, attempts: [], status: 'playing' }
@@ -54,10 +60,14 @@ function Game({
   onHome,
   player,
   startMode = 'daily',
+  catalogue,
+  genre,
 }: {
   onHome: () => void
   player: Player | null
   startMode?: Mode
+  catalogue: Song[]
+  genre: Genre
 }) {
   const dateKey = useMemo(() => todayKey(), [])
   const [mode, setMode] = useState<Mode>(startMode)
@@ -241,6 +251,7 @@ function Game({
       {phase === 'playing' ? (
         <GuessInput
           catalogue={catalogue}
+          dir={genre.dir}
           disabled={false}
           onGuess={onGuess}
           onGuessArtist={mode === 'pick' ? onGuessArtist : undefined}
@@ -256,27 +267,6 @@ function Game({
 }
 
 
-/**
- * The catalogue ships without previews — they are fetched, not committed — so
- * say what to run rather than starting a game with nothing to play.
- */
-function NoPreviews() {
-  return (
-    <main className="app">
-      <section className="complete">
-        <h2>لا توجد مقاطع بعد</h2>
-        <p className="complete-note">
-          الكتالوج يحتوي على {allSongs.length} أغنية بدون روابط تشغيل. شغّل هذا الأمر
-          لجلبها من آبل:
-        </p>
-        <pre className="cmd">npm run previews</pre>
-        <p className="complete-note">
-          ثم أعد تشغيل الخادم. راجع README للخيارات.
-        </p>
-      </section>
-    </main>
-  )
-}
 
 type Screen = 'home' | 'solo' | 'challenge' | 'pick' | 'party' | 'account' | 'board'
 
@@ -285,6 +275,9 @@ export default function App() {
   // verdict. Kept off the player-facing UI, reachable by link.
   const [hash, setHash] = useState(() => window.location.hash)
   const [screen, setScreen] = useState<Screen>('home')
+  const [genreId, setGenreId] = useState<GenreId>(loadGenre)
+  const genre = genreById(genreId)
+  const { catalogue, partyPool } = useMemo(() => buildCatalogue(genre), [genre])
   const { player, ready: playerReady, join, rename, leave } = usePlayer()
 
   useEffect(() => {
@@ -296,11 +289,10 @@ export default function App() {
   // Left outside the gate on purpose: it is the owner's review console,
   // already reachable only by knowing the URL, and gating it would mean a
   // broken auth provider locks the catalogue out of review too.
-  if (hash === '#admin' || hash === '#review') return <Admin songs={allSongs} />
+  if (hash === '#admin' || hash === '#review') return <Admin songs={everySong} />
   // #audio reports what the audio stack does on the device in hand — the only
   // way to diagnose an iOS failure from a machine that has no iOS.
   if (hash === '#audio') return <AudioCheck songs={catalogue} />
-  if (catalogue.length === 0) return <NoPreviews />
 
   return (
     <AuthGate
@@ -315,11 +307,10 @@ export default function App() {
   )
 
   function renderScreen() {
-  if (screen === 'solo') return <Game onHome={() => setScreen('home')} player={player} />
-  if (screen === 'challenge') {
-    return <Game onHome={() => setScreen('home')} player={player} startMode="challenge" />
-  }
-  if (screen === 'pick') return <Game onHome={() => setScreen('home')} player={player} startMode="pick" />
+  const game = { onHome: () => setScreen('home'), player, catalogue, genre }
+  if (screen === 'solo') return <Game {...game} />
+  if (screen === 'challenge') return <Game {...game} startMode="challenge" />
+  if (screen === 'pick') return <Game {...game} startMode="pick" />
   if (screen === 'account') {
     return (
       <main className="app">
@@ -352,7 +343,14 @@ export default function App() {
 
   return (
     <Home
+      genres={GENRES}
+      genreId={genreId}
+      onGenre={(id: GenreId) => {
+        setGenreId(id)
+        saveGenre(id)
+      }}
       playableCount={catalogue.length}
+      genreTotal={genre.all.length}
       partyCapacity={maxPlayersFor(partyPool)}
       onSolo={() => setScreen('solo')}
       onChallenge={() => setScreen('challenge')}
