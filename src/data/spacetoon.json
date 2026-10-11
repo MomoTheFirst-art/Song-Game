@@ -1,302 +1,2282 @@
 [
   {
-    "id": "adnan-lina",
-    "title": "عدنان ولينا",
-    "titleLatin": "Adnan wa Lina",
-    "artist": "عدنان ولينا",
-    "artistLatin": "Adnan wa Lina",
-    "year": 1990,
+    "id": "dz-1874460971",
+    "title": "هزيم الرعد",
+    "titleLatin": "هزيم الرعد",
+    "artist": "هزيم الرعد",
+    "artistLatin": "هزيم الرعد",
+    "year": 2021,
     "difficulty": "easy",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/db/13/9e/db139e5c-fb43-8f86-f1a0-797944d345eb/mzaf_11688051903738530473.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "هزيم الرعد",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
     "startAt": 0
   },
   {
-    "id": "captain-majed",
-    "title": "كابتن ماجد",
-    "titleLatin": "Captain Majed",
-    "artist": "كابتن ماجد",
-    "artistLatin": "Captain Majed",
-    "year": 1994,
-    "difficulty": "easy",
-    "startAt": 0
-  },
-  {
-    "id": "sanafer",
-    "title": "السنافر",
-    "titleLatin": "Al Sanafer",
-    "artist": "السنافر",
-    "artistLatin": "Al Sanafer",
-    "year": 1992,
-    "difficulty": "easy",
-    "startAt": 0
-  },
-  {
-    "id": "sally",
-    "title": "سالي",
-    "titleLatin": "Sally",
-    "artist": "سالي",
-    "artistLatin": "Sally",
-    "year": 1991,
-    "difficulty": "easy",
-    "startAt": 0
-  },
-  {
-    "id": "grendizer",
-    "title": "جريندايزر",
-    "titleLatin": "Grendizer",
-    "artist": "جريندايزر",
-    "artistLatin": "Grendizer",
-    "year": 1979,
-    "difficulty": "easy",
-    "startAt": 0
-  },
-  {
-    "id": "detective-conan",
-    "title": "المحقق كونان",
-    "titleLatin": "Al Mohaqqeq Conan",
-    "artist": "المحقق كونان",
-    "artistLatin": "Al Mohaqqeq Conan",
-    "year": 2000,
-    "difficulty": "easy",
-    "startAt": 0
-  },
-  {
-    "id": "sandy-bell",
-    "title": "ساندي بيل",
-    "titleLatin": "Sandy Bell",
-    "artist": "ساندي بيل",
-    "artistLatin": "Sandy Bell",
-    "year": 1990,
-    "difficulty": "easy",
-    "startAt": 0
-  },
-  {
-    "id": "pokemon-ar",
-    "title": "بوكيمون",
-    "titleLatin": "Pokemon",
-    "artist": "بوكيمون",
-    "artistLatin": "Pokemon",
-    "year": 2000,
-    "difficulty": "easy",
-    "startAt": 0
-  },
-  {
-    "id": "heidi",
-    "title": "هايدي",
-    "titleLatin": "Heidi",
-    "artist": "هايدي",
-    "artistLatin": "Heidi",
-    "year": 1988,
-    "difficulty": "medium",
-    "startAt": 0
-  },
-  {
-    "id": "remi",
-    "title": "ريمي",
-    "titleLatin": "Remi",
-    "artist": "ريمي",
-    "artistLatin": "Remi",
-    "year": 1988,
-    "difficulty": "medium",
-    "startAt": 0
-  },
-  {
-    "id": "digimon-ar",
-    "title": "أبطال الديجيتال",
-    "titleLatin": "Abtal Al Digital",
-    "artist": "أبطال الديجيتال",
-    "artistLatin": "Abtal Al Digital",
-    "year": 2001,
-    "difficulty": "medium",
-    "startAt": 0
-  },
-  {
-    "id": "sindibad",
-    "title": "مغامرات سندباد",
-    "titleLatin": "Moghamarat Sindibad",
-    "artist": "مغامرات سندباد",
-    "artistLatin": "Moghamarat Sindibad",
-    "year": 1992,
-    "difficulty": "medium",
-    "startAt": 0
-  },
-  {
-    "id": "zeina-nahoul",
-    "title": "زينة ونحول",
-    "titleLatin": "Zeina wa Nahoul",
-    "artist": "زينة ونحول",
-    "artistLatin": "Zeina wa Nahoul",
-    "year": 1990,
-    "difficulty": "medium",
-    "startAt": 0
-  },
-  {
-    "id": "lady-oscar",
-    "title": "ليدي أوسكار",
-    "titleLatin": "Lady Oscar",
-    "artist": "ليدي أوسكار",
-    "artistLatin": "Lady Oscar",
-    "year": 1995,
-    "difficulty": "medium",
-    "startAt": 0
-  },
-  {
-    "id": "flona",
-    "title": "فلونة",
-    "titleLatin": "Flona",
-    "artist": "فلونة",
-    "artistLatin": "Flona",
-    "year": 1991,
-    "difficulty": "medium",
-    "startAt": 0
-  },
-  {
-    "id": "tom-sawyer-ar",
-    "title": "توم سوير",
-    "titleLatin": "Tom Sawyer",
-    "artist": "توم سوير",
-    "artistLatin": "Tom Sawyer",
-    "year": 1990,
-    "difficulty": "medium",
-    "startAt": 0
-  },
-  {
-    "id": "treasure-island-ar",
-    "title": "جزيرة الكنز",
-    "titleLatin": "Jazirat Al Kanz",
-    "artist": "جزيرة الكنز",
-    "artistLatin": "Jazirat Al Kanz",
-    "year": 1991,
-    "difficulty": "hard",
-    "startAt": 0
-  },
-  {
-    "id": "spacetoon-theme",
-    "title": "سبيستون",
-    "titleLatin": "Spacetoon",
-    "artist": "سبيستون",
-    "artistLatin": "Spacetoon",
-    "year": 2000,
-    "difficulty": "hard",
-    "startAt": 0
-  },
-  {
-    "id": "nils",
-    "title": "مغامرات نيلز",
-    "titleLatin": "Moghamarat Nils",
-    "artist": "مغامرات نيلز",
-    "artistLatin": "Moghamarat Nils",
-    "year": 1989,
-    "difficulty": "hard",
-    "startAt": 0
-  },
-  {
-    "id": "mowgli",
-    "title": "فتى الأدغال ماوكلي",
-    "titleLatin": "Mowgli",
-    "artist": "فتى الأدغال ماوكلي",
-    "artistLatin": "Mowgli",
-    "year": 1990,
-    "difficulty": "hard",
-    "startAt": 0
-  },
-  {
-    "id": "robin-hood-ar",
-    "title": "روبن هود",
-    "titleLatin": "Robin Hood",
-    "artist": "روبن هود",
-    "artistLatin": "Robin Hood",
-    "year": 1992,
-    "difficulty": "hard",
-    "startAt": 0
-  },
-  {
-    "id": "ninja-hattori",
-    "title": "نينجا هاتوري",
-    "titleLatin": "Ninja Hattori",
-    "artist": "نينجا هاتوري",
-    "artistLatin": "Ninja Hattori",
-    "year": 2003,
-    "difficulty": "hard",
-    "startAt": 0
-  },
-  {
-    "id": "babar",
-    "title": "بابار",
-    "titleLatin": "Babar",
-    "artist": "بابار",
-    "artistLatin": "Babar",
-    "year": 1992,
-    "difficulty": "expert",
-    "startAt": 0
-  },
-  {
-    "id": "ninja-turtles-ar",
-    "title": "سلاحف النينجا",
-    "titleLatin": "Salahef Al Ninja",
-    "artist": "سلاحف النينجا",
-    "artistLatin": "Salahef Al Ninja",
-    "year": 1993,
-    "difficulty": "expert",
-    "startAt": 0
-  },
-  {
-    "id": "abtal-malaeb",
-    "title": "أبطال الملاعب",
-    "titleLatin": "Abtal Al Malaeb",
-    "artist": "أبطال الملاعب",
-    "artistLatin": "Abtal Al Malaeb",
-    "year": 1995,
-    "difficulty": "expert",
-    "startAt": 0
-  },
-  {
-    "id": "white-lion",
-    "title": "الليث الأبيض",
-    "titleLatin": "Al Laith Al Abyad",
-    "artist": "الليث الأبيض",
-    "artistLatin": "Al Laith Al Abyad",
-    "year": 1991,
-    "difficulty": "expert",
-    "startAt": 0
-  },
-  {
-    "id": "sakura-ar",
-    "title": "ساكورا",
-    "titleLatin": "Sakura",
-    "artist": "ساكورا",
-    "artistLatin": "Sakura",
-    "year": 2002,
-    "difficulty": "expert",
-    "startAt": 0
-  },
-  {
-    "id": "ahd-asdiqaa",
+    "id": "dz-1874462099",
     "title": "عهد الأصدقاء",
-    "titleLatin": "Ahd Al Asdiqaa",
+    "titleLatin": "عهد الأصدقاء",
     "artist": "عهد الأصدقاء",
-    "artistLatin": "Ahd Al Asdiqaa",
-    "year": 2001,
-    "difficulty": "impossible",
+    "artistLatin": "عهد الأصدقاء",
+    "year": 2022,
+    "difficulty": "easy",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/0f/aa/9d/0faa9dc6-167a-f77f-2f6a-5038fb425369/mzaf_8853743872467954455.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "عهد الأصدقاء",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
     "startAt": 0
   },
   {
-    "id": "bassem",
-    "title": "باسم ونجوم",
-    "titleLatin": "Bassem",
-    "artist": "باسم ونجوم",
-    "artistLatin": "Bassem",
-    "year": 1993,
-    "difficulty": "impossible",
+    "id": "dz-1874463150",
+    "title": "باتمان",
+    "titleLatin": "باتمان",
+    "artist": "باتمان",
+    "artistLatin": "باتمان",
+    "year": 2022,
+    "difficulty": "easy",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/14/61/42/146142d7-ebe4-8b5d-a260-5e46511348c3/mzaf_15926545534451862503.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "باتمان",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
     "startAt": 0
   },
   {
-    "id": "kaedat-al-saff",
-    "title": "قائدة الصف",
-    "titleLatin": "Qaedat Al Saff",
-    "artist": "قائدة الصف",
-    "artistLatin": "Qaedat Al Saff",
-    "year": 2001,
+    "id": "dz-1874455095",
+    "title": "هي زهرة في غرفتي",
+    "titleLatin": "هي زهرة في غرفتي",
+    "artist": "هي زهرة في غرفتي",
+    "artistLatin": "هي زهرة في غرفتي",
+    "year": 2022,
+    "difficulty": "easy",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/05/d9/9c/05d99cd2-8731-3e33-33d3-d55c75a6b0c9/mzaf_13945000400837738808.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/cd/0e/32/cd0e3280-8833-5485-fad8-7830de8c3523/6678990038019.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "هي زهرة في غرفتي",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "فلة - EP",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874461612",
+    "title": "كابتن باور",
+    "titleLatin": "كابتن باور",
+    "artist": "كابتن باور",
+    "artistLatin": "كابتن باور",
+    "year": 2022,
+    "difficulty": "easy",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/82/f2/cf/82f2cf3d-b256-6e9f-a1cb-ab2da48789a8/mzaf_15453058310664516460.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "كابتن باور",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874464015",
+    "title": "بيدا مان",
+    "titleLatin": "بيدا مان",
+    "artist": "بيدا مان",
+    "artistLatin": "بيدا مان",
+    "year": 2022,
+    "difficulty": "easy",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/d4/e4/24/d4e424ec-e156-87ee-a8f2-b7cc86dd48c0/mzaf_14276765740120543337.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "بيدا مان",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1875335143",
+    "title": "دراغون بوستر",
+    "titleLatin": "دراغون بوستر",
+    "artist": "دراغون بوستر",
+    "artistLatin": "دراغون بوستر",
+    "year": 2021,
+    "difficulty": "easy",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/c2/0a/19/c20a19a3-a600-24a1-1d08-fdfc40acdec3/mzaf_15623044106352502479.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/94/c2/27/94c22747-cd45-66e1-35bc-8ca4bc41e321/6678990023879.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "دراغون بوستر",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "دراغون بوستر - Single",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874462815",
+    "title": "دمتم سالمين",
+    "titleLatin": "دمتم سالمين",
+    "artist": "دمتم سالمين",
+    "artistLatin": "دمتم سالمين",
+    "year": 2021,
+    "difficulty": "easy",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/ad/cc/2f/adcc2fdc-7f45-4616-f8f3-3478794ccd93/mzaf_16449671694817239240.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "دمتم سالمين",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1875338822",
+    "title": "دبدوب المحبوب",
+    "titleLatin": "دبدوب المحبوب",
+    "artist": "دبدوب المحبوب",
+    "artistLatin": "دبدوب المحبوب",
+    "year": 2015,
+    "difficulty": "easy",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/22/a7/be/22a7bed2-927e-2b2d-db96-ff771c8f0038/mzaf_10732609655678774336.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/9a/3b/d3/9a3bd385-bd4f-7c95-4a60-5ce879a1d00a/6678990023886.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "دبدوب المحبوب",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "دبدوب المحبوب - Single",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874462666",
+    "title": "ستريت فايترز",
+    "titleLatin": "ستريت فايترز",
+    "artist": "ستريت فايترز",
+    "artistLatin": "ستريت فايترز",
+    "year": 2022,
+    "difficulty": "easy",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/ba/8b/8e/ba8b8e06-984a-a5cb-101a-2631e3dd2e62/mzaf_12523213322904002938.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "ستريت فايترز",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874464009",
+    "title": "نمور",
+    "titleLatin": "نمور",
+    "artist": "نمور",
+    "artistLatin": "نمور",
+    "year": 2022,
+    "difficulty": "easy",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/6d/66/02/6d6602a3-792f-8039-5f6b-548fb778c264/mzaf_18007095773928755823.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "نمور",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874463135",
+    "title": "حكايات ما أحلاها",
+    "titleLatin": "حكايات ما أحلاها",
+    "artist": "حكايات ما أحلاها",
+    "artistLatin": "حكايات ما أحلاها",
+    "year": 2007,
+    "difficulty": "easy",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/10/40/2e/10402e4a-f250-9ce4-b29a-1f955120cbf6/mzaf_14814888972910532152.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "حكايات ما أحلاها",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874463815",
+    "title": "إيميلي",
+    "titleLatin": "إيميلي",
+    "artist": "إيميلي",
+    "artistLatin": "إيميلي",
+    "year": 2017,
+    "difficulty": "easy",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/5f/29/f8/5f29f844-7103-48d6-c2d1-d93e9b425f82/mzaf_17296117123877767063.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "إيميلي",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874455630",
+    "title": "أمي كم أهواها",
+    "titleLatin": "أمي كم أهواها",
+    "artist": "أمي كم أهواها",
+    "artistLatin": "أمي كم أهواها",
+    "year": 2018,
+    "difficulty": "easy",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/92/2f/48/922f48ec-5cba-00be-ceb5-419fdd1f750d/mzaf_16987810472763074773.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/ea/27/a1/ea27a141-ba11-3b56-f0e7-e2b4ebb5780e/6678990037326.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "أمي كم أهواها",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "الأم - EP",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874462380",
+    "title": "صقور الارض",
+    "titleLatin": "صقور الارض",
+    "artist": "صقور الارض",
+    "artistLatin": "صقور الارض",
+    "year": 2022,
+    "difficulty": "easy",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/78/32/d4/7832d4a4-c004-4afb-1bbb-3cd98a284c26/mzaf_12099379828384534416.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "صقور الارض",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "feat",
+    "title": "سنوبي (feat. شبل شريف)",
+    "titleLatin": "سنوبي (feat. شبل شريف)",
+    "artist": "سنوبي (feat. شبل شريف)",
+    "artistLatin": "سنوبي (feat. شبل شريف)",
+    "year": 2017,
+    "difficulty": "easy",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/49/e7/aa/49e7aa31-ba1c-4f14-4f93-89b9c49a0ee5/mzaf_15337068936302383189.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "سنوبي (feat. شبل شريف)",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874461613",
+    "title": "كأس نيدو",
+    "titleLatin": "كأس نيدو",
+    "artist": "كأس نيدو",
+    "artistLatin": "كأس نيدو",
+    "year": 2022,
+    "difficulty": "easy",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/6e/fd/fa/6efdfac4-6812-831e-3ae6-00ffd3bbfeb4/mzaf_871688614021685536.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "كأس نيدو",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874455329",
+    "title": "يا عالم أسراري",
+    "titleLatin": "يا عالم أسراري",
+    "artist": "يا عالم أسراري",
+    "artistLatin": "يا عالم أسراري",
+    "year": 2022,
+    "difficulty": "easy",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/0b/c7/71/0bc771e0-596e-9d4c-3f0a-2f5ff359f9fa/mzaf_9051853906073985256.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a3/56/e0/a356e069-866f-1634-2e91-26a9c2520a72/6678990042283.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "يا عالم أسراري",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "يا رب",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874455895",
+    "title": "حروف العطف",
+    "titleLatin": "حروف العطف",
+    "artist": "حروف العطف",
+    "artistLatin": "حروف العطف",
+    "year": 2022,
+    "difficulty": "easy",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/e6/d7/d5/e6d7d5d9-2c48-ca31-4e44-6dc228d96160/mzaf_548785903587260250.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/36/ec/b1/36ecb1ac-65be-495e-7cc7-f3a9bab2bf90/6678990037999.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "حروف العطف",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "اللغة العربية",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874463545",
+    "title": "بابار فيل",
+    "titleLatin": "بابار فيل",
+    "artist": "بابار فيل",
+    "artistLatin": "بابار فيل",
+    "year": 2021,
+    "difficulty": "easy",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/b2/a4/6e/b2a46e35-9883-fd80-3a2a-07abf4e4126c/mzaf_8465474906593314585.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "بابار فيل",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874463574",
+    "title": "الرمية الملتهبة",
+    "titleLatin": "الرمية الملتهبة",
+    "artist": "الرمية الملتهبة",
+    "artistLatin": "الرمية الملتهبة",
+    "year": 2022,
+    "difficulty": "easy",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/34/7f/29/347f29c8-394e-5e32-dd75-aa6e15c78fd1/mzaf_12180395140105285289.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "الرمية الملتهبة",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1875338016",
+    "title": "القط مرجان",
+    "titleLatin": "القط مرجان",
+    "artist": "القط مرجان",
+    "artistLatin": "القط مرجان",
+    "year": 2021,
+    "difficulty": "easy",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/55/72/b8/5572b8d1-0445-f36a-b20d-e83a5ca1c75f/mzaf_5006183682740989877.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/5e/75/27/5e7527fa-f5ce-2ce8-9c40-949eb85ae6a5/6678990024432.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "القط مرجان",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "القط مرجان - Single",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874462381",
+    "title": "سيمبا",
+    "titleLatin": "سيمبا",
+    "artist": "سيمبا",
+    "artistLatin": "سيمبا",
+    "year": 2022,
+    "difficulty": "easy",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/4c/ae/2d/4cae2d30-c232-da39-8da7-9beb7ea4fa09/mzaf_17483644354045436626.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "سيمبا",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874462812",
+    "title": "رامي الصياد الصغير",
+    "titleLatin": "رامي الصياد الصغير",
+    "artist": "رامي الصياد الصغير",
+    "artistLatin": "رامي الصياد الصغير",
+    "year": 2021,
+    "difficulty": "easy",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/6e/b9/c3/6eb9c3ab-54e6-7873-51de-a165174f7954/mzaf_2438430450435627733.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "رامي الصياد الصغير",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874456155",
+    "title": "ضمائر الرفع",
+    "titleLatin": "ضمائر الرفع",
+    "artist": "ضمائر الرفع",
+    "artistLatin": "ضمائر الرفع",
+    "year": 2022,
+    "difficulty": "easy",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/15/0e/3f/150e3f9b-d589-346c-7e82-694dd3729734/mzaf_1249819303324327676.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/36/ec/b1/36ecb1ac-65be-495e-7cc7-f3a9bab2bf90/6678990037999.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "ضمائر الرفع",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "اللغة العربية",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874454063",
+    "title": "كوكب تاريخ",
+    "titleLatin": "كوكب تاريخ",
+    "artist": "كوكب تاريخ",
+    "artistLatin": "كوكب تاريخ",
+    "year": 2022,
+    "difficulty": "easy",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/99/9b/3d/999b3d19-01bd-050f-dd72-4bb91166e956/mzaf_791858185327430318.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a3/b5/3c/a3b53c07-befa-ebe7-845f-7c5894fe66d6/6678990036862.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "كوكب تاريخ",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "الكواكب - EP",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874455887",
+    "title": "أزمنة الأفعال",
+    "titleLatin": "أزمنة الأفعال",
+    "artist": "أزمنة الأفعال",
+    "artistLatin": "أزمنة الأفعال",
+    "year": 2022,
+    "difficulty": "medium",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/67/af/82/67af8266-8aa9-b226-6c6d-4c23ae729648/mzaf_11753969140652836061.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/36/ec/b1/36ecb1ac-65be-495e-7cc7-f3a9bab2bf90/6678990037999.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "أزمنة الأفعال",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "اللغة العربية",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874455628",
+    "title": "الأم أمان",
+    "titleLatin": "الأم أمان",
+    "artist": "الأم أمان",
+    "artistLatin": "الأم أمان",
+    "year": 2022,
+    "difficulty": "medium",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/96/76/38/96763836-9f8e-b3fc-7c26-fef9d0526942/mzaf_5909034171068744789.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/ea/27/a1/ea27a141-ba11-3b56-f0e7-e2b4ebb5780e/6678990037326.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "الأم أمان",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "الأم - EP",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874455328",
+    "title": "رحمن",
+    "titleLatin": "رحمن",
+    "artist": "رحمن",
+    "artistLatin": "رحمن",
+    "year": 2022,
+    "difficulty": "medium",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/53/76/b0/5376b00a-39e2-ba4b-99d6-e96a9e3a6ae2/mzaf_5425011541476999205.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a3/56/e0/a356e069-866f-1634-2e91-26a9c2520a72/6678990042283.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "رحمن",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "يا رب",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874464018",
+    "title": "اودين",
+    "titleLatin": "اودين",
+    "artist": "اودين",
+    "artistLatin": "اودين",
+    "year": 2022,
+    "difficulty": "medium",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/8b/f5/09/8bf50961-746a-464a-441c-7a2ea659f7db/mzaf_10371869274001611005.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "اودين",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874463841",
+    "title": "أسرار المحيط",
+    "titleLatin": "أسرار المحيط",
+    "artist": "أسرار المحيط",
+    "artistLatin": "أسرار المحيط",
+    "year": 2017,
+    "difficulty": "medium",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/3e/d2/6a/3ed26ac1-37c1-5e4d-2a4e-1bbdca254bf0/mzaf_414634258941023088.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "أسرار المحيط",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874460964",
+    "title": "ياسمين",
+    "titleLatin": "ياسمين",
+    "artist": "ياسمين",
+    "artistLatin": "ياسمين",
+    "year": 2022,
+    "difficulty": "medium",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/5e/ba/58/5eba5894-e1f6-6270-ca31-884df145ad54/mzaf_4635592154608172080.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "ياسمين",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874461929",
+    "title": "فوفر",
+    "titleLatin": "فوفر",
+    "artist": "فوفر",
+    "artistLatin": "فوفر",
+    "year": 2022,
+    "difficulty": "medium",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/0d/4a/d1/0d4ad1ed-f811-bdef-e8c6-4bba764ce1c7/mzaf_14569961126600917601.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "فوفر",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874463143",
+    "title": "تاما",
+    "titleLatin": "تاما",
+    "artist": "تاما",
+    "artistLatin": "تاما",
+    "year": 2022,
+    "difficulty": "medium",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/14/3d/da/143dda11-9e93-ff59-0a0b-b280250e0894/mzaf_492343978985911893.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "تاما",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874462090",
+    "title": "فلة و الأقزام السبعة",
+    "titleLatin": "فلة و الأقزام السبعة",
+    "artist": "فلة و الأقزام السبعة",
+    "artistLatin": "فلة و الأقزام السبعة",
+    "year": 2022,
+    "difficulty": "medium",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/d7/ed/8d/d7ed8de4-b476-799f-7ca9-9243895b99b2/mzaf_8596070177644388468.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "فلة و الأقزام السبعة",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874464012",
+    "title": "كابتن فارس",
+    "titleLatin": "كابتن فارس",
+    "artist": "كابتن فارس",
+    "artistLatin": "كابتن فارس",
+    "year": 2022,
+    "difficulty": "medium",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/b6/ee/a2/b6eea241-3ab4-09e5-571a-d02c0ad4f802/mzaf_14238853085105850462.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "كابتن فارس",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1875336920",
+    "title": "كونان",
+    "titleLatin": "كونان",
+    "artist": "كونان",
+    "artistLatin": "كونان",
+    "year": 2021,
+    "difficulty": "medium",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/49/22/16/492216f7-3290-65e8-e8f4-1c06edd44a08/mzaf_3075838705629065296.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/67/45/2f/67452f36-7c2a-4e8a-118c-d9242ed59138/6678990024579.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "كونان",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "كونان - Single",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874462382",
+    "title": "سيمبا - طارق",
+    "titleLatin": "سيمبا - طارق",
+    "artist": "سيمبا - طارق",
+    "artistLatin": "سيمبا - طارق",
+    "year": 2022,
+    "difficulty": "medium",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/92/d0/f9/92d0f995-ca67-45ad-2a8a-a65544e6eb5f/mzaf_1907314294710359042.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "سيمبا - طارق",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874463996",
+    "title": "أراغاي",
+    "titleLatin": "أراغاي",
+    "artist": "أراغاي",
+    "artistLatin": "أراغاي",
+    "year": 2015,
+    "difficulty": "medium",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/51/fc/8b/51fc8be5-d112-f52e-ab19-a01b0c80df16/mzaf_11587778392311128503.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "أراغاي",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874461925",
+    "title": "في جعبتي حكايا",
+    "titleLatin": "في جعبتي حكايا",
+    "artist": "في جعبتي حكايا",
+    "artistLatin": "في جعبتي حكايا",
+    "year": 2022,
+    "difficulty": "medium",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/26/4a/6d/264a6da8-18f9-f956-b002-9e03d5aa9949/mzaf_12842878926459175293.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "في جعبتي حكايا",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874462299",
+    "title": "عائدون",
+    "titleLatin": "عائدون",
+    "artist": "عائدون",
+    "artistLatin": "عائدون",
+    "year": 2022,
+    "difficulty": "medium",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/64/a0/47/64a047b1-91f2-ce2f-6945-0e1c6ae89f26/mzaf_9472879579465050370.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "عائدون",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874461210",
+    "title": "مدينة النخيل",
+    "titleLatin": "مدينة النخيل",
+    "artist": "مدينة النخيل",
+    "artistLatin": "مدينة النخيل",
+    "year": 2022,
+    "difficulty": "medium",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/4c/27/e7/4c27e732-b569-3231-3b5b-c603a271d368/mzaf_5587754908709566963.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "مدينة النخيل",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874455091",
+    "title": "إلى أمي إذا ابتسمت",
+    "titleLatin": "إلى أمي إذا ابتسمت",
+    "artist": "إلى أمي إذا ابتسمت",
+    "artistLatin": "إلى أمي إذا ابتسمت",
+    "year": 2022,
+    "difficulty": "medium",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/92/41/33/924133c4-557d-9ffb-97d5-ac3fb97bb9fd/mzaf_10507220628420246412.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/cd/0e/32/cd0e3280-8833-5485-fad8-7830de8c3523/6678990038019.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "إلى أمي إذا ابتسمت",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "فلة - EP",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874463997",
+    "title": "أبناء توم وجيري",
+    "titleLatin": "أبناء توم وجيري",
+    "artist": "أبناء توم وجيري",
+    "artistLatin": "أبناء توم وجيري",
+    "year": 2021,
+    "difficulty": "medium",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/a5/c3/4a/a5c34a79-0e4a-2052-d6b2-c6e172a391b3/mzaf_17908197783850354766.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "أبناء توم وجيري",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874455629",
+    "title": "أنتِ الأمان",
+    "titleLatin": "أنتِ الأمان",
+    "artist": "أنتِ الأمان",
+    "artistLatin": "أنتِ الأمان",
+    "year": 2022,
+    "difficulty": "medium",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/e0/1e/78/e01e78af-2716-6dbe-3438-ea80d8c569a3/mzaf_2820923293286544371.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/ea/27/a1/ea27a141-ba11-3b56-f0e7-e2b4ebb5780e/6678990037326.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "أنتِ الأمان",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "الأم - EP",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "1",
+    "title": "كونان الجزء الخامس 1",
+    "titleLatin": "كونان الجزء الخامس 1",
+    "artist": "كونان الجزء الخامس 1",
+    "artistLatin": "كونان الجزء الخامس 1",
+    "year": 2022,
+    "difficulty": "medium",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/37/a0/a9/37a0a9e7-4f2b-c681-fbe1-8f42a1f401a3/mzaf_14201155749047731638.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "كونان الجزء الخامس 1",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874461602",
+    "title": "كابتن ثابت",
+    "titleLatin": "كابتن ثابت",
+    "artist": "كابتن ثابت",
+    "artistLatin": "كابتن ثابت",
+    "year": 2021,
+    "difficulty": "medium",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/6b/c2/65/6bc265fe-7ab4-e357-bf9c-6f8f93ac49f6/mzaf_3078279691925969411.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "كابتن ثابت",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874455907",
+    "title": "الماضي المبني للمجهول",
+    "titleLatin": "الماضي المبني للمجهول",
+    "artist": "الماضي المبني للمجهول",
+    "artistLatin": "الماضي المبني للمجهول",
+    "year": 2022,
+    "difficulty": "medium",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/60/9f/44/609f44cf-ec3f-43e4-10b7-fd6f3c706f96/mzaf_5815660651257455302.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/36/ec/b1/36ecb1ac-65be-495e-7cc7-f3a9bab2bf90/6678990037999.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "الماضي المبني للمجهول",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "اللغة العربية",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874463142",
+    "title": "جحا والحمار",
+    "titleLatin": "جحا والحمار",
+    "artist": "جحا والحمار",
+    "artistLatin": "جحا والحمار",
+    "year": 2022,
+    "difficulty": "medium",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/69/3f/db/693fdb2c-26b0-94ad-3572-b356d48ba46d/mzaf_14314250745045629261.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "جحا والحمار",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874463149",
+    "title": "باص المدرسة",
+    "titleLatin": "باص المدرسة",
+    "artist": "باص المدرسة",
+    "artistLatin": "باص المدرسة",
+    "year": 2022,
+    "difficulty": "medium",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/06/46/34/06463456-e074-8aea-ae5d-b5cd7dd1e943/mzaf_17519786520793814971.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "باص المدرسة",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874462659",
+    "title": "سندباد",
+    "titleLatin": "سندباد",
+    "artist": "سندباد",
+    "artistLatin": "سندباد",
+    "year": 2022,
+    "difficulty": "medium",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/af/7e/0c/af7e0c9c-e81e-26e8-5e1e-8feb14162c03/mzaf_13670569576106858634.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "سندباد",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874461953",
+    "title": "فهيم",
+    "titleLatin": "فهيم",
+    "artist": "فهيم",
+    "artistLatin": "فهيم",
+    "year": 2021,
+    "difficulty": "medium",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/36/88/df/3688df48-60f7-f2b5-7070-4b15fdd66126/mzaf_4182648874073819016.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "فهيم",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874455331",
+    "title": "يارب أعنِّ على الوفاء",
+    "titleLatin": "يارب أعنِّ على الوفاء",
+    "artist": "يارب أعنِّ على الوفاء",
+    "artistLatin": "يارب أعنِّ على الوفاء",
+    "year": 2022,
+    "difficulty": "hard",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/d6/40/26/d64026e1-6c61-01b1-4e0c-3b867ee94d4e/mzaf_9284285760919819077.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a3/56/e0/a356e069-866f-1634-2e91-26a9c2520a72/6678990042283.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "يارب أعنِّ على الوفاء",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "يا رب",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "1-feat",
+    "title": "كابتن ماجد 1 (feat. شموخ العزي)",
+    "titleLatin": "كابتن ماجد 1 (feat. شموخ العزي)",
+    "artist": "كابتن ماجد 1 (feat. شموخ العزي)",
+    "artistLatin": "كابتن ماجد 1 (feat. شموخ العزي)",
+    "year": 2022,
+    "difficulty": "hard",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/79/1d/b2/791db237-3279-d972-983b-d71b2b5b7869/mzaf_2382584789039004144.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "كابتن ماجد 1 (feat. شموخ العزي)",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874455338",
+    "title": "يارب امنحني الرحمة",
+    "titleLatin": "يارب امنحني الرحمة",
+    "artist": "يارب امنحني الرحمة",
+    "artistLatin": "يارب امنحني الرحمة",
+    "year": 2022,
+    "difficulty": "hard",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/9e/01/a6/9e01a69b-6133-e291-e7d3-ede91ce1dbcc/mzaf_11877116565374456142.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a3/56/e0/a356e069-866f-1634-2e91-26a9c2520a72/6678990042283.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "يارب امنحني الرحمة",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "يا رب",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874455901",
+    "title": "المرفوعات من الأسماء",
+    "titleLatin": "المرفوعات من الأسماء",
+    "artist": "المرفوعات من الأسماء",
+    "artistLatin": "المرفوعات من الأسماء",
+    "year": 2022,
+    "difficulty": "hard",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/e6/95/f6/e695f676-a60e-d5f1-a1c5-2d72be8faee6/mzaf_6420643960332714305.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/36/ec/b1/36ecb1ac-65be-495e-7cc7-f3a9bab2bf90/6678990037999.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "المرفوعات من الأسماء",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "اللغة العربية",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874454061",
+    "title": "كوكب رياضة",
+    "titleLatin": "كوكب رياضة",
+    "artist": "كوكب رياضة",
+    "artistLatin": "كوكب رياضة",
+    "year": 2022,
+    "difficulty": "hard",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/2c/5c/91/2c5c91ff-e550-fa86-6350-726c37dbfa2e/mzaf_2518657563710074597.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a3/b5/3c/a3b53c07-befa-ebe7-845f-7c5894fe66d6/6678990036862.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "كوكب رياضة",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "الكواكب - EP",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1875333533",
+    "title": "ريمي",
+    "titleLatin": "ريمي",
+    "artist": "ريمي",
+    "artistLatin": "ريمي",
+    "year": 2021,
+    "difficulty": "hard",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/4f/1f/20/4f1f208f-2056-cb99-1bbe-0ec0e3b88c62/mzaf_270945084664659608.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/0e/f9/4d/0ef94d95-a664-64c9-64f1-dffb2292db64/6678990024593.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "ريمي",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "ريمي - Single",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874463554",
+    "title": "الماسة الزرقاء",
+    "titleLatin": "الماسة الزرقاء",
+    "artist": "الماسة الزرقاء",
+    "artistLatin": "الماسة الزرقاء",
+    "year": 2021,
+    "difficulty": "hard",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/77/2c/4f/772c4fc3-e6e6-d4ab-327e-892ccda5c486/mzaf_3407840848554079468.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "الماسة الزرقاء",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874460970",
+    "title": "هيا شامل",
+    "titleLatin": "هيا شامل",
+    "artist": "هيا شامل",
+    "artistLatin": "هيا شامل",
+    "year": 2021,
+    "difficulty": "hard",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/0f/8c/a6/0f8ca6cc-831d-8c94-0cf5-76af720e9566/mzaf_11337515590876170517.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "هيا شامل",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874461218",
+    "title": "ماوكلي",
+    "titleLatin": "ماوكلي",
+    "artist": "ماوكلي",
+    "artistLatin": "ماوكلي",
+    "year": 2017,
+    "difficulty": "hard",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/ca/6c/6d/ca6c6d8f-1652-a54e-198d-0b8e677f270f/mzaf_8697899466519172625.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "ماوكلي",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874455893",
+    "title": "حروف الجزم",
+    "titleLatin": "حروف الجزم",
+    "artist": "حروف الجزم",
+    "artistLatin": "حروف الجزم",
+    "year": 2022,
+    "difficulty": "hard",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/75/50/a4/7550a407-a397-2dc7-90d1-44bdf49c6849/mzaf_11079692285954495979.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/36/ec/b1/36ecb1ac-65be-495e-7cc7-f3a9bab2bf90/6678990037999.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "حروف الجزم",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "اللغة العربية",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874462097",
+    "title": "فرحان",
+    "titleLatin": "فرحان",
+    "artist": "فرحان",
+    "artistLatin": "فرحان",
+    "year": 2021,
+    "difficulty": "hard",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/75/0c/ea/750ceaca-ac72-c0b7-79d3-a343d7310d3b/mzaf_18105849554934877625.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "فرحان",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874461207",
+    "title": "موكا موكا",
+    "titleLatin": "موكا موكا",
+    "artist": "موكا موكا",
+    "artistLatin": "موكا موكا",
+    "year": 2021,
+    "difficulty": "hard",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/40/8d/f6/408df65c-d281-2845-46b1-d33982184d85/mzaf_38887029236494863.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "موكا موكا",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874462391",
+    "title": "سوسان",
+    "titleLatin": "سوسان",
+    "artist": "سوسان",
+    "artistLatin": "سوسان",
+    "year": 2022,
+    "difficulty": "hard",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/c5/11/e4/c511e483-24dd-87a0-d0fc-07c49e5eec6e/mzaf_5977248687634940679.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "سوسان",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874455345",
+    "title": "يارب طهر قلبي",
+    "titleLatin": "يارب طهر قلبي",
+    "artist": "يارب طهر قلبي",
+    "artistLatin": "يارب طهر قلبي",
+    "year": 2022,
+    "difficulty": "hard",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/5d/0b/8c/5d0b8cac-712c-4a1b-614e-9a263114875b/mzaf_9154530529878903.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a3/56/e0/a356e069-866f-1634-2e91-26a9c2520a72/6678990042283.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "يارب طهر قلبي",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "يا رب",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "waiting-for-you",
+    "title": "Waiting For You",
+    "titleLatin": "Waiting For You",
+    "artist": "Waiting For You",
+    "artistLatin": "Waiting For You",
+    "year": 2024,
+    "difficulty": "hard",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/ab/56/f3/ab56f34e-d301-c595-24ec-b04448012524/mzaf_503073733026319894.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/35/e7/90/35e790a6-c615-ed50-8616-fc66926cc582/797885335579_cover.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Waiting For You",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "Waiting For You - Single",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1875336780",
+    "title": "الصياد الصغير",
+    "titleLatin": "الصياد الصغير",
+    "artist": "الصياد الصغير",
+    "artistLatin": "الصياد الصغير",
+    "year": 2021,
+    "difficulty": "hard",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/79/d0/fb/79d0fb72-1a99-900c-bffa-026cc32c3ad9/mzaf_3080856847142428133.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/6a/e5/66/6ae5665c-4998-6a93-ee25-fca0724989ff/6678990024623.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "الصياد الصغير",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "الصياد الصغير - Single",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874455346",
+    "title": "يارب من أدعو سواك",
+    "titleLatin": "يارب من أدعو سواك",
+    "artist": "يارب من أدعو سواك",
+    "artistLatin": "يارب من أدعو سواك",
+    "year": 2022,
+    "difficulty": "hard",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/15/4b/5e/154b5e09-923f-1067-6244-c1412d080d3a/mzaf_10738640289753488709.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a3/56/e0/a356e069-866f-1634-2e91-26a9c2520a72/6678990042283.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "يارب من أدعو سواك",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "يا رب",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874463146",
+    "title": "باكوغان",
+    "titleLatin": "باكوغان",
+    "artist": "باكوغان",
+    "artistLatin": "باكوغان",
+    "year": 2022,
+    "difficulty": "hard",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/fe/32/d6/fe32d66b-96ee-3858-a97a-d7e818ae63ec/mzaf_16946047785499671356.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "باكوغان",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874461446",
+    "title": "ماريو لويجي",
+    "titleLatin": "ماريو لويجي",
+    "artist": "ماريو لويجي",
+    "artistLatin": "ماريو لويجي",
+    "year": 2022,
+    "difficulty": "hard",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/5a/64/d5/5a64d5c2-e914-8095-41ca-c582f7d54c97/mzaf_12753941519870919109.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "ماريو لويجي",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874462796",
+    "title": "رينبو فيش",
+    "titleLatin": "رينبو فيش",
+    "artist": "رينبو فيش",
+    "artistLatin": "رينبو فيش",
+    "year": 2022,
+    "difficulty": "hard",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/81/ab/82/81ab82d0-c723-2552-c9ee-5254418819b2/mzaf_9923951844581721332.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "رينبو فيش",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874462385",
+    "title": "سونيك",
+    "titleLatin": "سونيك",
+    "artist": "سونيك",
+    "artistLatin": "سونيك",
+    "year": 2022,
+    "difficulty": "hard",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/6f/df/57/6fdf57ab-e179-d39b-240f-65be690208a6/mzaf_7798138940250847784.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "سونيك",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1875336866",
+    "title": "باباي",
+    "titleLatin": "باباي",
+    "artist": "باباي",
+    "artistLatin": "باباي",
+    "year": 2021,
+    "difficulty": "expert",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/a5/fe/76/a5fe762b-c8c1-86c6-4090-ff2b899df6bb/mzaf_9305062294418705916.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/e8/7a/a6/e87aa6c9-97f8-679c-e60b-66368b70274a/6678990024470.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "باباي",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "باباي - Single",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1875339063",
+    "title": "مدينة الصفصاف",
+    "titleLatin": "مدينة الصفصاف",
+    "artist": "مدينة الصفصاف",
+    "artistLatin": "مدينة الصفصاف",
+    "year": 2021,
+    "difficulty": "expert",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/3c/4c/66/3c4c666b-77bd-40dc-c9b6-2dc970d36606/mzaf_16837737469551497384.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/02/e2/4f/02e24f4c-7d7b-ba62-f963-04c1f0ac246e/6678990024616.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "مدينة الصفصاف",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "مدينة الصفصاف - Single",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dragon-ball-main-theme-feat",
+    "title": "Dragon Ball Main Theme (feat. طارق العربي طرقان)",
+    "titleLatin": "Dragon Ball Main Theme (feat. طارق العربي طرقان)",
+    "artist": "Dragon Ball Main Theme (feat. طارق العربي طرقان)",
+    "artistLatin": "Dragon Ball Main Theme (feat. طارق العربي طرقان)",
+    "year": 2024,
+    "difficulty": "expert",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview112/v4/26/ba/d8/26bad8d8-1734-9c1f-ab0b-ac086e8ef8a1/mzaf_16030539728588535553.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/c6/09/ce/c609cee2-a6b7-621e-985b-3fcfed779aa6/artwork.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Dragon Ball Main Theme (feat. طارق العربي طرقان)",
+      "artist": "Ali GelloZzZz",
+      "album": "Dragon Ball Main Theme (feat. طارق العربي طرقان) - Single",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874461622",
+    "title": "في عالم الحكايا",
+    "titleLatin": "في عالم الحكايا",
+    "artist": "في عالم الحكايا",
+    "artistLatin": "في عالم الحكايا",
+    "year": 2022,
+    "difficulty": "expert",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/43/4c/01/434c0196-f523-f926-dd24-df6d4b207a04/mzaf_13162449258774803809.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "في عالم الحكايا",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874462095",
+    "title": "فرقة القوة",
+    "titleLatin": "فرقة القوة",
+    "artist": "فرقة القوة",
+    "artistLatin": "فرقة القوة",
+    "year": 2022,
+    "difficulty": "expert",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/df/5a/27/df5a276d-84d4-535e-735e-0d3cd9b58f92/mzaf_2658767526893458046.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "فرقة القوة",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874461617",
+    "title": "فيليكس",
+    "titleLatin": "فيليكس",
+    "artist": "فيليكس",
+    "artistLatin": "فيليكس",
+    "year": 2022,
+    "difficulty": "expert",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/d0/31/f5/d031f5c3-6687-b796-c4ef-bab231a8d6e2/mzaf_3656687876276285721.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "فيليكس",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874461209",
+    "title": "مضحكون",
+    "titleLatin": "مضحكون",
+    "artist": "مضحكون",
+    "artistLatin": "مضحكون",
+    "year": 2022,
+    "difficulty": "expert",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/66/a0/bf/66a0bf67-c320-e839-2e60-63024f96e910/mzaf_10742112048253942977.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "مضحكون",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874454994",
+    "title": "خواطري لله ترنو",
+    "titleLatin": "خواطري لله ترنو",
+    "artist": "خواطري لله ترنو",
+    "artistLatin": "خواطري لله ترنو",
+    "year": 2022,
+    "difficulty": "expert",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/74/5e/67/745e670b-9d45-1b75-5ae6-00df1e2022e7/mzaf_1669366782384127968.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a3/56/e0/a356e069-866f-1634-2e91-26a9c2520a72/6678990042283.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "خواطري لله ترنو",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "يا رب",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874454055",
+    "title": "كوكب مغامرات",
+    "titleLatin": "كوكب مغامرات",
+    "artist": "كوكب مغامرات",
+    "artistLatin": "كوكب مغامرات",
+    "year": 2022,
+    "difficulty": "expert",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/c3/80/a1/c380a10b-4315-4052-3be4-4573e5e57dc4/mzaf_2752505740414078933.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a3/b5/3c/a3b53c07-befa-ebe7-845f-7c5894fe66d6/6678990036862.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "كوكب مغامرات",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "الكواكب - EP",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874463064",
+    "title": "داي",
+    "titleLatin": "داي",
+    "artist": "داي",
+    "artistLatin": "داي",
+    "year": 2022,
+    "difficulty": "expert",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/4d/de/06/4dde0677-c6a4-c521-8c33-5ad4ba6c8440/mzaf_11487833303970976789.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "داي",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874464326",
+    "title": "آرسين لوبين",
+    "titleLatin": "آرسين لوبين",
+    "artist": "آرسين لوبين",
+    "artistLatin": "آرسين لوبين",
+    "year": 2022,
+    "difficulty": "expert",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/24/49/60/24496079-b297-6ad4-e7e1-df0e8163e1aa/mzaf_2874925831459160699.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "آرسين لوبين",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1875330130",
+    "title": "علاء الدين",
+    "titleLatin": "علاء الدين",
+    "artist": "علاء الدين",
+    "artistLatin": "علاء الدين",
+    "year": 2021,
+    "difficulty": "expert",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/ab/7a/15/ab7a156a-969d-23a7-b12c-593ba4e42a41/mzaf_9906747656339571143.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/b4/1f/d0/b41fd0ef-d1d0-5b11-316f-d396b58fac2d/6678990024555.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "علاء الدين",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "علاء الدين - Single",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "2-feat",
+    "title": "كابتن ماجد 2 (feat. مناحي القحطاني)",
+    "titleLatin": "كابتن ماجد 2 (feat. مناحي القحطاني)",
+    "artist": "كابتن ماجد 2 (feat. مناحي القحطاني)",
+    "artistLatin": "كابتن ماجد 2 (feat. مناحي القحطاني)",
+    "year": 2017,
+    "difficulty": "expert",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/58/6c/da/586cdaec-6997-abda-753c-fd8680156411/mzaf_8518055448635247085.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "كابتن ماجد 2 (feat. مناحي القحطاني)",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874455099",
+    "title": "وطني العربي",
+    "titleLatin": "وطني العربي",
+    "artist": "وطني العربي",
+    "artistLatin": "وطني العربي",
+    "year": 2022,
+    "difficulty": "expert",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/c8/3c/6b/c83c6b7b-43b2-b81d-476f-77bcac17c391/mzaf_2483678104793839238.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/cd/0e/32/cd0e3280-8833-5485-fad8-7830de8c3523/6678990038019.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "وطني العربي",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "فلة - EP",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874463559",
+    "title": "الكرة الصاعقة",
+    "titleLatin": "الكرة الصاعقة",
+    "artist": "الكرة الصاعقة",
+    "artistLatin": "الكرة الصاعقة",
+    "year": 2022,
+    "difficulty": "expert",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/1f/7f/aa/1f7faaa9-b682-6e5b-0e0a-b3ac4787fe68/mzaf_14451346361576002137.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "الكرة الصاعقة",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874462819",
+    "title": "دراغون بول",
+    "titleLatin": "دراغون بول",
+    "artist": "دراغون بول",
+    "artistLatin": "دراغون بول",
+    "year": 2022,
+    "difficulty": "expert",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/67/a1/1b/67a11bff-0d06-7ee5-51db-468b8dbc3ac3/mzaf_9510185021792811633.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "دراغون بول",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874463139",
+    "title": "حكايات لاتنسى",
+    "titleLatin": "حكايات لاتنسى",
+    "artist": "حكايات لاتنسى",
+    "artistLatin": "حكايات لاتنسى",
+    "year": 2022,
+    "difficulty": "expert",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/54/0f/3f/540f3f75-4d1b-99ea-ba59-bfd59a557bbf/mzaf_15547609126043588495.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "حكايات لاتنسى",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874455897",
+    "title": "أسماء الإشارة",
+    "titleLatin": "أسماء الإشارة",
+    "artist": "أسماء الإشارة",
+    "artistLatin": "أسماء الإشارة",
+    "year": 2022,
+    "difficulty": "expert",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/eb/61/4f/eb614f62-db9d-b489-b763-3c2c75046e6f/mzaf_3917926490053892255.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/36/ec/b1/36ecb1ac-65be-495e-7cc7-f3a9bab2bf90/6678990037999.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "أسماء الإشارة",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "اللغة العربية",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874455634",
+    "title": "أشتاق لبرك يا أمي",
+    "titleLatin": "أشتاق لبرك يا أمي",
+    "artist": "أشتاق لبرك يا أمي",
+    "artistLatin": "أشتاق لبرك يا أمي",
+    "year": 2022,
+    "difficulty": "expert",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/8f/f0/e0/8ff0e0cc-75ab-4463-8497-66328fc76ca1/mzaf_14621100749445041369.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/ea/27/a1/ea27a141-ba11-3b56-f0e7-e2b4ebb5780e/6678990037326.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "أشتاق لبرك يا أمي",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "الأم - EP",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874461943",
+    "title": "فوزان",
+    "titleLatin": "فوزان",
+    "artist": "فوزان",
+    "artistLatin": "فوزان",
+    "year": 2022,
+    "difficulty": "expert",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/e9/e4/8c/e9e48ce7-fd83-98db-4551-0f6d8c2bdd6f/mzaf_2571513169298974641.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "فوزان",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874461216",
+    "title": "مخيم الكشافة",
+    "titleLatin": "مخيم الكشافة",
+    "artist": "مخيم الكشافة",
+    "artistLatin": "مخيم الكشافة",
+    "year": 2022,
+    "difficulty": "expert",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/b1/af/39/b1af39f2-2783-9a7d-10e4-6228af678b1f/mzaf_778140716320694027.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "مخيم الكشافة",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874463573",
+    "title": "السراب",
+    "titleLatin": "السراب",
+    "artist": "السراب",
+    "artistLatin": "السراب",
+    "year": 2015,
+    "difficulty": "expert",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/84/ce/bb/84cebbb8-20f9-c7b9-d543-9c1c2d04251b/mzaf_5336825929503347362.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "السراب",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874455341",
+    "title": "يارب زد علمي",
+    "titleLatin": "يارب زد علمي",
+    "artist": "يارب زد علمي",
+    "artistLatin": "يارب زد علمي",
+    "year": 2022,
+    "difficulty": "expert",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/e9/56/06/e956065a-7c72-4692-43e8-1513df1a9a13/mzaf_14851087212943651551.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a3/56/e0/a356e069-866f-1634-2e91-26a9c2520a72/6678990042283.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "يارب زد علمي",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "يا رب",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874463572",
+    "title": "الضربة المزدوجة",
+    "titleLatin": "الضربة المزدوجة",
+    "artist": "الضربة المزدوجة",
+    "artistLatin": "الضربة المزدوجة",
+    "year": 2021,
+    "difficulty": "expert",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/cf/1d/03/cf1d0389-9730-124e-3cc3-c1065483fac4/mzaf_7954649913100306422.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "الضربة المزدوجة",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874461926",
+    "title": "فولترون",
+    "titleLatin": "فولترون",
+    "artist": "فولترون",
+    "artistLatin": "فولترون",
+    "year": 2015,
     "difficulty": "impossible",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/9c/80/67/9c8067bc-a211-af97-5221-0853271b6f2a/mzaf_8048620413363439468.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "فولترون",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874460967",
+    "title": "ون بيس",
+    "titleLatin": "ون بيس",
+    "artist": "ون بيس",
+    "artistLatin": "ون بيس",
+    "year": 2022,
+    "difficulty": "impossible",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/56/16/0f/56160fa5-2db1-f792-17ab-df0a0f1095b2/mzaf_1011332941073613702.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "ون بيس",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874455633",
+    "title": "أمي تلون عمري",
+    "titleLatin": "أمي تلون عمري",
+    "artist": "أمي تلون عمري",
+    "artistLatin": "أمي تلون عمري",
+    "year": 2022,
+    "difficulty": "impossible",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/64/09/23/64092372-4064-c4e8-9445-a1c64fd7865d/mzaf_14187500581771816003.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/ea/27/a1/ea27a141-ba11-3b56-f0e7-e2b4ebb5780e/6678990037326.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "أمي تلون عمري",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "الأم - EP",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874463842",
+    "title": "أرض السعادة",
+    "titleLatin": "أرض السعادة",
+    "artist": "أرض السعادة",
+    "artistLatin": "أرض السعادة",
+    "year": 2022,
+    "difficulty": "impossible",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/67/0d/4d/670d4d45-ed56-f722-10a8-cf8b05f9184c/mzaf_14206806271939189680.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "أرض السعادة",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "1-2",
+    "title": "حنين الجزء 1",
+    "titleLatin": "حنين الجزء 1",
+    "artist": "حنين الجزء 1",
+    "artistLatin": "حنين الجزء 1",
+    "year": 2021,
+    "difficulty": "impossible",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/b6/9f/b9/b69fb9a9-dd04-e2c5-920e-d57f7e2e0cb8/mzaf_10190623180387934547.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "حنين الجزء 1",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "feat-2",
+    "title": "يارب اقبل تعبدي (feat. علي الواهبي)",
+    "titleLatin": "يارب اقبل تعبدي (feat. علي الواهبي)",
+    "artist": "يارب اقبل تعبدي (feat. علي الواهبي)",
+    "artistLatin": "يارب اقبل تعبدي (feat. علي الواهبي)",
+    "year": 2022,
+    "difficulty": "impossible",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/4c/33/17/4c3317f3-4942-dd93-8430-2d8b9ac913a7/mzaf_12852469539766840877.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a3/56/e0/a356e069-866f-1634-2e91-26a9c2520a72/6678990042283.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "يارب اقبل تعبدي (feat. علي الواهبي)",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "يا رب",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874454306",
+    "title": "كوكب أبجد",
+    "titleLatin": "كوكب أبجد",
+    "artist": "كوكب أبجد",
+    "artistLatin": "كوكب أبجد",
+    "year": 2022,
+    "difficulty": "impossible",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/53/db/30/53db304b-2d71-cf8b-fd46-f8e9572c8912/mzaf_3903435789858384529.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a3/b5/3c/a3b53c07-befa-ebe7-845f-7c5894fe66d6/6678990036862.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "كوكب أبجد",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "الكواكب - EP",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "3",
+    "title": "كابتن ماجد 3",
+    "titleLatin": "كابتن ماجد 3",
+    "artist": "كابتن ماجد 3",
+    "artistLatin": "كابتن ماجد 3",
+    "year": 2022,
+    "difficulty": "impossible",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/a3/13/74/a31374a9-b733-7060-9565-beb9dc6507a0/mzaf_10978211611354183179.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "كابتن ماجد 3",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874463819",
+    "title": "أنا وأخواتي",
+    "titleLatin": "أنا وأخواتي",
+    "artist": "أنا وأخواتي",
+    "artistLatin": "أنا وأخواتي",
+    "year": 2022,
+    "difficulty": "impossible",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/0c/51/72/0c5172af-1669-72ff-42b8-6bc4bf72b6fd/mzaf_12461029117896129562.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "أنا وأخواتي",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874455093",
+    "title": "رمضان",
+    "titleLatin": "رمضان",
+    "artist": "رمضان",
+    "artistLatin": "رمضان",
+    "year": 2022,
+    "difficulty": "impossible",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/6e/5f/4a/6e5f4ae1-3680-b4dd-1ad8-b7094807a91f/mzaf_10017578150082305406.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/cd/0e/32/cd0e3280-8833-5485-fad8-7830de8c3523/6678990038019.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "رمضان",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "فلة - EP",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874463047",
+    "title": "دايس",
+    "titleLatin": "دايس",
+    "artist": "دايس",
+    "artistLatin": "دايس",
+    "year": 2017,
+    "difficulty": "impossible",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/54/14/f4/5414f4a1-3880-ad44-a958-69eff8bcdbb7/mzaf_10893651400880353161.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "دايس",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874463550",
+    "title": "المحترفون",
+    "titleLatin": "المحترفون",
+    "artist": "المحترفون",
+    "artistLatin": "المحترفون",
+    "year": 2022,
+    "difficulty": "impossible",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/75/67/2b/75672b5a-7f18-e10d-94dc-2fa937f5fb6c/mzaf_15720240401584142340.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "المحترفون",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874463821",
+    "title": "أشبال",
+    "titleLatin": "أشبال",
+    "artist": "أشبال",
+    "artistLatin": "أشبال",
+    "year": 2022,
+    "difficulty": "impossible",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/61/1c/d1/611cd151-ff9b-5d1e-58db-56f8b2c10bd6/mzaf_10217504718631388476.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "أشبال",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874463145",
+    "title": "بيدا بول",
+    "titleLatin": "بيدا بول",
+    "artist": "بيدا بول",
+    "artistLatin": "بيدا بول",
+    "year": 2021,
+    "difficulty": "impossible",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/89/dd/53/89dd5363-91ad-5929-6594-be21ea5a08dc/mzaf_273829751691146925.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "بيدا بول",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874464001",
+    "title": "أبطال الليزر",
+    "titleLatin": "أبطال الليزر",
+    "artist": "أبطال الليزر",
+    "artistLatin": "أبطال الليزر",
+    "year": 2022,
+    "difficulty": "impossible",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/c4/ea/7b/c4ea7bd3-55e0-d7eb-6f81-58787d8bab6e/mzaf_13213681756887224285.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "أبطال الليزر",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874455627",
+    "title": "ضمي يدي",
+    "titleLatin": "ضمي يدي",
+    "artist": "ضمي يدي",
+    "artistLatin": "ضمي يدي",
+    "year": 2022,
+    "difficulty": "impossible",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/1e/c4/26/1ec4264d-58fa-e037-138f-06fb665485cd/mzaf_8193898263557631877.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/ea/27/a1/ea27a141-ba11-3b56-f0e7-e2b4ebb5780e/6678990037326.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "ضمي يدي",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "الأم - EP",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "feat-3",
+    "title": "علاء الدين (feat. عبدالله ال فروان)",
+    "titleLatin": "علاء الدين (feat. عبدالله ال فروان)",
+    "artist": "علاء الدين (feat. عبدالله ال فروان)",
+    "artistLatin": "علاء الدين (feat. عبدالله ال فروان)",
+    "year": 2021,
+    "difficulty": "impossible",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/cd/12/3d/cd123dd6-e0b6-9cfc-f3bb-9504e4d99be4/mzaf_1426676167296289495.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "علاء الدين (feat. عبدالله ال فروان)",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874455094",
+    "title": "سمراء",
+    "titleLatin": "سمراء",
+    "artist": "سمراء",
+    "artistLatin": "سمراء",
+    "year": 2022,
+    "difficulty": "impossible",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/5d/c2/f3/5dc2f3c2-24a6-85fa-8751-a5dc464a2d3d/mzaf_6510717357173749501.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/cd/0e/32/cd0e3280-8833-5485-fad8-7830de8c3523/6678990038019.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "سمراء",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "فلة - EP",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874455349",
+    "title": "ياواهب الايمان",
+    "titleLatin": "ياواهب الايمان",
+    "artist": "ياواهب الايمان",
+    "artistLatin": "ياواهب الايمان",
+    "year": 2022,
+    "difficulty": "impossible",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/a2/a5/e3/a2a5e38c-ba29-7256-63b0-e1603fbb4af5/mzaf_3434568251576723637.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a3/56/e0/a356e069-866f-1634-2e91-26a9c2520a72/6678990042283.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "ياواهب الايمان",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "يا رب",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "2",
+    "title": "كونان الجزء الخامس 2",
+    "titleLatin": "كونان الجزء الخامس 2",
+    "artist": "كونان الجزء الخامس 2",
+    "artistLatin": "كونان الجزء الخامس 2",
+    "year": 2022,
+    "difficulty": "impossible",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/e7/6d/d2/e76dd2d9-0a79-7611-997b-ac28b8038a15/mzaf_10583419555689817664.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "كونان الجزء الخامس 2",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874462296",
+    "title": "عبقور",
+    "titleLatin": "عبقور",
+    "artist": "عبقور",
+    "artistLatin": "عبقور",
+    "year": 2017,
+    "difficulty": "impossible",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/80/98/33/80983335-fb35-b68d-4b39-2d760a26146c/mzaf_16012013344915393745.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "عبقور",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "2-2",
+    "title": "حنين الجزء 2",
+    "titleLatin": "حنين الجزء 2",
+    "artist": "حنين الجزء 2",
+    "artistLatin": "حنين الجزء 2",
+    "year": 2022,
+    "difficulty": "impossible",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/26/3d/a6/263da6d7-1c1b-f3c3-90a7-cba45f76cb2a/mzaf_9071216520016707054.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/c3/a8/afc3a8ae-9adb-7638-14f4-c9acb37e2ae0/6678990039078.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "حنين الجزء 2",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "شارات",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
+    "startAt": 0
+  },
+  {
+    "id": "dz-1874455889",
+    "title": "حروف الجر",
+    "titleLatin": "حروف الجر",
+    "artist": "حروف الجر",
+    "artistLatin": "حروف الجر",
+    "year": 2022,
+    "difficulty": "impossible",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/42/e5/c1/42e5c190-e80e-9f65-b4a7-ecfd2c5c4f0b/mzaf_12498914872150190119.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/36/ec/b1/36ecb1ac-65be-495e-7cc7-f3a9bab2bf90/6678990037999.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "حروف الجر",
+      "artist": "Tareq Alarabi Tarqan",
+      "album": "اللغة العربية",
+      "score": 1,
+      "source": "itunes-harvest"
+    },
     "startAt": 0
   }
 ]

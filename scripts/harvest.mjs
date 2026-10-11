@@ -6,18 +6,18 @@
  * memory and goes looking for it. That is why 47 songs have no clip and why a
  * misremembered title is indistinguishable from one Apple does not carry.
  *
- * This is catalogue-first. Deezer's top-tracks endpoint returns a performer's
- * real releases, ordered by popularity — so a title here is one that exists,
- * spelled as the label spells it, rather than one someone recalled.
+ * This is catalogue-first. Apple's lookup endpoint returns a performer's whole
+ * discography in one call, each track with a stable preview URL — so a title
+ * here is one that exists, spelled as the label spells it, rather than one
+ * someone recalled, and it arrives with its audio already attached.
  *
- * It harvests metadata only. Deezer signs its preview URLs with roughly a
- * twelve-minute expiry: measured, one answered 200 when fetched and 403 less
- * than two hours later. A committed catalogue cannot hold audio with that
- * lifetime, so the clip itself is left to fetch-previews.mjs and Apple, whose
- * URLs are stable. Harvest finds the songs; the lookup gives them sound.
+ * Deezer was the source first. Its top-tracks endpoint is nicer to read and
+ * ordered by popularity, but it signs previews with roughly a twelve-minute
+ * expiry, so every clip was dead before anyone could review it. Apple's do not
+ * expire, which for a committed catalogue outweighs everything else.
  *
- * Harvested songs land with no clip and no verdict, so they play only once
- * Apple has supplied audio and someone has heard it.
+ * Harvested songs land unapproved, so they play only once someone has heard
+ * them.
  *
  *   node scripts/harvest.mjs --artist "عمرو دياب" --dry-run
  *   node scripts/harvest.mjs --artists-file artists.txt --into src/data/songs.json
@@ -28,14 +28,17 @@ import { readFile, writeFile } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
 import path from 'node:path'
 import { normalize } from '../src/game/search.ts'
+import { fetchWithBackoff } from './fetch-previews.mjs'
 import { DAILY_ORDER } from '../src/game/daily.ts'
 
 const HERE = path.dirname(fileURLToPath(import.meta.url))
-const API = 'https://api.deezer.com'
+const SEARCH = 'https://itunes.apple.com/search'
+const LOOKUP = 'https://itunes.apple.com/lookup'
 
 export const DEFAULTS = {
-  limit: 25,          // tracks per artist, most popular first
-  delay: 400,         // Deezer allows far more than Apple; this is still polite
+  limit: 200,         // Apple returns a whole discography in one call
+  delay: 2500,        // Apple throttles hard; a 403 here costs the whole artist
+  country: 'SA',
   into: path.join(HERE, '..', 'src', 'data', 'songs.json'),
   dryRun: false,
   minRank: 0,
@@ -44,9 +47,10 @@ export const DEFAULTS = {
 // ------------------------------------------------------------- shaping
 
 /**
- * Popularity decides difficulty. Deezer returns an artist's tracks most-played
- * first, so position in that list is the best signal available for how likely
- * a listener is to know a song — which is the only thing a tier means.
+ * Position decides difficulty. Apple returns a discography newest-first rather
+ * than by popularity, which is a weaker signal than Deezer's ordering was —
+ * so a tier here is a starting point for review, not a verdict. Review is
+ * where a tier is really settled anyway.
  */
 export function difficultyFor(index, total) {
   if (total <= 1) return DAILY_ORDER[0]
@@ -55,7 +59,7 @@ export function difficultyFor(index, total) {
   return DAILY_ORDER[tier]
 }
 
-/** A stable, readable id from Latin text, falling back to the Deezer track id. */
+/** A stable, readable id from Latin text, falling back to the track id. */
 export function slugify(text, fallback) {
   const slug = String(text || '')
     .normalize('NFKD')
@@ -68,44 +72,59 @@ export function slugify(text, fallback) {
 }
 
 /**
- * Deezer's track onto a catalogue entry — metadata only.
+ * Apple's track onto a catalogue entry, audio included.
  *
- * Deliberately no previewUrl and no artwork. Deezer's are signed and expire in
- * about twelve minutes, so storing them puts audio in the catalogue that is
- * dead before anyone can review it. fetch-previews.mjs fills those in from
- * Apple, whose URLs keep working.
+ * `artistIsTitle` is for repertoire where the performer is the work: a cartoon
+ * opening belongs to its show, and nobody recalls which singer recorded the
+ * dub.
  */
-export function toSong(track, { difficulty, year }) {
-  const title = track.title_short || track.title
+export function toSong(track, { difficulty, artistIsTitle = false }) {
+  const title = track.trackName
+  const artist = artistIsTitle ? title : track.artistName ?? ''
   return {
-    id: slugify(title, track.id),
+    id: slugify(title, track.trackId),
     title,
     titleLatin: title,
-    artist: track.artist?.name ?? '',
-    artistLatin: track.artist?.name ?? '',
-    year: year ?? 0,
+    artist,
+    artistLatin: artist,
+    year: Number(String(track.releaseDate ?? '').slice(0, 4)) || 0,
     difficulty,
+    previewUrl: track.previewUrl,
+    ...(track.artworkUrl100 ? { artwork: track.artworkUrl100 } : {}),
+    matchedAs: {
+      track: track.trackName,
+      artist: track.artistName ?? '',
+      ...(track.collectionName ? { album: track.collectionName } : {}),
+      score: 1,
+      source: 'itunes-harvest',
+    },
     startAt: 0,
-    harvestedFrom: 'deezer',
   }
 }
 
 const key = (s) => `${normalize(s.title)}|${normalize(s.artist)}`
 
 /**
- * Keep only what the catalogue does not already hold: the same title by the
- * same artist, or the same id. Audio is not compared here because a harvest
- * carries none — the duplicate-clip guard lives in the lookup, which is where
- * clips are actually assigned.
+ * Keep only what the catalogue does not already hold: the same audio, the same
+ * title by the same artist, or the same id. Two entries sharing a clip is the
+ * bug the song lookup already guards against, and a discography contains the
+ * same recording on a single, an album and a compilation.
  */
 export function dedupe(candidates, existing) {
+  const urls = new Set(existing.map((s) => s.previewUrl).filter(Boolean))
   const names = new Set(existing.map(key))
   const ids = new Set(existing.map((s) => s.id))
   const kept = []
   const skipped = []
 
   for (const c of candidates) {
-    const why = names.has(key(c)) ? 'already have this title by this artist' : null
+    const why = !c.previewUrl
+      ? 'no preview'
+      : urls.has(c.previewUrl)
+        ? 'clip already in the catalogue'
+        : names.has(key(c))
+          ? 'already have this title by this artist'
+          : null
     if (why) {
       skipped.push({ song: c, why })
       continue
@@ -116,6 +135,7 @@ export function dedupe(candidates, existing) {
     for (let n = 2; ids.has(id); n++) id = `${c.id}-${n}`
     const song = { ...c, id }
     ids.add(id)
+    urls.add(song.previewUrl)
     names.add(key(song))
     kept.push(song)
   }
@@ -126,42 +146,54 @@ export function dedupe(candidates, existing) {
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms))
 
-async function deezer(url, fetchImpl) {
-  const res = await fetchImpl(url)
+/**
+ * Apple throttles hard and answers a throttled request with an empty body, so
+ * JSON.parse fails rather than anything saying "rate limited". A 403 costs a
+ * whole artist here, not one song, so it is worth retrying properly.
+ */
+async function apple(url, fetchImpl) {
+  const res = await fetchWithBackoff(url, fetchImpl)
   if (!res.ok) throw new Error(`HTTP ${res.status}`)
-  const body = await res.json()
-  // Deezer answers its errors with HTTP 200 and an error object.
-  if (body.error) throw new Error(body.error.message || body.error.type || 'Deezer error')
-  return body
+  const text = await res.text()
+  if (!text.trim()) throw new Error('empty response (throttled)')
+  try {
+    return JSON.parse(text)
+  } catch {
+    throw new Error('unparseable response')
+  }
 }
 
-export async function findArtist(name, fetchImpl = globalThis.fetch) {
-  const body = await deezer(`${API}/search/artist?q=${encodeURIComponent(name)}&limit=5`, fetchImpl)
-  const hits = body.data ?? []
+export async function findArtist(name, opts = DEFAULTS, fetchImpl = globalThis.fetch) {
+  const url = `${SEARCH}?term=${encodeURIComponent(name)}&entity=musicArtist&limit=5&country=${opts.country}`
+  const hits = (await apple(url, fetchImpl)).results ?? []
   if (hits.length === 0) return null
-  // Exact name first, then the most-followed — "Fairuz" and a tribute act
-  // sharing a name are told apart by audience, not by string distance.
-  const exact = hits.find((a) => normalize(a.name) === normalize(name))
-  return exact ?? hits.slice().sort((a, b) => (b.nb_fan ?? 0) - (a.nb_fan ?? 0))[0]
+  // An exact name wins outright: searching a performer turns up tribute acts
+  // and sound-alikes, and Apple does not rank by audience.
+  const exact = hits.find((a) => normalize(a.artistName) === normalize(name))
+  return exact ?? hits[0]
 }
 
-export async function topTracks(artistId, limit, fetchImpl = globalThis.fetch) {
-  const body = await deezer(`${API}/artist/${artistId}/top?limit=${limit}`, fetchImpl)
-  return body.data ?? []
+export async function artistSongs(artistId, opts = DEFAULTS, fetchImpl = globalThis.fetch) {
+  const url = `${LOOKUP}?id=${artistId}&entity=song&limit=${opts.limit}&country=${opts.country}`
+  const body = await apple(url, fetchImpl)
+  // The first result is the artist record itself, not a track.
+  return (body.results ?? []).filter((r) => r.wrapperType === 'track')
 }
 
 /** Everything one artist contributes, already tiered. */
 export async function harvestArtist(name, opts, fetchImpl = globalThis.fetch) {
-  const artist = await findArtist(name, fetchImpl)
-  if (!artist) return { name, artist: null, songs: [], reason: 'no such artist on Deezer' }
+  const artist = await findArtist(name, opts, fetchImpl)
+  if (!artist) return { name, artist: null, songs: [], reason: 'no such artist on iTunes' }
 
-  // A track with no preview on Deezer is still a real release, and Apple may
-  // well carry it — but it is also the shape a placeholder takes, so it is
-  // dropped as weak evidence rather than kept as a title to chase.
-  const tracks = (await topTracks(artist.id, opts.limit, fetchImpl))
-    .filter((t) => t.preview && (t.rank ?? 0) >= opts.minRank)
-  const songs = tracks.map((t, i) => toSong(t, { difficulty: difficultyFor(i, tracks.length) }))
-  return { name, artist, songs }
+  const tracks = (await artistSongs(artist.artistId, opts, fetchImpl))
+    .filter((t) => t.previewUrl)
+  const songs = tracks.map((t, i) =>
+    toSong(t, {
+      difficulty: difficultyFor(i, tracks.length),
+      artistIsTitle: opts.artistIsTitle,
+    }),
+  )
+  return { name, artist: { name: artist.artistName, id: artist.artistId }, songs }
 }
 
 // ----------------------------------------------------------------- cli
@@ -176,7 +208,8 @@ export function parseArgs(argv) {
     else if (a === '--into') opts.into = next()
     else if (a === '--limit') opts.limit = Number(next())
     else if (a === '--delay') opts.delay = Number(next())
-    else if (a === '--min-rank') opts.minRank = Number(next())
+    else if (a === '--country') opts.country = next()
+    else if (a === '--artist-is-title') opts.artistIsTitle = true
     else if (a === '--dry-run') opts.dryRun = true
     else if (a === '--help' || a === '-h') opts.help = true
     else throw new Error(`unknown option: ${a}`)
@@ -185,22 +218,23 @@ export function parseArgs(argv) {
 }
 
 const HELP = `
-Pull artists' catalogues from Deezer in bulk, for review.
+Pull artists' catalogues from iTunes in bulk, for review.
 
   node scripts/harvest.mjs --artist NAME [--artist NAME ...] [options]
 
   --artist NAME        a performer to harvest; repeatable
   --artists-file PATH  one performer per line (# comments allowed)
   --into PATH          catalogue to append to (default src/data/songs.json)
-  --limit N            tracks per artist, most popular first (default ${DEFAULTS.limit})
-  --min-rank N         drop tracks below this Deezer popularity rank
+  --limit N            tracks to pull per artist (default ${DEFAULTS.limit})
+  --country XX         iTunes store front (default ${DEFAULTS.country})
+  --artist-is-title    credit each song to itself, for repertoire where the
+                       performer is the work (cartoon openings)
   --delay MS           pause between calls (default ${DEFAULTS.delay})
   --dry-run            report what would be added, write nothing
   -h, --help           this text
 
-Metadata only — Deezer's own previews expire in minutes, so clips come from
-Apple afterwards via fetch-previews.mjs. Harvested songs play only once they
-have audio and have been heard in the review console.
+Clips come from Apple and do not expire. Harvested songs land unapproved and
+play only once they have been heard in the review console.
 `.trim()
 
 export async function run(opts, deps = {}) {
@@ -260,8 +294,7 @@ export async function run(opts, deps = {}) {
     log('\n--dry-run: nothing written.')
   } else if (kept.length) {
     await writeCatalogue([...existing, ...kept])
-    log(`\nWrote ${opts.into} — ${kept.length} song(s) added, none with clips yet.`)
-    log('Run fetch-previews.mjs against the same file to give them audio.')
+    log(`\nWrote ${opts.into} — ${kept.length} song(s) added, all awaiting review.`)
   }
 
   return { added: kept.length, skipped: skipped.length, failures, songs: kept }

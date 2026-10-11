@@ -1,16 +1,16 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import {
-  difficultyFor, slugify, toSong, dedupe, findArtist, harvestArtist, run, parseArgs, DEFAULTS,
+  difficultyFor, slugify, toSong, dedupe, findArtist, run, parseArgs, DEFAULTS,
 } from './harvest.mjs'
 import { DAILY_ORDER } from '../src/game/daily.ts'
 
-const track = (id, title, artist, preview = `https://cdns-preview/${id}.mp3`, extra = {}) => ({
-  id, title, title_short: title, preview, rank: 500000,
-  artist: { id: 9, name: artist }, album: { id: 7, title: `${title} - Single`, cover_medium: 'https://c/x.jpg' },
-  ...extra,
+const track = (id, title, artist, previewUrl = `https://audio-ssl.itunes.apple.com/${id}.m4a`, extra = {}) => ({
+  wrapperType: 'track', trackId: id, trackName: title, artistName: artist,
+  collectionName: `${title} - Single`, previewUrl, artworkUrl100: 'https://is1-ssl/x.jpg',
+  releaseDate: '2003-05-26T07:00:00Z', ...extra,
 })
-const ok = (data) => ({ ok: true, json: async () => ({ data }) })
+const ok = (results) => ({ ok: true, status: 200, text: async () => JSON.stringify({ results }) })
 
 test('popularity order becomes the difficulty ramp', () => {
   const tiers = Array.from({ length: 25 }, (_, i) => difficultyFor(i, 25))
@@ -28,21 +28,26 @@ test('ids are readable, bounded, and never empty', () => {
   assert.ok(slugify('x'.repeat(200), 3).length <= 48)
 })
 
-test('a harvested song arrives with no clip and no verdict', () => {
-  // Two gates, and bulk collection is exactly where both get bypassed. The
-  // clip is absent on purpose: Deezer signs its previews with a ~12 minute
-  // expiry, so storing one puts audio in the catalogue that is dead before
-  // anyone can review it.
+test('a harvested song arrives unapproved', () => {
+  // Bulk collection is exactly where an approval gate gets bypassed.
   const s = toSong(track(1, 'Lose Yourself', 'Eminem'), { difficulty: 'easy' })
-  assert.equal(s.previewUrl, undefined, 'an expiring URL must never be stored')
-  assert.equal(s.artwork, undefined)
   assert.equal(s.approved, undefined)
   assert.equal(s.startAt, 0)
-  assert.equal(s.harvestedFrom, 'deezer', 'where it came from is recorded')
+  assert.equal(s.year, 2003, 'the release year carries over')
+  assert.match(s.previewUrl, /audio-ssl\.itunes\.apple\.com/)
+  assert.ok(!/exp=|hmac=/.test(s.previewUrl), 'a stored clip URL must not be signed or expiring')
+  assert.equal(s.matchedAs.source, 'itunes-harvest')
+})
+
+test('artistIsTitle credits a cartoon opening to its show', () => {
+  const s = toSong(track(1, 'عدنان ولينا', 'طارق العربي طرقان'), { difficulty: 'easy', artistIsTitle: true })
+  assert.equal(s.artist, 'عدنان ولينا')
+  assert.equal(s.artistLatin, 'عدنان ولينا')
+  assert.equal(s.matchedAs.artist, 'طارق العربي طرقان', 'who actually recorded it is still recorded')
 })
 
 test('a harvest never re-adds a song the catalogue already has', () => {
-  const existing = [{ id: 'old', title: 'Juicy', artist: 'The Notorious B.I.G.' }]
+  const existing = [{ id: 'old', title: 'Juicy', artist: 'The Notorious B.I.G.', previewUrl: 'https://p/j.m4a' }]
   const candidates = [
     toSong(track(2, 'Juicy', 'The Notorious B.I.G.'), { difficulty: 'easy' }),
     toSong(track(3, 'Big Poppa', 'The Notorious B.I.G.'), { difficulty: 'easy' }),
@@ -54,8 +59,8 @@ test('a harvest never re-adds a song the catalogue already has', () => {
 
 test('a clashing id is suffixed, and only by a song actually kept', () => {
   const existing = [
-    { id: 'alright', title: 'Other', artist: 'Someone' },
-    { id: 'alright-2', title: 'Alright', artist: 'Someone Else' },
+    { id: 'alright', title: 'Other', artist: 'Someone', previewUrl: 'https://p/o.m4a' },
+    { id: 'alright-2', title: 'Alright', artist: 'Someone Else', previewUrl: 'https://p/b.m4a' },
   ]
   const candidates = [
     toSong(track(1, 'Alright', 'Someone Else'), { difficulty: 'easy' }), // dropped: same title+artist
@@ -66,25 +71,27 @@ test('a clashing id is suffixed, and only by a song actually kept', () => {
 })
 
 
-test('an exact name beats a more-followed near match', () => {
+test('an exact name beats a tribute act listed above it', async () => {
   const fetchImpl = async () => ok([
-    { id: 1, name: 'Fairuz Tribute Band', nb_fan: 900000 },
-    { id: 2, name: 'Fairuz', nb_fan: 100 },
+    { artistId: 1, artistName: 'Fairuz Tribute Band' },
+    { artistId: 2, artistName: 'Fairuz' },
   ])
-  return findArtist('Fairuz', fetchImpl).then((a) => assert.equal(a.id, 2))
+  assert.equal((await findArtist('Fairuz', DEFAULTS, fetchImpl)).artistId, 2)
 })
 
-test('with no exact name, the most-followed wins', async () => {
+test('with no exact name, Apple’s own first result stands', async () => {
   const fetchImpl = async () => ok([
-    { id: 1, name: 'Amr Diab Official', nb_fan: 10 },
-    { id: 2, name: 'Amr Diab Live', nb_fan: 5000 },
+    { artistId: 1, artistName: 'Amr Diab Official' },
+    { artistId: 2, artistName: 'Amr Diab Live' },
   ])
-  assert.equal((await findArtist('Amr Diab', fetchImpl)).id, 2)
+  assert.equal((await findArtist('Amr Diab', DEFAULTS, fetchImpl)).artistId, 1)
 })
 
-test('Deezer errors arrive as HTTP 200 and still stop the harvest', async () => {
-  const fetchImpl = async () => ({ ok: true, json: async () => ({ error: { message: 'Quota limit exceeded' } }) })
-  await assert.rejects(() => findArtist('x', fetchImpl), /Quota limit exceeded/)
+test('a throttled empty body is an error, not an empty discography', async () => {
+  // Apple answers a throttled request with a blank body, which JSON.parse
+  // turns into a crash and a naive reader turns into "this artist has no songs".
+  const fetchImpl = async () => ({ ok: true, status: 200, text: async () => '' })
+  await assert.rejects(() => findArtist('x', DEFAULTS, fetchImpl), /throttled/)
 })
 
 test('one unreachable artist does not sink the run', async () => {
@@ -94,11 +101,11 @@ test('one unreachable artist does not sink the run', async () => {
     { ...DEFAULTS, delay: 0, artists: ['Bad', 'Good'] },
     {
       fetch: async (url) => {
-        if (url.includes('search/artist')) {
+        if (url.includes('/search?')) {
           if (url.includes('Bad')) throw new Error('ENOTFOUND')
-          return ok([{ id: 2, name: 'Good', nb_fan: 1 }])
+          return ok([{ artistId: 2, artistName: 'Good' }])
         }
-        return ok([track(1, 'A Song', 'Good')])
+        return ok([{ wrapperType: 'artist' }, track(1, 'A Song', 'Good')])
       },
       log: (l) => lines.push(l),
       readCatalogue: async () => [],
@@ -116,9 +123,9 @@ test('--dry-run writes nothing', async () => {
   const res = await run(
     { ...DEFAULTS, delay: 0, dryRun: true, artists: ['Good'] },
     {
-      fetch: async (url) => url.includes('search/artist')
-        ? ok([{ id: 2, name: 'Good', nb_fan: 1 }])
-        : ok([track(1, 'A Song', 'Good')]),
+      fetch: async (url) => url.includes('/search?')
+        ? ok([{ artistId: 2, artistName: 'Good' }])
+        : ok([{ wrapperType: 'artist' }, track(1, 'A Song', 'Good')]),
       log: () => {},
       readCatalogue: async () => [],
       writeCatalogue: async (s) => { written = s },
