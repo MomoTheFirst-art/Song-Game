@@ -1,58 +1,23 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { PAGES, emojiIcon, applyPage } from '../src/game/page.ts'
-
-/** The smallest stand-in for a document that applyPage actually touches. */
-const fakeDoc = (shipped = '/guitar.svg') => {
-  const link = {
-    attrs: { rel: 'icon', href: shipped },
-    getAttribute(k) { return this.attrs[k] ?? null },
-    setAttribute(k, v) { this.attrs[k] = v },
-  }
-  return { title: '', querySelector: () => link, link }
-}
+import { PAGES, applyPage } from '../src/game/page.ts'
 
 test('every page names itself, and only home carries the game name', () => {
-  for (const [id, p] of Object.entries(PAGES)) {
-    assert.ok(p.title.length > 0, `${id} has no title`)
+  for (const [id, title] of Object.entries(PAGES)) {
+    assert.ok(title.length > 0, `${id} has no title`)
     if (id === 'home') continue
-    assert.ok(p.icon, `${id} should carry its own icon`)
     assert.ok(
-      !p.title.includes('Guess it'),
+      !title.includes('Guess it'),
       `${id} must not repeat the game name — a tab strip truncates away the part that tells two tabs apart`,
     )
   }
-  assert.equal(PAGES.home.icon, undefined, 'home keeps the shipped icon')
-  assert.equal(PAGES.admin.title, 'لوحة المراجعة')
+  assert.equal(PAGES.admin, 'لوحة المراجعة')
 })
 
-test('an emoji icon is a legal data URI', () => {
-  const uri = emojiIcon('🎛️')
-  assert.ok(uri.startsWith('data:image/svg+xml,'))
-  assert.ok(!/[<>"🎛]/.test(uri), 'raw markup and multi-byte characters must be encoded')
-  assert.ok(decodeURIComponent(uri.slice('data:image/svg+xml,'.length)).includes('🎛️'))
-})
-
-test('applying a page sets the title and swaps the icon', () => {
-  const doc = fakeDoc()
+test('applying a page sets only the title', () => {
+  const doc = { title: 'stale' }
   applyPage(PAGES.admin, doc)
   assert.equal(doc.title, 'لوحة المراجعة')
-  assert.ok(doc.link.getAttribute('href').startsWith('data:image/svg+xml,'))
-})
-
-test('leaving a page restores the icon the document shipped with', () => {
-  // admin → home used to leave the console's icon on the game.
-  const doc = fakeDoc('/Song-Game/guitar.svg')
-  applyPage(PAGES.admin, doc)
-  applyPage(PAGES.home, doc)
-  assert.equal(doc.link.getAttribute('href'), '/Song-Game/guitar.svg')
-  assert.equal(doc.title, 'Guess it under 15s')
-})
-
-test('a document with no icon link is left alone rather than throwing', () => {
-  const doc = { title: '', querySelector: () => null }
-  assert.doesNotThrow(() => applyPage(PAGES.board, doc))
-  assert.equal(doc.title, PAGES.board.title)
 })
 
 // pageFor is duplicated here deliberately: it lives in App.tsx, which node
