@@ -24,6 +24,8 @@ import {
 } from './game/storage'
 import { awaitingReview, loadDecisions, playableSongs } from './game/review'
 import { GENRES, everySong, genreById, loadGenre, saveGenre } from './game/catalogues'
+import { PAGES, applyPage } from './game/page'
+import type { PageId } from './game/page'
 import type { Genre, GenreId } from './game/catalogues'
 import { loadStarts, withStarts } from './game/starts'
 import { DIFFICULTY_LABEL } from './game/types'
@@ -269,6 +271,22 @@ function Game({
 
 type Screen = 'home' | 'solo' | 'challenge' | 'pick' | 'party' | 'account' | 'board'
 
+/**
+ * Which page the tab is showing. Derived from the same hash and screen the
+ * render reads, so the tab cannot describe a page that is not on screen.
+ */
+function pageFor(hash: string, screen: Screen): PageId {
+  if (hash === '#admin' || hash === '#review') return 'admin'
+  if (hash === '#audio') return 'audio'
+  if (screen === 'solo') return 'daily'
+  if (screen === 'challenge') return 'challenge'
+  if (screen === 'pick') return 'pick'
+  if (screen === 'party') return 'party'
+  if (screen === 'account') return 'account'
+  if (screen === 'board') return 'board'
+  return 'home'
+}
+
 export default function App() {
   // #admin opens the clip review console: every clip, what it matched, and a
   // verdict. Kept off the player-facing UI, reachable by link.
@@ -284,6 +302,10 @@ export default function App() {
     window.addEventListener('hashchange', onHash)
     return () => window.removeEventListener('hashchange', onHash)
   }, [])
+
+  useEffect(() => {
+    applyPage(PAGES[pageFor(hash, screen)])
+  }, [hash, screen])
 
   // Left outside the gate on purpose: it is the owner's review console,
   // already reachable only by knowing the URL, and gating it would mean a
