@@ -48,12 +48,16 @@ test('a genre whose performer is the work says so', () => {
   // Spacetoon credits the show rather than the singer, so artist and title
   // hold the same string — and مبتدئ, which pays half for naming the artist,
   // would be paying half for the same answer.
+  //
+  // A majority rather than all of them: a theme can belong to a show it is not
+  // named after — أمي كم أهواها and أنتِ الأمان are both from ريمي — and that
+  // correction must not read as the catalogue having real performers.
   for (const g of GENRES) {
-    const sameAsTitle = g.all.filter((s) => s.artist === s.title).length
-    if (sameAsTitle === g.all.length) {
-      assert.equal(g.performerIsWork, true, `${g.id} must be flagged`)
+    const share = g.all.filter((s) => s.artist === s.title).length / g.all.length
+    if (g.performerIsWork) {
+      assert.ok(share > 0.8, `${g.id} is flagged but only ${(share * 100) | 0}% credit the work`)
     } else {
-      assert.ok(!g.performerIsWork, `${g.id} has real performers and must not be flagged`)
+      assert.ok(share < 0.2, `${g.id} is not flagged but ${(share * 100) | 0}% credit the work`)
     }
   }
 })

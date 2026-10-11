@@ -16,7 +16,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": true
   },
   {
     "id": "dz-1874462099",
@@ -35,7 +36,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": true
   },
   {
     "id": "dz-1874463150",
@@ -54,7 +56,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": true
   },
   {
     "id": "dz-1874455095",
@@ -73,7 +76,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": true
   },
   {
     "id": "dz-1874461612",
@@ -92,7 +96,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": true
   },
   {
     "id": "dz-1874464015",
@@ -111,7 +116,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": true
   },
   {
     "id": "dz-1875335143",
@@ -130,7 +136,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874462815",
@@ -149,7 +156,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": true
   },
   {
     "id": "dz-1875338822",
@@ -168,7 +176,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874462666",
@@ -187,7 +196,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874464009",
@@ -206,7 +216,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874463135",
@@ -225,7 +236,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874463815",
@@ -244,14 +256,15 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874455630",
     "title": "أمي كم أهواها",
     "titleLatin": "أمي كم أهواها",
-    "artist": "أمي كم أهواها",
-    "artistLatin": "أمي كم أهواها",
+    "artist": "ريمي",
+    "artistLatin": "ريمي",
     "year": 2018,
     "difficulty": "easy",
     "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/92/2f/48/922f48ec-5cba-00be-ceb5-419fdd1f750d/mzaf_16987810472763074773.plus.aac.p.m4a",
@@ -263,7 +276,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": true
   },
   {
     "id": "dz-1874462380",
@@ -282,7 +296,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": true
   },
   {
     "id": "feat",
@@ -301,7 +316,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874461613",
@@ -320,7 +336,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874455329",
@@ -339,7 +356,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874455895",
@@ -358,7 +376,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874463545",
@@ -377,7 +396,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": true
   },
   {
     "id": "dz-1874463574",
@@ -396,7 +416,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": true
   },
   {
     "id": "dz-1875338016",
@@ -415,7 +436,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874462381",
@@ -434,7 +456,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": true
   },
   {
     "id": "dz-1874462812",
@@ -453,7 +476,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": true
   },
   {
     "id": "dz-1874456155",
@@ -472,7 +496,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874454063",
@@ -491,7 +516,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": true
   },
   {
     "id": "dz-1874455887",
@@ -510,7 +536,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874455628",
@@ -529,7 +556,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874455328",
@@ -548,7 +576,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874464018",
@@ -567,7 +596,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874463841",
@@ -586,7 +616,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": true
   },
   {
     "id": "dz-1874460964",
@@ -605,7 +636,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874461929",
@@ -624,7 +656,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874463143",
@@ -643,7 +676,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": true
   },
   {
     "id": "dz-1874462090",
@@ -662,7 +696,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874464012",
@@ -681,7 +716,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1875336920",
@@ -700,7 +736,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": true
   },
   {
     "id": "dz-1874462382",
@@ -719,7 +756,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874463996",
@@ -738,7 +776,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874461925",
@@ -757,7 +796,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874462299",
@@ -776,7 +816,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874461210",
@@ -795,7 +836,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874455091",
@@ -814,7 +856,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874463997",
@@ -833,14 +876,15 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874455629",
     "title": "أنتِ الأمان",
     "titleLatin": "أنتِ الأمان",
-    "artist": "أنتِ الأمان",
-    "artistLatin": "أنتِ الأمان",
+    "artist": "ريمي",
+    "artistLatin": "ريمي",
     "year": 2022,
     "difficulty": "medium",
     "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/e0/1e/78/e01e78af-2716-6dbe-3438-ea80d8c569a3/mzaf_2820923293286544371.plus.aac.p.m4a",
@@ -852,7 +896,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": true
   },
   {
     "id": "1",
@@ -871,7 +916,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874461602",
@@ -890,7 +936,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874455907",
@@ -909,7 +956,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874463142",
@@ -928,7 +976,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874463149",
@@ -947,7 +996,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": true
   },
   {
     "id": "dz-1874462659",
@@ -966,7 +1016,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874461953",
@@ -985,7 +1036,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874455331",
@@ -1004,7 +1056,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "1-feat",
@@ -1023,7 +1076,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874455338",
@@ -1042,7 +1096,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874455901",
@@ -1061,7 +1116,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874454061",
@@ -1080,7 +1136,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": true
   },
   {
     "id": "dz-1875333533",
@@ -1099,7 +1156,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": true
   },
   {
     "id": "dz-1874463554",
@@ -1118,7 +1176,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874460970",
@@ -1137,7 +1196,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874461218",
@@ -1156,7 +1216,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": true
   },
   {
     "id": "dz-1874455893",
@@ -1175,7 +1236,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874462097",
@@ -1194,7 +1256,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874461207",
@@ -1213,7 +1276,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": true
   },
   {
     "id": "dz-1874462391",
@@ -1232,7 +1296,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": true
   },
   {
     "id": "dz-1874455345",
@@ -1251,7 +1316,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "waiting-for-you",
@@ -1270,7 +1336,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1875336780",
@@ -1289,7 +1356,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": true
   },
   {
     "id": "dz-1874455346",
@@ -1308,7 +1376,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874463146",
@@ -1327,7 +1396,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874461446",
@@ -1346,7 +1416,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": true
   },
   {
     "id": "dz-1874462796",
@@ -1365,7 +1436,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874462385",
@@ -1384,7 +1456,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": true
   },
   {
     "id": "dz-1875336866",
@@ -1403,7 +1476,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": true
   },
   {
     "id": "dz-1875339063",
@@ -1422,7 +1496,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dragon-ball-main-theme-feat",
@@ -1441,7 +1516,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874461622",
@@ -1460,7 +1536,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874462095",
@@ -1479,7 +1556,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874461617",
@@ -1498,7 +1576,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874461209",
@@ -1517,7 +1596,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874454994",
@@ -1536,7 +1616,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874454055",
@@ -1555,7 +1636,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874463064",
@@ -1574,7 +1656,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": true
   },
   {
     "id": "dz-1874464326",
@@ -1593,7 +1676,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1875330130",
@@ -1612,7 +1696,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "2-feat",
@@ -1631,7 +1716,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": true
   },
   {
     "id": "dz-1874455099",
@@ -1650,7 +1736,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874463559",
@@ -1669,7 +1756,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874462819",
@@ -1688,7 +1776,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": true
   },
   {
     "id": "dz-1874463139",
@@ -1707,7 +1796,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874455897",
@@ -1726,7 +1816,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874455634",
@@ -1745,7 +1836,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874461943",
@@ -1764,7 +1856,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874461216",
@@ -1783,7 +1876,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874463573",
@@ -1802,7 +1896,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874455341",
@@ -1821,7 +1916,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874463572",
@@ -1840,7 +1936,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874461926",
@@ -1859,7 +1956,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": true
   },
   {
     "id": "dz-1874460967",
@@ -1878,7 +1976,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874455633",
@@ -1897,7 +1996,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874463842",
@@ -1916,7 +2016,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "1-2",
@@ -1935,7 +2036,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "feat-2",
@@ -1954,7 +2056,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874454306",
@@ -1973,7 +2076,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "3",
@@ -1992,7 +2096,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874463819",
@@ -2011,7 +2116,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874455093",
@@ -2030,7 +2136,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874463047",
@@ -2049,7 +2156,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874463550",
@@ -2068,7 +2176,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874463821",
@@ -2087,7 +2196,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874463145",
@@ -2106,7 +2216,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874464001",
@@ -2125,7 +2236,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874455627",
@@ -2144,7 +2256,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "feat-3",
@@ -2163,7 +2276,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874455094",
@@ -2182,7 +2296,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874455349",
@@ -2201,7 +2316,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "2",
@@ -2220,7 +2336,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874462296",
@@ -2239,7 +2356,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": true
   },
   {
     "id": "2-2",
@@ -2258,7 +2376,8 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   },
   {
     "id": "dz-1874455889",
@@ -2277,6 +2396,7 @@
       "score": 1,
       "source": "itunes-harvest"
     },
-    "startAt": 0
+    "startAt": 0,
+    "approved": false
   }
 ]

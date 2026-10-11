@@ -15,7 +15,8 @@
       "artist": "Eminem",
       "album": "8 Mile (Music from and Inspired By the Motion Picture)",
       "score": 1
-    }
+    },
+    "approved": true
   },
   {
     "id": "in-da-club",
@@ -33,7 +34,8 @@
       "artist": "50 Cent",
       "album": "Get Rich or Die Tryin' (Bonus Track Version)",
       "score": 1
-    }
+    },
+    "approved": true
   },
   {
     "id": "gold-digger",
@@ -51,7 +53,8 @@
       "artist": "Kanye West",
       "album": "Late Registration",
       "score": 0.9
-    }
+    },
+    "approved": true
   },
   {
     "id": "california-love",
@@ -69,7 +72,8 @@
       "artist": "2Pac",
       "album": "All Eyez On Me",
       "score": 0.9
-    }
+    },
+    "approved": true
   },
   {
     "id": "hypnotize",
@@ -87,7 +91,8 @@
       "artist": "The Notorious B.I.G.",
       "album": "Greatest Hits",
       "score": 1
-    }
+    },
+    "approved": true
   },
   {
     "id": "stan",
@@ -105,7 +110,8 @@
       "artist": "Eminem",
       "album": "The Marshall Mathers LP",
       "score": 0.9
-    }
+    },
+    "approved": true
   },
   {
     "id": "hotline-bling",
@@ -123,7 +129,8 @@
       "artist": "Drake",
       "album": "Views",
       "score": 1
-    }
+    },
+    "approved": true
   },
   {
     "id": "humble",
@@ -141,7 +148,8 @@
       "artist": "Kendrick Lamar",
       "album": "DAMN.",
       "score": 1
-    }
+    },
+    "approved": true
   },
   {
     "id": "sicko-mode",
@@ -159,7 +167,8 @@
       "artist": "Travis Scott",
       "album": "ASTROWORLD",
       "score": 1
-    }
+    },
+    "approved": true
   },
   {
     "id": "empire-state-of-mind",
@@ -177,7 +186,8 @@
       "artist": "JAŸ-Z",
       "album": "The Hits Collection Volume One (Edited Version)",
       "score": 0.9
-    }
+    },
+    "approved": true
   },
   {
     "id": "the-real-slim-shady",
@@ -195,7 +205,8 @@
       "artist": "Eminem",
       "album": "Curtain Call: The Hits",
       "score": 1
-    }
+    },
+    "approved": true
   },
   {
     "id": "changes",
@@ -213,7 +224,8 @@
       "artist": "2Pac",
       "album": "Greatest Hits",
       "score": 0.9
-    }
+    },
+    "approved": true
   },
   {
     "id": "juicy",
@@ -231,7 +243,8 @@
       "artist": "The Notorious B.I.G.",
       "album": "Greatest Hits",
       "score": 1
-    }
+    },
+    "approved": true
   },
   {
     "id": "nuthin-but-a-g-thang",
@@ -249,7 +262,8 @@
       "artist": "Dr. Dre & Snoop Dogg",
       "album": "The Very Best of Death Row",
       "score": 0.95
-    }
+    },
+    "approved": true
   },
   {
     "id": "gin-and-juice",
@@ -267,7 +281,8 @@
       "artist": "Snoop Dogg",
       "album": "The Very Best of Death Row",
       "score": 1
-    }
+    },
+    "approved": true
   },
   {
     "id": "alright",
@@ -285,7 +300,8 @@
       "artist": "Kendrick Lamar",
       "album": "To Pimp a Butterfly",
       "score": 1
-    }
+    },
+    "approved": true
   },
   {
     "id": "ms-jackson",
@@ -303,7 +319,8 @@
       "artist": "Outkast",
       "album": "Stankonia",
       "score": 0.9
-    }
+    },
+    "approved": false
   },
   {
     "id": "god-s-plan",
@@ -321,7 +338,8 @@
       "artist": "Drake",
       "album": "Scorpion",
       "score": 1
-    }
+    },
+    "approved": true
   },
   {
     "id": "99-problems",
@@ -339,7 +357,8 @@
       "artist": "JAŸ-Z",
       "album": "The Black Album",
       "score": 1
-    }
+    },
+    "approved": true
   },
   {
     "id": "work-out",
@@ -357,7 +376,8 @@
       "artist": "J. Cole",
       "album": "Cole World: The Sideline Story",
       "score": 1
-    }
+    },
+    "approved": true
   },
   {
     "id": "n-y-state-of-mind",
@@ -375,7 +395,8 @@
       "artist": "Nas",
       "album": "Illmatic",
       "score": 1
-    }
+    },
+    "approved": true
   },
   {
     "id": "c-r-e-a-m",
@@ -393,7 +414,8 @@
       "artist": "Wu-Tang Clan",
       "album": "C.R.E.A.M. (Cash Rules Everything Around Me) - EP",
       "score": 0.9
-    }
+    },
+    "approved": false
   },
   {
     "id": "doo-wop",
@@ -411,7 +433,8 @@
       "artist": "Lauryn Hill",
       "album": "Pop Music: The Modern Era 1976-1999",
       "score": 0.97
-    }
+    },
+    "approved": false
   },
   {
     "id": "get-ur-freak-on",
@@ -429,7 +452,8 @@
       "artist": "Missy Elliott",
       "album": "Miss E...So Addictive",
       "score": 0.9
-    }
+    },
+    "approved": true
   },
   {
     "id": "it-was-a-good-day",
@@ -447,7 +471,8 @@
       "artist": "Ice Cube",
       "album": "The Predator",
       "score": 1
-    }
+    },
+    "approved": true
   },
   {
     "id": "a-milli",
@@ -465,7 +490,8 @@
       "artist": "Lil Wayne",
       "album": "Tha Carter III",
       "score": 1
-    }
+    },
+    "approved": true
   },
   {
     "id": "mo-bamba",
@@ -493,7 +519,8 @@
       "artist": "Cardi B",
       "album": "Invasion of Privacy",
       "score": 1
-    }
+    },
+    "approved": true
   },
   {
     "id": "earfquake",
@@ -521,7 +548,8 @@
       "artist": "A$AP Rocky",
       "album": "TESTING",
       "score": 0.9
-    }
+    },
+    "approved": true
   },
   {
     "id": "shook-ones-pt-ii",
@@ -539,7 +567,8 @@
       "artist": "Mobb Deep",
       "album": "Life of the Infamous - The Best of Mobb Deep",
       "score": 0.92
-    }
+    },
+    "approved": true
   },
   {
     "id": "dear-mama",
@@ -557,7 +586,8 @@
       "artist": "2Pac",
       "album": "Greatest Hits",
       "score": 1
-    }
+    },
+    "approved": true
   },
   {
     "id": "passin-me-by",
@@ -575,7 +605,8 @@
       "artist": "The Pharcyde",
       "album": "Bizarre Ride II the Pharcyde (25th Anniversary Edition)",
       "score": 1
-    }
+    },
+    "approved": false
   },
   {
     "id": "players-ball",
@@ -593,7 +624,8 @@
       "artist": "Outkast",
       "album": "Big Boi & Dre Present... OutKast",
       "score": 1
-    }
+    },
+    "approved": true
   },
   {
     "id": "the-what",
@@ -611,7 +643,8 @@
       "artist": "The Notorious B.I.G.",
       "album": "The Wackness (Deluxe Version) [Music from the Motion Picture]",
       "score": 1
-    }
+    },
+    "approved": true
   },
   {
     "id": "liquid-swords",
@@ -629,7 +662,8 @@
       "artist": "GZA",
       "album": "Liquid Swords (Expanded Edition)",
       "score": 0.9
-    }
+    },
+    "approved": false
   },
   {
     "id": "simon-says",
@@ -647,7 +681,8 @@
       "artist": "Pharoahe Monch",
       "album": "Simon Says - EP",
       "score": 0.9
-    }
+    },
+    "approved": true
   },
   {
     "id": "ego-trippin",
@@ -665,7 +700,8 @@
       "artist": "Ultramagnetic MC's",
       "album": "Critical Beatdown",
       "score": 0.9
-    }
+    },
+    "approved": false
   },
   {
     "id": "the-message",
@@ -683,7 +719,8 @@
       "artist": "Grandmaster Flash & The Furious Five",
       "album": "The Message",
       "score": 1
-    }
+    },
+    "approved": false
   },
   {
     "id": "rebel-without-a-pause",
@@ -701,6 +738,7 @@
       "artist": "Public Enemy",
       "album": "It Takes a Nation of Millions to Hold Us Back",
       "score": 1
-    }
+    },
+    "approved": true
   }
 ]
