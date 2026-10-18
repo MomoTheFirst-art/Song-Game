@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test'
 
 /**
  * The one thing worth a browser: the name gate is the first screen every
- * player meets, and it has to appear whether or not Firebase answers. Unit
+ * player meets, and the whole of it is a name kept on the device. Unit
  * tests cannot see it — this is the gap that left the gate shipped and
  * unverified.
  */

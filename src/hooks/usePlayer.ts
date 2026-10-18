@@ -1,74 +1,36 @@
-import { useCallback, useEffect, useState } from 'react'
-import { joinAsPlayer, renamePlayer, signOut, watchAuth, type User } from '../firebase/auth'
+import { useCallback, useState } from 'react'
 import { clearLocalPlayer, loadLocalPlayer, saveLocalPlayer } from '../game/player'
 
 export interface Player {
   id: string
   name: string
-  /** True when this identity is a Firebase account, so scores sync. */
-  remote: boolean
 }
 
 export interface PlayerState {
   player: Player | null
   ready: boolean
-  join: (name: string) => Promise<void>
-  rename: (name: string) => Promise<void>
-  leave: () => Promise<void>
+  join: (name: string) => void
+  rename: (name: string) => void
+  leave: () => void
 }
 
 /**
- * The current player, from Firebase when it is available and from this device
- * when it is not. Callers do not need to know which: both carry an id that
- * scores attach to.
+ * Who is playing. Device-local, and only that.
+ *
+ * This used to prefer a remote account and fall back to the device when the
+ * project was unreachable. The backend is gone, so the fallback is the whole
+ * thing — and `ready` is now always true, because nothing has to be awaited
+ * before the gate can be shown.
  */
 export function usePlayer(): PlayerState {
-  const [remoteUser, setRemoteUser] = useState<User | null>(null)
-  const [local, setLocal] = useState(loadLocalPlayer)
-  const [ready, setReady] = useState(false)
+  const [player, setPlayer] = useState(loadLocalPlayer)
 
-  useEffect(() => {
-    return watchAuth((user) => {
-      setRemoteUser(user)
-      setReady(true)
-    })
-  }, [])
-
-  const join = useCallback(async (name: string) => {
-    // Saved first, so a failure partway through still leaves the player named
-    // and playing rather than stuck at the gate.
-    const saved = saveLocalPlayer(name)
-    setLocal(saved)
-    try {
-      await joinAsPlayer(name)
-    } catch (err) {
-      // Anonymous sign-in refused, offline, or not enabled on the project.
-      // The local identity already stands in for it.
-      console.warn('Playing locally; scores will not sync.', err)
-    }
-  }, [])
-
-  const rename = useCallback(
-    async (name: string) => {
-      setLocal(saveLocalPlayer(name))
-      if (remoteUser) await renamePlayer(name)
-    },
-    [remoteUser],
-  )
-
-  const leave = useCallback(async () => {
+  const join = useCallback((name: string) => setPlayer(saveLocalPlayer(name)), [])
+  const rename = useCallback((name: string) => setPlayer(saveLocalPlayer(name)), [])
+  const leave = useCallback(() => {
     clearLocalPlayer()
-    setLocal(null)
-    if (remoteUser) await signOut()
-  }, [remoteUser])
+    setPlayer(null)
+  }, [])
 
-  // A Firebase account wins when there is one: it is the identity Firestore
-  // and the scoreboard know about.
-  const player: Player | null = remoteUser
-    ? { id: remoteUser.uid, name: remoteUser.displayName || local?.name || 'لاعب', remote: true }
-    : local
-      ? { id: local.id, name: local.name, remote: false }
-      : null
-
-  return { player, ready, join, rename, leave }
+  return { player, ready: true, join, rename, leave }
 }

@@ -5,19 +5,18 @@ import type { Player } from '../hooks/usePlayer'
 interface Props {
   player: Player | null
   ready: boolean
-  onJoin: (name: string) => Promise<void>
-  onRename: (name: string) => Promise<void>
-  onLeave: () => Promise<void>
+  onJoin: (name: string) => void
+  onRename: (name: string) => void
+  onLeave: () => void
   children: React.ReactNode
 }
 
 /**
  * Nobody plays without a name.
  *
- * The gate deliberately does not depend on a backend being reachable. Joining
- * falls back to a device-local identity when Firebase is unavailable, so a
- * console toggle can never leave the game unplayable — it only decides whether
- * scores sync.
+ * The name is kept on the device. There is no account and no backend: the
+ * gate exists so a score has someone's name on it, not to authenticate
+ * anyone.
  */
 export function AuthGate({ player, ready, onJoin, onRename, onLeave, children }: Props) {
   if (!ready) {

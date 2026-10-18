@@ -1,15 +1,10 @@
 /**
- * Who is playing, whether or not a backend exists.
+ * Who is playing.
  *
- * The game is behind a name gate, and that gate must not depend on a cloud
- * project being finished. If Firebase is unreachable — unconfigured, offline,
- * or with anonymous sign-in not yet switched on — a player still picks a name
- * and still plays; their scores are simply kept on the device instead of in
- * Firestore.
- *
- * The alternative was a live site that nobody, including its owner, can get
- * into because of a console toggle. A game should not be one setting away
- * from unplayable.
+ * A name chosen on the device, with an id so scores can attach to it. This
+ * began as a fallback for when the backend was unreachable; that backend is gone
+ * and it is now the only identity there is, which is also the whole of what
+ * the game needs — a score with a name on it.
  */
 const KEY = 'song-game:player:v1'
 

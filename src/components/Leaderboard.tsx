@@ -1,83 +1,60 @@
-import { useEffect, useState } from 'react'
-import { getLeaderboard, type LeaderboardRow } from '../firebase/scores'
+import { useMemo } from 'react'
+import { bestScore, loadRuns } from '../game/storage'
+import { genreById } from '../game/catalogues'
+import type { GenreId } from '../game/catalogues'
+import { ar } from '../game/numerals'
 
 interface Props {
-  meUid: string | null
   onClose: () => void
 }
 
+const MODE_LABEL: Record<string, string> = {
+  daily: 'تحدي اليوم',
+  challenge: 'تحدي عشوائي',
+  pick: 'مبتدئ',
+}
+
 /**
- * Every player's best score, highest first.
+ * The player's own runs, newest first.
  *
- * Reads the profile documents directly rather than aggregating run history:
- * that would need a collection-group query and the right to read everyone's
- * rounds, which is far more access than a scoreboard warrants. A profile holds
- * only a chosen name and two numbers, so this page can show them all without
- * exposing anything a player did not put there.
+ * This was a shared scoreboard backed by Firestore. The backend is gone, so
+ * there is nobody to compare against — and a page that silently showed one
+ * device's scores under the heading "every player" would be lying. It says
+ * what it is instead.
  */
-export function Leaderboard({ meUid, onClose }: Props) {
-  const [rows, setRows] = useState<LeaderboardRow[] | null>(null)
-  const [error, setError] = useState<string | null>(null)
-
-  useEffect(() => {
-    let live = true
-    getLeaderboard(50).then(
-      (r) => live && setRows(r),
-      (err) => {
-        if (!live) return
-        // A rules rejection and a missing database look identical to a player,
-        // so say what a player can act on and keep the detail in the console.
-        console.warn('Leaderboard read failed', err)
-        setError('لوحة النتائج المشتركة غير متاحة بعد. نتائجك محفوظة على جهازك.')
-      },
-    )
-    return () => {
-      live = false
-    }
-  }, [])
-
-  const mine = rows?.findIndex((r) => r.uid === meUid) ?? -1
+export function Leaderboard({ onClose }: Props) {
+  const runs = useMemo(() => loadRuns(), [])
+  const best = useMemo(() => bestScore(), [])
 
   return (
     <section className="account">
-      <h2>نتائج اللاعبين</h2>
+      <h2>نتائجك</h2>
 
-      {error && <p className="notice notice-warn">{error}</p>}
-      {!error && rows === null && <p className="complete-note">جارٍ التحميل…</p>}
-
-      {rows !== null && rows.length === 0 && (
-        <p className="complete-note">لا نتائج بعد — كن أول من يسجّل.</p>
-      )}
-
-      {rows !== null && rows.length > 0 && (
+      {runs.length === 0 ? (
+        <p className="complete-note">لم تُنهِ جولة بعد. العب واحدة وستظهر هنا.</p>
+      ) : (
         <>
-          {mine >= 0 && (
-            <p className="complete-note">
-              ترتيبك {mine + 1} من {rows.length}
-            </p>
-          )}
+          <p className="complete-note">
+            أفضل نتيجة: <strong>{ar(best)}</strong> — من {ar(runs.length)} جولة
+          </p>
           <ol className="board">
             <li className="board-row board-head">
-              <span className="board-rank">#</span>
-              <span className="board-name">اللاعب</span>
-              <span className="board-runs">جولات</span>
-              <span className="board-score">أفضل نتيجة</span>
+              <span className="board-name">الجولة</span>
+              <span className="board-runs">المجموعة</span>
+              <span className="board-score">النتيجة</span>
             </li>
-            {rows.map((row, i) => (
-              <li
-                key={row.uid}
-                className={row.uid === meUid ? 'board-row board-me' : 'board-row'}
-              >
-                <span className="board-rank">{i + 1}</span>
-                <span className="board-name">{row.displayName}</span>
-                <span className="board-runs">{row.runs}</span>
-                <span className="board-score">{row.bestScore}</span>
+            {runs.map((r, i) => (
+              <li key={`${r.dateKey}-${i}`} className="board-row">
+                <span className="board-name">{MODE_LABEL[r.mode] ?? r.mode}</span>
+                <span className="board-runs">{genreById(r.genre as GenreId).label}</span>
+                <span className="board-score">{ar(r.score)}</span>
               </li>
             ))}
           </ol>
         </>
       )}
 
+      <p className="complete-note">محفوظة على هذا الجهاز وحده.</p>
       <button className="btn btn-next" onClick={onClose}>رجوع</button>
     </section>
   )

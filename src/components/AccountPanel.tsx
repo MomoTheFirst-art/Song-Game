@@ -1,12 +1,11 @@
 import { useState } from 'react'
-import { authErrorMessage } from '../firebase/auth'
 import type { Player } from '../hooks/usePlayer'
 
 interface Props {
   player: Player | null
-  onJoin: (name: string) => Promise<void>
-  onRename: (name: string) => Promise<void>
-  onLeave: () => Promise<void>
+  onJoin: (name: string) => void
+  onRename: (name: string) => void
+  onLeave: () => void
   onClose: () => void
   /** Shown as the gate before the game, where there is no "back" to offer. */
   gated?: boolean
@@ -21,27 +20,19 @@ interface Props {
  */
 export function AccountPanel({ player, onJoin, onRename, onLeave, onClose, gated = false }: Props) {
   const [name, setName] = useState(player?.name ?? '')
-  const [error, setError] = useState<string | null>(null)
-  const [busy, setBusy] = useState(false)
   const [saved, setSaved] = useState(false)
 
-  async function submit(e: React.FormEvent) {
+  // Naming is a localStorage write now, so there is nothing to await and
+  // nothing that can fail in a way the player could act on.
+  function submit(e: React.FormEvent) {
     e.preventDefault()
-    if (busy || !name.trim()) return
-    setBusy(true)
-    setError(null)
-    try {
-      if (player) {
-        await onRename(name)
-        setSaved(true)
-      } else {
-        await onJoin(name)
-        onClose()
-      }
-    } catch (err) {
-      setError(authErrorMessage(err))
-    } finally {
-      setBusy(false)
+    if (!name.trim()) return
+    if (player) {
+      onRename(name)
+      setSaved(true)
+    } else {
+      onJoin(name)
+      onClose()
     }
   }
 
@@ -72,12 +63,11 @@ export function AccountPanel({ player, onJoin, onRename, onLeave, onClose, gated
           />
         </label>
 
-        {error && <p className="notice notice-warn">{error}</p>}
         {saved && <p className="notice notice-soft">تم حفظ الاسم ✓</p>}
 
         <div className="complete-actions">
-          <button className="btn btn-next" type="submit" disabled={busy || !name.trim()}>
-            {busy ? 'لحظة…' : player ? 'حفظ الاسم' : 'ابدأ اللعب'}
+          <button className="btn btn-next" type="submit" disabled={!name.trim()}>
+            {player ? 'حفظ الاسم' : 'ابدأ اللعب'}
           </button>
           {!gated && (
             <button className="btn" type="button" onClick={onClose}>رجوع</button>
@@ -90,7 +80,7 @@ export function AccountPanel({ player, onJoin, onRename, onLeave, onClose, gated
       </p>
 
       {player && (
-        <button className="linkish" onClick={() => void onLeave().then(onClose)}>
+        <button className="linkish" onClick={() => { onLeave(); onClose() }}>
           الخروج والبدء باسم آخر
         </button>
       )}

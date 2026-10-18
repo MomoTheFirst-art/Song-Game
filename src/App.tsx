@@ -20,7 +20,7 @@ import { roundScore, totalScore } from './game/scoring'
 import { MAX_STAGE, STAGES } from './game/stages'
 import { applyAttempt, triesLeft } from './game/round'
 import {
-  loadDaily, recentlyPlayed, rememberPlayed, saveRun as saveLocalRun,
+  loadDaily, recentlyPlayed, recordRun, rememberPlayed, saveRun as saveLocalRun,
 } from './game/storage'
 import { awaitingReview, loadDecisions, playableSongs } from './game/review'
 import { GENRES, everySong, genreById, loadGenre, saveGenre } from './game/catalogues'
@@ -34,7 +34,6 @@ import type { Mode, RoundState, Song } from './game/types'
 import { useAudioClip } from './hooks/useAudioClip'
 import { useLoopPreference } from './hooks/useLoopPreference'
 import { usePlayer, type Player } from './hooks/usePlayer'
-import { recordRun } from './firebase/scores'
 
 
 /**
@@ -169,14 +168,9 @@ function Game({
       rememberPlayed(lineup.map((s) => s.id))
       saveLocalRun(mode, { dateKey, score, stages })
 
-      // Signed in? Keep a copy in Firestore too. Deliberately fire-and-forget:
-      // the run is already saved locally, and a network failure must not block
-      // the player from seeing the result they just earned.
-      // Only a Firebase-backed player reaches the shared board; a device-local
-      // one already has the run in localStorage.
-      if (player?.remote) {
-        void recordRun(player.id, player.name, score).catch(() => {})
-      }
+      // Kept for the player's own history page. saveLocalRun above is a
+      // different job: it stops the daily being replayed and ignores the rest.
+      recordRun({ dateKey, mode, genre: genre.id, score })
       setPhase('done')
       return
     }
@@ -348,7 +342,7 @@ export default function App() {
   if (screen === 'board') {
     return (
       <main className="app">
-        <Leaderboard meUid={player?.id ?? null} onClose={() => setScreen('home')} />
+        <Leaderboard onClose={() => setScreen('home')} />
       </main>
     )
   }

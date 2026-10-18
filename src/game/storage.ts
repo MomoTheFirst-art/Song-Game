@@ -9,10 +9,20 @@ export interface DayRecord {
   stages: (number | null)[]
 }
 
+/** One finished run, for the player's own history. */
+export interface RunRecord {
+  dateKey: string
+  mode: Mode
+  genre: string
+  score: number
+}
+
 interface Store {
   lastDaily?: DayRecord
   /** Song ids seen recently, newest last — keeps practice runs from repeating. */
   recent?: string[]
+  /** Finished runs, newest last. */
+  runs?: RunRecord[]
 }
 
 function read(): Store {
@@ -42,6 +52,29 @@ export function loadDaily(dateKey: string): DayRecord | null {
 export function saveRun(mode: Mode, record: DayRecord): void {
   if (mode !== 'daily') return
   write({ ...read(), lastDaily: record })
+}
+
+/** Runs kept for the history page. Older ones are not worth the storage. */
+const RUN_LIMIT = 50
+
+/**
+ * Remember a finished run so the player can see their own history.
+ *
+ * Every run, not just the daily: saveRun exists to stop the daily being
+ * replayed and deliberately ignores the rest, which is a different job.
+ */
+export function recordRun(run: RunRecord): void {
+  const store = read()
+  write({ ...store, runs: [...(store.runs ?? []), run].slice(-RUN_LIMIT) })
+}
+
+/** Finished runs, newest first. */
+export function loadRuns(): RunRecord[] {
+  return [...(read().runs ?? [])].reverse()
+}
+
+export function bestScore(): number {
+  return (read().runs ?? []).reduce((best, r) => Math.max(best, r.score), 0)
 }
 
 /** How many past songs the randomiser avoids before allowing a repeat. */
