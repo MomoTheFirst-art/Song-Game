@@ -1,0 +1,46 @@
+name: Disable Firebase Hosting
+
+# One-off. Firebase is being removed as a host, and the already-deployed site
+# keeps serving until it is told to stop — deleting the deploy workflow only
+# prevents future deploys. Run this once, confirm the site is down, then this
+# file goes too.
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: firebase
+  cancel-in-progress: false
+
+jobs:
+  disable:
+    runs-on: ubuntu-latest
+    env:
+      HAS_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT != '' }}
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Stop serving the site
+        if: env.HAS_SERVICE_ACCOUNT == 'true'
+        env:
+          SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          PROJECT_ID: ${{ vars.FIREBASE_PROJECT_ID }}
+        run: |
+          # Written to a file rather than passed on a command line, where it
+          # would show up in the process list.
+          printf '%s' "$SERVICE_ACCOUNT" > "$RUNNER_TEMP/sa.json"
+          export GOOGLE_APPLICATION_CREDENTIALS="$RUNNER_TEMP/sa.json"
+          npm i -g firebase-tools@13
+          # hosting:disable stops the site serving — it returns 404 — without
+          # touching the project, Auth or Firestore. Reversible by redeploying,
+          # which is the right amount of finality for something a repo can do
+          # on its own.
+          firebase hosting:disable --project "$PROJECT_ID" --force
+          rm -f "$RUNNER_TEMP/sa.json"
+
+      - name: Say so if it could not run
+        if: env.HAS_SERVICE_ACCOUNT != 'true'
+        run: |
+          echo "::error::No FIREBASE_SERVICE_ACCOUNT secret — disable hosting in the Firebase console instead."
+          exit 1
