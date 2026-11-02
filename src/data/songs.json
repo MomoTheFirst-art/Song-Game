@@ -300,7 +300,15 @@
     "year": 1971,
     "difficulty": "expert",
     "startAt": 0,
-    "searchAs": "أم كلثوم الحب كله"
+    "searchAs": "أم كلثوم الحب كله",
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/57/e3/75/57e37552-99da-85aa-7089-14ca7c84ba4a/mzaf_16276350007724346361.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music2/v4/75/74/98/757498af-9671-99a2-1139-42713dd7f3fa/3252416212950.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "Serat El Hob",
+      "artist": "Umm Kulthum",
+      "album": "Serat El Hob - Single",
+      "score": 0.68
+    }
   },
   {
     "id": "shik-shak-shok",
