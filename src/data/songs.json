@@ -2224,7 +2224,15 @@
     "artistLatin": "Talal Maddah",
     "year": 1988,
     "difficulty": "expert",
-    "startAt": 0
+    "startAt": 0,
+    "previewUrl": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/e2/0c/22/e20c2246-e8b3-bed6-1e3a-86aaf3bffb27/mzaf_6362288274912691285.plus.aac.p.m4a",
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/b8/41/8d/b8418d4a-1947-8d43-5ad5-8f093824bb10/5059801023492.jpg/100x100bb.jpg",
+    "matchedAs": {
+      "track": "تصدق ولا احلفلك",
+      "artist": "Talal Madaah",
+      "album": "أحرجتني",
+      "score": 0.96
+    }
   },
   {
     "id": "rb-nemt-nena",
